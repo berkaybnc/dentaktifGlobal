@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function Navbar({ currentPage, onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
-  const [currentLang, setCurrentLang] = useState('ENGLISH');
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
+  const { setLanguage, t, languages, currentLanguageObj } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,19 +16,12 @@ export default function Navbar({ currentPage, onNavigate }) {
   }, []);
 
   const treatmentItems = [
-    { id: 'aesthetic-dentistry', name: 'Aesthetic Dentistry', icon: '✨', desc: 'Smile Makeovers & Whitening' },
-    { id: 'hollywood-smile', name: 'Hollywood Smile', icon: '💎', desc: 'Complete Smile Transformations' },
-    { id: 'dental-veneers', name: 'Dental Zirconium Veneers', icon: '🦷', desc: 'High-Durability Porcelain Veneers' },
-    { id: 'dental-crowns', name: 'Dental Crowns', icon: '👑', desc: 'Custom Porcelain & Gold Crowns' },
-    { id: 'dental-implants', name: 'Dental Implants', icon: '⚙️', desc: 'Swiss Straumann® Permanent Implants' },
-    { id: 'root-canal', name: 'Root Canal Treatment', icon: '🔬', desc: 'Painless Endodontic Therapy' }
-  ];
-
-  const languages = [
-    { code: 'ENGLISH', flag: '🇬🇧', label: 'English' },
-    { code: 'DEUTSCH', flag: '🇩🇪', label: 'Deutsch' },
-    { code: 'RUSSIAN', flag: '🇷🇺', label: 'Russian' },
-    { code: 'TÜRKÇE', flag: '🇹🇷', label: 'Türkçe' },
+    { id: 'aesthetic-dentistry', nameKey: 'treatAesthetic', icon: '✨', descKey: 'treatAestheticDesc' },
+    { id: 'hollywood-smile', nameKey: 'treatHollywood', icon: '💎', descKey: 'treatHollywoodDesc' },
+    { id: 'dental-veneers', nameKey: 'treatVeneers', icon: '🦷', descKey: 'treatVeneersDesc' },
+    { id: 'dental-crowns', nameKey: 'treatCrowns', icon: '👑', descKey: 'treatCrownsDesc' },
+    { id: 'dental-implants', nameKey: 'treatImplants', icon: '⚙️', descKey: 'treatImplantsDesc' },
+    { id: 'root-canal', nameKey: 'treatRootCanal', icon: '🔬', descKey: 'treatRootCanalDesc' }
   ];
 
   const handleNavClick = (e, pageKey) => {
@@ -53,7 +47,7 @@ export default function Navbar({ currentPage, onNavigate }) {
               onClick={(e) => handleNavClick(e, 'home')} 
               className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
             >
-              HOME
+              {t('navHome')}
             </a>
           </li>
 
@@ -68,7 +62,7 @@ export default function Navbar({ currentPage, onNavigate }) {
               onClick={(e) => handleNavClick(e, 'treatments')} 
               className={`nav-link dropdown-trigger ${['treatments', 'aesthetic-dentistry', 'hollywood-smile', 'dental-veneers', 'dental-crowns', 'dental-implants', 'root-canal'].includes(currentPage) ? 'active' : ''}`}
             >
-              TREATMENTS <span className="dropdown-arrow">▾</span>
+              {t('navTreatments')} <span className="dropdown-arrow">▾</span>
             </a>
             <div className={`treatments-dropdown glass-card ${treatmentsOpen ? 'is-open' : ''}`}>
               <div className="dropdown-grid">
@@ -82,8 +76,8 @@ export default function Navbar({ currentPage, onNavigate }) {
                   >
                     <span className="item-icon">{item.icon}</span>
                     <div className="item-text">
-                      <strong>{item.name}</strong>
-                      <small>{item.desc}</small>
+                      <strong>{t(item.nameKey)}</strong>
+                      <small>{t(item.descKey)}</small>
                     </div>
                   </a>
                 ))}
@@ -98,7 +92,7 @@ export default function Navbar({ currentPage, onNavigate }) {
               onClick={(e) => handleNavClick(e, 'blog')} 
               className={`nav-link ${currentPage === 'blog' ? 'active' : ''}`}
             >
-              BLOG
+              {t('navBlog')}
             </a>
           </li>
 
@@ -109,15 +103,8 @@ export default function Navbar({ currentPage, onNavigate }) {
               onClick={(e) => handleNavClick(e, 'contact')} 
               className={`nav-link ${currentPage === 'contact' ? 'active' : ''}`}
             >
-              CONTACT
+              {t('navContact')}
             </a>
-          </li>
-
-          {/* CMS ADMIN */}
-          <li>
-            <button onClick={() => onNavigate('admin')} className="nav-admin-btn">
-              CMS Admin
-            </button>
           </li>
         </ul>
 
@@ -127,18 +114,22 @@ export default function Navbar({ currentPage, onNavigate }) {
             <button 
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
               className="lang-btn"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}
             >
-              🌐 <span>{currentLang}</span> ▾
+              <span>{currentLanguageObj.flag}</span>
+              <span>{currentLanguageObj.label}</span> ▾
             </button>
 
             {langDropdownOpen && (
-              <ul className="lang-dropdown glass-card">
+              <ul className="lang-dropdown glass-card" style={{ zIndex: 100 }}>
                 {languages.map((l) => (
                   <li 
                     key={l.code}
-                    onClick={() => { setCurrentLang(l.code); setLangDropdownOpen(false); }}
+                    onClick={() => { setLanguage(l.code); setLangDropdownOpen(false); }}
+                    style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.8rem' }}
                   >
-                    {l.flag} {l.label}
+                    <span>{l.flag}</span>
+                    <span>{l.label}</span>
                   </li>
                 ))}
               </ul>
@@ -150,7 +141,7 @@ export default function Navbar({ currentPage, onNavigate }) {
             onClick={(e) => handleNavClick(e, 'consultation')} 
             className="btn-primary"
           >
-            Online Consultation
+            {t('navConsultationBtn')}
           </button>
         </div>
       </div>

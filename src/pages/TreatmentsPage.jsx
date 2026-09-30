@@ -1,112 +1,13 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext.jsx';
+import { getTreatmentsList, getTreatmentsData } from '../data/treatmentsData.js';
 
 export default function TreatmentsPage({ onNavigate }) {
   const [filter, setFilter] = useState('all');
+  const { lang } = useLanguage();
 
-  const treatmentsList = [
-    {
-      id: "aesthetic-dentistry",
-      category: "cosmetic",
-      name: "Aesthetic Dentistry",
-      icon: "✨",
-      tagline: "Smile Makeovers & Digital Bonding",
-      description: "Comprehensive cosmetic care combining laser tooth whitening, composite digital bonding, and laser gum contouring for naturally harmonious smile aesthetics.",
-      duration: "1 - 3 Days",
-      warranty: "10 Years",
-      image: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg",
-      highlights: [
-        "In-office laser whitening (up to 8 shades whiter)",
-        "Micro-invasive digital composite bonding",
-        "Painless laser gum recontouring",
-        "Zero tooth structure damage"
-      ]
-    },
-    {
-      id: "hollywood-smile",
-      category: "cosmetic",
-      name: "Hollywood Smile",
-      icon: "💎",
-      tagline: "Complete Porcelain Veneer Transformation",
-      description: "Our world-renowned signature treatment. Full arch 20 E-Max® porcelain veneers customized to your skin tone, facial symmetry, and shade preferences.",
-      duration: "5 Days (2 Appointments)",
-      warranty: "Lifetime Warranty",
-      image: "https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp",
-      highlights: [
-        "20 E-Max® ultra-thin porcelain veneers",
-        "Digital Intraoral 3D Smile Design preview",
-        "VIP Bosphorus hotel & luxury transfer included",
-        "Custom translucent natural shade matching"
-      ]
-    },
-    {
-      id: "dental-veneers",
-      category: "veneers",
-      name: "Dental Zirconium Veneers",
-      icon: "🦷",
-      tagline: "High-Durability Translucent Zirconia",
-      description: "Unmatched mechanical strength blended with natural translucency. Ideal for patients fixing heavy discoloration, worn enamel, or minor misalignments.",
-      duration: "4 - 5 Days",
-      warranty: "20 Years Warranty",
-      image: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp",
-      highlights: [
-        "Premium German Zirconia blocks",
-        "CAD/CAM precision computer milling",
-        "Stain-resistant smooth glazed surface",
-        "High resistance to fracture & bite forces"
-      ]
-    },
-    {
-      id: "dental-crowns",
-      category: "veneers",
-      name: "Dental Crowns",
-      icon: "👑",
-      tagline: "Full Coverage Porcelain & E-Max® Crowns",
-      description: "Full-coverage dental crowns protecting compromised teeth or crowning dental implants with unmatched bio-compatibility and brilliant aesthetics.",
-      duration: "4 - 5 Days",
-      warranty: "15 Years Warranty",
-      image: "https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp",
-      highlights: [
-        "Full 360-degree anatomical tooth protection",
-        "E-Max Press or Monolithic Zirconia options",
-        "Custom shade & texture hand-layering",
-        "Perfect margin fit with 3D scanners"
-      ]
-    },
-    {
-      id: "dental-implants",
-      category: "implants",
-      name: "Dental Implants",
-      icon: "⚙️",
-      tagline: "Swiss Straumann® Permanent Arch Restoration",
-      description: "Lifetime titanium and ceramic dental implants replacing missing teeth. Available in Single Implant, All-on-4, and All-on-6 full arch configurations.",
-      duration: "5 Days (1st Phase)",
-      warranty: "Lifetime International Guarantee",
-      image: "https://dentaktifglobal.com/wp-content/uploads/2025/11/DENT-AKTIF-VITO.jpg",
-      highlights: [
-        "Official Swiss Straumann® Platinum Partner",
-        "Pain-free computer-guided implant surgery",
-        "Fixed Zirconia bridges & temporary teeth",
-        "Includes 3D CBCT Tomography scan"
-      ]
-    },
-    {
-      id: "root-canal",
-      category: "endodontics",
-      name: "Root Canal Treatment",
-      icon: "🔬",
-      tagline: "Painless Single-Session Endodontic Care",
-      description: "State-of-the-art microscopic endodontic therapy saving severely damaged teeth from extraction with 100% painless computerized local anesthesia.",
-      duration: "1 Day",
-      warranty: "10 Years",
-      image: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Basliksiz-1-1.png",
-      highlights: [
-        "3D Endodontic Rotary Microscopy",
-        "100% Pain-free computerized anesthesia",
-        "Biocompatible gutta-percha canal sealing",
-        "Preserves natural root foundation"
-      ]
-    }
-  ];
+  const treatmentsData = getTreatmentsData(lang);
+  const treatmentsList = getTreatmentsList(lang);
 
   const filteredTreatments = filter === 'all' 
     ? treatmentsList 
@@ -117,24 +18,18 @@ export default function TreatmentsPage({ onNavigate }) {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <span className="section-badge">World-Class Dental Care</span>
+          <span className="section-badge">{treatmentsData.pageHeader.badge}</span>
           <h1 style={{ fontSize: 'clamp(2.5rem, 4.5vw, 3.8rem)', marginBottom: '1.25rem' }}>
-            Our Specialized Dental Treatments
+            {treatmentsData.pageHeader.title}
           </h1>
           <p style={{ fontSize: '1.15rem' }}>
-            Explore our comprehensive range of international dental procedures performed in Istanbul with cutting-edge CAD/CAM 3D digital technology.
+            {treatmentsData.pageHeader.desc}
           </p>
         </div>
 
         {/* Filter Tabs */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', marginBottom: '3.5rem', flexWrap: 'wrap' }}>
-          {[
-            { id: 'all', label: 'All Treatments' },
-            { id: 'cosmetic', label: '✨ Cosmetic Dentistry' },
-            { id: 'veneers', label: '🦷 Veneers & Crowns' },
-            { id: 'implants', label: '⚙️ Dental Implants' },
-            { id: 'endodontics', label: '🔬 Root Canal Care' }
-          ].map(t => (
+          {treatmentsData.filterTabs.map(t => (
             <button
               key={t.id}
               onClick={() => setFilter(t.id)}
@@ -180,7 +75,9 @@ export default function TreatmentsPage({ onNavigate }) {
                 </p>
 
                 <div style={{ background: 'rgba(248, 250, 252, 0.9)', padding: '1.1rem', borderRadius: '16px', marginBottom: '1.5rem', border: '1px solid var(--glass-border-subtle)' }}>
-                  <strong style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>Key Treatment Highlights:</strong>
+                  <strong style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>
+                    {treatmentsData.ui.highlightsTitle}
+                  </strong>
                   <ul style={{ listStyle: 'none', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.7' }}>
                     {t.highlights.map((h, i) => (
                       <li key={i}>✓ {h}</li>
@@ -191,14 +88,14 @@ export default function TreatmentsPage({ onNavigate }) {
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid var(--glass-border-subtle)', flexWrap: 'wrap', gap: '0.8rem' }}>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
-                  ⏱️ Stay: <strong>{t.duration}</strong>
+                  ⏱️ {treatmentsData.ui.stay} <strong>{t.duration}</strong>
                 </span>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                   <button onClick={() => onNavigate(t.id)} className="btn-secondary" style={{ padding: '0.55rem 1.1rem', fontSize: '0.85rem' }}>
-                    View Details →
+                    {treatmentsData.ui.viewDetails}
                   </button>
                   <button onClick={() => onNavigate('consultation')} className="btn-primary" style={{ padding: '0.55rem 1.1rem', fontSize: '0.85rem' }}>
-                    Book →
+                    {treatmentsData.ui.bookNow}
                   </button>
                 </div>
               </div>

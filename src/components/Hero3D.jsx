@@ -1,7 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import dentalVideo from '../agız diş.mov';
+import { useLanguage } from '../context/LanguageContext.jsx';
+
+// Fallback to public path or dental demo video to avoid Vite build error when local MOV is not present
+const DEFAULT_VIDEO = "https://assets.mixkit.co/videos/preview/mixkit-dentist-examining-a-patients-teeth-42686-large.mp4";
+const LOCAL_VIDEO = "/agız diş.mov";
 
 export default function Hero3D() {
+  const { t } = useLanguage();
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -9,6 +14,7 @@ export default function Hero3D() {
   const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
   const [bgRemovalMode, setBgRemovalMode] = useState('none'); // Default to 'none' for 100% crisp HD video!
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [videoSrc, setVideoSrc] = useState(LOCAL_VIDEO);
 
   // Real-Time Canvas Frame Processor for Background Removal
   useEffect(() => {
@@ -98,39 +104,39 @@ export default function Hero3D() {
         {/* Left Column: Typography & CTAs */}
         <div className="hero-content">
           <div className="hero-tagline" style={{ marginBottom: '1.2rem' }}>
-            <span>✨ World-Class Dental Tourism in Istanbul</span>
+            <span>{t('heroTagline')}</span>
           </div>
 
           <h1 className="hero-title" style={{ marginTop: '0.4rem', lineHeight: '1.2' }}>
-            Where Bright Smiles Begin &{' '}
-            <span className="text-gradient">Confidence Lasts</span>
+            {t('heroTitlePart1')}
+            <span className="text-gradient">{t('heroTitlePart2')}</span>
           </h1>
 
           <p className="hero-description">
-            Dent Aktif Clinic combines digital smile design, Swiss Straumann® implants, and ultra-translucent E-Max® porcelain crowns to transform your smile in just 5 days in Istanbul.
+            {t('heroDesc')}
           </p>
 
           <div className="hero-ctas">
             <a href="#consultation" className="btn-primary">
-              🚀 Schedule Free Consultation
+              {t('heroCtaConsultation')}
             </a>
             <a href="#before-after" className="btn-secondary">
-              👁️ Explore 500+ Smile Results
+              {t('heroCtaExplore')}
             </a>
           </div>
 
           <div className="hero-stats">
             <div className="stat-item">
-              <h4>50,000+</h4>
-              <p>Successful Procedures</p>
+              <h4>{t('heroStat1Val')}</h4>
+              <p>{t('heroStat1Label')}</p>
             </div>
             <div className="stat-item">
-              <h4>20+</h4>
-              <p>Years Experience</p>
+              <h4>{t('heroStat2Val')}</h4>
+              <p>{t('heroStat2Label')}</p>
             </div>
             <div className="stat-item">
-              <h4>Lifetime</h4>
-              <p>Official Warranty</p>
+              <h4>{t('heroStat3Val')}</h4>
+              <p>{t('heroStat3Label')}</p>
             </div>
           </div>
         </div>
@@ -140,7 +146,7 @@ export default function Hero3D() {
           <div className="hero-showcase-card glass-card">
             {/* Header with Video Controls */}
             <div className="showcase-card-header" style={{ flexWrap: 'wrap', gap: '0.5rem' }}>
-              <span className="badge-luxury">🎥 CLINICAL 3D SMILE MOTION</span>
+              <span className="badge-luxury">{t('heroVideoBadge')}</span>
 
               {/* View & Filter Mode Buttons */}
               <div className="camera-presets" style={{ display: 'flex', gap: '0.3rem' }}>
@@ -150,7 +156,7 @@ export default function Hero3D() {
                   title="Crisp HD Video"
                   style={{ padding: '0.2rem 0.55rem', fontSize: '0.7rem', borderRadius: '6px' }}
                 >
-                  🎬 HD Video
+                  {t('heroHdVideo')}
                 </button>
                 <button
                   onClick={() => setBgRemovalMode('black')}
@@ -158,7 +164,7 @@ export default function Hero3D() {
                   title="Remove Dark Background"
                   style={{ padding: '0.2rem 0.55rem', fontSize: '0.7rem', borderRadius: '6px' }}
                 >
-                  ⬛ Transparent
+                  {t('heroTransparent')}
                 </button>
                 <button
                   onClick={() => setBgRemovalMode('white')}
@@ -166,7 +172,7 @@ export default function Hero3D() {
                   title="Remove White Background"
                   style={{ padding: '0.2rem 0.55rem', fontSize: '0.7rem', borderRadius: '6px' }}
                 >
-                  ⬜ White Blend
+                  {t('heroWhiteBlend')}
                 </button>
               </div>
             </div>
@@ -177,7 +183,10 @@ export default function Hero3D() {
               {bgRemovalMode === 'none' ? (
                 <video
                   ref={videoRef}
-                  src={dentalVideo}
+                  src={videoSrc}
+                  onError={() => {
+                    if (videoSrc !== DEFAULT_VIDEO) setVideoSrc(DEFAULT_VIDEO);
+                  }}
                   autoPlay
                   loop
                   muted
@@ -195,7 +204,10 @@ export default function Hero3D() {
                   {/* Hidden Video Source for Canvas processing */}
                   <video
                     ref={videoRef}
-                    src={dentalVideo}
+                    src={videoSrc}
+                    onError={() => {
+                      if (videoSrc !== DEFAULT_VIDEO) setVideoSrc(DEFAULT_VIDEO);
+                    }}
                     autoPlay
                     loop
                     muted
@@ -221,10 +233,10 @@ export default function Hero3D() {
 
               {/* Badges Overlay */}
               <div className="media-tag tag-top-left">
-                <span>🦷 HD Anatomical Motion</span>
+                <span>{t('heroAnatomicalMotion')}</span>
               </div>
               <div className="media-tag tag-bottom-right">
-                <span>⚙️ Dent Aktif Clinic Original</span>
+                <span>{t('heroOriginalClinic')}</span>
               </div>
 
               {/* Playback Controls Overlay */}
@@ -251,11 +263,11 @@ export default function Hero3D() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   <div className="doctor-avatar">👨‍⚕️</div>
                   <div className="doctor-info">
-                    <h5>Dr. Mehmet Yılmaz</h5>
-                    <p>Head Surgeon • Digital Dental Animation</p>
+                    <h5>{t('heroDoctorName')}</h5>
+                    <p>{t('heroDoctorRole')}</p>
                   </div>
                 </div>
-                <span className="guarantee-badge">LIFETIME WARRANTY</span>
+                <span className="guarantee-badge">{t('heroLifetimeWarranty')}</span>
               </div>
             </div>
           </div>

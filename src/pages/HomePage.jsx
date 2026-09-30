@@ -1,10 +1,13 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 import Hero3D from '../components/Hero3D.jsx';
 import TrustMarquee from '../components/TrustMarquee.jsx';
 import BeforeAfterSlider from '../components/BeforeAfterSlider.jsx';
 import JourneyTimeline from '../components/JourneyTimeline.jsx';
 
 export default function HomePage({ onNavigate }) {
+  const { t } = useLanguage();
+
   return (
     <div className="page-home">
       <Hero3D />
@@ -24,20 +27,20 @@ export default function HomePage({ onNavigate }) {
             background: 'rgba(255,255,255,0.15)', padding: '0.4rem 1rem', borderRadius: '99px',
             fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em'
           }}>
-            ✨ Fast 2-Hour Response Time
+            {t('ctaBadge')}
           </span>
           <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: 'white', margin: '1.2rem 0' }}>
-            Ready to Begin Your Hollywood Smile Journey?
+            {t('ctaTitle')}
           </h2>
           <p style={{ color: '#e0f2fe', maxWidth: '650px', margin: '0 auto 2.5rem auto', fontSize: '1.15rem' }}>
-            Submit your teeth photos or X-Ray online. Get a free custom 3D treatment plan and transparent pricing estimate from our head surgeons.
+            {t('ctaDesc')}
           </p>
           <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button onClick={() => onNavigate('consultation')} className="btn-primary btn-gold">
-              🚀 Start Free Consultation Form
+              {t('ctaStartBtn')}
             </button>
             <a href="https://wa.me/+905521617377" target="_blank" rel="noreferrer" className="btn-secondary" style={{ background: '#25D366', color: 'white', borderColor: '#25D366' }}>
-              💬 Chat Directly on WhatsApp
+              {t('ctaWhatsappBtn')}
             </a>
           </div>
         </div>

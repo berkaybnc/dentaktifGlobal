@@ -18,6 +18,7 @@ export default function MultiStepForm() {
   const [files, setFiles] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submittedRef, setSubmittedRef] = useState('');
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -55,9 +56,10 @@ export default function MultiStepForm() {
     try {
       const response = await submitConsultationApi({ ...formData, filesCount: files.length });
       if (response.success) {
+        setSubmittedRef(response.data?.referenceId || response.data?.lead?.ref || '');
         setIsSuccess(true);
       } else {
-        alert('Başvuru gönderilirken bir sorun oluştu.');
+        alert('Başvuru gönderilirken bir sorun oluştu: ' + (response.error || ''));
       }
     } catch (err) {
       console.error(err);
@@ -283,7 +285,23 @@ export default function MultiStepForm() {
               }}>
                 ✓
               </div>
-              <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '1rem' }}>Free VIP Consultation Request Received!</h2>
+              <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '0.75rem' }}>Free VIP Consultation Request Received!</h2>
+              {submittedRef && (
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <span style={{
+                    background: 'rgba(2, 132, 199, 0.15)',
+                    color: '#0284c7',
+                    border: '1px solid rgba(2, 132, 199, 0.3)',
+                    padding: '0.4rem 1rem',
+                    borderRadius: '8px',
+                    fontFamily: 'monospace',
+                    fontWeight: 700,
+                    fontSize: '1.05rem'
+                  }}>
+                    {submittedRef}
+                  </span>
+                </div>
+              )}
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 2rem auto' }}>
                 Thank you, <strong>{formData.fullName}</strong>. Our senior dental specialist team has received your application. A coordinator will contact you via WhatsApp (<strong>{formData.phone}</strong>) within 2 hours.
               </p>

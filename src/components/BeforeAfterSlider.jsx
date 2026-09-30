@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function BeforeAfterSlider() {
+  const { t } = useLanguage();
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -75,12 +77,12 @@ export default function BeforeAfterSlider() {
     <section id="before-after" className="section-padding" style={{ position: 'relative' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-badge">Real Transformations</span>
+          <span className="section-badge">{t('baBadge')}</span>
           <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', marginBottom: '1.25rem' }}>
-            Slide & Witness Life-Changing Smiles
+            {t('baTitle')}
           </h2>
           <p style={{ fontSize: '1.15rem' }}>
-            Drag the center handle to see immediate Hollywood Smile & Implant results crafted at Dent Aktif Clinic Global.
+            {t('baDesc')}
           </p>
         </div>
 
@@ -123,13 +125,13 @@ export default function BeforeAfterSlider() {
             position: 'absolute', top: '1.5rem', left: '1.5rem', padding: '0.4rem 1rem',
             borderRadius: '8px', background: 'rgba(15, 23, 42, 0.75)', backdropFilter: 'blur(8px)',
             color: 'white', fontWeight: 700, fontSize: '0.85rem', zIndex: 4
-          }}>BEFORE</span>
+          }}>{t('baBefore')}</span>
 
           <span style={{
             position: 'absolute', top: '1.5rem', right: '1.5rem', padding: '0.4rem 1rem',
             borderRadius: '8px', background: 'rgba(15, 23, 42, 0.75)', backdropFilter: 'blur(8px)',
             color: 'white', fontWeight: 700, fontSize: '0.85rem', zIndex: 4
-          }}>AFTER</span>
+          }}>{t('baAfter')}</span>
 
           {/* After Layer (Clipped) */}
           <div style={{

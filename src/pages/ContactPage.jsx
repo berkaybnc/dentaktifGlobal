@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
+import { submitConsultationApi } from '../api/consultationApi.js';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [formState, setFormState] = useState({ name: '', phone: '', email: '', message: '' });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      await submitConsultationApi({
+        fullName: formState.name,
+        phone: formState.phone,
+        email: formState.email,
+        treatment: 'Contact Page Inquiry',
+        notes: formState.message,
+        country: 'International'
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setSubmitted(true);
   };
 

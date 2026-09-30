@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <>
       <footer style={{
@@ -16,22 +19,22 @@ export default function Footer() {
               🦷 DENT AKTİF GLOBAL
             </div>
             <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>
-              International Premier Dental Tourism Center. Certified by Ministry of Health Republic of Turkey.
+              {t('footerDesc')}
             </p>
           </div>
 
           <div>
-            <h4 style={{ color: 'white', marginBottom: '1.2rem' }}>Quick Links</h4>
+            <h4 style={{ color: 'white', marginBottom: '1.2rem' }}>{t('footerQuickLinks')}</h4>
             <ul style={{ listStyle: 'none', lineHeight: 2.2, color: '#94a3b8' }}>
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#before-after">Before & After Gallery</a></li>
-              <li><a href="#journey">5-Step Travel Journey</a></li>
-              <li><a href="#consultation">Online Consultation</a></li>
+              <li><a href="#hero">{t('navHome')}</a></li>
+              <li><a href="#before-after">{t('baTitle')}</a></li>
+              <li><a href="#journey">{t('journeyTitle')}</a></li>
+              <li><a href="#consultation">{t('navConsultationBtn')}</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 style={{ color: 'white', marginBottom: '1.2rem' }}>Contact Clinic</h4>
+            <h4 style={{ color: 'white', marginBottom: '1.2rem' }}>{t('footerContactClinic')}</h4>
             <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.8' }}>
               📍 Cevatpaşa Mah. Eski Edirne Asfaltı Cad. No:407/409 Bayrampaşa / Levent, İstanbul<br />
               📞 Phone / WhatsApp: +90 552 161 7377<br />
@@ -44,7 +47,7 @@ export default function Footer() {
           textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.08)',
           paddingTop: '2rem', color: '#64748b', fontSize: '0.85rem'
         }}>
-          © 2026 Dent Aktif Clinic Global. All Rights Reserved. Excellence in Every Detail.
+          {t('footerCopyright')}
         </div>
       </footer>
 

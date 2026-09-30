@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { LanguageProvider } from './context/LanguageContext.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 
@@ -73,14 +74,16 @@ export default function App() {
   };
 
   return (
-    <div className="app-root">
-      <Navbar currentPage={currentPage} onNavigate={navigateTo} />
+    <LanguageProvider>
+      <div className="app-root">
+        <Navbar currentPage={currentPage} onNavigate={navigateTo} />
 
-      <main className="main-content">
-        {renderPage()}
-      </main>
+        <main className="main-content">
+          {renderPage()}
+        </main>
 
-      {currentPage !== 'admin' && <Footer />}
-    </div>
+        {currentPage !== 'admin' && <Footer />}
+      </div>
+    </LanguageProvider>
   );
 }

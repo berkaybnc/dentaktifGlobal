@@ -27,3 +27,7 @@ dist-ssr
 # Large Media Files (>100MB limit for GitHub)
 src/agız diş.mov
 *.mov
+
+# SQLite Database
+*.sqlite
+*.sqlite-journal
