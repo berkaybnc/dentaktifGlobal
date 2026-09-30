@@ -1,0 +1,96 @@
+/* ==========================================================================
+   DENT AKTIF CLINIC GLOBAL - RESPONSIVE STYLESHEET
+   Mobile, Tablet, and Desktop Breakpoints
+   ========================================================================== */
+
+/* Tablet & Mobile Screens (under 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .hero-content {
+    margin: 0 auto;
+  }
+  
+  .hero-ctas {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .timeline-line {
+    left: 20px;
+  }
+  
+  .timeline-step {
+    width: 100%;
+    margin-left: 0 !important;
+    padding-left: 3rem;
+    justify-content: flex-start !important;
+  }
+  
+  .timeline-dot {
+    left: 3px !important;
+    right: auto !important;
+  }
+  
+  .timeline-card {
+    width: 100%;
+  }
+
+  .nav-menu {
+    display: none; /* Mobile Menu Overlay triggered via JS */
+  }
+
+  .multistep-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile Screens (under 640px) */
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 7rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .ba-label {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .ba-tab-btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+  
+  .form-steps-bar {
+    margin-bottom: 2rem;
+  }
+  
+  .step-label {
+    display: none;
+  }
+  
+  .treatment-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DentAktifCMSDataSchema",
+  "description": "CMS Content Management Data Schema for Dent Aktif Clinic Global",
+  "type": "object",
+  "properties": {
+    "clinicInfo": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "example": "Dent Aktif Clinic Global" },
+        "tagline": { "type": "string", "example": "International VIP Dental Excellence & Medical Tourism" },
+        "phone": { "type": "string", "example": "+90 (212) 555-0199" },
+        "whatsapp": { "type": "string", "example": "+90 500 000 0000" },
+        "email": { "type": "string", "example": "info@dentaktifglobal.com" },
+        "address": { "type": "string", "example": "Levent Medical Tower No: 42, Besiktas, Istanbul, Turkey" },
+        "workingHours": { "type": "string", "example": "Mon - Sat: 09:00 - 19:00 (GMT+3)" }
+      }
+    },
+    "beforeAfterCases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "category": { "type": "string", "enum": ["Hollywood Smile", "All-on-4 Implants", "Zirconia Veneers", "Digital Bonding"] },
+          "beforeImageUrl": { "type": "string" },
+          "afterImageUrl": { "type": "string" },
+          "patientCountry": { "type": "string" },
+          "treatmentDuration": { "type": "string" },
+          "description": { "type": "string" },
+          "featured": { "type": "boolean" }
+        },
+        "required": ["id", "title", "beforeImageUrl", "afterImageUrl"]
+      }
+    },
+    "treatments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "icon": { "type": "string" },
+          "description": { "type": "string" },
+          "guaranteeYears": { "type": "integer" },
+          "typicalDaysInIstanbul": { "type": "integer" },
+          "includedVipBenefits": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "doctors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "title": { "type": "string" },
+          "specialization": { "type": "string" },
+          "yearsExperience": { "type": "integer" },
+          "photoUrl": { "type": "string" },
+          "accreditations": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

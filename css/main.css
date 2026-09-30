@@ -1,0 +1,282 @@
+/* ==========================================================================
+   DENT AKTIF CLINIC GLOBAL - MAIN STYLESHEET
+   Design System, CSS Variables, Typography & Glassmorphism Core
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Color Palette - Medical Luxury & Prestige */
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-dark: #0b132b;
+  --bg-dark-surface: #1c2541;
+  
+  --color-brand-primary: #0284c7; /* Safir Medikal Mavi */
+  --color-brand-deep: #0f172a;    /* Derin Gece Mavisi */
+  --color-brand-gold: #d97706;    /* Şampanya / Medikal Altın */
+  --color-brand-gold-glow: rgba(217, 119, 6, 0.25);
+  --color-accent-teal: #0d9488;   /* Hijyenik Turkuaz */
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #f8fafc;
+  --text-gold: #d97706;
+  
+  /* Glassmorphism Design Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg-dark: rgba(15, 23, 42, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-border-subtle: rgba(226, 232, 240, 0.8);
+  --glass-blur: blur(16px) saturate(180%);
+  --glass-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07), 0 0 15px rgba(255, 255, 255, 0.5) inset;
+  --glass-shadow-hover: 0 30px 60px -12px rgba(2, 132, 199, 0.15), 0 0 20px rgba(2, 132, 199, 0.1) inset;
+  
+  /* Typography */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Transitions & Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+  --bg-primary: #070d19;
+  --bg-surface: #0f172a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(15, 23, 42, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-subtle: rgba(51, 65, 85, 0.6);
+  --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Typography Standards */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); }
+h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+h3 { font-size: clamp(1.4rem, 2.2vw, 2rem); }
+
+p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Container & Layout */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 4rem auto;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  color: var(--color-brand-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.section-title {
+  margin-bottom: 1.25rem;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+}
+
+/* Utility Glassmorphism Class */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-normal);
+}
+
+.glass-card:hover {
+  box-shadow: var(--glass-shadow-hover);
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
+/* Button System */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.2rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-brand-primary) 0%, #0369a1 100%);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.4);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, #0284c7 0%, var(--color-brand-gold) 100%);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px -5px rgba(2, 132, 199, 0.5);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  color: var(--color-brand-deep);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid var(--glass-border-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: #ffffff;
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary);
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-brand-gold) 0%, #b45309 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -5px var(--color-brand-gold-glow);
+}
+
+/* Floating WhatsApp / Quick Action */
+.floating-cta {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.btn-float-wa {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-float-wa:hover {
+  transform: scale(1.1) rotate(8deg);
+}
+
+/* Animations Scroll Helpers */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}

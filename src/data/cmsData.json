@@ -1,0 +1,54 @@
+{
+  "clinicInfo": {
+    "name": "Dent Aktif Clinic Global",
+    "tagline": "Where Bright Smiles Begin and Confidence Lasts",
+    "subTagline": "Dent Aktif Clinic, Excellence in Every Detail",
+    "phone": "+90 552 161 7377",
+    "whatsapp": "+90 552 161 7377",
+    "email": "info@dentaktifglobal.com",
+    "address": "Levent Medical Center, Istanbul, Turkey",
+    "stats": {
+      "proceduresCount": "50,000+",
+      "yearsExperience": "20+",
+      "successRate": "99.8%"
+    }
+  },
+  "treatments": [
+    {
+      "id": "aesthetic-dentistry",
+      "name": "Aesthetic Dentistry",
+      "desc": "Smile Makeovers, Bonding & Laser Whitening",
+      "url": "https://dentaktifglobal.com/aesthetic-dentistry/"
+    },
+    {
+      "id": "hollywood-smile",
+      "name": "Hollywood Smile",
+      "desc": "Comprehensive Porcelain Veneer Transformation",
+      "url": "https://dentaktifglobal.com/hollywood-smile/"
+    },
+    {
+      "id": "dental-veneers",
+      "name": "Dental Zirconium Veneers",
+      "desc": "Ultra-Durable & Natural Translucency Veneers",
+      "url": "https://dentaktifglobal.com/dental-veneers/"
+    },
+    {
+      "id": "dental-crowns",
+      "name": "Dental Crowns",
+      "desc": "Full Coverage Porcelain & E-Max® Crowns",
+      "url": "https://dentaktifglobal.com/dental-crowns/"
+    },
+    {
+      "id": "dental-implants",
+      "name": "Dental Implants",
+      "desc": "Swiss Straumann® Permanent Arch Restoration",
+      "url": "https://dentaktifglobal.com/dental-implants/"
+    },
+    {
+      "id": "root-canal",
+      "name": "Root Canal Treatment",
+      "desc": "Painless Single-Session Endodontic Care",
+      "url": "https://dentaktifglobal.com/root-canal-treatment/"
+    }
+  ]
+}

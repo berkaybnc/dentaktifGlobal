@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Admin Panel - Dent Aktif Clinic Global</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    body { background: #0b132b; color: #f8fafc; padding: 2rem; }
+    .admin-card { background: rgba(28, 37, 65, 0.8); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; }
+    .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .table-custom { width: 100%; border-collapse: collapse; text-align: left; }
+    .table-custom th, .table-custom td { padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .badge-status { padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.8rem; font-weight: 700; }
+    .badge-new { background: rgba(2, 132, 199, 0.2); color: #38bdf8; }
+    .badge-contacted { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .badge-booked { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem;">
+      <div>
+        <h1 style="color: white; font-size: 2.2rem;">Dent Aktif CMS Dashboard</h1>
+        <p style="color: #94a3b8;">Manage Before/After Transformations, Treatment Packages & Patient Consultation Leads</p>
+      </div>
+      <div>
+        <a href="../index.html" class="btn-secondary" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);">← View Live Website</a>
+      </div>
+    </div>
+
+    <!-- Stats Overview -->
+    <div class="admin-grid">
+      <div class="admin-card">
+        <span style="color: #94a3b8; font-size: 0.9rem;">Total Consultation Leads</span>
+        <h2 style="font-size: 2.4rem; color: #38bdf8; margin-top: 0.5rem;">148</h2>
+        <span style="color: #34d399; font-size: 0.85rem;">+24% this month</span>
+      </div>
+      <div class="admin-card">
+        <span style="color: #94a3b8; font-size: 0.9rem;">Active Before/After Cases</span>
+        <h2 style="font-size: 2.4rem; color: #fbbf24; margin-top: 0.5rem;">32</h2>
+        <span style="color: #94a3b8; font-size: 0.85rem;">Managed via CMS</span>
+      </div>
+      <div class="admin-card">
+        <span style="color: #94a3b8; font-size: 0.9rem;">Avg. Response Time</span>
+        <h2 style="font-size: 2.4rem; color: #34d399; margin-top: 0.5rem;">14 mins</h2>
+        <span style="color: #34d399; font-size: 0.85rem;">WhatsApp Integration</span>
+      </div>
+      <div class="admin-card">
+        <span style="color: #94a3b8; font-size: 0.9rem;">Google Calendar Sync</span>
+        <h2 style="font-size: 2.4rem; color: #a78bfa; margin-top: 0.5rem;">Active</h2>
+        <span style="color: #34d399; font-size: 0.85rem;">Synced with API</span>
+      </div>
+    </div>
+
+    <!-- Recent Consultation Leads Table -->
+    <div class="admin-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3>📥 Live Patient Leads Inbox</h3>
+        <button class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Export CSV</button>
+      </div>
+      <table class="table-custom">
+        <thead>
+          <tr style="color: #94a3b8; font-size: 0.85rem;">
+            <th>REF CODE</th>
+            <th>PATIENT NAME</th>
+            <th>COUNTRY</th>
+            <th>TREATMENT</th>
+            <th>DATE</th>
+            <th>STATUS</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-family: monospace; color: #38bdf8;">#DAC-849201</td>
+            <td><strong>Sarah Jenkins</strong></td>
+            <td>🇬🇧 United Kingdom</td>
+            <td>Hollywood Smile (Veneers)</td>
+            <td>2026-10-12</td>
+            <td><span class="badge-status badge-new">New Lead</span></td>
+            <td><a href="https://wa.me/447700900000" target="_blank" style="color: #25D366; font-weight: bold;">WhatsApp Chat →</a></td>
+          </tr>
+          <tr>
+            <td style="font-family: monospace; color: #38bdf8;">#DAC-739104</td>
+            <td><strong>Hans Weber</strong></td>
+            <td>🇩🇪 Germany</td>
+            <td>All-on-6 Dental Implants</td>
+            <td>2026-10-18</td>
+            <td><span class="badge-status badge-contacted">Offer Sent</span></td>
+            <td><a href="https://wa.me/49151000000" target="_blank" style="color: #25D366; font-weight: bold;">WhatsApp Chat →</a></td>
+          </tr>
+          <tr>
+            <td style="font-family: monospace; color: #38bdf8;">#DAC-520193</td>
+            <td><strong>Claire Dubois</strong></td>
+            <td>🇫🇷 France</td>
+            <td>Zirconia Crowns Makeover</td>
+            <td>2026-10-05</td>
+            <td><span class="badge-status badge-booked">Flight Booked</span></td>
+            <td><a href="https://wa.me/33600000000" target="_blank" style="color: #25D366; font-weight: bold;">WhatsApp Chat →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CMS Before/After Manager -->
+    <div class="admin-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3>📸 Dynamic Before/After CMS Manager</h3>
+        <button class="btn-primary btn-gold" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">+ Add New Case Transformation</button>
+      </div>
+      <p style="color: #94a3b8; font-size: 0.95rem;">Changes saved here instantly update the interactive split-screen slider on the main site.</p>
+    </div>
+  </div>
+
+</body>
+</html>

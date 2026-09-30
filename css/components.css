@@ -1,0 +1,816 @@
+/* ==========================================================================
+   DENT AKTIF CLINIC GLOBAL - COMPONENTS STYLESHEET
+   Header, Hero 3D, Trust Marquee, Before/After Slider, Timeline, Multi-Step Form
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. NAVIGATION BAR
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.25rem 0;
+  transition: all var(--transition-normal);
+}
+
+.navbar.scrolled {
+  padding: 0.75rem 0;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border-subtle);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--color-brand-deep);
+  letter-spacing: -0.03em;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-gold));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 6px 15px rgba(2, 132, 199, 0.3);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--color-brand-primary);
+  transition: width var(--transition-fast);
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language Selector */
+.lang-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-btn {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.lang-btn:hover {
+  background: white;
+  border-color: var(--color-brand-primary);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  padding: 0.5rem;
+  list-style: none;
+  min-width: 120px;
+  display: none;
+  z-index: 10;
+}
+
+.lang-selector:hover .lang-dropdown {
+  display: block;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.lang-dropdown li {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.lang-dropdown li:hover {
+  background: var(--bg-primary);
+  color: var(--color-brand-primary);
+}
+
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION & 3D BACKDROP
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 9rem;
+  padding-bottom: 5rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 70% 30%, rgba(2, 132, 199, 0.06) 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(217, 119, 6, 0.04) 0%, transparent 50%);
+}
+
+#hero-3d-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.2rem;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  border-radius: var(--radius-full);
+  color: var(--color-brand-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-title span.text-gradient {
+  background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-muted);
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border-subtle);
+}
+
+.stat-item h4 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-brand-deep);
+}
+
+.stat-item p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Hero Visual 3D Showcase Card */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-glass-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+  transform: perspective(1000px) rotateY(-5deg) rotateX(3deg);
+  transition: transform var(--transition-slow);
+}
+
+.hero-glass-card:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+.hero-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.doctor-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.doctor-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-brand-primary);
+}
+
+.doctor-info h5 { font-size: 1rem; }
+.doctor-info p { font-size: 0.8rem; }
+
+.guarantee-badge {
+  background: rgba(217, 119, 6, 0.1);
+  color: var(--color-brand-gold);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. TRUST SIGNALS INFINITE MARQUEE
+   -------------------------------------------------------------------------- */
+.trust-marquee-section {
+  padding: 2.5rem 0;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--glass-border-subtle);
+  border-bottom: 1px solid var(--glass-border-subtle);
+  overflow: hidden;
+}
+
+.marquee-container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marqueeScroll 65s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  opacity: 0.85;
+  transition: opacity var(--transition-fast);
+}
+
+.marquee-item:hover {
+  opacity: 1;
+}
+
+.marquee-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 132, 199, 0.08);
+  border-radius: 8px;
+  color: var(--color-brand-primary);
+  font-size: 1.1rem;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+/* --------------------------------------------------------------------------
+   4. INTERACTIVE BEFORE / AFTER SLIDER
+   -------------------------------------------------------------------------- */
+.before-after-section {
+  position: relative;
+}
+
+.ba-cases-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.ba-tab-btn {
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border-subtle);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ba-tab-btn.active, .ba-tab-btn:hover {
+  background: var(--color-brand-deep);
+  color: #ffffff;
+  border-color: var(--color-brand-deep);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+}
+
+.ba-slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.15);
+  border: 1px solid var(--glass-border);
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.ba-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-image-before {
+  z-index: 1;
+}
+
+.ba-image-after {
+  z-index: 2;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #ffffff;
+  z-index: 3;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--color-brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+  border: 2px solid var(--color-brand-primary);
+}
+
+.ba-label {
+  position: absolute;
+  top: 1.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 4;
+}
+
+.ba-label-before { left: 1.5rem; }
+.ba-label-after { right: 1.5rem; }
+
+
+/* --------------------------------------------------------------------------
+   5. DENTAL JOURNEY TIMELINE
+   -------------------------------------------------------------------------- */
+.journey-section {
+  position: relative;
+  background: var(--bg-surface);
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: rgba(226, 232, 240, 0.8);
+  transform: translateX(-50%);
+}
+
+.timeline-line-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(to bottom, var(--color-brand-primary), var(--color-brand-gold));
+  transition: height 0.1s linear;
+}
+
+.timeline-step {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 4rem;
+  width: 50%;
+}
+
+.timeline-step:nth-child(even) {
+  align-self: flex-end;
+  margin-left: 50%;
+  justify-content: flex-start;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0;
+  right: -17px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--color-brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(2, 132, 199, 0.3);
+  transition: all var(--transition-normal);
+}
+
+.timeline-step:nth-child(even) .timeline-dot {
+  right: auto;
+  left: -17px;
+}
+
+.timeline-step.active .timeline-dot {
+  background: var(--color-brand-primary);
+  color: #ffffff;
+  transform: scale(1.25);
+  box-shadow: 0 0 25px rgba(2, 132, 199, 0.6);
+}
+
+.timeline-card {
+  width: 90%;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-normal);
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(2, 132, 199, 0.3);
+}
+
+.step-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(2, 132, 199, 0.08);
+  color: var(--color-brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. MULTI-STEP CONSULTATION FORM
+   -------------------------------------------------------------------------- */
+.form-section {
+  position: relative;
+}
+
+.multistep-card {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.1);
+}
+
+/* Step Bar */
+.form-steps-bar {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.form-steps-bar::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--glass-border-subtle);
+  z-index: 1;
+}
+
+.step-indicator {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 2px solid var(--glass-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all var(--transition-normal);
+}
+
+.step-indicator.active .step-number {
+  border-color: var(--color-brand-primary);
+  background: var(--color-brand-primary);
+  color: white;
+  box-shadow: 0 0 18px rgba(2, 132, 199, 0.4);
+}
+
+.step-indicator.completed .step-number {
+  background: #10B981;
+  border-color: #10B981;
+  color: white;
+}
+
+.step-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Form Steps Panels */
+.form-panel {
+  display: none;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.form-panel.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border-subtle);
+  background: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-main);
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--color-brand-primary);
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+}
+
+/* Grid of Treatment Options */
+.treatment-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.treatment-radio-card {
+  position: relative;
+}
+
+.treatment-radio-card input {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+.treatment-card-content {
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--glass-border-subtle);
+  background: var(--bg-surface);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.treatment-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-brand-primary);
+}
+
+.treatment-radio-card input:checked + .treatment-card-content {
+  border-color: var(--color-brand-primary);
+  background: rgba(2, 132, 199, 0.04);
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.15);
+}
+
+/* File Dropzone */
+.file-dropzone {
+  border: 2px dashed var(--color-brand-primary);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background: rgba(2, 132, 199, 0.02);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.file-dropzone:hover, .file-dropzone.dragover {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: var(--color-brand-gold);
+}
+
+.file-dropzone-icon {
+  font-size: 2.5rem;
+  color: var(--color-brand-primary);
+  margin-bottom: 0.75rem;
+}
+
+.file-preview-list {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.file-preview-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--glass-border-subtle);
+}
+
+/* Form Nav Buttons */
+.form-nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border-subtle);
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
