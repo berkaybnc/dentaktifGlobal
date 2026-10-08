@@ -237,6 +237,7 @@ ul, ol {
 
 .text-gradient {
   background: linear-gradient(135deg, var(--color-brand-primary) 0%, #0369a1 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
