@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         primary: '#211164',
         'primary-container': '#372b7a',
+        'primary-hover': '#2d1980',
         secondary: '#006972',
         'teal-cyan': '#2BA598',
         'mint-emerald': '#7BC17E',
@@ -21,8 +22,13 @@ const config: Config = {
         'on-surface': '#141c27',
       },
       fontFamily: {
-        headline: ['var(--font-headline)', 'Plus Jakarta Sans', 'sans-serif'],
-        sans: ['var(--font-sans)', 'Manrope', 'sans-serif'],
+        headline: ['var(--font-plus-jakarta)', 'sans-serif'],
+        sans: ['var(--font-plus-jakarta)', 'sans-serif'],
+        display: ['var(--font-manrope)', 'sans-serif'],
+      },
+      boxShadow: {
+        premium: '0 10px 30px -10px rgba(33, 17, 100, 0.1)',
+        'premium-hover': '0 20px 40px -15px rgba(33, 17, 100, 0.18)',
       },
     },
   },

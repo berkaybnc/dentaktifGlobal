@@ -3,12 +3,27 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import { Plus_Jakarta_Sans, Manrope } from 'next/font/google';
 import { locales, Locale } from '@/i18n';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppFloating from '@/components/WhatsAppFloating';
 import CookieBanner from '@/components/CookieBanner';
 import '../globals.css';
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-plus-jakarta',
+  weight: ['300', '400', '500', '600', '700', '800'],
+});
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-manrope',
+  weight: ['400', '500', '600', '700', '800'],
+});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -60,23 +75,17 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="scroll-smooth">
+    <html lang={locale} className={`scroll-smooth ${plusJakartaSans.variable} ${manrope.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#FAFBFC] text-[#141c27] font-sans antialiased selection:bg-primary selection:text-white">
+      <body className="bg-[#FAFBFC] text-[#0f172a] font-sans antialiased selection:bg-[#211164] selection:text-white min-h-screen flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
-          <main className="w-full pt-[112px]">{children}</main>
+          <main className="w-full pt-[116px] flex-1">{children}</main>
           <Footer />
           <WhatsAppFloating />
           <CookieBanner />
