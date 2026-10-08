@@ -1,65 +1,84 @@
-# Implementation Plan - Dent Aktif Clinic Global (Gerçek İçerik & Özel Sayfa Tasarımları)
+# Dent Aktif Global - Tek Sayfalık Sağlık Turizmi Portalı Uygulama Planı
+## HTML Prototipine %100 Birebir Uyum ve 5448 Sayılı Mevzuat Entegrasyonu
 
-`dentaktifglobal.com` resmi sitesindeki içerikler temel alınarak hazırlanan özel bağımsız sayfa tasarımları ve içerik mimarisi.
+Bu plan, gönderilen tek sayfalık HTML prototipinin (`image_0.png`) Next.js App Router (TypeScript + Tailwind CSS) ve `next-intl` mimarisine birebir dönüştürülmesini kayıt altına alır.
 
-## 1. Sayfa Tasarımları ve Özel İçerik Yapısı (Page Designs & Content)
+---
 
-### A. Tedavi Sayfaları (`TreatmentDetailPage.jsx`) - Her Tedaviye Özel Özgün İçerik & Görseller
-- **Yazı Kontrastı & Okunabilirlik İyileştirmesi:** Karanlık kartlardaki (VIP Experience Kartı) `h3` başlıklarının koyu renk çakışması giderilerek kristal parlak beyaz (`#ffffff`) ve yüksek okunabilir gri (`#e2e8f0`) renk düzenine geçildi.
-- **Aesthetic Dentistry** (`#aesthetic-dentistry`): Lazerle Beyazlatma & Kompozit Bonding özgün metinleri ve özel estetik görseller.
-- **Hollywood Smile** (`#hollywood-smile`): `Benefits-of-Hollywood-Smile.webp` & `Hollywood-Smile-What-to-Expect.webp` resmi görselleri, 20 E-Max lamine metinleri, Ideal Candidates & Cost detayları.
-- **Dental Zirconium Veneers** (`#dental-veneers`): Alman Zirkonyum CAD/CAM robotik frezeleme metinleri, dayanıklılık analizleri ve özel Zirkonyum görselleri.
-- **Dental Crowns** (`#dental-crowns`): 360 derece tam korumalı kuron kaplama metinleri, Ideal Candidates for Dental Crowns & özel kuron görselleri.
-- **Dental Implants** (`#dental-implants`): İsviçre Straumann® 3D Tomografi metinleri & Straumann implant görselleri.
-- **Root Canal Treatment** (`#root-canal`): Mikroskobik endodonti, 3D rotary eğeler ve ağrısız kök kanalı temizleme özel görselleri.
+### 1. Renk Paleti ve Tasarım Sistemi
+* **Primary:** `#211164` (Derin Cerrahi Mor / Lacivert)
+* **Primary Container:** `#372b7a`
+* **Secondary:** `#006972` (Klinik Turkuaz)
+* **Teal Cyan:** `#2BA598`
+* **Mint Emerald:** `#7BC17E`
+* **Canvas Clean:** `#FAFBFC`
+* **Surface Surgical:** `#F0F4F7`
+* **Footer Zemin:** `#110933`
+* **Tipografi:** `Plus Jakarta Sans` (Başlıklar) & `Manrope` (Gövde metinleri)
+* **İkonlar:** Google `Material Symbols Outlined`
 
-### E. Gerçekçi 3D Diş & Çene Anatomi Simülasyonu (`Hero3D.jsx`)
-- **Parabolik Anatomik Ağız Yapısı (Realistic Dental Arch & Gingival Margin):**
-  - Silindirik basit şekiller yerine gerçek insan ağız morfolojisine uygun kavisli çene ve scalloped diş eti yapısı.
-- **Anatomik Diş Morfolojisi (Incisors, Canines, Molars):**
-  - Ön kesici dişler (flat incisal edge), köpek dişleri ve oluklu 4-cusp azı dişleri (molar occlusal grooves).
-- **Çift Katmanlı Mine & Dentin Shading (Dual-Layer Porcelain Shader):**
-  - Şeffaf porselen mine (Enamel) ve içeride doğal fildişi dentin dokusu.
-- **Kamera Açısı & İnteraktif Modlar:**
-  - 🎥 *3D Arch View*, 🔍 *Implant Zoom*, 📐 *Front Smile* kamera açıları.
-  - 💎 *E-Max® Porcelain* ve 🦷 *Layered Zirconia* materyal geçişleri.
+---
 
-### G. Orijinal Diş & Ağız Video Animasyonu Entegrasyonu (`Hero3D.jsx` / Video Player)
-- **`src/agız diş.mov` Video Entegrasyonu:**
-  - `src/agız diş.mov` videosu Hero alanındaki animasyon yerine doğrudan eklendi.
-- **Yüksek Çözünürlüklü Net Görünüm ve Arka Plan Filtresi:**
-  - Soluk/parlamış görüntüleri önlemek için varsayılan görünüm modu **HD Original Video** olarak ayarlandı.
-  - Siyah, beyaz ve yeşil arka plan şeffaflaştırma butonları canlı kontrol paneli ile sağlandı.
-- **İnteraktif Video Kontrolleri:**
-  - Oynat/Duraklat, Ağır Çekim (0.75x Slow-Mo) ve Arka Plan Temizleme Modu seçici.
+### 2. Sayfa Bölümleri ve Bileşen Mimarisi
 
-### F. Canlı Diş Değişim Slider'ı (`BeforeAfterSlider.jsx`)
-- **Gerçek Klinik Önce & Sonra Fotoğrafları (Real Clinical Before/After Photos):**
-  - Mavi ve gri düz renk taslak kutuları tamamen kaldırılarak yerine gerçek Hollywood Smile, Dental Implant ve Zirkonyum tedavilerinin yüksek çözünürlüklü klinik öncesi ve sonrası fotoğrafları yerleştirildi.
+1. **Header & Regulatory Topbar (`Header.tsx`):**
+   * T.C. Sağlık Bakanlığı Uluslararası Sağlık Turizmi Yetki Belgesi: `TR-34-DH-4892`
+   * "Clinical Triage Active" canlı nabız animasyonu
+   * 24/7 Acil çağrı (`+90 212 900 8080`) ve WhatsApp linki
+   * Alt dizin dil seçicisi: `EN` (varsayılan), `DE`, `FR`, `RU` (kesinlikle Türkçe yok)
+   * Açılır Tedavi Menüsü (Smile Makeover E-Max, All-on-4/6 Implants, Monolithic Zirconia)
+   * "Itemized Cost Reference" & "Upload X-Ray / Get Diagnosis" butonları
 
-### B. Sağlık Turizmi Yolculuğu (3-Step Health Tourism Journey)
-Her tedavi sayfasında yer alan 3 adımlı medikal turizm süreci:
-1. **01 – Safe Medical Care:** Uluslararası akredite klinik ve uzman doktorlar.
-2. **02 – Travel & Comfort:** VIP Mercedes Vito transferleri & Bosphorus lüks otel konaklaması.
-3. **03 – Easy & Stress-Free Process:** Çok dilli hasta danışmanları ve kesintisiz destek.
+2. **Hero & Clinical Hub (`Hero.tsx`):**
+   * "18+ Years Chief Surgical Leadership • On-Site German CAD/CAM Lab • Levent, Istanbul"
+   * Başlık: "Precision Surgical Implantology & Biocompatible Aesthetic Smile Restorations."
+   * Levent Panoramic Surgical Suite & On-Site Master Ceramist Lab orijinal fotoğrafları
+   * Bakanlık ve Straumann® Excellence akreditasyon rozetleri
+   * **Quick Action Hub (Transparent Package Estimator):**
+     * 3 Tedavi Seçici (Smile / Veneers, Full Arch Implants, Restoration)
+     * Ülke Karşılaştırması (UK, DE, US, FR)
+     * Dinamik fiyat benchmarkı ve %73 tasarruf progress bar'ı
+     * WhatsApp Hızlı Ön Doktor Değerlendirme Formu
 
-### C. Blog Sayfası (`BlogPage.jsx`)
-- Medikal turizm ve diş sağlığı hakkında gerçek makaleler:
-  - *Hollywood Smile Makeover Guide 2026*
-  - *Zirconium Veneers vs. E-Max Porcelain: Which is Best?*
-  - *Why Istanbul is the Capital of International Dental Tourism*
-  - *Lifetime Care for Swiss Straumann® Implants*
-- Kategori filtreleme, arama çubuğu, okuma süresi ve detay okuma modalı.
+3. **Compliant Service Intent Cards (`ServiceIntentCards.tsx`):**
+   * Transparent Itemized Estimates
+   * Verified Clinical Cases Archive
+   * 5-Day All-Inclusive Travel Guide
+   * Live Video Doctor Teleconsultation
 
-### D. İletişim & Footer Bilgileri (`ContactPage.jsx` & `Footer.jsx`)
-- Klinik Adresi: Cevatpaşa Mah. Eski Edirne Asfaltı Cad. No:407/409 A-1, Bayrampaşa & Levent Hub, İstanbul, Türkiye.
-- Telefon & WhatsApp: `+90 552 161 7377`
-- E-posta: `info@dentaktifglobal.com` / `info@dentaktif.com`
-- Harita kartı, çalışma saatleri tablosu ve hızlı konsültasyon formu.
+4. **Before & After Clinical Archive (`CaseSlider.tsx`):**
+   * Hollywood Smile, All-on-4 Implants, Monolithic Zirconia sekmeleri
+   * Sıfır gecikmeli mobil dokunmatik Before/After split-slider (kırpma katmanı ve tutamaç)
+   * Sağ panel: `#DA-8841` Sarah M. (London, UK) vaka parametreleri, hazırlık derinliği, Vita renk değişimi ve fiyat avantajı
 
-## 3. GitHub Dağıtım ve Sürüm Yönetimi
-- `.gitignore` dosyası eklendi (`node_modules`, `dist` ve 100 MB üzeri `agız diş.mov` harici tutuldu).
-- GitHub üzerinde `dentaktifGlobal` deposu oluşturma ve yerel kodları `origin main` dalına push etme komutları hazırlandı.
+5. **International Treatment Cost & Inclusions Reference (`PriceTable.tsx`):**
+   * UK ve Almanya özel klinik fiyatları ile Dent Aktif All-Inclusive (£4,250, £3,950, £4,400) karşılaştırma tablosu
+   * 4 Paket Avantajı Kartı: 5-Yıldızlı Otel, VIP Mercedes Transferleri, Çok Dilli Tercüman, 3D CBCT Teşhisleri
 
+6. **In-House German CAD/CAM Laboratory (`InHouseLab.tsx`):**
+   * Aracıları ortadan kaldıran hastane içi robotik frezeleme ve Master Ceramist laboratuvarı
+   * Chairside Shade Characterization, 5-Axis Precision Milling, Handcrafted Artisanal Glazing
 
+7. **5-Day Patient Travel & Clinical Itinerary (`TravelSchedule.tsx`):**
+   * Day 01 (Arrival), Day 02 (Design), Day 03 (Rest), Day 04 (Bonding), Day 05 (Departure) 5 günlük VIP süreç akışı
 
+8. **International Patient Relations & Concierge Unit (`ConciergeSection.tsx`):**
+   * 3359 Sayılı Kanun ve Sağlık Turizmi Genelgesi uyumlu Uluslararası Ofis Bilgileri
+   * Koyu mor iletişim kartı: 24/7 Direkt hat, Levent hastane adresi, yetki numarası
+
+9. **Online Clinical Triage Form (`TriageForm.tsx`):**
+   * 3 Adımlı form (Tedavi -> Hasta & Ülke -> Röntgen/Fotoğraf Yükleme + 5-Yıldızlı Otel Seçimi)
+   * İstemci taraflı anlık görsel sıkıştırma (`imageCompression.ts`)
+   * 256-Bit SSL, GDPR ve KVKK No. 6698 uyarıları
+   * Başarılı gönderimde isim ve referans kodlu onay penceresi (`compact-success-overlay`)
+
+10. **Global Hospital Footer (`Footer.tsx`):**
+    * Koyu mor (`#110933`) zemin, resmi bakanlık metni, cerrahi branşlar, hasta hakları ve mevzuat linkleri
+
+11. **Floating Quick Actions Widget (`WhatsAppFloating.tsx`):**
+    * Package Reference ve WhatsApp Medical Coordinator yüzen butonları
+
+---
+
+### 3. Terminal ve Dağıtım Süreci
+* Kural gereği geliştirici ortamında terminal komutları çalıştırılmamakta, kullanıcıya sırasıyla sunulmaktadır.
