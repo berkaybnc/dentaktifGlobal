@@ -31,7 +31,7 @@ export default function TreatmentDetailPage({ treatmentId, onNavigate }) {
         </div>
 
         {/* Hero Section Banner */}
-        <div className="glass-card" style={{ padding: '3.5rem 3rem', borderRadius: '32px', background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(240,249,255,0.9))', marginBottom: '3.5rem', position: 'relative', overflow: 'hidden' }}>
+        <div className="glass-card" style={{ padding: 'clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 3.5vw, 3rem)', borderRadius: '28px', background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(240,249,255,0.9))', marginBottom: '3.5rem', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '250px', height: '250px', background: 'radial-gradient(circle, rgba(2,132,199,0.12) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '2rem' }}>
@@ -103,7 +103,7 @@ export default function TreatmentDetailPage({ treatmentId, onNavigate }) {
         </div>
 
         {/* What is Treatment Overview */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem', marginBottom: '4rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '2rem', marginBottom: '4rem' }}>
           <div className="glass-card" style={{ padding: '2.5rem', borderRadius: '24px' }}>
             <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '1.2rem' }}>
               {data.name} {ui.whatIs}
