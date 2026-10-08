@@ -112,7 +112,9 @@ export default function BeforeAfterSlider() {
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
+          onTouchStart={(e) => {
+            if (e.touches && e.touches[0]) updatePos(e.touches[0].clientX);
+          }}
           onTouchMove={handleTouchMove}
           style={{
             position: 'relative', width: '100%', maxWidth: '900px', aspectRatio: '4 / 3',

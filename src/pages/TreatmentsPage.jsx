@@ -48,7 +48,7 @@ export default function TreatmentsPage({ onNavigate }) {
         </div>
 
         {/* Treatment Cards Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '2rem' }}>
           {filteredTreatments.map(t => (
             <div key={t.id} className="glass-card treatment-feature-card" style={{ padding: '2.2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRadius: '28px', background: 'white' }}>
               <div>

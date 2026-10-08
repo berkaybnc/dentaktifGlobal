@@ -136,16 +136,15 @@ export default function CaseSlider() {
                 {currentCase.badgeAfter}
               </span>
 
-              {/* BEFORE IMAGE (Clipped Layer) */}
+              {/* BEFORE IMAGE (Clipped Layer via modern clipPath) */}
               <div
-                className="absolute inset-0 w-full h-full overflow-hidden"
-                style={{ width: `${sliderVal}%` }}
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                style={{ clipPath: `inset(0 ${100 - sliderVal}% 0 0)` }}
               >
                 <img
                   alt="Pre-treatment clinical baseline"
-                  className="absolute inset-0 max-w-none h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover"
                   src={currentCase.beforeImg}
-                  style={{ width: '100vw', maxWidth: '850px' }}
                 />
                 <span className="absolute top-4 left-4 z-20 px-3 py-1 rounded-lg bg-slate-950/85 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold tracking-wide shadow-md">
                   BEFORE: PRE-OPERATIVE

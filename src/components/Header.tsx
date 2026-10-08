@@ -63,11 +63,12 @@ export default function Header() {
               title="Hospital Direct Phone Line"
             >
               <span className="material-symbols-outlined text-[15px] text-teal-300">call</span>
-              <span>+90 (212) 900 8080</span>
+              <span className="hidden sm:inline">+90 (212) 900 8080</span>
+              <span className="sm:hidden text-[11px]">Call Desk</span>
             </a>
 
             <a
-              className="hidden sm:inline-flex items-center gap-1 text-emerald-300 hover:text-white transition-colors text-xs font-semibold"
+              className="hidden md:inline-flex items-center gap-1 text-emerald-300 hover:text-white transition-colors text-xs font-semibold"
               href="https://wa.me/902129008080"
               target="_blank"
               rel="noopener noreferrer"
@@ -77,21 +78,21 @@ export default function Header() {
             </a>
 
             {/* Language Switcher (Subpath routed, strictly EN, DE, FR, RU - No domestic Turkish) */}
-            <div className="flex items-center gap-1 border-l border-white/20 pl-3">
+            <div className="flex items-center gap-0.5 sm:gap-1 border-l border-white/20 pl-2 sm:pl-3">
               {LANGUAGES.map((lang) => (
                 <Link
                   key={lang.code}
                   href={pathname}
                   locale={lang.code}
                   title={lang.title}
-                  className={`px-2 py-0.5 rounded text-[11px] transition-all flex items-center gap-1 ${
+                  className={`px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px] transition-all flex items-center gap-1 ${
                     currentLocale === lang.code
                       ? 'text-white bg-white/25 font-extrabold shadow-xs'
                       : 'text-slate-300 hover:text-white hover:bg-white/10 font-semibold'
                   }`}
                 >
-                  <span className="text-[11px]">{lang.flag}</span>
-                  <span>{lang.label}</span>
+                  <span className="text-[10px] sm:text-[11px]">{lang.flag}</span>
+                  <span className="hidden xs:inline">{lang.label}</span>
                 </Link>
               ))}
             </div>
@@ -100,13 +101,13 @@ export default function Header() {
       </div>
 
       {/* 2. Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[76px] flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[72px] sm:h-[76px] flex items-center justify-between gap-3 sm:gap-4">
         {/* Brand Logo & Hospital Crest */}
-        <Link className="flex items-center gap-3 shrink-0 group" href="/">
+        <Link className="flex items-center gap-2.5 sm:gap-3 shrink-0 group" href="/">
           {/* Custom Medical Hospital Emblem SVG */}
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#1b0d52] via-[#281570] to-[#006972] p-[1.5px] shadow-md shadow-[#211164]/25 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-[#1b0d52] via-[#281570] to-[#006972] p-[1.5px] shadow-md shadow-[#211164]/25 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
             <div className="w-full h-full bg-[#1b0d52] rounded-[10px] flex items-center justify-center relative overflow-hidden">
-              <svg className="w-6 h-6 text-teal-300 transition-transform duration-300 group-hover:rotate-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-teal-300 transition-transform duration-300 group-hover:rotate-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 2C8.5 2 6 4.5 6 8c0 3 1.5 5.5 2.5 8 .8 2 1.5 4 3.5 4s2.7-2 3.5-4c1-2.5 2.5-5 2.5-8 0-3.5-2.5-6-6-6z" fill="rgba(43,165,152,0.18)" stroke="#2BA598" />
                 <path d="M12 6v6m-3-3h6" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
               </svg>
@@ -115,18 +116,19 @@ export default function Header() {
           </div>
 
           <div>
-            <div className="flex items-center gap-2">
-              <span className="font-headline text-xl sm:text-2xl font-extrabold tracking-tight text-[#1b0d52]">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="font-headline text-lg sm:text-2xl font-extrabold tracking-tight text-[#1b0d52]">
                 DENT AKTİF
               </span>
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#006972] px-2 py-0.5 rounded-md bg-teal-50 border border-teal-200">
+              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-[#006972] px-1.5 sm:px-2 py-0.5 rounded-md bg-teal-50 border border-teal-200">
                 Hospital
               </span>
             </div>
-            <div className="text-[11px] text-slate-500 font-semibold tracking-wide flex items-center gap-1.5">
+            <div className="text-[10px] sm:text-[11px] text-slate-500 font-semibold tracking-wide flex items-center gap-1">
               <span>Levent, Istanbul</span>
               <span className="text-slate-300">•</span>
-              <span className="text-emerald-700 font-bold">Official International Portal</span>
+              <span className="text-emerald-700 font-bold hidden sm:inline">Official International Portal</span>
+              <span className="text-emerald-700 font-bold sm:hidden">Portal</span>
             </div>
           </div>
         </Link>
@@ -290,12 +292,22 @@ export default function Header() {
             Itemized Pricing
           </a>
 
+          {/* Full button on sm+ screens */}
           <a
-            className="inline-flex items-center gap-2 justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wide bg-gradient-to-r from-[#211164] via-[#2d1980] to-[#006972] text-white hover:opacity-95 shadow-md shadow-[#211164]/25 transition-all hover:-translate-y-0.5 active:translate-y-0"
+            className="hidden sm:inline-flex items-center gap-2 justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wide bg-gradient-to-r from-[#211164] via-[#2d1980] to-[#006972] text-white hover:opacity-95 shadow-md shadow-[#211164]/25 transition-all hover:-translate-y-0.5 active:translate-y-0"
             href="#consultation-wizard"
           >
             <span className="material-symbols-outlined text-[16px] text-teal-300">upload_file</span>
             <span>Upload X-Ray / Free Quote</span>
+          </a>
+
+          {/* Compact icon button on mobile screens */}
+          <a
+            className="sm:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white shadow-md active:scale-95"
+            href="#consultation-wizard"
+            title="Upload X-Ray / Free Quote"
+          >
+            <span className="material-symbols-outlined text-[18px]">upload_file</span>
           </a>
 
           {/* Mobile menu toggle */}
