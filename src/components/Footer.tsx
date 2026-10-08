@@ -34,29 +34,29 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <a className="hover:text-white transition-colors" href="#clinical-cases">
+                <Link className="hover:text-white transition-colors" href="/treatments/hollywood-smile">
                   E-Max Feldspathic Veneers
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:text-white transition-colors" href="#clinical-cases">
+                <Link className="hover:text-white transition-colors" href="/treatments/dental-implants">
                   Straumann® All-on-4 Implants
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:text-white transition-colors" href="#clinical-cases">
+                <Link className="hover:text-white transition-colors" href="/treatments/dental-veneers">
                   Monolithic Zirconia Bridges
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="hover:text-white transition-colors" href="#clinical-cases">
-                  Sinus Lift & Bone Augmentation
-                </a>
+                <Link className="hover:text-white transition-colors" href="/treatments/dental-crowns">
+                  Dental Crowns & Restorations
+                </Link>
               </li>
               <li>
-                <a className="hover:text-white transition-colors" href="#clinical-cases">
-                  Computer-Guided Implantology
-                </a>
+                <Link className="hover:text-teal-300 font-bold transition-colors" href="/treatments">
+                  View All Procedures →
+                </Link>
               </li>
             </ul>
           </div>

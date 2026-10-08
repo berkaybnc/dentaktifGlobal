@@ -161,13 +161,13 @@ export default function Header() {
 
             {treatmentsOpen && (
               <div
-                className="absolute top-full left-0 w-88 bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-3 space-y-1.5 animate-in fade-in zoom-in-95 duration-150 z-50"
+                className="absolute top-full left-0 w-96 bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-3 space-y-1.5 animate-in fade-in zoom-in-95 duration-150 z-50"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <a
+                <Link
                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                  href="#clinical-cases"
+                  href="/treatments/hollywood-smile"
                   onClick={() => setTreatmentsOpen(false)}
                 >
                   <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
@@ -181,11 +181,11 @@ export default function Header() {
                       16-20 Ivoclar Vivadent E-Max® ultra-thin porcelain laminates
                     </span>
                   </div>
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                  href="#clinical-cases"
+                  href="/treatments/dental-implants"
                   onClick={() => setTreatmentsOpen(false)}
                 >
                   <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
@@ -199,11 +199,11 @@ export default function Header() {
                       Swiss Straumann® SLA active guided flapless surgery
                     </span>
                   </div>
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                  href="#clinical-cases"
+                  href="/treatments/dental-veneers"
                   onClick={() => setTreatmentsOpen(false)}
                 >
                   <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
@@ -217,25 +217,37 @@ export default function Header() {
                       German Katana™ multilayer biocompatible aesthetic crowns
                     </span>
                   </div>
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                  href="#in-house-lab"
+                  href="/treatments/dental-crowns"
                   onClick={() => setTreatmentsOpen(false)}
                 >
-                  <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+                  <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
+                    <span className="material-symbols-outlined text-[20px]">crown</span>
                   </div>
                   <div>
                     <span className="block text-xs font-bold text-slate-900 group-hover:text-[#211164]">
-                      In-House German CAD/CAM Lab
+                      Dental Crowns & Restorations
                     </span>
                     <span className="text-[11px] text-slate-500 font-normal leading-tight">
-                      5-axis robotic milling & chairside master ceramist try-ins
+                      Full-coverage porcelain & gold biocompatible caps
                     </span>
                   </div>
-                </a>
+                </Link>
+
+                {/* View All Treatments Link */}
+                <div className="pt-2 border-t border-slate-100">
+                  <Link
+                    href="/treatments"
+                    onClick={() => setTreatmentsOpen(false)}
+                    className="flex items-center justify-between p-2 rounded-xl bg-slate-50 hover:bg-primary/5 text-xs font-bold text-primary transition-colors"
+                  >
+                    <span>View All 6 Specialized Procedures</span>
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -332,8 +344,8 @@ export default function Header() {
           </div>
 
           <nav className="space-y-1 font-bold text-sm text-slate-800">
-            <a
-              href="#clinical-cases"
+            <Link
+              href="/treatments"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
@@ -342,7 +354,7 @@ export default function Header() {
                 <span>Treatments & Implants</span>
               </span>
               <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
-            </a>
+            </Link>
 
             <a
               href="#cost-calculator-section"
