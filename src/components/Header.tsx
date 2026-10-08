@@ -161,91 +161,239 @@ export default function Header() {
 
             {treatmentsOpen && (
               <div
-                className="absolute top-full left-0 w-96 bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-3 space-y-1.5 animate-in fade-in zoom-in-95 duration-150 z-50"
+                className="absolute top-full -left-20 w-[720px] bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-5 animate-in fade-in zoom-in-95 duration-150 z-50"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <Link
-                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                  href="/treatments/hollywood-smile"
-                  onClick={() => setTreatmentsOpen(false)}
-                >
-                  <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-[20px]">auto_awesome</span>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900 group-hover:text-[#211164]">
-                      Hollywood Smile Makeover
+                <div className="grid grid-cols-2 gap-4 pb-4 border-b border-slate-100">
+                  {/* Category 1: Surgery & Implants */}
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-teal-700 px-2 py-0.5 rounded bg-teal-50 inline-block mb-1">
+                      ⚙️ Surgery & Implants
                     </span>
-                    <span className="text-[11px] text-slate-500 font-normal leading-tight">
-                      16-20 Ivoclar Vivadent E-Max® ultra-thin porcelain laminates
-                    </span>
-                  </div>
-                </Link>
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/dental-implants"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-sky-600 mt-0.5 group-hover:text-primary">dentistry</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Dental Implants (Swiss Straumann®)
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          All-on-4 / All-on-6 immediate load
+                        </span>
+                      </div>
+                    </Link>
 
-                <Link
-                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                  href="/treatments/dental-implants"
-                  onClick={() => setTreatmentsOpen(false)}
-                >
-                  <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-[20px]">dentistry</span>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900 group-hover:text-[#211164]">
-                      All-on-4 / All-on-6 Implants
-                    </span>
-                    <span className="text-[11px] text-slate-500 font-normal leading-tight">
-                      Swiss Straumann® SLA active guided flapless surgery
-                    </span>
-                  </div>
-                </Link>
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/oral-surgery"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-teal-600 mt-0.5 group-hover:text-primary">medical_services</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Oral & Maxillofacial Surgery
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          3D bone grafting & sinus lift
+                        </span>
+                      </div>
+                    </Link>
 
-                <Link
-                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                  href="/treatments/dental-veneers"
-                  onClick={() => setTreatmentsOpen(false)}
-                >
-                  <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-[20px]">diamond</span>
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/sedation-anesthesia"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-indigo-600 mt-0.5 group-hover:text-primary">bedtime</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          General Anesthesia & Sedation
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          Painless fear-free twilight sleep
+                        </span>
+                      </div>
+                    </Link>
                   </div>
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900 group-hover:text-[#211164]">
-                      Monolithic Zirconia Full Bridges
-                    </span>
-                    <span className="text-[11px] text-slate-500 font-normal leading-tight">
-                      German Katana™ multilayer biocompatible aesthetic crowns
-                    </span>
-                  </div>
-                </Link>
 
-                <Link
-                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                  href="/treatments/dental-crowns"
-                  onClick={() => setTreatmentsOpen(false)}
-                >
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 group-hover:bg-[#211164] group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-[20px]">crown</span>
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-slate-900 group-hover:text-[#211164]">
-                      Dental Crowns & Restorations
+                  {/* Category 2: Aesthetic & Smile */}
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-700 px-2 py-0.5 rounded bg-amber-50 inline-block mb-1">
+                      ✨ Aesthetic & Cosmetic
                     </span>
-                    <span className="text-[11px] text-slate-500 font-normal leading-tight">
-                      Full-coverage porcelain & gold biocompatible caps
-                    </span>
-                  </div>
-                </Link>
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/hollywood-smile"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-amber-600 mt-0.5 group-hover:text-primary">auto_awesome</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Hollywood Smile Makeover
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          20 Ivoclar Vivadent E-Max® veneers
+                        </span>
+                      </div>
+                    </Link>
 
-                {/* View All Treatments Link */}
-                <div className="pt-2 border-t border-slate-100">
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/aesthetic-dentistry"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-teal-600 mt-0.5 group-hover:text-primary">magic_button</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Aesthetic Dentistry & Whitening
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          Philips Zoom laser & composite artistry
+                        </span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/orthodontics"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-purple-600 mt-0.5 group-hover:text-primary">straighten</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Orthodontics & Clear Aligners
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          Invisible teeth straightening
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+
+                  {/* Category 3: Prosthetics & Restorations */}
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-rose-700 px-2 py-0.5 rounded bg-rose-50 inline-block mb-1">
+                      👑 Prosthetics & Crowns
+                    </span>
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/dental-veneers"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-rose-600 mt-0.5 group-hover:text-primary">diamond</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Monolithic Zirconia Bridges
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          German Katana™ 1200+ MPa strength
+                        </span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/dental-crowns"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-emerald-600 mt-0.5 group-hover:text-primary">crown</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Dental Crowns & Restorations
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          Full-coverage CAD/CAM porcelain caps
+                        </span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/restorative-dentistry"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-cyan-600 mt-0.5 group-hover:text-primary">build</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Conservative & Restorative Care
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          Nano-composite fillings & ceramic inlays
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+
+                  {/* Category 4: Specialized & Diagnostics */}
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-blue-700 px-2 py-0.5 rounded bg-blue-50 inline-block mb-1">
+                      🔬 Specialized & Endodontics
+                    </span>
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/root-canal"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-blue-600 mt-0.5 group-hover:text-primary">biotech</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Endodontics (Root Canal)
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          Microscopic single-visit root therapy
+                        </span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/periodontics"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-emerald-600 mt-0.5 group-hover:text-primary">spa</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          Periodontology (Gum Care)
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          Laser gum recession & deep pocket care
+                        </span>
+                      </div>
+                    </Link>
+
+                    <Link
+                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
+                      href="/treatments/digital-radiology"
+                      onClick={() => setTreatmentsOpen(false)}
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-slate-700 mt-0.5 group-hover:text-primary">perm_media</span>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-primary">
+                          3D CBCT Volumetric Tomography
+                        </span>
+                        <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          On-site Morita ultra low-dose diagnostics
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* View All Treatments Hub Footer */}
+                <div className="pt-3 flex items-center justify-between">
+                  <span className="text-[11px] text-slate-500 font-medium">
+                    All treatments backed by official manufacturer warranty passport.
+                  </span>
                   <Link
                     href="/treatments"
                     onClick={() => setTreatmentsOpen(false)}
-                    className="flex items-center justify-between p-2 rounded-xl bg-slate-50 hover:bg-primary/5 text-xs font-bold text-primary transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1b0d52] hover:bg-[#281570] text-xs font-bold text-white transition-colors shadow-xs"
                   >
-                    <span>View All 6 Specialized Procedures</span>
-                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                    <span>View All 12 Departments →</span>
                   </Link>
                 </div>
               </div>
@@ -344,17 +492,118 @@ export default function Header() {
           </div>
 
           <nav className="space-y-1 font-bold text-sm text-slate-800">
-            <Link
-              href="/treatments"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
-            >
-              <span className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-teal-600 text-[20px]">auto_awesome</span>
-                <span>Treatments & Implants</span>
-              </span>
-              <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
-            </Link>
+            {/* Mobile Treatments Accordion */}
+            <div>
+              <button
+                type="button"
+                onClick={() => setTreatmentsOpen(!treatmentsOpen)}
+                className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors text-left"
+              >
+                <span className="flex items-center gap-2.5">
+                  <span className="material-symbols-outlined text-teal-600 text-[20px]">auto_awesome</span>
+                  <span>12 Clinical Treatment Departments</span>
+                </span>
+                <span className={`material-symbols-outlined text-slate-400 text-sm transition-transform duration-200 ${treatmentsOpen ? 'rotate-90' : ''}`}>
+                  chevron_right
+                </span>
+              </button>
+
+              {treatmentsOpen && (
+                <div className="pl-6 pr-2 py-2 space-y-1 bg-slate-50/70 rounded-xl my-1 border border-slate-100">
+                  <Link
+                    href="/treatments"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1.5 text-xs font-bold text-primary hover:underline"
+                  >
+                    ✦ View All 12 Treatments Overview
+                  </Link>
+                  <Link
+                    href="/treatments/dental-implants"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Dental Implants (Swiss Straumann®)
+                  </Link>
+                  <Link
+                    href="/treatments/hollywood-smile"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Hollywood Smile Makeover (E-Max®)
+                  </Link>
+                  <Link
+                    href="/treatments/oral-surgery"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Oral & Maxillofacial Surgery
+                  </Link>
+                  <Link
+                    href="/treatments/dental-veneers"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Monolithic Zirconia Full Bridges
+                  </Link>
+                  <Link
+                    href="/treatments/dental-crowns"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Dental Crowns & Restorations
+                  </Link>
+                  <Link
+                    href="/treatments/root-canal"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Endodontics (Microscopic Root Canal)
+                  </Link>
+                  <Link
+                    href="/treatments/sedation-anesthesia"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • General Anesthesia & Sedation
+                  </Link>
+                  <Link
+                    href="/treatments/aesthetic-dentistry"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Aesthetic Dentistry & Whitening
+                  </Link>
+                  <Link
+                    href="/treatments/restorative-dentistry"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Conservative & Restorative Care
+                  </Link>
+                  <Link
+                    href="/treatments/periodontics"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Periodontology (Laser Gum Care)
+                  </Link>
+                  <Link
+                    href="/treatments/orthodontics"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • Orthodontics & Clear Aligners
+                  </Link>
+                  <Link
+                    href="/treatments/digital-radiology"
+                    onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
+                    className="block py-1 text-xs text-slate-700 hover:text-primary"
+                  >
+                    • 3D CBCT Volumetric Tomography
+                  </Link>
+                </div>
+              )}
+            </div>
 
             <a
               href="#cost-calculator-section"

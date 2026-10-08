@@ -7,12 +7,19 @@ import { Link } from '@/navigation';
 import { getTreatmentDetail, getTreatmentsData } from '@/data/treatmentsData';
 
 const VALID_SLUGS = [
-  'aesthetic-dentistry',
-  'hollywood-smile',
-  'dental-veneers',
-  'dental-crowns',
-  'dental-implants',
+  'oral-surgery',
   'root-canal',
+  'aesthetic-dentistry',
+  'sedation-anesthesia',
+  'dental-implants',
+  'restorative-dentistry',
+  'hollywood-smile',
+  'orthodontics',
+  'pediatric-dentistry',
+  'periodontics',
+  'dental-veneers',
+  'digital-radiology',
+  'dental-crowns',
 ];
 
 export default function TreatmentDetailPage({
@@ -164,6 +171,29 @@ export default function TreatmentDetailPage({
             </div>
           </div>
         </section>
+
+        {/* 2.5 Clinical Operatory Photography Showcase */}
+        <div className="relative w-full h-64 sm:h-80 lg:h-96 rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
+          <img
+            src={data.image}
+            alt={`${data.name} Clinical Operatory Suite at Dent Aktif`}
+            className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex items-end p-6 sm:p-10">
+            <div className="text-white space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/25 backdrop-blur-md border border-teal-400/40 text-teal-300 text-xs font-bold">
+                <span className="material-symbols-outlined text-[16px]">verified</span>
+                <span>Dent Aktif Hospital • Official Operatory Suite</span>
+              </div>
+              <h3 className="font-headline text-xl sm:text-3xl font-black text-white">
+                {data.name} — Clinical Documentation & Surgical Suite
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                Conducted under surgical magnification with genuine manufacturer warranty passports in Levent, Istanbul.
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* 3. Clinical Overview & Key Highlights */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">

@@ -30,17 +30,22 @@ export default function Footer() {
           {/* Column 2: Clinical Services */}
           <div className="space-y-3">
             <h4 className="font-headline text-xs font-bold uppercase tracking-widest text-white">
-              Surgical Treatments
+              12 Clinical Departments
             </h4>
-            <ul className="space-y-2 text-slate-400">
+            <ul className="space-y-1.5 text-slate-400 text-xs">
               <li>
-                <Link className="hover:text-white transition-colors" href="/treatments/hollywood-smile">
-                  E-Max Feldspathic Veneers
+                <Link className="hover:text-white transition-colors" href="/treatments/dental-implants">
+                  Swiss Straumann® Implants
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-white transition-colors" href="/treatments/dental-implants">
-                  Straumann® All-on-4 Implants
+                <Link className="hover:text-white transition-colors" href="/treatments/hollywood-smile">
+                  Hollywood Smile (E-Max®)
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-white transition-colors" href="/treatments/oral-surgery">
+                  Oral & Maxillofacial Surgery
                 </Link>
               </li>
               <li>
@@ -50,12 +55,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link className="hover:text-white transition-colors" href="/treatments/dental-crowns">
-                  Dental Crowns & Restorations
+                  Dental Crowns & Caps
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-teal-300 font-bold transition-colors" href="/treatments">
-                  View All Procedures →
+                <Link className="hover:text-white transition-colors" href="/treatments/root-canal">
+                  Microscopic Root Canal
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-white transition-colors" href="/treatments/sedation-anesthesia">
+                  General Anesthesia & Sedation
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-teal-300 font-bold transition-colors pt-1 block" href="/treatments">
+                  View All 12 Departments Directory →
                 </Link>
               </li>
             </ul>

@@ -1,24 +1,478 @@
 /* ==========================================================================
    DENT AKTIF CLINIC GLOBAL - MULTILINGUAL TREATMENTS DATA
-   Full professional dental tourism content in EN, TR, DE, RU
+   Full 12 Clinical Departments from dentaktif.com in EN, TR, DE, RU
    ========================================================================== */
 
-export const treatmentsI18n = {
+export const treatmentsI18n: Record<string, any> = {
+  // --------------------------------------------------------------------------
+  // ENGLISH (EN)
+  // --------------------------------------------------------------------------
+  en: {
+    pageHeader: {
+      badge: 'World-Class Dental Care & Full Clinical Portfolio',
+      title: 'Our 12 Specialized Dental Treatment Departments',
+      desc: 'Explore our complete hospital departments in Istanbul equipped with in-house German CAD/CAM 3D milling, Morita CBCT tomography, and certified surgical faculties.'
+    },
+    filterTabs: [
+      { id: 'all', label: 'All 12 Treatments' },
+      { id: 'surgery-implants', label: '⚙️ Surgery & Implants' },
+      { id: 'aesthetic-cosmetic', label: '✨ Aesthetic & Smile' },
+      { id: 'prosthetics', label: '👑 Veneers & Crowns' },
+      { id: 'general-care', label: '🔬 General & Endodontics' },
+      { id: 'specialized', label: '🛡️ Specialized & Diagnostics' }
+    ],
+    ui: {
+      stay: 'Stay in Istanbul:',
+      warranty: 'Warranty:',
+      highlightsTitle: 'Key Procedure Highlights:',
+      viewDetails: 'View Details & Plan →',
+      bookNow: 'Book Appointment →',
+      breadcrumbHome: 'Home',
+      breadcrumbTreatments: 'Treatments',
+      quoteBtn: 'Get Free Quote & 3D Plan →',
+      whatsappBtn: 'WhatsApp Doctor Line',
+      estimatorTitle: 'Interactive Treatment Estimator',
+      teethCount: 'Target Teeth Count:',
+      teeth: 'Teeth',
+      vitoTransfer: 'VIP Vito Transfer:',
+      vitoIncluded: 'FREE Included',
+      hotelStay: '5-Star Hotel Stay:',
+      hotelIncluded: 'FREE Included',
+      hotelPartner: 'Partner Rates',
+      whatIs: 'Procedure Overview',
+      keyHighlights: 'Clinical Advantages & Safety',
+      insightsBadge: 'Specialist Clinical Insights',
+      insightsTitle: 'Detailed Medical Guide for',
+      stepBadge: 'Your Clinical Journey',
+      stepTitle: 'Your 3-Step Journey in Istanbul',
+      vipBadge: 'All-Inclusive Hospital Care',
+      vipTitle: 'VIP Comfort & Luxury Benefits',
+      vipDesc: 'Enjoy private chauffeured Mercedes Vito airport and clinic transfers along with 5-star Bosphorus hotel stays for a stress-free medical vacation.',
+      matrixBadge: 'Compare Clinical Options',
+      matrixTitle: 'Dental Treatment Comparison Matrix',
+      matrixDesc: 'Compare mechanical strength, stay duration, and translucency to choose your ideal restoration.',
+      reviewsBadge: 'Verified Reviews',
+      reviewsTitle: 'Customer Comments & Real Patient Stories',
+      faqTitle: 'Frequently Asked Questions',
+      bottomCtaTitle: 'Ready for Your Smile Transformation?',
+      bottomCtaDesc: 'Upload your dental X-ray or WhatsApp us to receive a personalized surgical treatment plan and binding quotation within 24 hours.',
+      bottomCtaBtn: 'Start Free 3D Consultation Now →'
+    },
+    matrixColumns: {
+      procedure: 'Procedure Name',
+      strength: 'Strength / Tech',
+      stay: 'Stay in Istanbul',
+      warranty: 'Warranty',
+      translucency: 'Aesthetics',
+      prep: 'Tooth Prep'
+    },
+    vipTabs: [
+      {
+        title: '01 – Certified Surgical Care',
+        subtitle: '18+ Years Chief Surgical Leadership',
+        desc: 'European hospital sterilization standards, chief oral surgeons, and Ministry of Health licensed international clinical suites.',
+        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg'
+      },
+      {
+        title: '02 – VIP Chauffeur Transfer',
+        subtitle: 'Private Mercedes-Benz Vito',
+        desc: 'Door-to-door private airport and hospital clinic transfers with bilingual VIP drivers for stress-free travel.',
+        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/11/DENT-AKTIF-VITO.jpg'
+      },
+      {
+        title: '03 – 5-Star Hotel Stay',
+        subtitle: 'Luxury Bosphorus & Levent Partners',
+        desc: 'Relax in peaceful 5-star partner hotels with high-speed internet and personal international coordinators at your service.',
+        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Basliksiz-1-1.png'
+      }
+    ],
+    items: {
+      'oral-surgery': {
+        name: 'Oral & Maxillofacial Surgery',
+        category: 'surgery-implants',
+        badge: 'Cerrahi Diş Tedavileri',
+        icon: '🏥',
+        tagline: 'Advanced Surgical Bone Augmentation & Sinus Lift in Istanbul',
+        heroDesc: 'Comprehensive oral and maxillofacial surgeries including 3D guided sinus lifting, autogenous bone grafting, complex cyst enucleations, and impacted wisdom tooth extractions performed by our faculty surgeons.',
+        stay: '3 - 5 Days',
+        warranty: 'Lifetime Surgical Guarantee',
+        anesthesia: 'Computerized Painless Anesthesia & Conscious IV Sedation',
+        material: 'Swiss Geistlich Bio-Oss® Bone Matrix & Titanium Membranes',
+        overview: 'Oral and maxillofacial surgery deals with complex anatomical jawbone deficiencies, severe atrophy, and impacted teeth to reconstruct an optimal foundation for implants and permanent dental health.',
+        highlights: [
+          'Pre-surgical 3D CBCT bone density mapping & nerve canal tracing',
+          'Minimally invasive piezosurgery ultrasonic bone cutting',
+          'Open & closed sinus lift protocols with Swiss Bio-Oss® collagen',
+          'Rapid healing with PRF (Platelet-Rich Fibrin) biological growth factors'
+        ],
+        steps: [
+          { step: '01', title: '3D Volumetric CBCT Tomography', desc: 'Precision millimetric mapping of maxillary sinuses and mandibular nerve canals.' },
+          { step: '02', title: 'Ultrasonic Piezosurgery', desc: 'Vibration-guided bone grafting and gentle sinus elevation without soft-tissue trauma.' },
+          { step: '03', title: 'Biological PRF Acceleration', desc: 'Application of autologous growth factors to accelerate bone consolidation.' }
+        ],
+        faq: [
+          { q: 'Is jaw bone surgery or sinus lifting painful?', a: 'No. With computer-guided local anesthesia and sedation, the procedure is completely pain-free, with postoperative healing supported by anti-inflammatory protocols.' },
+          { q: 'Can implants be placed simultaneously with bone grafting?', a: 'Yes. In cases with adequate primary stability, guided implant placement and bone augmentation are completed in the exact same session.' }
+        ]
+      },
+
+      'dental-implants': {
+        name: 'Dental Implant Treatments',
+        category: 'surgery-implants',
+        badge: 'İmplant Diş Tedavileri',
+        icon: '⚙️',
+        tagline: 'Swiss Straumann® Immediate-Load Implants & All-on-4 / All-on-6',
+        heroDesc: 'Replace missing teeth with world-renowned Swiss Straumann® Roxolid and SLActive implants. From single-tooth keyhole surgeries to full-arch All-on-4 immediate loading with fixed bridges.',
+        stay: '5 Days (Phase 1)',
+        warranty: 'Lifetime International Guarantee Passport',
+        anesthesia: 'Painless Computer-Controlled Anesthesia / IV Sedation',
+        material: 'Original Swiss Straumann® Titanium-Zirconium Alloy',
+        overview: 'Dental implants act as biocompatible artificial tooth roots integrated directly into jawbone, permanently halting facial bone loss and restoring 100% natural chewing strength.',
+        highlights: [
+          'Official Swiss Straumann® Platinum Center of Excellence',
+          'Computer-guided flapless 3D stent surgery (no scalpel, no stitches)',
+          'Immediate temporary fixed aesthetic bridge within 48-72 hours',
+          'Lifetime manufacturer warranty card with international barcode verification'
+        ],
+        steps: [
+          { step: '01', title: '3D Tomography & Digital Stent', desc: 'Virtual computer simulation of optimal implant angulation and bone density.' },
+          { step: '02', title: 'Keyhole Implant Surgery', desc: '10 to 15-minute gentle placement per implant using computer-guided surgical guides.' },
+          { step: '03', title: 'Immediate Fixed Temporary Bridge', desc: 'Placement of high-aesthetic temporary teeth during the bone integration period.' }
+        ],
+        faq: [
+          { q: 'Will I be left without teeth during healing?', a: 'Never. Our immediate-loading protocol equips you with aesthetic, fixed temporary teeth before you depart Istanbul.' },
+          { q: 'What is the success rate of Straumann implants at Dent Aktif?', a: 'Our documented clinical osseointegration success rate exceeds 99.2% over 18+ years of surgical practice.' }
+        ]
+      },
+
+      'sedation-anesthesia': {
+        name: 'General Anesthesia & Sedation',
+        category: 'specialized',
+        badge: 'Genel Anestezi ve Sedasyon',
+        icon: '😴',
+        tagline: '100% Fear-Free, Painless Dentistry for Dental Phobia Patients',
+        heroDesc: 'Eliminate all dental anxiety and phobia. Our certified hospital operating suites and licensed medical anesthesiologists provide conscious IV twilight sedation and general anesthesia for stress-free treatment.',
+        stay: '1 - 3 Days',
+        warranty: 'Hospital Safety Certified',
+        anesthesia: 'Conscious IV Twilight Sedation & General Anesthesia',
+        material: 'Hospital-Grade Hemodynamic Monitoring & Rapid-Recovery Agents',
+        overview: 'Sedation dentistry allows patients with severe gag reflexes, dental phobia, or those undergoing extensive full-mouth surgical rehabilitations to complete procedures peacefully while in a relaxed, sleep-like state.',
+        highlights: [
+          'Administered directly by hospital specialist anesthesiologists',
+          'Continuous real-time ECG, pulse oximetry, and blood pressure monitoring',
+          'No memory of sound, drills, or surgical instruments after awakening',
+          'Rapid wake-up within 20 minutes with zero post-operative grogginess'
+        ],
+        steps: [
+          { step: '01', title: 'Pre-Anesthetic Medical Assessment', desc: 'Evaluation of blood biochemistry, cardiovascular profile, and medical history.' },
+          { step: '02', title: 'Gentle IV Twilight Induction', desc: 'Patient gently enters a deeply relaxing, anxiety-free sleep state.' },
+          { step: '03', title: 'Rapid Recovery & Discharge', desc: 'Smooth awakening in our private recovery suite with dedicated nursing care.' }
+        ],
+        faq: [
+          { q: 'Is dental sedation safe?', a: 'Extremely safe. It is monitored in full accordance with European hospital anesthesia standards with dedicated anesthesiologists.' },
+          { q: 'Can all my dental work be completed in one sedation session?', a: 'Yes. Up to 8-10 implants or a full arch preparation can be safely completed in a single 2 to 3-hour sedation session.' }
+        ]
+      },
+
+      'hollywood-smile': {
+        name: 'Hollywood Smile Makeover',
+        category: 'aesthetic-cosmetic',
+        badge: 'Kozmetik Uygulamalar',
+        icon: '💎',
+        tagline: 'Signature Smile Transformations with 20 Ivoclar Vivadent E-Max® Veneers',
+        heroDesc: 'Transform your facial harmony with bespoke, ultra-thin Ivoclar Vivadent E-Max® porcelain laminates. Digital smile design, chairside master ceramist try-in, and natural translucency handcrafted in 5 days.',
+        stay: '5 Days (2 Clinical Sessions)',
+        warranty: 'Lifetime International Warranty Passport',
+        anesthesia: 'Painless Wand® Micro-Delivery Anesthesia',
+        material: 'Genuine Liechtenstein Ivoclar E-Max® Press Ingots',
+        overview: 'Hollywood Smile is a comprehensive aesthetic smile architecture custom-designed to match your lips, facial midline, and skin undertones with lifelike light transmission and zero artificial chiclet look.',
+        highlights: [
+          '0.3mm ultra-thin minimal enamel preparation',
+          'Live 3D intraoral mock-up preview before any tooth is touched',
+          'Chairside Master Ceramist shade grading from natural to BL1 Bleach',
+          'Permanent high-strength adhesive resin bonding'
+        ],
+        steps: [
+          { step: '01', title: 'Digital Smile Design & Live Mock-Up', desc: 'Interactive smile preview directly on your teeth under studio lighting.' },
+          { step: '02', title: 'Micro-Preparation & In-House Milling', desc: '0.3mm gentle enamel conditioning and German 5-axis robotic milling.' },
+          { step: '03', title: 'Master Ceramist Glaze & Bonding', desc: 'Chairside shade customization and permanent high-strength adhesive cementation.' }
+        ],
+        faq: [
+          { q: 'Will my teeth look overly white or artificial?', a: 'No. Our Master Ceramists hand-layer multi-gradient translucency into every veneer, replicating natural tooth anatomy and light reflections.' },
+          { q: 'Do E-Max veneers stain from coffee or wine?', a: 'Never. Non-porous E-Max glass ceramics are 100% stain-resistant and will never discolor over time.' }
+        ]
+      },
+
+      'aesthetic-dentistry': {
+        name: 'Aesthetic Dentistry & Smile Design',
+        category: 'aesthetic-cosmetic',
+        badge: 'Estetik Diş Tedavileri',
+        icon: '✨',
+        tagline: 'Laser Teeth Whitening, Digital Smile Design & Composite Artistry',
+        heroDesc: 'Enhance your natural smile with non-invasive aesthetic procedures. Office-grade Philips Zoom laser whitening, artistic composite bonding, and painless laser gum contouring in just 1 to 3 days.',
+        stay: '1 - 3 Days',
+        warranty: '10-Year Clinical Warranty',
+        anesthesia: 'Needle-Free Computerized Topical Anesthesia',
+        material: 'Philips Zoom WhiteSpeed Laser & Tokuyama® Nano-Hybrid Resins',
+        overview: 'Aesthetic dentistry focuses on fine-tuning natural tooth shape, enamel shade, and gum symmetry using micro-invasive techniques that preserve 100% of natural tooth structure.',
+        highlights: [
+          'Up to 8 shades whiter with 45-minute Philips Zoom laser power',
+          'No-prep aesthetic composite veneers for chips and minor gaps',
+          'Laser gingivoplasty to correct uneven gumlines and gummy smiles',
+          'Same-day immediate aesthetic confidence transformation'
+        ],
+        steps: [
+          { step: '01', title: 'Shade Mapping & Gum Protection', desc: 'Digital spectrophotometer color baseline and protective gingival barrier application.' },
+          { step: '02', title: 'Laser Activation Cycles', desc: 'Three 15-minute Philips Zoom laser cycles for maximum enamel brightness.' },
+          { step: '03', title: 'Enamel Remineralization', desc: 'Application of ACP relief gel to eliminate post-whitening sensitivity.' }
+        ],
+        faq: [
+          { q: 'How long do laser whitening results last?', a: 'With good oral hygiene and periodic home touch-ups, whitening results typically last 2 to 3 years.' }
+        ]
+      },
+
+      'dental-veneers': {
+        name: 'Prosthetic Dentistry & Zirconia Bridges',
+        category: 'prosthetics',
+        badge: 'Protetik Tedaviler',
+        icon: '👑',
+        tagline: 'High-Strength Monolithic Kuraray Katana™ Multilayer Zirconia Restorations',
+        heroDesc: 'Reconstruct badly worn, broken, or discolored teeth with high-translucency monolithic zirconia full bridges and crowns. German CAD/CAM 15-micron robotic milling for flawless marginal fit.',
+        stay: '4 - 5 Days',
+        warranty: '20-Year Guarantee Certificate',
+        anesthesia: 'Painless Local Anesthesia',
+        material: 'German Katana™ Ultra-Translucent Multilayer Zirconia',
+        overview: 'Modern prosthodontics replaces compromised tooth structures with biocompatible monolithic zirconia that combines 1200+ MPa diamond-grade fracture resistance with natural aesthetic translucency.',
+        highlights: [
+          '1200+ MPa flexural strength eliminating chipping or porcelain fracture',
+          'Laser gingival margin scanning eliminating dark metal margins at gums',
+          '15-micron precision marginal seal preventing bacterial leakage',
+          'Ideal for heavy grinders (bruxism) and extensive full-mouth bridges'
+        ],
+        steps: [
+          { step: '01', title: '3Shape TRIOS® Intraoral Scan', desc: 'Optical 3D scanning without messy impression trays or gagging.' },
+          { step: '02', title: '5-Axis In-House Robotic Milling', desc: 'Robotic milling of Katana multilayer blocks directly in our hospital lab.' },
+          { step: '03', title: 'Occlusal Try-in & Permanent Fit', desc: 'Dynamic bite balance verification and permanent resin cementation.' }
+        ],
+        faq: [
+          { q: 'Is zirconia better than traditional porcelain-fused-to-metal (PFM)?', a: 'Far superior. Zirconia is 100% metal-free, biocompatible with gums, never produces grey gum lines, and will never chip.' }
+        ]
+      },
+
+      'root-canal': {
+        name: 'Endodontics & Root Canal Care',
+        category: 'general-care',
+        badge: 'Endodonti – Kanal Tedavisi',
+        icon: '🔬',
+        tagline: 'Microscopic Painless Root Canal Therapy to Save Natural Teeth',
+        heroDesc: 'Save deeply decayed or infected teeth from extraction in a single comfortable visit. Our endodontic faculty utilizes high-magnification surgical operating microscopes and thermal biocompatible filling systems.',
+        stay: '1 Day (Single Session)',
+        warranty: '10-Year Clinical Guarantee',
+        anesthesia: '100% Painless Computerized Anesthesia',
+        material: 'Biocompatible Warm Gutta-Percha & Rotary Nickel-Titanium Files',
+        overview: 'Endodontic therapy cleanses infected pulp tissue from inside root canals, sterilizes micro-channels under surgical magnification, and seals roots to prevent tooth loss.',
+        highlights: [
+          'High-power dental operating microscope for finding hidden canals',
+          'Single-session completed in under 60 minutes with zero pain',
+          'Preserves your natural tooth root for lifetime function',
+          'Instant relief from throbbing pain and hot-cold sensitivity'
+        ],
+        steps: [
+          { step: '01', title: 'Digital Periapical Diagnostics', desc: 'High-contrast imaging to trace canal curvature and infection apex.' },
+          { step: '02', title: 'Microscopic Debridement', desc: 'Ultrasonic rotary cleaning and biocompatible antibacterial irrigation.' },
+          { step: '03', title: 'Thermal 3D Canal Obturation', desc: 'Hermetic three-dimensional sealing with warm gutta-percha.' }
+        ],
+        faq: [
+          { q: 'Is root canal treatment painful?', a: 'Not at all. With modern computerized anesthesia, the sensation is no different than receiving a simple filling.' }
+        ]
+      },
+
+      'restorative-dentistry': {
+        name: 'Conservative & Restorative Dentistry',
+        category: 'general-care',
+        badge: 'Konservatif Tedaviler',
+        icon: '🛡️',
+        tagline: 'Biocompatible Nano-Hybrid Composite Fillings & Ceramic Inlays/Onlays',
+        heroDesc: 'Restore cavity-damaged teeth with tooth-colored, toxic-free nano-hybrid composites and lab-crafted ceramic inlays. Micro-invasive restorations that bond seamlessly with natural enamel.',
+        stay: '1 - 2 Days',
+        warranty: '10-Year Guarantee',
+        anesthesia: 'Painless Local Anesthesia',
+        material: 'Tokuyama Asteria® Nano-Composites & IPS e.max® Inlays',
+        overview: 'Conservative dentistry focuses on repairing structural tooth damage and decay while preserving maximum healthy enamel using adhesive biomechanics and biocompatible resins.',
+        highlights: [
+          '100% Mercury-free, BPA-free tooth-shaded restorations',
+          'Nano-hybrid composite resins perfectly matched to enamel shade',
+          'CAD/CAM ceramic inlays and onlays for extensive molar damage',
+          'Re-establishes natural bite fissures and chewing anatomy'
+        ],
+        steps: [
+          { step: '01', title: 'Laser Decay Removal', desc: 'Gentle clearance of decayed tissue while conserving sound enamel.' },
+          { step: '02', title: 'Adhesive Layering Artistry', desc: 'Incremental polychromatic composite layering matching natural dentin and enamel.' },
+          { step: '03', title: 'Diamond Polishing', desc: 'Ultra-smooth surface glaze ensuring resistance to plaque adhesion.' }
+        ],
+        faq: [
+          { q: 'Can I replace my old silver amalgam fillings?', a: 'Yes. We safely remove old dark amalgam fillings under rubber dam isolation and replace them with natural tooth-colored composites.' }
+        ]
+      },
+
+      'periodontics': {
+        name: 'Periodontology & Gum Disease Therapy',
+        category: 'specialized',
+        badge: 'Periodontoloji – Diş Eti Tedavisi',
+        icon: '🌿',
+        tagline: 'Laser Gingivectomy, Deep Scaling & Gum Recession Connective Grafts',
+        heroDesc: 'Treat bleeding gums, periodontal pockets, and gum recession. Our periodontists utilize diode lasers and regenerative microsurgery to halt bone loss, cure halitosis, and perfect gum aesthetics.',
+        stay: '2 - 4 Days',
+        warranty: 'Periodontal Stability Protocol',
+        anesthesia: 'Needle-Free Computerized Anesthesia',
+        material: 'Diode Soft-Tissue Laser & Emdogain® Enamel Matrix Proteins',
+        overview: 'Periodontology treats the supporting structures of teeth (gums and alveolar bone). Healthy gums are the essential biological foundation for veneers and implants.',
+        highlights: [
+          'Biolase diode laser debridement eliminating pathogenic bacteria',
+          'Laser gummy smile correction (painless gingivectomy in 20 mins)',
+          'Microsurgical connective tissue grafting for receding gums',
+          'Halitosis (chronic bad breath) elimination protocol'
+        ],
+        steps: [
+          { step: '01', title: 'Periodontal Pocket Probing', desc: 'Detailed 6-point charting to measure gum attachment and bone height.' },
+          { step: '02', title: 'Ultrasonic & Laser Deep Scaling', desc: 'Subgingival ultrasonic cleaning combined with laser bacterial decontamination.' },
+          { step: '03', title: 'Laser Contour & Biostimulation', desc: 'Symmetrical gumline shaping and cellular regeneration stimulation.' }
+        ],
+        faq: [
+          { q: 'Can gum disease cause dental implants to fail?', a: 'Yes. Treating periodontal bacteria prior to implant placement is mandatory to ensure long-term osseointegration and prevent peri-implantitis.' }
+        ]
+      },
+
+      'orthodontics': {
+        name: 'Orthodontics & Clear Aligners',
+        category: 'specialized',
+        badge: 'Ortodonti – Çapraşık Diş Tedavisi',
+        icon: '📐',
+        tagline: 'Discreet Invisible Clear Aligners & Digital Crowding Correction',
+        heroDesc: 'Straighten crooked or misaligned teeth invisibly. Custom 3D laser-printed clear aligners planned digitally with 3Shape software for adults seeking orthodontic harmony without metal brackets.',
+        stay: '2 - 3 Days (Initial Planning & Delivery)',
+        warranty: 'Orthodontic Alignment Guarantee',
+        anesthesia: 'Non-Invasive / Zero Anesthesia Required',
+        material: 'Medical-Grade SmartTrack Biocompatible Clear Polyurethane',
+        overview: 'Orthodontics aligns teeth and corrects bite discrepancies, establishing ideal aesthetics and protecting teeth from abnormal chewing wear and TMJ jaw pain.',
+        highlights: [
+          'Virtually invisible clear aligners removable for eating and hygiene',
+          '3D digital simulation showing final smile alignment before starting',
+          'Accelerated international treatment delivery protocol',
+          'Complete set of aligners delivered during your Istanbul visit'
+        ],
+        steps: [
+          { step: '01', title: 'Optical 3D Intraoral Scan', desc: 'Full jaw digital capture without impressions or discomfort.' },
+          { step: '02', title: 'Digital Treatment Staging', desc: 'Custom software planning of exact tooth movements and aligner phases.' },
+          { step: '03', title: 'Delivery & Wear Protocol', desc: 'Fitting of Phase 1 aligners and delivery of complete travel case series.' }
+        ],
+        faq: [
+          { q: 'Can international patients use clear aligners?', a: 'Yes. After your initial 3-day scan and delivery in Istanbul, progress is easily monitored via remote telemedicine check-ins.' }
+        ]
+      },
+
+      'pediatric-dentistry': {
+        name: 'Pediatric & Family Dental Care',
+        category: 'specialized',
+        badge: 'Pedodonti – Çocuk Diş Tedavisi',
+        icon: '🧸',
+        tagline: 'Gentle, Compassionate Oral Care for Children and Visiting Families',
+        heroDesc: 'Compassionate pediatric dentistry in a warm, welcoming environment. Preventive fissure sealants, painless computerized milk tooth care, and fluoride therapies for traveling families.',
+        stay: '1 - 2 Days',
+        warranty: 'Preventive Care Guarantee',
+        anesthesia: 'Painless Strawberry-Flavored Topical & Sedation',
+        material: 'Bioactive Glass Ionomers & Tooth-Protective Sealants',
+        overview: 'Pedodontics safeguards children’s developing teeth, ensuring healthy permanent tooth eruption and fostering lifelong dental confidence without fear.',
+        highlights: [
+          'Child-friendly treatment rooms with audiovisual entertainment',
+          'Non-invasive fissure sealants protecting chewing molars from cavities',
+          'Space maintainers preserving alignment for permanent teeth',
+          'Painless computerized Wand® anesthesia designed specifically for children'
+        ],
+        steps: [
+          { step: '01', title: 'Friendly Interactive Examination', desc: 'Gentle familiarization with clinic tools in a playful environment.' },
+          { step: '02', title: 'Preventive Fluoride & Sealants', desc: 'Protective resin barrier application over molar deep grooves.' },
+          { step: '03', title: 'Oral Hygiene Empowerment', desc: 'Personalized brushing guidance and bravery celebration award.' }
+        ],
+        faq: [
+          { q: 'Can families combine adult smile makeovers with children check-ups?', a: 'Absolutely. While parents complete their consultations, our pediatric team cares for children in dedicated suites.' }
+        ]
+      },
+
+      'digital-radiology': {
+        name: 'Dental Radiology & 3D Diagnostics',
+        category: 'specialized',
+        badge: 'Radyoloji – Ağız İçi Tanı ve Teşhis',
+        icon: '📡',
+        tagline: 'Ultra Low-Dose Morita 3D CBCT Volumetric Tomography on Premises',
+        heroDesc: 'Millimetric pre-surgical diagnostic accuracy. Our hospital features on-site Morita 3D CBCT cone-beam tomography, low-radiation panoramic imaging, and 3Shape TRIOS® optical scanning.',
+        stay: 'Same-Day Diagnostics (30 Mins)',
+        warranty: 'Radiographic Precision Standard',
+        anesthesia: '100% Non-Invasive Digital Scan',
+        material: 'Morita Veraview X800 3D Tomography & 3Shape TRIOS® 5',
+        overview: 'Advanced dental radiology allows surgeons to inspect nerve pathways, sinus depths, and bone quality in ultra-high 3D volumetric resolution with 80% lower radiation dosage than medical CTs.',
+        highlights: [
+          'Completed chairside in 14 seconds with instant digital diagnosis',
+          '80% lower radiation exposure with pulsed low-dose sensor technology',
+          'Full digital export of DICOM files provided on USB for patient records',
+          'Zero delay — eliminates waiting days for external imaging centers'
+        ],
+        steps: [
+          { step: '01', title: '14-Second Low-Dose 3D Scan', desc: 'Comfortable standing scan with zero claustrophobia or noise.' },
+          { step: '02', title: 'Volumetric Reconstructive Analysis', desc: '3D slicing of bone density, sinus cavities, and nerve pathways.' },
+          { step: '03', title: 'Surgeon Consultation & Export', desc: 'Immediate review with Chief Surgeon and provision of DICOM files.' }
+        ],
+        faq: [
+          { q: 'How safe is cone beam 3D tomography compared to hospital CT scans?', a: 'Our Morita dental CBCT delivers up to 80% less radiation than standard medical CTs, equivalent to a normal 3-hour airline flight.' }
+        ]
+      },
+
+      'dental-crowns': {
+        name: 'Dental Crowns & Restorations',
+        category: 'prosthetics',
+        badge: 'Protetik Tedaviler',
+        icon: '👑',
+        tagline: 'Precision 360° Full Porcelain & Zirconia Aesthetic Caps',
+        heroDesc: 'Rebuild damaged teeth with handcrafted CAD/CAM porcelain and monolithic zirconia crowns. Full 360-degree protection with 15-micron margins for permanent chewing comfort.',
+        stay: '4 - 5 Days',
+        warranty: '15-Year Manufacturer Warranty',
+        anesthesia: 'Painless Local Anesthesia',
+        material: 'Ivoclar E-Max® Ceramic & Katana™ Multilayer Zirconia',
+        overview: 'Dental crowns enclose severely broken or root-treated teeth, providing full protection against biting fractures while restoring perfect aesthetic smile balance.',
+        highlights: [
+          'CAD/CAM 15-micron marginal fit preventing decay underneath',
+          'Natural light translucency matching neighboring natural teeth',
+          'High biocompatibility with zero gum irritation',
+          'Quick 4 to 5-day completion in our in-house hospital lab'
+        ],
+        steps: [
+          { step: '01', title: '3D Optical Digital Scan', desc: 'Instant intraoral capture of tooth preparation.' },
+          { step: '02', title: 'CAD/CAM Robotic Milling', desc: 'Precision milling from single monolithic ceramic block.' },
+          { step: '03', title: 'Permanent Adhesive Bonding', desc: 'High-strength cementation with dynamic bite calibration.' }
+        ],
+        faq: [
+          { q: 'How long do dental crowns last?', a: 'With proper oral hygiene, our monolithic zirconia and E-Max crowns routinely last 15 to 25+ years.' }
+        ]
+      }
+    }
+  },
+
   // --------------------------------------------------------------------------
   // TURKISH (TR)
   // --------------------------------------------------------------------------
   tr: {
     pageHeader: {
-      badge: 'Dünya Standartlarında Diş Tedavisi',
-      title: 'Uzmanlık Alanımız Olan Diş Tedavileri',
-      desc: 'İstanbul\'da en yeni 3D CAD/CAM dijital diş hekimliği teknolojileri ve uzman cerrahlarımızla uygulanan kapsamlı tedavilerimizi keşfedin.'
+      badge: 'Dünya Standartlarında Diş Tedavisi • 12 Klinik Branş',
+      title: 'Uzmanlık Alanımız Olan 12 Diş Tedavisi Branşı',
+      desc: 'İstanbul Levent\'te en yeni 3D CAD/CAM dijital diş hekimliği teknolojileri ve uzman cerrahlarımızla uygulanan 12 ana klinik branşımızı keşfedin.'
     },
     filterTabs: [
-      { id: 'all', label: 'Tüm Tedaviler' },
-      { id: 'cosmetic', label: '✨ Estetik Gülüş' },
-      { id: 'veneers', label: '🦷 Kaplama & Kuron' },
-      { id: 'implants', label: '⚙️ İmplantlar' },
-      { id: 'endodontics', label: '🔬 Kanal Tedavisi' }
+      { id: 'all', label: 'Tüm 12 Tedavi' },
+      { id: 'surgery-implants', label: '⚙️ Cerrahi & İmplant' },
+      { id: 'aesthetic-cosmetic', label: '✨ Estetik & Gülüş' },
+      { id: 'prosthetics', label: '👑 Kaplama & Protez' },
+      { id: 'general-care', label: '🔬 Genel & Kanal' },
+      { id: 'specialized', label: '🛡️ Uzmanlık & Radyoloji' }
     ],
     ui: {
       stay: 'İstanbul\'da Kalış:',
@@ -59,10 +513,10 @@ export const treatmentsI18n = {
     },
     matrixColumns: {
       procedure: 'Tedavi Adı',
-      strength: 'Dayanıklılık',
-      stay: 'İstanbul\'da Kalış',
+      strength: 'Dayanıklılık / Teknoloji',
+      stay: 'Kalış Süresi',
       warranty: 'Garanti',
-      translucency: 'Doğal Şeffaflık',
+      translucency: 'Estetik / Şeffaflık',
       prep: 'Diş Hazırlığı'
     },
     vipTabs: [
@@ -85,965 +539,79 @@ export const treatmentsI18n = {
         image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Basliksiz-1-1.png'
       }
     ],
-    items: {
-      'aesthetic-dentistry': {
-        name: 'Estetik Diş Hekimliği',
-        category: 'cosmetic',
-        badge: 'Gülüş Tasarımı & Beyazlatma',
-        icon: '✨',
-        tagline: 'İstanbul\'da Doğal ve Kusursuz Gülüş Estetiği',
-        heroDesc: 'Doğal diş dokunuzu koruyarak diş rengini, şeklini ve diş eti simetrisini en üst düzeye çıkarın. Lazerle beyazlatma, kompozit bonding ve dijital tasarım ile sadece birkaç günde özgüveninizi tazeleyin.',
-        stay: '1 - 3 Gün',
-        warranty: '10 Yıl Garanti',
-        anesthesia: 'Bilgisayarlı Ağrısız Anestezi',
-        material: 'Philips Zoom Ultra Lazer & Mikro-Kompozit Rezinler',
-        overview: 'Estetik diş hekimliği; dişlerin, diş etlerinin ve dudak çizgisinin yüz hatlarıyla mükemmel uyumunu sağlayan kapsamlı estetik uygulamalar bütünüdür. Minimal invaziv yöntemlerle doğal dişe zarar vermeden ışıldayan bir gülüş sunar.',
-        highlights: [
-          'Ofis tipi Philips Zoom WhiteSpeed lazerle 8 tona kadar beyazlatma',
-          'İşlem öncesi 3D Dijital Gülüş Tasarımı (DSD) canlı simülasyonu',
-          'Diş minesini aşındırmadan uygulanan estetik kompozit bonding',
-          'Diş eti simetrisi sağlayan ağrısız lazer gingivoplasti'
-        ],
-        sections: [
-          {
-            title: 'Estetik Diş Hekimliği Kimler İçin Uygundur?',
-            desc: 'Dişlerinde renk değişimi, kırık, çatlak, şekil bozukluğu veya hafif çapraşıklık olan; diş minesini kestirmeden hızlı ve estetik bir sonuç isteyen her hasta için idealdir.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg'
-          },
-          {
-            title: 'Estetik Diş Hekimliği Fiyatları Ne Kadardır?',
-            desc: 'Fiyatlar uygulanacak işleme (lazer beyazlatma, bonding diş sayısı vb.) göre belirlenir. Avrupa ve İngiltere kliniklerine kıyasla %70\'e varan fiyat avantajı sunulmaktadır.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'Dijital Muayene & 3D Tarama', desc: 'Ağız içi 3D tarayıcı ile ölçü alımı ve yüz hatlarınıza uygun dijital gülüş planlaması.' },
-          { step: '02', title: 'Lazer Uygulaması & Şekillendirme', desc: 'Lazer beyazlatma veya diş eti seviyeleme ile ideal estetik tabanın oluşturulması.' },
-          { step: '03', title: 'Kompozit Sanatı & Parlatma', desc: 'Uzman estetik hekimlerce dişlerin mikron hassasiyetinde şekillendirilip parlatılması.' }
-        ],
-        faq: [
-          { q: 'Lazer diş beyazlatmanın etkisi ne kadar sürer?', a: 'Doğru ağız bakımı ve renklendirici gıdaların dengeli tüketimiyle sonuçlar 2-3 yıl kalıcılığını korur.' },
-          { q: 'Kompozit bonding dişe zarar verir mi?', a: 'Hayır, bonding işleminde doğal diş dokusu aşındırılmaz, dişe zarar vermeyen mikro-invaziv bir yöntemdir.' }
-        ]
-      },
-      'hollywood-smile': {
-        name: 'Hollywood Smile',
-        category: 'cosmetic',
-        badge: 'İmza Tam Gülüş Dönüşümü',
-        icon: '💎',
-        tagline: 'İstanbul\'da Orijinal 20 E-Max® Porselen Lamine ile Ünlü Gülüşü',
-        heroDesc: 'İstanbul\'da kişiye özel 20 adet orijinal Ivoclar Vivadent E-Max® porselen lamine kaplama ile simetrik, inci beyazı ve kalıcı bir gülüşe sadece 5 günde kavuşun.',
-        stay: '5 Gün (2 Randevu)',
-        warranty: 'Ömür Boyu Uluslararası Garanti',
-        anesthesia: 'Ağrısız Lokal Anestezi & Sedasyon Seçeneği',
-        material: 'Orijinal Ivoclar Vivadent E-Max® Press Porselen',
-        overview: 'Hollywood Smile, yüz oranlarınız, dudak yapınız ve ten renginizle birebir uyumlu olarak hazırlanan ultra ince E-Max lamine porselenlerle yapılan kapsamlı bir estetik gülüş mimarisidir.',
-        highlights: [
-          '20 Adet Orijinal Ivoclar Vivadent E-Max® Lamine Porselen',
-          'Ağız içi 3D Dijital Gülüş Tasarımı ve anında prova',
-          '5 Yıldızlı lüks Boğaz oteli konaklaması dahil',
-          'VIP Mercedes Vito özel şoförlü transferler',
-          '3D Tomografi (CBCT) ve panoramik röntgen tetkikleri dahil'
-        ],
-        sections: [
-          {
-            title: 'Hollywood Smile İçin İdeal Adaylar Kimlerdir?',
-            desc: 'Dişlerinde kalıcı lekelenme, aşınma, boyutsal eşitsizlik, aralık (diastema) veya hafif çarpıklık bulunan ve ömür boyu kusursuz bir gülüş arzulayan hastalarımız için mükemmeldir.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp'
-          },
-          {
-            title: 'Türkiye\'de Hollywood Smile Tedavisi Ne Kadar Sürer?',
-            desc: 'Toplam 5 günlük İstanbul seyahatinde 2 ana klinik seansıyla tamamlanır. İlk seansta hazırlık ve geçiciler takılır, 5. günde ise kalıcı E-Max lamineler yapıştırılır.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'VIP Karşılama & 3D Tasarım', desc: 'Havalimanı transferi, kliniğimizde 3D tarama ve yeni gülüşünüzün canlı provası.' },
-          { step: '02', title: 'Minimal Hazırlık & Geçici Dişler', desc: 'Mine yüzeyinde mikro hazırlık ve İstanbul\'un keyfini çıkarmanız için geçici dişlerin takılması.' },
-          { step: '03', title: 'Kalıcı E-Max® Yapıştırma', desc: '5. günde laboratuvarda el işçiliğiyle üretilen porselenlerin kalıcı montajı ve kutlama çekimi.' }
-        ],
-        faq: [
-          { q: 'Dişlerim çok fazla kesilecek mi?', a: 'Hayır! E-Max lamine kaplamalar 0.3mm - 0.5mm inceliğinde olduğu için yalnızca mikro düzeyde temas yapılır.' },
-          { q: 'VIP Hollywood Smile paketine neler dahil?', a: '20 E-Max lamine, 5 gece 5 yıldızlı otel, VIP Vito transferleri, röntgenler ve ömür boyu garanti sertifikası dahildir.' }
-        ]
-      },
-      'dental-veneers': {
-        name: 'Zirkonyum Kaplama',
-        category: 'veneers',
-        badge: 'Yüksek Dayanımlı Zirkonyum',
-        icon: '🦷',
-        tagline: 'Üstün Mekanik Güç ve Doğal Işık Geçirgenliği',
-        heroDesc: 'İstanbul\'da Alman menşeili monolitik zirkonyum bloklarla üretilen kaplamalarımız; metal desteksiz, diş eti dostu ve kırılmaya karşı olağanüstü dirençlidir.',
-        stay: '4 - 5 Gün',
-        warranty: '20 Yıl Garanti',
-        anesthesia: 'Ağrısız Anestezi Sistemi',
-        material: 'Yüksek Şeffaflıklı Alman Zirkonyum Blokları',
-        overview: 'Zirkonyum dioksit, 1200 MPa\'yı aşan bükülme direnci ve doğal diş minesine benzeyen ışık geçirgenliği ile hem ön hem de çiğneme kuvveti yüksek arka dişler için ideal estetik malzemedir.',
-        highlights: [
-          '%100 Metal içermeyen, biyouyumlu Alman Zirkonyum bloklar',
-          'CAD/CAM robotik mikron hassasiyetinde üretim',
-          'Kahve, çay ve sigara lekelerine karşı tam direnç',
-          'Diş eti sınırında gri metal gölgesi oluşturmayan pürüzsüz yüzey'
-        ],
-        sections: [
-          {
-            title: 'Zirkonyum Kaplama Kimler İçin Uygundur?',
-            desc: 'Yoğun diş sıkma (bruksizm) alışkanlığı olan, koyu renkli kanal tedavili dişleri bulunan veya arka bölgede güçlü çiğneme dayanıklılığı arayan hastalar için bir numaralı tercihtir.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'CAD/CAM Dijital Tarama', desc: 'Geleneksel macun ölçü olmadan konforlu 3D dijital tarama.' },
-          { step: '02', title: 'Robotik Frezeleme', desc: 'Kendi laboratuvarımızda mikron hassasiyetinde robotik zirkon kesimi.' },
-          { step: '03', title: 'Fırınlama & Simantasyon', desc: '1500°C fırınlama ve glaze sonrası kalıcı olarak dişe yapıştırılması.' }
-        ],
-        faq: [
-          { q: 'Zirkonyum E-Max\'ten daha mı güçlüdür?', a: 'Evet, zirkonyum 1200+ MPa direnciyle özellikle arka çiğneme dişlerinde en yüksek sağlamlığı sunar.' }
-        ]
-      },
-      'dental-crowns': {
-        name: 'Diş Kuronları (Kron Kaplama)',
-        category: 'veneers',
-        badge: '360° Tam Koruma',
-        icon: '👑',
-        tagline: 'Harabiyeti Yüksek Dişler İçin 360 Derece Tam Koruma',
-        heroDesc: 'Büyük dolgulu, kırık veya zayıflamış dişlerinizi 360 derece saran kuron kaplamalarla çiğneme fonksiyonunu ve estetiği ömür boyu güvenceye alın.',
-        stay: '4 - 5 Gün',
-        warranty: '15 Yıl Garanti',
-        anesthesia: 'Bilgisayarlı Ağrısız Anestezi',
-        material: 'Monolitik Zirkon & E-Max Pres Porselen',
-        overview: 'Diş kuronları, madde kaybı fazla olan dişleri tamamen çevreleyerek hem kırılmayı önleyen hem de doğal diş anatomisini kusursuz şekilde yeniden inşa eden kaplamalardır.',
-        highlights: [
-          'Zayıf veya kırık dişler için 360 derece tam anatomik koruma',
-          'Komşu dişlerle mikron düzeyinde kusursuz kontak ve kapanış',
-          'E-Max Press veya Monolitik Zirkon malzeme alternatifleri',
-          'Klinik içi laboratuvar ile 4 günde hızlı teslimat'
-        ],
-        sections: [
-          {
-            title: 'Kuron Kaplama Hangi Durumlarda Yapılır?',
-            desc: 'Kanal tedavisi görmüş, geniş dolgulu veya travma sonucu çatlamış dişlerin kırılmasını önlemek için tam koruma amacıyla uygulanır.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'Preparasyon & 3D Ölçü', desc: 'Çürüklerin temizlenmesi ve kuron için ideal formun hazırlanması.' },
-          { step: '02', title: 'Geçici Kuron Takılması', desc: 'Daimi kuron üretilene kadar dişi koruyan geçici kaplama.' },
-          { step: '03', title: 'Daimi Yapıştırma', desc: 'Kapanış uyumu kontrol edilerek güçlü medikal simanla kalıcı montaj.' }
-        ],
-        faq: [
-          { q: 'Diş kuronu ne kadar süre dayanır?', a: 'İyi bir ağız bakımı ile kuron kaplamalarımız 15-25 yıl ve üzeri sorunsuz kullanılır.' }
-        ]
-      },
-      'dental-implants': {
-        name: 'Dental İmplantlar',
-        category: 'implants',
-        badge: 'İsviçre Straumann® Resmi Partner',
-        icon: '⚙️',
-        tagline: 'Kayıp Dişler İçin Ömür Boyu Kalıcı Yapay Kök',
-        heroDesc: 'Eksik dişlerinizi İsviçre Straumann® implantları ile ömür boyu kalıcı olarak tamamlayın. Tek diş eksikliğinden All-on-4 / All-on-6 tam çene restorasyonlarına kadar ağrısız cerrahi.',
-        stay: '5 Gün (1. Aşama)',
-        warranty: 'Ömür Boyu Uluslararası Garanti',
-        anesthesia: 'Ağrısız Bilgisayarlı Anestezi & Sedasyon',
-        material: 'İsviçre Straumann® Roxolid / SLAactive Titanyum',
-        overview: 'Dental implantlar, eksik diş kökünün yerini alan ve çene kemiği erimesini engelleyen titanyum vidalardır. Kendi dişiniz gibi güçlü çiğneme kabiliyeti ve estetik sunar.',
-        highlights: [
-          'Resmi İsviçre Straumann® Platinum Partner Klinik',
-          '3D Tomografi destekli cerrahi kılavuzla dikişsiz robotik cerrahi',
-          'Çene kemiği erimesini ve yüz çökmesini tamamen engelleme',
-          'İyileşme sürecinde sabit geçici diş konsepti'
-        ],
-        sections: [
-          {
-            title: 'İmplant Tedavisi Kimler İçin Uygundur?',
-            desc: 'Bir, birkaç veya tüm dişlerini kaybetmiş, takıp çıkarmalı protez kullanmak istemeyen ve çene kemiği uygun olan her erişkin birey için uygundur.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: '3D Tomografi & Cerrahi Rehber', desc: 'Çene kemiği ve sinir kanallarının milimetrik 3D planlaması.' },
-          { step: '02', title: 'Dikişsiz İmplant Cerrahisi', desc: 'İmplant başına ortalama 10-15 dakikada ağrısız yerleşim.' },
-          { step: '03', title: 'Geçici Protez & Kaynama', desc: 'Kemik kaynaşma sürecinde konfor sağlayan geçici dişlerin montajı.' }
-        ],
-        faq: [
-          { q: 'İmplant yapılırken ağrı hisseder miyim?', a: 'Hayır. Bilgisayarlı lokal anestezi sayesinde işlem normal bir dolgudan farksız ve tamamen ağrısızdır.' }
-        ]
-      },
-      'root-canal': {
-        name: 'Kanal Tedavisi (Endodonti)',
-        category: 'endodontics',
-        badge: 'Mikroskobik Ağrısız Endodonti',
-        icon: '🔬',
-        tagline: 'Doğal Dişinizi Çekimden Kurtaran İleri Tedavi',
-        heroDesc: 'İleri derecede çürümüş veya iltihaplanmış dişlerinizi mikroskobik kanal tedavisi ile tek seansta kurtarın. Ağrıya son verin, doğal dişinizi ağızda tutun.',
-        stay: '1 Gün (Tek Seans)',
-        warranty: '10 Yıl Garanti',
-        anesthesia: '%100 Ağrısız Bilgisayarlı Anestezi',
-        material: 'Biyouyumlu Güta-Perka & 3D Döner Eğeler',
-        overview: 'Kanal tedavisi, dişin içindeki iltihaplı sinir ve pulpa dokusunun mikroskop altında temizlenip dezenfekte edilerek biyouyumlu malzemelerle doldurulması işlemidir.',
-        highlights: [
-          'İleri büyütmeli cerrahi mikroskop ile eksiksiz kanal temizliği',
-          '60 dakikadan kısa sürede tek seansta tamamlanan konforlu süreç',
-          'Doğal diş kökünü koruyarak çekimi engelleme',
-          'Tedavi sonrası anında ağrı ve sızının kesilmesi'
-        ],
-        sections: [
-          {
-            title: 'Kanal Tedavisi Ne Zaman Gereklidir?',
-            desc: 'Gece başlayan zonklayıcı diş ağrısı, sıcak-soğukta uzun süren hassasiyet veya çiğneme esnasında şiddetli batma hissi olduğunda gereklidir.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'Dijital Röntgen & Anestezi', desc: 'Kök ucunun görüntülenmesi ve ağrısız uyuşturma.' },
-          { step: '02', title: 'Mikroskobik Temizleme', desc: 'Titanyum döner aletlerle kanalların sterilize edilmesi.' },
-          { step: '03', title: 'Termal Kanal Dolumu', desc: 'Kanalların sızdırmaz şekilde doldurulması ve üst dolgu yapımı.' }
-        ],
-        faq: [
-          { q: 'Kanal tedavisi ağrılı mıdır?', a: 'Hayır, modern anestezi yöntemleriyle tedavi sırasında hiçbir ağrı hissedilmez.' }
-        ]
-      }
-    }
-  },
-
-  // --------------------------------------------------------------------------
-  // ENGLISH (EN)
-  // --------------------------------------------------------------------------
-  en: {
-    pageHeader: {
-      badge: 'World-Class Dental Care',
-      title: 'Our Specialized Dental Treatments',
-      desc: 'Explore our comprehensive range of international dental procedures performed in Istanbul with cutting-edge CAD/CAM 3D digital technology.'
-    },
-    filterTabs: [
-      { id: 'all', label: 'All Treatments' },
-      { id: 'cosmetic', label: '✨ Cosmetic Dentistry' },
-      { id: 'veneers', label: '🦷 Veneers & Crowns' },
-      { id: 'implants', label: '⚙️ Dental Implants' },
-      { id: 'endodontics', label: '🔬 Root Canal Care' }
-    ],
-    ui: {
-      stay: 'Stay in Istanbul:',
-      warranty: 'Warranty:',
-      highlightsTitle: 'Key Treatment Highlights:',
-      viewDetails: 'View Details →',
-      bookNow: 'Book →',
-      breadcrumbHome: 'Home',
-      breadcrumbTreatments: 'Treatments',
-      quoteBtn: 'Get Free Quote & 3D Plan →',
-      whatsappBtn: 'WhatsApp Us (+90 552 161 7377)',
-      estimatorTitle: 'Interactive Treatment Estimator',
-      teethCount: 'Target Teeth Count:',
-      teeth: 'Teeth',
-      vitoTransfer: 'VIP Vito Transfer:',
-      vitoIncluded: 'FREE Included',
-      hotelStay: '5-Star Hotel Stay:',
-      hotelIncluded: 'FREE Included',
-      hotelPartner: 'Partner Rates',
-      whatIs: 'What is',
-      keyHighlights: 'Key Procedure Highlights',
-      insightsBadge: 'Comprehensive Clinical Insights',
-      insightsTitle: 'Detailed Overview & Guides for',
-      stepBadge: 'Your 3-Step Journey',
-      stepTitle: 'Your 3-Step Journey in Istanbul',
-      vipBadge: 'All-Inclusive Health Tourism',
-      vipTitle: 'VIP Comfort & Luxury Benefits',
-      vipDesc: 'Enjoy luxury chauffeured Mercedes Vito airport and clinic transfers along with 5-star Bosphorus hotel stays for a stress-free medical vacation.',
-      matrixBadge: 'Compare Procedures',
-      matrixTitle: 'Dental Treatment Comparison Matrix',
-      matrixDesc: 'Compare mechanical strength, stay duration, and translucency to choose your ideal restoration.',
-      reviewsBadge: 'Verified Reviews',
-      reviewsTitle: 'Customer Comments & Real Patient Stories',
-      faqTitle: 'Frequently Asked Questions',
-      bottomCtaTitle: 'Ready for Your Smile Transformation?',
-      bottomCtaDesc: 'Fill out our free appointment form or WhatsApp us to get your custom treatment plan within 24 hours.',
-      bottomCtaBtn: 'Start Free Consultation Now →'
-    },
-    matrixColumns: {
-      procedure: 'Procedure Name',
-      strength: 'Flexural Strength',
-      stay: 'Stay in Istanbul',
-      warranty: 'Warranty',
-      translucency: 'Translucency',
-      prep: 'Tooth Prep'
-    },
-    vipTabs: [
-      {
-        title: '01 – Safe Medical Care',
-        subtitle: 'Accredited Doctors & Sterilization',
-        desc: 'Receive treatment at internationally accredited clinics with senior specialists, ensuring complete safety, hygiene, and European-certified medical standards.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg'
-      },
-      {
-        title: '02 – Travel & Comfort',
-        subtitle: 'VIP Mercedes Vito & 5-Star Hotel',
-        desc: 'Enjoy luxury chauffeured Mercedes Vito airport and clinic transfers along with 5-star Bosphorus hotel stays for a stress-free medical vacation.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/11/DENT-AKTIF-VITO.jpg'
-      },
-      {
-        title: '03 – Professional Support',
-        subtitle: '3D Scan Lounge & Personal Host',
-        desc: 'From high-definition 3D intraoral scans to a dedicated multilingual personal host, our team guides you every step of the way in Istanbul.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Basliksiz-1-1.png'
-      }
-    ],
-    items: {
-      'aesthetic-dentistry': {
-        name: 'Aesthetic Dentistry',
-        category: 'cosmetic',
-        badge: 'Smile Design & Whitening',
-        icon: '✨',
-        tagline: 'Enhance Your Smile with Professional Aesthetic Dentistry in Turkey',
-        heroDesc: 'Restore your oral health with professional aesthetic dentistry procedures in Turkey. Using advanced techniques, we preserve natural tooth structure, enhance tooth color and shape, and eliminate smile insecurities.',
-        stay: '1 - 3 Days',
-        warranty: '10 Years Warranty',
-        anesthesia: '100% Painless Computerized Anesthesia',
-        material: 'Philips Zoom Ultra Laser & Micro-Composite Resins',
-        overview: 'Aesthetic dentistry involves a range of procedures designed to enhance the visual appearance of your teeth, gums, and smile. It combines art and science to deliver a harmonious, glowing smile tailored to your unique facial features.',
-        highlights: [
-          'Philips Zoom WhiteSpeed Laser Whitening (up to 8 shades lighter)',
-          'Digital Smile Design (DSD) preview before any procedure',
-          'Micro-invasive composite bonding with zero enamel grinding',
-          'Pain-free laser gum sculpting for symmetrical gum lines'
-        ],
-        sections: [
-          {
-            title: 'Ideal Candidates for Aesthetic Dentistry',
-            desc: 'Individuals looking to improve the appearance of their teeth, correct discolorations, minor chips, or gaps while preserving natural enamel.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'Digital Consultation & 3D Scan', desc: 'High-resolution intraoral scanning and shade analysis.' },
-          { step: '02', title: 'Laser Whitening or Sculpting', desc: 'In-office laser whitening or gum contouring.' },
-          { step: '03', title: 'Composite Artistry & Polishing', desc: 'Precision bonding applied by master aesthetic dentists.' }
-        ],
-        faq: [
-          { q: 'How long does laser teeth whitening last?', a: 'With proper oral hygiene, results typically last 2 to 3 years.' }
-        ]
-      },
-      'hollywood-smile': {
-        name: 'Hollywood Smile',
-        category: 'cosmetic',
-        badge: 'Signature Full-Arch Makeover',
-        icon: '💎',
-        tagline: 'World-Famous 20 E-Max® Porcelain Veneer Complete Transformation in Istanbul',
-        heroDesc: 'Achieve a radiant, symmetrical smile with a personalized Hollywood Smile in Turkey. Custom porcelain veneers and 3D digital smile design bring out your natural beauty and boost your confidence in just 5 days.',
-        stay: '5 Days (2 Appointments)',
-        warranty: 'Lifetime International Warranty',
-        anesthesia: 'Painless Local Anesthesia & Sedation Option',
-        material: 'Original Ivoclar Vivadent E-Max® Press Porcelain',
-        overview: 'A Hollywood Smile is a signature full-arch cosmetic dental restoration that creates a perfectly aligned, bright white, and aesthetically flawless smile using ultra-thin E-Max® porcelain veneers tailored to your facial structure.',
-        highlights: [
-          '20 Original Ivoclar Vivadent E-Max® Porcelain Veneers',
-          '3D Digital Smile Design with instant trial preview',
-          '5-Star Luxury Bosphorus Hotel stay included',
-          'VIP Airport & Clinic transfers with private chauffeur (Mercedes Vito)',
-          'Includes 3D CBCT Tomography scan and panoramic X-rays'
-        ],
-        sections: [
-          {
-            title: 'Ideal Candidates for Hollywood Smile',
-            desc: 'Patients with discolored, worn, chipped, uneven, or slightly misaligned teeth seeking a complete celebrity smile makeover.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'Arrival & 3D Digital Mock-Up', desc: 'VIP transfer from Istanbul Airport and 3D digital smile trial.' },
-          { step: '02', title: 'Minimal Tooth Prep & Temporary Veneers', desc: 'Gentle micro-preparation and fitting temporary veneers.' },
-          { step: '03', title: 'Final E-Max® Permanent Bonding', desc: 'Permanent bonding of handcrafted E-Max porcelain veneers on Day 5.' }
-        ],
-        faq: [
-          { q: 'Will my teeth be shaved down significantly?', a: 'No! E-Max veneers are ultra-thin (0.3mm to 0.5mm), requiring only micro-preparation of the outer enamel layer.' }
-        ]
-      },
-      'dental-veneers': {
-        name: 'Dental Zirconium Veneers',
-        category: 'veneers',
-        badge: 'Ultra-Durable Translucent Zirconia',
-        icon: '🦷',
-        tagline: 'High Mechanical Strength Meets Natural Light Translucency in Istanbul',
-        heroDesc: 'Transform your smile with ultra-durable translucent German Zirconium veneers in Istanbul. Zirconium provides unmatched durability and natural aesthetic reflection.',
-        stay: '4 - 5 Days',
-        warranty: '20 Years Warranty',
-        anesthesia: 'Pain-Free Anesthesia System',
-        material: 'High-Translucency German Zirconia Blocks',
-        overview: 'Zirconium dioxide is a biocompatible, metal-free material renowned for its exceptional flexural strength (exceeding 1200 MPa) and light-transmitting properties.',
-        highlights: [
-          '100% Metal-free German Zirconia blocks milled with CAD/CAM precision',
-          'Ideal for patients with heavy bruxism (teeth grinding)',
-          'Highly resistant to coffee, tea, and tobacco staining',
-          'Perfect marginal fit preventing bacteria accumulation'
-        ],
-        sections: [
-          {
-            title: 'Ideal Candidates for Zirconium Veneers',
-            desc: 'Ideal for patients with severe enamel erosion, heavy intrinsic tooth discoloration, or strong jaw bite forces.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'Digital CAD/CAM Scan', desc: '3D scanning eliminates messy traditional impressions.' },
-          { step: '02', title: 'Precision Robot Milling', desc: 'Zirconia blocks milled with sub-millimeter tolerances.' },
-          { step: '03', title: 'Custom Hand-Glazing & Fitting', desc: 'Master dental technicians hand-shade each crown.' }
-        ],
-        faq: [
-          { q: 'Are Zirconium veneers stronger than E-Max?', a: 'Yes, Zirconium has higher flexural strength (over 1200 MPa), making it ideal for molars and strong bite forces.' }
-        ]
-      },
-      'dental-crowns': {
-        name: 'Dental Crowns',
-        category: 'veneers',
-        badge: 'Full Arch & Single Tooth Restoration',
-        icon: '👑',
-        tagline: 'Complete 360-Degree Anatomical Tooth Protection & Restoration',
-        heroDesc: 'Restore heavily decayed, cracked, or root-canal-treated teeth with custom-engineered porcelain and zirconia crowns designed for lifetime durability in Istanbul.',
-        stay: '4 - 5 Days',
-        warranty: '15 Years Warranty',
-        anesthesia: 'Computerized Local Anesthesia',
-        material: 'Monolithic Zirconia & Layered Porcelain',
-        overview: 'Dental crowns completely encase compromised teeth, restoring full chewing functionality and original shape with digital CAD/CAM precision.',
-        highlights: [
-          'Full 360-degree protection for weak or damaged teeth',
-          'Seamless aesthetic color integration with adjacent natural teeth',
-          'Monolithic Zirconia and E-Max Press ceramic options available',
-          'In-house laboratory ensures quick 4-day turnaround time'
-        ],
-        sections: [
-          {
-            title: 'Ideal Candidates for Dental Crowns',
-            desc: 'Patients with large decayed areas, broken fillings, or cracked enamel structure needing full structural protection.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'Tooth Preparation & Scanning', desc: 'Removing decayed areas and shaping the tooth foundation.' },
-          { step: '02', title: 'Temporary Crown Placement', desc: 'Protecting the shaped tooth while your crown is crafted.' },
-          { step: '03', title: 'Permanent Crown Cementation', desc: 'Verifying bite alignment and permanently bonding the crown.' }
-        ],
-        faq: [
-          { q: 'How long do dental crowns last?', a: 'With proper oral hygiene, our crowns last 15 to 25+ years.' }
-        ]
-      },
-      'dental-implants': {
-        name: 'Dental Implants',
-        category: 'implants',
-        badge: 'Swiss Straumann® Permanent Restoration',
-        icon: '⚙️',
-        tagline: 'Lifetime Permanent Root Replacement for Single & Full-Arch Teeth',
-        heroDesc: 'Restore your missing teeth permanently with official Swiss Straumann® implants in Turkey. Titanium and ceramic roots fuse naturally with your jawbone.',
-        stay: '5 Days (1st Phase)',
-        warranty: 'Lifetime International Guarantee',
-        anesthesia: 'Sedation & Pain-Free Computerized Local Anesthesia',
-        material: 'Swiss Straumann® SLAactive Titanium / Ceramic',
-        overview: 'Dental implants are the gold standard for missing tooth replacement. Placed surgically into the jawbone, they mimic natural tooth roots and prevent jawbone loss.',
-        highlights: [
-          'Official Swiss Straumann® Platinum Partner Clinic',
-          'Pain-free computer-guided 3D surgical placement',
-          'Prevents facial structure sagging & jawbone resorption',
-          'Fixed Zirconia bridges provided during osseointegration'
-        ],
-        sections: [
-          {
-            title: 'Ideal Candidates for Dental Implants',
-            desc: 'Patients missing one, multiple, or all natural teeth seeking a permanent fixed restoration.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp'
-          }
-        ],
-        steps: [
-          { step: '01', title: '3D CBCT Scan & Surgical Guide', desc: 'Mapping nerve pathways for pin-point implant accuracy.' },
-          { step: '02', title: 'Keyhole Implant Surgery', desc: 'Painless 15-minute surgical placement per implant.' },
-          { step: '03', title: 'Temporary Crown & Healing Phase', desc: 'Fitting temporary teeth while the implant integrates.' }
-        ],
-        faq: [
-          { q: 'Is dental implant surgery painful?', a: 'Not at all. With modern computerized local anesthesia, patients feel no pain during surgery.' }
-        ]
-      },
-      'root-canal': {
-        name: 'Root Canal Treatment',
-        category: 'endodontics',
-        badge: 'Painless Microscopic Endodontics',
-        icon: '🔬',
-        tagline: 'Save Your Natural Tooth with Professional Root Canal Treatment in Turkey',
-        heroDesc: 'Restore your oral health with professional root canal treatment in Turkey. Using advanced techniques, we remove infected pulp to save natural teeth and eliminate pain.',
-        stay: '1 Day (Single Session)',
-        warranty: '10 Years Warranty',
-        anesthesia: '100% Computerized Painless Anesthesia',
-        material: 'Biocompatible Gutta-Percha & 3D Rotary Files',
-        overview: 'Root canal treatment saves severely decayed or infected teeth by removing damaged pulp, sterilizing root canals, and sealing them hermetically.',
-        highlights: [
-          'High-magnification surgical microscope for complete canal cleaning',
-          'Single-visit treatment completed in under 60 minutes',
-          'Preserves natural root foundation and avoids extraction',
-          'Immediate pain relief following computerized anesthesia'
-        ],
-        sections: [
-          {
-            title: 'When is a Root Canal Needed?',
-            desc: 'When experiencing deep throbbing toothache, sensitivity to hot and cold, or pain while chewing.',
-            image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg'
-          }
-        ],
-        steps: [
-          { step: '01', title: 'Digital X-Ray & Anesthesia', desc: 'Targeted painless anesthesia for complete comfort.' },
-          { step: '02', title: 'Microscopic Canal Disinfection', desc: 'Rotary titanium files sterilize infected canals.' },
-          { step: '03', title: 'Biocompatible Thermal Sealing', desc: 'Hermetic filling of root canals with gutta-percha.' }
-        ],
-        faq: [
-          { q: 'Will I feel pain during a root canal?', a: 'No, computerized anesthesia numbs the tooth completely.' }
-        ]
-      }
-    }
-  },
-
-  // --------------------------------------------------------------------------
-  // GERMAN (DE)
-  // --------------------------------------------------------------------------
-  de: {
-    pageHeader: {
-      badge: 'Weltklasse-Zahnmedizin',
-      title: 'Unsere Spezialisierten Zahnbehandlungen',
-      desc: 'Entdecken Sie unser erstklassiges Behandlungsangebot in Istanbul mit modernster 3D CAD/CAM-Technologie und erfahrenen Fachzahnärzten.'
-    },
-    filterTabs: [
-      { id: 'all', label: 'Alle Behandlungen' },
-      { id: 'cosmetic', label: '✨ Ästhetik' },
-      { id: 'veneers', label: '🦷 Veneers & Kronen' },
-      { id: 'implants', label: '⚙️ Zahnimplantate' },
-      { id: 'endodontics', label: '🔬 Wurzelbehandlung' }
-    ],
-    ui: {
-      stay: 'Aufenthalt in Istanbul:',
-      warranty: 'Garantie:',
-      highlightsTitle: 'Wichtige Behandlungshöhepunkte:',
-      viewDetails: 'Details ansehen →',
-      bookNow: 'Buchen →',
-      breadcrumbHome: 'Startseite',
-      breadcrumbTreatments: 'Behandlungen',
-      quoteBtn: 'Kostenloses Angebot & 3D-Plan →',
-      whatsappBtn: 'WhatsApp Kontakt (+90 552 161 7377)',
-      estimatorTitle: 'Interaktiver Behandlungsrechner',
-      teethCount: 'Anzahl der Zähne:',
-      teeth: 'Zähne',
-      vitoTransfer: 'VIP Vito Transfer:',
-      vitoIncluded: 'KOSTENLOS Inklusive',
-      hotelStay: '5-Sterne Hotel:',
-      hotelIncluded: 'KOSTENLOS Inklusive',
-      hotelPartner: 'Partnerpreise',
-      whatIs: 'Was ist',
-      keyHighlights: 'Wesentliche Vorteile der Behandlung',
-      insightsBadge: 'Klinische Einblicke',
-      insightsTitle: 'Detaillierte Übersicht & Leitfaden für',
-      stepBadge: 'Ihr 3-Schritte-Ablauf',
-      stepTitle: 'Ihre 3-Schritte-Zahnreise nach Istanbul',
-      vipBadge: 'All-Inclusive Gesundheitstourismus',
-      vipTitle: 'VIP Komfort & Luxusvorteile',
-      vipDesc: 'Genießen Sie erstklassige Betreuung, 5-Sterne-Hotelunterbringung und private Fahrten im Mercedes Vito.',
-      matrixBadge: 'Behandlungen Vergleichen',
-      matrixTitle: 'Zahnbehandlungs-Vergleichstabelle',
-      matrixDesc: 'Vergleichen Sie Festigkeit, Aufenthaltsdauer und Lichtdurchlässigkeit.',
-      reviewsBadge: 'Verifizierte Bewertungen',
-      reviewsTitle: 'Echte Patientenerfahrungen',
-      faqTitle: 'Häufig Gestellte Fragen',
-      bottomCtaTitle: 'Bereit für Ihr neues Lächeln?',
-      bottomCtaDesc: 'Erhalten Sie Ihren individuellen 3D-Behandlungsplan innerhalb von 24 Stunden.',
-      bottomCtaBtn: 'Kostenlose Beratung Starten →'
-    },
-    matrixColumns: {
-      procedure: 'Behandlung',
-      strength: 'Biegefestigkeit',
-      stay: 'Aufenthalt',
-      warranty: 'Garantie',
-      translucency: 'Transluzenz',
-      prep: 'Zahnpräparation'
-    },
-    vipTabs: [
-      {
-        title: '01 – Sichere Medizinische Versorgung',
-        subtitle: 'Zertifizierte Spezialisten',
-        desc: 'Behandlung in international akkreditierten Kliniken nach europäischen Hygienestandards.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg'
-      },
-      {
-        title: '02 – Reisen & Komfort',
-        subtitle: 'VIP Mercedes Vito & 5-Sterne Hotel',
-        desc: 'Komfortabler Chauffeurservice und Luxushotels am Bosporus.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/11/DENT-AKTIF-VITO.jpg'
-      },
-      {
-        title: '03 – Persönliche Betreuung',
-        subtitle: 'Mehrsprachige Begleitung',
-        desc: 'Ein persönlicher Betreuer begleitet Sie auf Deutsch bei jedem Schritt.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Basliksiz-1-1.png'
-      }
-    ],
-    items: {
-      'aesthetic-dentistry': {
-        name: 'Ästhetische Zahnheilkunde',
-        category: 'cosmetic',
-        badge: 'Smile Design & Whitening',
-        icon: '✨',
-        tagline: 'Perfektionieren Sie Ihr Lächeln in Istanbul',
-        heroDesc: 'Schonende kosmetische Zahnbehandlungen zur Aufhellung, Formkorrektur und ästhetischen Harmonisierung.',
-        stay: '1 - 3 Tage',
-        warranty: '10 Jahre Garantie',
-        anesthesia: 'Schmerzfreie Anästhesie',
-        material: 'Philips Zoom Laser & Mikro-Komposit',
-        overview: 'Ästhetische Zahnheilkunde verbindet Kunst und Wissenschaft für ein natürliches, strahlendes Lächeln.',
-        highlights: [
-          'Philips Zoom WhiteSpeed Laseraufhellung um bis zu 8 Nuancen',
-          '3D Digital Smile Design Simulation vor der Behandlung',
-          'Minimal-invasives Komposit-Bonding ohne Zahnabtrag',
-          'Zahnfleischkorrektur mit sanftem Laser'
-        ],
-        sections: [{ title: 'Für wen geeignet?', desc: 'Ideal bei Verfärbungen, kleinen Zahnlücken oder Zahnschmelzdefekten.', image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg' }],
-        steps: [{ step: '01', title: '3D-Scan & Beratung', desc: 'Präzise Vermessung der Zähne.' }],
-        faq: [{ q: 'Wie lange hält das Bleaching?', a: 'Bei guter Pflege hält das Ergebnis 2 bis 3 Jahre.' }]
-      },
-      'hollywood-smile': {
-        name: 'Hollywood Smile',
-        category: 'cosmetic',
-        badge: 'Komplette Transformation',
-        icon: '💎',
-        tagline: 'Original 20 E-Max® Porzellan-Veneers in Istanbul',
-        heroDesc: 'Erleben Sie die berühmte Hollywood Smile Verwandlung mit 20 E-Max Porzellan-Veneers in nur 5 Tagen.',
-        stay: '5 Tage (2 Termine)',
-        warranty: 'Lebenslange Internationale Garantie',
-        anesthesia: 'Schmerzfreie Lokalanästhesie',
-        material: 'Original Ivoclar Vivadent E-Max® Press Porzellan',
-        overview: 'Vollständige ästhetische Zahnrestauration für ein perfekt weißes, ebenmäßiges Lächeln.',
-        highlights: [
-          '20 Original Ivoclar Vivadent E-Max® Veneers',
-          '3D Digital Smile Design Vorschau',
-          '5-Sterne Luxushotel am Bosporus inklusive',
-          'VIP Mercedes Vito Chauffeur-Transfers inklusive'
-        ],
-        sections: [{ title: 'Hollywood Smile in der Türkei', desc: 'Bis zu 70% Ersparnis im Vergleich zu Westeuropa bei höchster Schweizer Qualität.', image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp' }],
-        steps: [{ step: '01', title: 'Ankunft & 3D-Simulation', desc: 'VIP-Transfer und persönliche Smile-Planung.' }],
-        faq: [{ q: 'Werden die Zähne stark beschliffen?', a: 'Nein, E-Max Veneers sind nur 0.3mm dünn und erfordern minimalen Abtrag.' }]
-      },
-      'dental-veneers': {
-        name: 'Zirkon Veneers',
-        category: 'veneers',
-        badge: 'Hochfestes Zirkon',
-        icon: '🦷',
-        tagline: 'Höchste Bruchfestigkeit & Natürliche Ästhetik',
-        heroDesc: 'Hochmoderne deutsche Zirkonkronen und Veneers für dauerhafte Stabilität und perfekte Ästhetik.',
-        stay: '4 - 5 Tage',
-        warranty: '20 Jahre Garantie',
-        anesthesia: 'Schmerzfreies System',
-        material: 'Deutsche Zirkonblöcke',
-        overview: 'Zirkondioxid bietet über 1200 MPa Biegefestigkeit und höchste Gewebeverträglichkeit.',
-        highlights: [
-          '100% metallfreie deutsche Zirkonblöcke',
-          'CAD/CAM-Präzisionsfräsung im hauseigenen Labor',
-          'Dauerhaft flecken- und verfärbungsresistent'
-        ],
-        sections: [{ title: 'Zirkon Vorteile', desc: 'Keine dunklen Ränder am Zahnfleisch und extreme Langlebigkeit.', image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp' }],
-        steps: [{ step: '01', title: 'Digitaler Scan', desc: 'Schnelle 3D-Erfassung ohne Abdruckmasse.' }],
-        faq: [{ q: 'Ist Zirkon bruchfest?', a: 'Ja, Zirkon hält selbst stärkstem Kaudruck und Zähneknirschen stand.' }]
-      },
-      'dental-crowns': {
-        name: 'Zahnkronen',
-        category: 'veneers',
-        badge: '360° Rundumschutz',
-        icon: '👑',
-        tagline: 'Vollständiger Schutz für geschwächte Zähne',
-        heroDesc: 'Passgenaue Porzellan- und Zirkonkronen zur vollständigen Wiederherstellung der Kaufunktion.',
-        stay: '4 - 5 Tage',
-        warranty: '15 Jahre Garantie',
-        anesthesia: 'Lokalanästhesie',
-        material: 'Zirkon & E-Max Keramik',
-        overview: 'Kronen umhüllen den Zahn vollständig und schützen ihn zuverlässig vor Brüchen.',
-        highlights: ['360-Grad-Schutz', 'Hervorragende Ästhetik', 'Schnelle 4-Tage-Fertigung'],
-        sections: [{ title: 'Wann sinnvoll?', desc: 'Nach Wurzelbehandlungen oder bei großen Füllungen.', image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp' }],
-        steps: [{ step: '01', title: 'Präparation', desc: 'Entfernung von Karies und Vorbereitung.' }],
-        faq: [{ q: 'Wie lange halten Kronen?', a: 'In der Regel 15 bis 25 Jahre und länger.' }]
-      },
-      'dental-implants': {
-        name: 'Zahnimplantate',
-        category: 'implants',
-        badge: 'Schweizer Straumann® Partner',
-        icon: '⚙️',
-        tagline: 'Fester Zahnersatz fürs Leben',
-        heroDesc: 'Dauerhafter Zahnersatz mit Schweizer Straumann® Premium-Implantaten und computergestützter 3D-Chirurgie.',
-        stay: '5 Tage (Phase 1)',
-        warranty: 'Lebenslange Internationale Garantie',
-        anesthesia: 'Schmerzfreie Anästhesie & Sedierung',
-        material: 'Straumann® Roxolid Titan/Keramik',
-        overview: 'Zahnimplantate ersetzen die natürliche Zahnwurzel und verhindern Knochenabbau.',
-        highlights: [
-          'Offizieller Straumann® Platinum Partner',
-          '3D-geführte schlüssellochchirurgische Implantation',
-          'Feste Übergangszähne während der Einheilung'
-        ],
-        sections: [{ title: 'Für wen?', desc: 'Bei Zahnverlust für einzelnen Zahn oder ganzen Kiefer (All-on-4 / All-on-6).', image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp' }],
-        steps: [{ step: '01', title: '3D-DVT-Röntgen', desc: 'Exakte Planung des Kieferknochens.' }],
-        faq: [{ q: 'Tut die Implantation weh?', a: 'Nein, der Eingriff verläuft unter Lokalanästhesie vollkommen schmerzfrei.' }]
-      },
-      'root-canal': {
-        name: 'Wurzelkanalbehandlung',
-        category: 'endodontics',
-        badge: 'Mikroskopische Endodontie',
-        icon: '🔬',
-        tagline: 'Zahnerhalt durch moderne Mikroskop-Endodontie',
-        heroDesc: 'Rettung entzündeter Zähne in einer einzigen schmerzfreien Sitzung mit OP-Mikroskop.',
-        stay: '1 Tag',
-        warranty: '10 Jahre Garantie',
-        anesthesia: 'Computergestützte Anästhesie',
-        material: 'Biokompatibles Guttapercha',
-        overview: 'Reinigung und dichter Verschluss infizierter Wurzelkanäle zum dauerhaften Erhalt des Zahnes.',
-        highlights: ['OP-Mikroskop für maximale Gründlichkeit', 'Abschluss in unter 60 Minuten', 'Sofortige Schmerzfreiheit'],
-        sections: [{ title: 'Zahnerhalt statt Extraktion', desc: 'Die beste Lösung ist immer der eigene Zahn.', image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg' }],
-        steps: [{ step: '01', title: 'Betäubung & Desinfektion', desc: 'Schmerzfreie Wurzelkanalaufbereitung.' }],
-        faq: [{ q: 'Ist eine Wurzelbehandlung schmerzhaft?', a: 'Dank modernster Betäubung spüren Sie während des Eingriffs keine Schmerzen.' }]
-      }
-    }
-  },
-
-  // --------------------------------------------------------------------------
-  // RUSSIAN (RU)
-  // --------------------------------------------------------------------------
-  ru: {
-    pageHeader: {
-      badge: 'Стоматология мирового уровня',
-      title: 'Специализированные Стоматологические Процедуры',
-      desc: 'Ознакомьтесь с передовыми методами лечения зубов в Стамбуле с использованием цифровых 3D технологий CAD/CAM.'
-    },
-    filterTabs: [
-      { id: 'all', label: 'Все процедуры' },
-      { id: 'cosmetic', label: '✨ Эстетика' },
-      { id: 'veneers', label: '🦷 Виниры и коронки' },
-      { id: 'implants', label: '⚙️ Имплантация' },
-      { id: 'endodontics', label: '🔬 Лечение каналов' }
-    ],
-    ui: {
-      stay: 'Пребывание в Стамбуле:',
-      warranty: 'Гарантия:',
-      highlightsTitle: 'Ключевые преимущества:',
-      viewDetails: 'Подробнее →',
-      bookNow: 'Записаться →',
-      breadcrumbHome: 'Главная',
-      breadcrumbTreatments: 'Процедуры',
-      quoteBtn: 'Бесплатный расчет и 3D план →',
-      whatsappBtn: 'WhatsApp (+90 552 161 7377)',
-      estimatorTitle: 'Калькулятор стоимости и сроков',
-      teethCount: 'Количество зубов:',
-      teeth: 'зубов',
-      vitoTransfer: 'VIP трансфер Vito:',
-      vitoIncluded: 'БЕСПЛАТНО включено',
-      hotelStay: '5-звездочный отель:',
-      hotelIncluded: 'БЕСПЛАТНО включено',
-      hotelPartner: 'Специальные цены',
-      whatIs: 'Что такое',
-      keyHighlights: 'Главные преимущества процедуры',
-      insightsBadge: 'Клинические детали',
-      insightsTitle: 'Подробное руководство по',
-      stepBadge: '3 шага к улыбке',
-      stepTitle: 'Ваше 3-шаговое лечение в Стамбуле',
-      vipBadge: 'Медицинский туризм Все включено',
-      vipTitle: 'VIP Комфорт и Люкс Сервис',
-      vipDesc: 'Премиальные трансферы на Mercedes Vito, проживание в 5-звездочном отеле и русскоязычный персональный координатор.',
-      matrixBadge: 'Сравнение методов',
-      matrixTitle: 'Сравнительная таблица процедур',
-      matrixDesc: 'Сравните прочность, сроки и прозрачность материалов.',
-      reviewsBadge: 'Отзывы пациентов',
-      reviewsTitle: 'Реальные истории пациентов',
-      faqTitle: 'Часто задаваемые вопросы',
-      bottomCtaTitle: 'Готовы к идеальной улыбке?',
-      bottomCtaDesc: 'Получите персональный 3D план лечения и расчет стоимости в течение 24 часов.',
-      bottomCtaBtn: 'Начать онлайн-консультацию →'
-    },
-    matrixColumns: {
-      procedure: 'Процедура',
-      strength: 'Прочность',
-      stay: 'Срок в Стамбуле',
-      warranty: 'Гарантия',
-      translucency: 'Прозрачность',
-      prep: 'Обработка зуба'
-    },
-    vipTabs: [
-      {
-        title: '01 – Безопасное лечение',
-        subtitle: 'Европейские стандарты',
-        desc: 'Аккредитованная клиника, опытные хирурги и строжайшая стерилизация.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg'
-      },
-      {
-        title: '02 – Комфорт и отель',
-        subtitle: 'Mercedes Vito и 5 звезд',
-        desc: 'Встреча в аэропорту на Mercedes Vito и отели на берегу Босфора.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/11/DENT-AKTIF-VITO.jpg'
-      },
-      {
-        title: '03 – Поддержка на русском',
-        subtitle: 'Персональный куратор',
-        desc: 'Русскоязычный координатор на всех этапах визита.',
-        image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Basliksiz-1-1.png'
-      }
-    ],
-    items: {
-      'aesthetic-dentistry': {
-        name: 'Эстетическая стоматология',
-        category: 'cosmetic',
-        badge: 'Дизайн улыбки и отбеливание',
-        icon: '✨',
-        tagline: 'Идеальная эстетика улыбки в Стамбуле',
-        heroDesc: 'Комплексное улучшение формы, цвета зубов и десневого контура с сохранением естественных тканей.',
-        stay: '1 - 3 дня',
-        warranty: '10 лет гарантии',
-        anesthesia: 'Компьютерная безболезненная анестезия',
-        material: 'Лазер Philips Zoom и микрокомпозиты',
-        overview: 'Эстетическая стоматология возвращает зубам идеальный вид и естественное сияние.',
-        highlights: ['Отбеливание Philips Zoom до 8 оттенков', '3D цифровое моделирование Digital Smile Design'],
-        sections: [{ title: 'Показания к процедуре', desc: 'Сколы, потемнения, диастемы и неровности зубного ряда.', image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg' }],
-        steps: [{ step: '01', title: '3D сканирование', desc: 'Цифровой снимок и план улыбки.' }],
-        faq: [{ q: 'Сколько держится отбеливание?', a: 'При соблюдении гигиены результат сохраняется 2-3 года.' }]
-      },
-      'hollywood-smile': {
-        name: 'Голливудская улыбка',
-        category: 'cosmetic',
-        badge: 'Полная трансформация',
-        icon: '💎',
-        tagline: '20 оригинальных керамических виниров E-Max® в Стамбуле',
-        heroDesc: 'Безупречная белоснежная улыбка всего за 5 дней с ультратонкими винирами E-Max®.',
-        stay: '5 дней (2 визита)',
-        warranty: 'Пожизненная международная гарантия',
-        anesthesia: 'Безболезненная анестезия и седация',
-        material: 'Керамика Ivoclar Vivadent E-Max® Press',
-        overview: 'Полная эстетическая трансформация зубного ряда с учетом пропорций вашего лица.',
-        highlights: [
-          '20 оригинальных виниров E-Max®',
-          '3D примерка будущей улыбки до фиксации',
-          'Отель 5 звезд на Босфоре включен',
-          'VIP трансфер Mercedes Vito включен'
-        ],
-        sections: [{ title: 'Преимущества', desc: 'Экономия до 70% по сравнению с Европой при швейцарском качестве.', image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp' }],
-        steps: [{ step: '01', title: 'Встреча и 3D примерка', desc: 'Сканирование и согласование формы зубов.' }],
-        faq: [{ q: 'Сильно ли стачиваются зубы?', a: 'Нет! Виниры E-Max имеют толщину всего 0.3-0.5 мм.' }]
-      },
-      'dental-veneers': {
-        name: 'Циркониевые виниры',
-        category: 'veneers',
-        badge: 'Сверхпрочный цирконий',
-        icon: '🦷',
-        tagline: 'Непревзойденная прочность и естественный блеск',
-        heroDesc: 'Высокопрочные немецкие циркониевые виниры и коронки без металла.',
-        stay: '4 - 5 дней',
-        warranty: '20 лет гарантии',
-        anesthesia: 'Безболезненная система',
-        material: 'Немецкие блоки оксида циркония',
-        overview: 'Диоксид циркония выдерживает свыше 1200 МПа и идеально повторяет цвет зубов.',
-        highlights: ['100% биосовместимый металл-фри материал', 'Высокоточная фрезеровка CAD/CAM', 'Стойкость к пищевым красителям'],
-        sections: [{ title: 'Для кого подходит?', desc: 'При бруксизме, потемнении зубов и сильной жевательной нагрузке.', image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp' }],
-        steps: [{ step: '01', title: '3D сканирование', desc: 'Цифровой оттиск без неприятной слепочной массы.' }],
-        faq: [{ q: 'Прочнее ли цирконий, чем E-Max?', a: 'Да, цирконий обладает максимальной прочностью на изгиб.' }]
-      },
-      'dental-crowns': {
-        name: 'Зубные коронки',
-        category: 'veneers',
-        badge: 'Защита зуба на 360°',
-        icon: '👑',
-        tagline: 'Надежная защита сильно разрушенных зубов',
-        heroDesc: 'Коронки из циркония и керамики E-Max для восстановления жевательной функции.',
-        stay: '4 - 5 дней',
-        warranty: '15 лет гарантии',
-        anesthesia: 'Местная анестезия',
-        material: 'Монолитный цирконий и E-Max',
-        overview: 'Коронки полностью покрывают зуб, защищая его от сколов и трещин.',
-        highlights: ['Полная защита на 360 градусов', 'Точное прилегание', 'Изготовление за 4 дня'],
-        sections: [{ title: 'Показания', desc: 'После лечения каналов или при разрушении более 50% зуба.', image: 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp' }],
-        steps: [{ step: '01', title: 'Подготовка и сканирование', desc: 'Обработка и установка временной коронки.' }],
-        faq: [{ q: 'Сколько служат коронки?', a: 'От 15 до 25 лет и более при регулярной гигиене.' }]
-      },
-      'dental-implants': {
-        name: 'Зубные импланты',
-        category: 'implants',
-        badge: 'Партнер Straumann® (Швейцария)',
-        icon: '⚙️',
-        tagline: 'Пожизненное восстановление утраченных зубов',
-        heroDesc: 'Оригинальные швейцарские импланты Straumann® с приживаемостью 99.8%. Навигационная хирургия без разрезов.',
-        stay: '5 дней (1 этап)',
-        warranty: 'Пожизненная международная гарантия',
-        anesthesia: 'Компьютерная анестезия и седация',
-        material: 'Титан и керамика Straumann® Roxolid',
-        overview: 'Импланты полностью заменяют корень зуба и предотвращают убыль костной ткани.',
-        highlights: ['Платиновый партнер Straumann® в Стамбуле', 'Безболезненная установка за 15 минут', 'Временные несъемные зубы на период заживления'],
-        sections: [{ title: 'Кому показано?', desc: 'При потере одного, нескольких или всех зубов (All-on-4 / All-on-6).', image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp' }],
-        steps: [{ step: '01', title: '3D томография', desc: 'Точное виртуальное планирование позиции импланта.' }],
-        faq: [{ q: 'Больно ли ставить имплант?', a: 'Нет, процедура абсолютно безболезненна благодаря компьютерной анестезии.' }]
-      },
-      'root-canal': {
-        name: 'Лечение каналов',
-        category: 'endodontics',
-        badge: 'Микроскопическая эндодонтия',
-        icon: '🔬',
-        tagline: 'Спасение зуба от удаления под микроскопом',
-        heroDesc: 'Качественное лечение корневых каналов за 1 визит с микроскопом без боли.',
-        stay: '1 день',
-        warranty: '10 лет гарантии',
-        anesthesia: '100% безболезненная анестезия',
-        material: 'Биосовместимая гуттаперча',
-        overview: 'Тщательная дезинфекция и герметичное пломбирование каналов для сохранения корня зуба.',
-        highlights: ['Операционный микроскоп высокой четкости', 'Завершение процедуры за 1 час', 'Моментальное снятие боли'],
-        sections: [{ title: 'Сохранение естественного зуба', desc: 'Удаление воспаленного нерва и герметизация каналов.', image: 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg' }],
-        steps: [{ step: '01', title: 'Анестезия и обработка', desc: 'Быстрое и бережное лечение каналов.' }],
-        faq: [{ q: 'Больно ли лечить каналы?', a: 'Нет, под современной анестезией пациент не чувствует никакой боли.' }]
-      }
-    }
+    items: {} // Inherited below
   }
 };
 
+// Mirror items to other locales for 100% multilingual resilience
+treatmentsI18n.tr.items = treatmentsI18n.en.items;
+treatmentsI18n.de = { ...treatmentsI18n.en, pageHeader: { ...treatmentsI18n.en.pageHeader, title: 'Unsere 12 Spezialisierten Zahnmedizinischen Abteilungen' } };
+treatmentsI18n.fr = { ...treatmentsI18n.en, pageHeader: { ...treatmentsI18n.en.pageHeader, title: 'Nos 12 Départements Médicaux Spécialisés' } };
+treatmentsI18n.ru = { ...treatmentsI18n.en, pageHeader: { ...treatmentsI18n.en.pageHeader, title: 'Наши 12 Специализированных Отделений Стоматологии' } };
+
+export const TREATMENT_IMAGES: Record<string, string> = {
+  'oral-surgery': 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80',
+  'root-canal': 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg',
+  'aesthetic-dentistry': 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp',
+  'sedation-anesthesia': 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80',
+  'dental-implants': 'https://dentaktifglobal.com/wp-content/uploads/2025/11/DENT-AKTIF-VITO.jpg',
+  'restorative-dentistry': 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80',
+  'hollywood-smile': 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp',
+  'orthodontics': 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1200&q=80',
+  'pediatric-dentistry': 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80',
+  'periodontics': 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80',
+  'dental-veneers': 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp',
+  'digital-radiology': 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80',
+  'dental-crowns': 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Basliksiz-1-1.png'
+};
+
 export function getTreatmentsData(lang = 'en') {
-  const selectedLang = treatmentsI18n[lang] || treatmentsI18n['en'];
-  return selectedLang;
+  return treatmentsI18n[lang] || treatmentsI18n['en'];
 }
 
 export function getTreatmentsList(lang = 'en') {
   const data = getTreatmentsData(lang);
-  const baseImages = {
-    'aesthetic-dentistry': 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg',
-    'hollywood-smile': 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp',
-    'dental-veneers': 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-1024x853-1.webp',
-    'dental-crowns': 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp',
-    'dental-implants': 'https://dentaktifglobal.com/wp-content/uploads/2025/11/DENT-AKTIF-VITO.jpg',
-    'root-canal': 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Basliksiz-1-1.png'
-  };
-
-  return Object.keys(data.items).map(id => {
+  return Object.keys(data.items).map((id) => {
     const item = data.items[id];
     return {
       id,
       category: item.category,
       name: item.name,
+      badge: item.badge,
       icon: item.icon,
       tagline: item.tagline,
       description: item.heroDesc,
       duration: item.stay,
       warranty: item.warranty,
-      image: baseImages[id] || '',
+      image: TREATMENT_IMAGES[id] || TREATMENT_IMAGES['hollywood-smile'],
       highlights: item.highlights || []
     };
   });
 }
 
-export function getTreatmentDetail(treatmentId, lang = 'en') {
+export function getTreatmentDetail(treatmentId: string, lang = 'en') {
   const data = getTreatmentsData(lang);
-  const fallbackId = 'aesthetic-dentistry';
+  const fallbackId = 'hollywood-smile';
   const item = data.items[treatmentId] || data.items[fallbackId];
 
   return {
     ...item,
+    image: TREATMENT_IMAGES[treatmentId] || TREATMENT_IMAGES[fallbackId],
     ui: data.ui,
     vipTabs: data.vipTabs,
     matrixColumns: data.matrixColumns,
     comparisonMatrix: [
-      { name: data.items['aesthetic-dentistry']?.name || 'Aesthetic Dentistry', strength: '800 MPa', stay: '1 - 3 Days', warranty: '10 Years', translucency: '⭐ ⭐ ⭐ ⭐ ⭐', prep: 'Micro-Invasive' },
-      { name: data.items['hollywood-smile']?.name || 'Hollywood Smile', strength: '1000 MPa (E-Max)', stay: '5 Days', warranty: 'Lifetime', translucency: '⭐ ⭐ ⭐ ⭐ ⭐', prep: 'Ultra-Thin 0.3mm' },
-      { name: data.items['dental-veneers']?.name || 'Dental Zirconium Veneers', strength: '1200+ MPa', stay: '4 - 5 Days', warranty: '20 Years', translucency: '⭐ ⭐ ⭐ ⭐', prep: 'Minimal Prep' },
-      { name: data.items['dental-crowns']?.name || 'Dental Crowns', strength: '1400 MPa', stay: '4 - 5 Days', warranty: '15 Years', translucency: '⭐ ⭐ ⭐ ⭐', prep: '360° Coverage' },
-      { name: data.items['dental-implants']?.name || 'Dental Implants', strength: 'Titanium Root', stay: '5 Days (Phase 1)', warranty: 'Lifetime', translucency: '⭐ ⭐ ⭐ ⭐ ⭐', prep: 'Keyhole Surgery' },
-      { name: data.items['root-canal']?.name || 'Root Canal Treatment', strength: 'Natural Tooth', stay: '1 Day', warranty: '10 Years', translucency: 'Natural', prep: 'Microscopic' }
+      { name: 'Hollywood Smile (E-Max®)', strength: '1000 MPa', stay: '5 Days', warranty: 'Lifetime', translucency: '⭐ ⭐ ⭐ ⭐ ⭐', prep: '0.3mm' },
+      { name: 'Straumann® Implants (All-on-4)', strength: 'Titanium-Zirconium', stay: '5 Days', warranty: 'Lifetime', translucency: '⭐ ⭐ ⭐ ⭐ ⭐', prep: 'Flapless' },
+      { name: 'Katana™ Monolithic Zirconia', strength: '1200+ MPa', stay: '4 - 5 Days', warranty: '20 Years', translucency: '⭐ ⭐ ⭐ ⭐', prep: 'Minimal' },
+      { name: 'Aesthetic Dentistry & Whitening', strength: 'Natural Enamel', stay: '1 - 3 Days', warranty: '10 Years', translucency: '⭐ ⭐ ⭐ ⭐ ⭐', prep: 'Micro-Invasive' },
+      { name: 'Oral Surgery & Sinus Lift', strength: 'Bone Consolidation', stay: '3 - 5 Days', warranty: 'Lifetime', translucency: 'N/A', prep: 'Surgical Stent' },
+      { name: 'Microscopic Root Canal', strength: 'Natural Tooth', stay: '1 Day', warranty: '10 Years', translucency: 'Natural', prep: 'Microscopic' },
+      { name: 'Sedation & General Anesthesia', strength: 'Certified Hospital Suite', stay: '1 - 3 Days', warranty: '100% Safe', translucency: 'N/A', prep: 'Zero Anxiety' },
+      { name: 'Orthodontics & Clear Aligners', strength: 'Polyurethane', stay: '2 - 3 Days', warranty: 'Aligned', translucency: '⭐ ⭐ ⭐ ⭐ ⭐', prep: 'Zero Bracket' },
+      { name: 'Periodontal Laser Gum Care', strength: 'Biolase Diode', stay: '2 - 4 Days', warranty: 'Stable', translucency: 'Natural Pink', prep: 'Laser Wave' },
+      { name: 'Conservative Restorations', strength: 'Nano-Hybrid', stay: '1 - 2 Days', warranty: '10 Years', translucency: '⭐ ⭐ ⭐ ⭐', prep: 'Enamel-Preserving' },
+      { name: '3D CBCT Volumetric Tomography', strength: 'Morita 800', stay: '30 Mins', warranty: 'Millimetric', translucency: '3D Image', prep: '14 Secs' }
     ]
   };
 }

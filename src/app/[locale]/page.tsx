@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '@/components/Hero';
 import TrustMarquee from '@/components/TrustMarquee';
 import ServiceIntentCards from '@/components/ServiceIntentCards';
+import TreatmentsSection from '@/components/TreatmentsSection';
 import CaseSlider from '@/components/CaseSlider';
 import PriceTable from '@/components/PriceTable';
 import InHouseLab from '@/components/InHouseLab';
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Hero />
       <TrustMarquee />
       <ServiceIntentCards />
+      <TreatmentsSection />
       <CaseSlider />
       <PriceTable />
       <InHouseLab />
