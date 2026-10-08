@@ -3,7 +3,7 @@
    Full 12 Clinical Departments from dentaktif.com in EN, TR, DE, RU
    ========================================================================== */
 
-export const treatmentsI18n: Record<string, any> = {
+export const treatmentsI18n = {
   // --------------------------------------------------------------------------
   // ENGLISH (EN)
   // --------------------------------------------------------------------------
@@ -549,7 +549,7 @@ treatmentsI18n.de = { ...treatmentsI18n.en, pageHeader: { ...treatmentsI18n.en.p
 treatmentsI18n.fr = { ...treatmentsI18n.en, pageHeader: { ...treatmentsI18n.en.pageHeader, title: 'Nos 12 Départements Médicaux Spécialisés' } };
 treatmentsI18n.ru = { ...treatmentsI18n.en, pageHeader: { ...treatmentsI18n.en.pageHeader, title: 'Наши 12 Специализированных Отделений Стоматологии' } };
 
-export const TREATMENT_IMAGES: Record<string, string> = {
+export const TREATMENT_IMAGES = {
   'oral-surgery': 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80',
   'root-canal': 'https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg',
   'aesthetic-dentistry': 'https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp',
@@ -589,7 +589,7 @@ export function getTreatmentsList(lang = 'en') {
   });
 }
 
-export function getTreatmentDetail(treatmentId: string, lang = 'en') {
+export function getTreatmentDetail(treatmentId, lang = 'en') {
   const data = getTreatmentsData(lang);
   const fallbackId = 'hollywood-smile';
   const item = data.items[treatmentId] || data.items[fallbackId];
