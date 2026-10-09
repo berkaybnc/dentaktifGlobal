@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Link } from '@/navigation';
 import { compressDentalImage, OptimizedFile } from '@/lib/imageCompression';
 
 interface TreatmentOption {
@@ -593,18 +594,16 @@ export default function TriageForm() {
             )}
           </form>
 
-          {/* Alternative Direct WhatsApp Fast Track Strip */}
+          {/* Alternative Direct Inquiry Strip */}
           <div className="mt-8 pt-6 border-t border-slate-100 text-center">
-            <span className="text-xs text-slate-500 font-medium">Prefer to send your smile photos directly on your phone? </span>
-            <a
-              href="https://wa.me/902129008080?text=Hello%20Dent%20Aktif,%20I%20would%20like%20to%20send%20my%20dental%20photos%20for%20a%20free%20quote."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-bold text-emerald-700 hover:text-emerald-800 hover:underline inline-flex items-center gap-1 ml-1"
+            <span className="text-xs text-slate-500 font-medium">Need direct clinical assistance or prefer speaking with our team? </span>
+            <Link
+              href="/contact"
+              className="text-xs font-bold text-[#006972] hover:text-[#211164] hover:underline inline-flex items-center gap-1 ml-1"
             >
-              <span className="material-symbols-outlined text-sm">chat</span>
-              <span>Fast-Track via WhatsApp Coordinator →</span>
-            </a>
+              <span className="material-symbols-outlined text-sm">support_agent</span>
+              <span>Reach Our Official Contact Desk →</span>
+            </Link>
           </div>
 
           {/* SUCCESS CONFIRMATION OVERLAY */}

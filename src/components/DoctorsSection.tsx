@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Link } from '@/navigation';
 
 interface Doctor {
   id: string;
@@ -142,17 +143,14 @@ export default function DoctorsSection() {
                   </ul>
                 </div>
 
-                {/* Action / Consultation Button */}
+                {/* Action / View Profile Button */}
                 <div className="pt-4 border-t border-slate-100">
-                  <a
-                    href={`https://wa.me/905308693368?text=${encodeURIComponent(doctor.consultationMsg)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#211164] text-white hover:bg-[#006699] transition-all shadow-md group-hover:shadow-lg"
+                  <Link
+                    href={`/doctors/${doctor.id}`}
+                    className="w-full inline-flex items-center justify-center py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#211164] text-white hover:bg-[#006699] transition-all shadow-md group-hover:shadow-lg text-center"
                   >
-                    <span className="material-symbols-outlined text-base">chat</span>
-                    <span>Consult with {doctor.name.split(' ')[1]}</span>
-                  </a>
+                    <span>View Profile &amp; Credentials →</span>
+                  </Link>
                 </div>
               </div>
             </div>

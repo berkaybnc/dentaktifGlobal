@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Link } from '@/navigation';
 
 interface ConciergeFeature {
   icon: string;
@@ -124,11 +125,11 @@ export default function ConciergeSection() {
                     className="p-4 sm:p-4.5 rounded-2xl border border-slate-200/90 bg-white hover:border-[#1b0d52]/40 hover:shadow-md transition-all space-y-2 group"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="w-9 h-9 rounded-xl bg-teal-50 border border-teal-200/80 text-teal-700 flex items-center justify-center group-hover:bg-[#1b0d52] group-hover:text-teal-300 transition-colors">
-                        <span className="material-symbols-outlined text-xl">{item.icon}</span>
-                      </div>
-                      <span className="text-[10px] font-mono font-bold text-teal-800 bg-teal-50/80 px-2 py-0.5 rounded border border-teal-200/60">
+                      <span className="text-[10px] font-mono font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200/60">
                         {item.badge}
+                      </span>
+                      <span className="text-[11px] font-mono font-bold text-slate-300">
+                        0{i + 1}
                       </span>
                     </div>
 
@@ -186,16 +187,13 @@ export default function ConciergeSection() {
                     </div>
                   </a>
 
-                  {/* WhatsApp Direct Action */}
-                  <a
-                    href="https://wa.me/902129008080?text=Hello,%20I%20would%20like%20to%20connect%20with%20an%20International%20Patient%20Coordinator."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-100"
+                  {/* Contact Direct Action */}
+                  <Link
+                    href="/contact"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#1b0d52] font-extrabold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
                   >
-                    <span className="material-symbols-outlined text-base">chat</span>
-                    <span>Chat on WhatsApp Directly</span>
-                  </a>
+                    <span>Connect with Concierge Desk →</span>
+                  </Link>
 
                   {/* Email */}
                   <a

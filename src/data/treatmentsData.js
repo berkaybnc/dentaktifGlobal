@@ -21,10 +21,10 @@ export const treatmentsI18n = {
     },
     filterTabs: [
       { id: 'all', label: 'All 6 Treatments' },
-      { id: 'aesthetic', label: '✨ Aesthetic & Smile' },
-      { id: 'prosthetics', label: '👑 Veneers & Crowns' },
-      { id: 'surgery-implants', label: '⚙️ Implants' },
-      { id: 'endodontics', label: '🔬 Root Canal' }
+      { id: 'aesthetic', label: 'Aesthetic & Smile' },
+      { id: 'prosthetics', label: 'Veneers & Crowns' },
+      { id: 'surgery-implants', label: 'Dental Implants' },
+      { id: 'endodontics', label: 'Root Canal' }
     ],
     ui: {
       stay: 'Stay in Istanbul:',

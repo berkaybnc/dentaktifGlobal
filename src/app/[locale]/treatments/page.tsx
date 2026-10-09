@@ -183,15 +183,12 @@ export default function TreatmentsOverviewPage() {
             >
               {treatmentsData.ui.bottomCtaBtn}
             </Link>
-            <a
-              href="https://wa.me/902129008080"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider text-center shadow-lg transition-all flex items-center justify-center gap-2"
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider text-center transition-all"
             >
-              <span className="material-symbols-outlined text-base">chat</span>
-              <span>WhatsApp Medical Desk</span>
-            </a>
+              Contact Medical Desk
+            </Link>
           </div>
         </div>
       </section>

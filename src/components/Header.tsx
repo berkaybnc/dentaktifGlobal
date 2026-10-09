@@ -62,15 +62,12 @@ export default function Header() {
               <span className="sm:hidden text-[11px]">Call Desk</span>
             </a>
 
-            <a
-              className="hidden md:inline-flex items-center gap-1 text-emerald-300 hover:text-white transition-colors text-xs font-semibold"
-              href="https://wa.me/902129008080"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              className="hidden md:inline-flex items-center gap-1 text-teal-300 hover:text-white transition-colors text-xs font-semibold"
+              href="/contact"
             >
-              <span className="material-symbols-outlined text-[15px]">chat</span>
-              <span>24/7 Medical Coordinator</span>
-            </a>
+              <span>International Patient Desk</span>
+            </Link>
 
             {/* Language Switcher (Subpath routed, strictly EN, DE, FR, RU - No domestic Turkish) */}
             <div className="flex items-center gap-0.5 sm:gap-1 border-l border-white/20 pl-2 sm:pl-3">
@@ -242,23 +239,21 @@ export default function Header() {
 
         {/* Header Action Buttons */}
         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-
           {/* Full button on sm+ screens */}
           <a
-            className="hidden sm:inline-flex items-center gap-2 justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wide bg-gradient-to-r from-[#211164] via-[#2d1980] to-[#006972] text-white hover:opacity-95 shadow-md shadow-[#211164]/25 transition-all hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0"
+            className="hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wide bg-gradient-to-r from-[#211164] via-[#2d1980] to-[#006972] text-white hover:opacity-95 shadow-md shadow-[#211164]/25 transition-all hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0"
             href="#consultation-wizard"
           >
-            <span className="material-symbols-outlined text-[16px] text-teal-300">upload_file</span>
             <span className="whitespace-nowrap">Upload X-Ray / Free Quote</span>
           </a>
 
           {/* Compact icon button on mobile screens */}
           <a
-            className="sm:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white shadow-md active:scale-95"
+            className="sm:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white shadow-md active:scale-95 text-xs font-bold"
             href="#consultation-wizard"
             title="Upload X-Ray / Free Quote"
           >
-            <span className="material-symbols-outlined text-[18px]">upload_file</span>
+            +
           </a>
 
           {/* Mobile menu toggle */}
@@ -290,58 +285,55 @@ export default function Header() {
                 onClick={() => setTreatmentsOpen(!treatmentsOpen)}
                 className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors text-left"
               >
-                <span className="flex items-center gap-2.5">
-                  <span className="material-symbols-outlined text-teal-600 text-[20px]">auto_awesome</span>
-                  <span>12 Clinical Treatment Departments</span>
-                </span>
+                <span>Treatments</span>
                 <span className={`material-symbols-outlined text-slate-400 text-sm transition-transform duration-200 ${treatmentsOpen ? 'rotate-90' : ''}`}>
                   chevron_right
                 </span>
               </button>
 
               {treatmentsOpen && (
-                <div className="pl-6 pr-2 py-2 space-y-1 bg-slate-50/70 rounded-xl my-1 border border-slate-100">
+                <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50/70 rounded-xl my-1 border border-slate-100">
                   <Link
                     href="/treatments/aesthetic-dentistry"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
-                    className="block py-1 text-xs text-slate-700 hover:text-primary font-medium"
+                    className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    • Aesthetic Dentistry
+                    Aesthetic Dentistry
                   </Link>
                   <Link
                     href="/treatments/hollywood-smile"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
-                    className="block py-1 text-xs text-slate-700 hover:text-primary font-medium"
+                    className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    • Hollywood Smile
+                    Hollywood Smile
                   </Link>
                   <Link
                     href="/treatments/dental-veneers"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
-                    className="block py-1 text-xs text-slate-700 hover:text-primary font-medium"
+                    className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    • Dental Zirconium Veneers
+                    Dental Zirconium Veneers
                   </Link>
                   <Link
                     href="/treatments/dental-crowns"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
-                    className="block py-1 text-xs text-slate-700 hover:text-primary font-medium"
+                    className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    • Dental Crowns
+                    Dental Crowns
                   </Link>
                   <Link
                     href="/treatments/dental-implants"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
-                    className="block py-1 text-xs text-slate-700 hover:text-primary font-medium"
+                    className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    • Dental Implants
+                    Dental Implants
                   </Link>
                   <Link
                     href="/treatments/root-canal"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
-                    className="block py-1 text-xs text-slate-700 hover:text-primary font-medium"
+                    className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    • Root Canal Treatment
+                    Root Canal Treatment
                   </Link>
                 </div>
               )}
@@ -352,10 +344,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-teal-600 text-[20px]">architecture</span>
-                <span>Personalized Techniques & Plans</span>
-              </span>
+              <span>Techniques &amp; Plans</span>
               <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
             </a>
 
@@ -364,10 +353,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-teal-600 text-[20px]">compare</span>
-                <span>Verified Clinical Outcomes</span>
-              </span>
+              <span>Verified Clinical Outcomes</span>
               <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
             </a>
 
@@ -376,23 +362,16 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-teal-600 text-[20px]">flight_land</span>
-                <span>5-Day Travel & Hotel Protocol</span>
-              </span>
+              <span>5-Day Travel &amp; Hotel Protocol</span>
               <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
             </a>
-
 
             <a
               href="#doctors-section"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-teal-600 text-[20px]">medical_services</span>
-                <span>Doctors & Medical Faculty</span>
-              </span>
+              <span>Doctors &amp; Medical Faculty</span>
               <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
             </a>
 
@@ -401,10 +380,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-teal-600 text-[20px]">help_outline</span>
-                <span>Frequently Asked Questions</span>
-              </span>
+              <span>Frequently Asked Questions</span>
               <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
             </Link>
 
@@ -413,10 +389,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-teal-600 text-[20px]">contact_support</span>
-                <span>Contact &amp; International Concierge</span>
-              </span>
+              <span>Contact &amp; International Concierge</span>
               <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
             </Link>
           </nav>
@@ -425,23 +398,18 @@ export default function Header() {
             <a
               href="#consultation-wizard"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white text-xs font-bold uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white text-xs font-bold uppercase tracking-wider text-center shadow-md flex items-center justify-center"
             >
-              <span className="material-symbols-outlined text-base text-teal-300">upload_file</span>
-              <span>Upload X-Ray / Free Plan</span>
+              Upload X-Ray / Free Plan
             </a>
 
-            <a
-              href="https://wa.me/902129008080"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 rounded-xl bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2"
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 rounded-xl bg-slate-800 text-white text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center"
             >
-              <span className="material-symbols-outlined text-base">chat</span>
-              <span>WhatsApp Medical Officer</span>
-            </a>
-
-
+              Contact Us &amp; Location
+            </Link>
           </div>
         </div>
       )}

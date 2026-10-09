@@ -77,19 +77,15 @@ export default function TreatmentsSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
 
                   {/* Warranty Tag */}
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-extrabold text-amber-700 shadow-md border border-amber-200/80 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[14px]">shield</span>
-                    <span>{treatment.warranty}</span>
+                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-extrabold text-amber-700 shadow-md border border-amber-200/80">
+                    {treatment.warranty}
                   </div>
 
                   {/* Department Badge */}
-                  <div className="absolute bottom-3 left-4 text-white flex items-center gap-2">
-                    <span className="text-2xl">{treatment.icon}</span>
-                    <div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-teal-300 block">
-                        {treatment.badge}
-                      </span>
-                    </div>
+                  <div className="absolute bottom-3 left-4 text-white">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-teal-300 block">
+                      {treatment.badge}
+                    </span>
                   </div>
                 </div>
 
@@ -109,9 +105,8 @@ export default function TreatmentsSection() {
 
                   {/* Stay Duration & VIP Protocol */}
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
-                    <span className="flex items-center gap-1 font-semibold">
-                      <span className="material-symbols-outlined text-sm text-teal-600">schedule</span>
-                      <span>{treatment.duration}</span>
+                    <span className="font-medium text-slate-700">
+                      Stay: {treatment.duration}
                     </span>
                     <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                       VIP Hotel Included
@@ -122,10 +117,8 @@ export default function TreatmentsSection() {
                   {treatment.highlights && treatment.highlights.length > 0 && (
                     <ul className="pt-2 space-y-1.5 text-[11px] text-slate-600">
                       {treatment.highlights.slice(0, 3).map((hl: string, i: number) => (
-                        <li key={i} className="flex items-start gap-1.5">
-                          <span className="material-symbols-outlined text-xs text-emerald-600 mt-0.5 shrink-0">
-                            check_circle
-                          </span>
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-teal-600 font-bold shrink-0">•</span>
                           <span className="leading-tight line-clamp-1">{hl}</span>
                         </li>
                       ))}
@@ -138,22 +131,17 @@ export default function TreatmentsSection() {
               <div className="p-6 sm:p-7 pt-0 flex flex-col sm:flex-row items-center gap-2.5">
                 <Link
                   href={`/treatments/${treatment.id}`}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white text-xs font-extrabold uppercase tracking-wider text-center shadow-md hover:opacity-95 transition-all flex items-center justify-center gap-1.5 group-hover:shadow-lg"
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white text-xs font-extrabold uppercase tracking-wider text-center shadow-md hover:opacity-95 transition-all flex items-center justify-center group-hover:shadow-lg"
                 >
                   <span>{treatmentsData.ui.viewDetails}</span>
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </Link>
 
-                <a
-                  href={`https://wa.me/902129008080?text=Hello,%20I%20would%20like%20to%20consult%20about%20${encodeURIComponent(treatment.name)}%20at%20Dent%20Aktif.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-3.5 py-3 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 text-xs font-bold transition-colors flex items-center justify-center gap-1 shrink-0"
-                  title="WhatsApp Consultation"
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto px-4 py-3 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition-colors text-center shrink-0"
                 >
-                  <span className="material-symbols-outlined text-[16px]">chat</span>
-                  <span className="sm:hidden">Consult</span>
-                </a>
+                  Contact Us
+                </Link>
               </div>
             </div>
           ))}

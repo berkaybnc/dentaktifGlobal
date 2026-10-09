@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter, Link } from '@/navigation';
 import { FlipWords } from './FlipWords';
 
 interface TreatmentPlan {
@@ -79,17 +80,12 @@ export default function Hero() {
     }
   };
 
+  const router = useRouter();
   const abroadData = getAbroadCost();
 
   const handleQuickSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!waNumber.trim()) return;
-
-    const message = encodeURIComponent(
-      `Hello Dent Aktif Hospital! I am inquiring about the all-inclusive package for "${selectedTreatment.name}". Please provide preliminary doctor review. My WhatsApp: ${waNumber}`
-    );
-    window.open(`https://wa.me/902129008080?text=${message}`, '_blank');
-    setFormSubmitted(true);
+    router.push('/contact');
   };
 
   return (
@@ -142,8 +138,7 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-3.5">
                   <div>
-                    <span className="text-white text-xs font-bold flex items-center gap-1.5 font-headline">
-                      <span className="material-symbols-outlined text-sm text-teal-300">apartment</span>
+                    <span className="text-white text-xs font-bold block font-headline">
                       Levent Surgical Center & Suites
                     </span>
                     <span className="text-[10px] text-slate-300 block">3D CBCT Panoramic Tomography On-Site</span>
@@ -159,8 +154,7 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-3.5">
                   <div>
-                    <span className="text-white text-xs font-bold flex items-center gap-1.5 font-headline">
-                      <span className="material-symbols-outlined text-sm text-emerald-300">biotech</span>
+                    <span className="text-white text-xs font-bold block font-headline">
                       In-House Master Ceramist Lab
                     </span>
                     <span className="text-[10px] text-slate-300 block">Ivoclar E-Max® & 5-Axis Milling Suite</span>
@@ -170,19 +164,12 @@ export default function Hero() {
             </div>
 
             {/* Regulatory Compliance Badges */}
-            <div className="pt-2 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-600 font-semibold border-t border-slate-200/90">
-              <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[18px] text-emerald-600">verified</span>
-                Ministry of Health &amp; USHAŞ Cert #2026034015610080000425805
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[18px] text-emerald-600">verified</span>
-                Swiss Straumann® Center of Excellence
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[18px] text-emerald-600">verified</span>
-                ISO 9001:2015 Hospital Accreditation
-              </span>
+            <div className="pt-2 flex flex-wrap items-center gap-y-1.5 gap-x-3 text-xs text-slate-600 font-semibold border-t border-slate-200/90">
+              <span>Ministry of Health &amp; USHAŞ Cert #2026034015610080000425805</span>
+              <span className="text-slate-300">•</span>
+              <span>Swiss Straumann® Center</span>
+              <span className="text-slate-300">•</span>
+              <span>ISO 9001:2015 Hospital Accreditation</span>
             </div>
           </div>
 
@@ -216,14 +203,13 @@ export default function Hero() {
                     key={tr.id}
                     type="button"
                     onClick={() => setSelectedTreatment(tr)}
-                    className={`rounded-xl p-2.5 text-center text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 border-2 ${
+                    className={`rounded-xl py-3 px-2 text-center text-xs font-bold transition-all border-2 ${
                       selectedTreatment.id === tr.id
                         ? 'border-primary bg-primary/5 text-primary shadow-xs'
                         : 'border-slate-200 hover:border-slate-300 text-slate-700 bg-white'
                     }`}
                   >
-                    <span className="material-symbols-outlined text-[20px]">{tr.icon}</span>
-                    <span className="leading-tight">{tr.label}</span>
+                    <span className="leading-tight block">{tr.label}</span>
                   </button>
                 ))}
               </div>
@@ -303,12 +289,12 @@ export default function Hero() {
             </div>
 
             <div className="mt-3 pt-2 text-center border-t border-slate-100">
-              <a
+              <Link
                 className="text-xs font-bold text-primary hover:underline inline-flex items-center gap-1"
-                href="#consultation-wizard"
+                href="/contact"
               >
-                Proceed to Detailed 3D X-Ray & Dental Record Upload →
-              </a>
+                Proceed to Contact &amp; Detailed 3D X-Ray Upload →
+              </Link>
             </div>
           </div>
         </div>

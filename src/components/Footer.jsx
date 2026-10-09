@@ -51,17 +51,6 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
-      <div className="floating-cta">
-        <a
-          href="https://wa.me/+905521617377?text=Hello,%20I%20am%20reaching%20out%20via%20your%20website.%20Could%20I%20get%20information%20about%20treatments%20and%20pricing?"
-          target="_blank"
-          className="btn-float-wa"
-          title="Instant WhatsApp Chat"
-        >
-          💬
-        </a>
-      </div>
     </>
   );
 }

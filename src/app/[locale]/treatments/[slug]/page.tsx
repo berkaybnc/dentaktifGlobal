@@ -82,15 +82,12 @@ export default function TreatmentDetailPage({
                 >
                   {ui.quoteBtn}
                 </Link>
-                <a
-                  href={`https://wa.me/902129008080?text=Hello,%20I%20am%20inquiring%20about%20${encodeURIComponent(data.name)}%20at%20Dent%20Aktif%20Hospital.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all flex items-center gap-2"
+                <Link
+                  href="/contact"
+                  className="px-5 py-3.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 text-xs font-bold uppercase tracking-wider shadow-xs transition-all text-center"
                 >
-                  <span className="material-symbols-outlined text-base">chat</span>
-                  <span>{ui.whatsappBtn}</span>
-                </a>
+                  Contact Clinic Desk
+                </Link>
               </div>
             </div>
 

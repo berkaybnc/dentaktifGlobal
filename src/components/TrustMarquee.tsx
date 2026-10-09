@@ -49,21 +49,16 @@ const TRUST_BADGES = [
 
 export default function TrustMarquee() {
   return (
-    <section className="w-full bg-[#150c3f] text-white py-6 border-y border-white/10 overflow-hidden relative">
-      <div className="absolute inset-0 bg-[radial-gradient(#2BA598_1px,transparent_1px)] [background-size:20px_20px] opacity-10 pointer-events-none" />
-
+    <section className="w-full bg-[#150c3f] text-white py-5 border-y border-white/10 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {TRUST_BADGES.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white/5 hover:bg-white/10 transition-colors border border-white/10 rounded-2xl p-3.5 flex flex-col justify-between group"
+              className="bg-white/5 hover:bg-white/10 transition-colors border border-white/10 rounded-xl p-3 flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between mb-2">
-                <span className="material-symbols-outlined text-[20px] text-teal-300 group-hover:scale-110 transition-transform">
-                  {item.icon}
-                </span>
-                <span className="text-[9px] font-mono uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-white/10 text-teal-200">
+              <div className="mb-1.5">
+                <span className="text-[9px] font-mono uppercase tracking-wider font-extrabold px-1.5 py-0.5 rounded bg-white/10 text-teal-300">
                   {item.badge}
                 </span>
               </div>

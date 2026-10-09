@@ -308,15 +308,12 @@ export default function FaqPage() {
               <p className="text-xs text-slate-500 max-w-md mx-auto">
                 We couldn't find an answer matching your query. Our International Patient Coordinator is online 24/7 on WhatsApp to assist you directly.
               </p>
-              <a
-                href="https://wa.me/902129008080?text=Hello,%20I%20have%20a%20specific%20question%20not%20listed%20in%20your%20FAQ."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-md hover:bg-emerald-700 transition-colors"
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-[#211164] text-white font-bold text-xs shadow-md hover:bg-opacity-90 transition-colors"
               >
-                <span className="material-symbols-outlined text-sm">chat</span>
-                <span>Ask on WhatsApp Directly</span>
-              </a>
+                Contact Our Patient Desk
+              </Link>
             </div>
           ) : (
             filteredFaqs.map((faq) => {
@@ -363,15 +360,12 @@ export default function FaqPage() {
                           <span className="material-symbols-outlined text-sm">verified</span>
                           Verified Medical Standard • Dent Aktif Hospital
                         </span>
-                        <a
-                          href={`https://wa.me/902129008080?text=Hello,%20regarding%20the%20question%20"${encodeURIComponent(faq.question)}",%20I%20would%20like%20further%20details.`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#211164] font-bold hover:underline flex items-center gap-1"
+                        <Link
+                          href="/contact"
+                          className="text-[#211164] font-bold hover:underline"
                         >
-                          <span>Ask follow-up on WhatsApp</span>
-                          <span className="material-symbols-outlined text-xs">arrow_forward</span>
-                        </a>
+                          Have a question? Contact us →
+                        </Link>
                       </div>
                     </div>
                   )}
@@ -402,15 +396,12 @@ export default function FaqPage() {
             >
               Upload X-Ray / Free Plan
             </Link>
-            <a
-              href="https://wa.me/902129008080"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-emerald-400 bg-emerald-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-md hover:bg-emerald-700 transition-all text-center flex items-center justify-center gap-1.5"
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 text-white font-extrabold text-xs uppercase tracking-wider shadow-md transition-all text-center"
             >
-              <span className="material-symbols-outlined text-base">chat</span>
-              <span>WhatsApp Coordinator</span>
-            </a>
+              Contact Us Directly
+            </Link>
           </div>
         </div>
       </section>

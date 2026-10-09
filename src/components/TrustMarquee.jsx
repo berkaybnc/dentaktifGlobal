@@ -2,41 +2,28 @@ import React from 'react';
 
 export default function TrustMarquee() {
   const trustBadges = [
-    { title: "JCI Accredited Clinic", icon: "💎", detail: "Global Healthcare Standard" },
-    { title: "Republic of Turkey Ministry of Health", icon: "🏛️", detail: "Licensed Medical Tourism Clinic" },
-    { title: "ISO 9001:2015 Certified", icon: "🛡️", detail: "Quality Management System" },
-    { title: "Straumann® Official Center", icon: "🦷", detail: "Swiss Implant Platinum Partner" },
-    { title: "Trustpilot ★ 4.9 / 5.0", icon: "⭐", detail: "Over 2,400+ Verified Patient Reviews" },
-    { title: "TEMOS International", icon: "🌍", detail: "Excellence in Medical Tourism" },
-    { title: "Lifetime Implant Warranty", icon: "📜", detail: "Official Certificate Provided" }
+    { title: "Ministry of Health & USHAŞ", detail: "Licensed Health Tourism Hospital" },
+    { title: "Swiss Straumann® Platinum", detail: "Official Surgical Partner" },
+    { title: "ISO 9001:2015 Certified", detail: "International Quality Standards" },
+    { title: "Ivoclar Vivadent® E-Max", detail: "Certified Master Ceramist Lab" },
+    { title: "Trustpilot 4.9 / 5.0", detail: "2,400+ Verified Patient Reviews" },
+    { title: "Lifetime Manufacturer Warranty", detail: "Official Passport & Barcode" }
   ];
 
   const renderItems = (items) => items.map((item, idx) => (
-    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-      <div style={{
-        width: '36px', height: '36px', borderRadius: '8px',
-        background: 'rgba(2, 132, 199, 0.08)', display: 'flex',
-        alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem',
-        color: 'var(--color-brand-primary)'
-      }}>
-        {item.icon}
-      </div>
+    <div key={idx} className="flex items-center gap-3 px-6 py-2 border-r border-slate-200/60 last:border-r-0">
+      <span className="w-1.5 h-1.5 rounded-full bg-teal-600 shrink-0" />
       <div>
-        <strong style={{ display: 'block', fontSize: '0.95rem', color: 'var(--text-main)' }}>{item.title}</strong>
-        <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{item.detail}</span>
+        <strong className="block text-xs font-bold text-slate-800 whitespace-nowrap">{item.title}</strong>
+        <span className="text-[11px] text-slate-500 whitespace-nowrap block">{item.detail}</span>
       </div>
     </div>
   ));
 
   return (
-    <section style={{
-      padding: '2.5rem 0', background: 'var(--bg-surface)',
-      borderTop: '1px solid var(--glass-border-subtle)',
-      borderBottom: '1px solid var(--glass-border-subtle)',
-      overflow: 'hidden'
-    }}>
-      <div className="marquee-container">
-        <div className="marquee-track">
+    <section className="py-4 bg-[#FAFBFC] border-y border-slate-200 overflow-hidden">
+      <div className="marquee-container flex">
+        <div className="marquee-track flex shrink-0 items-center">
           {renderItems(trustBadges)}
           {renderItems(trustBadges)}
         </div>

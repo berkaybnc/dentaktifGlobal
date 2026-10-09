@@ -42,28 +42,28 @@ const LOCALIZED_FAQ_UI: Record<string, { badge: string; title: string; desc: str
     title: 'Frequently Asked Questions',
     desc: 'Quick answers about treatment durations, painless anesthesia, and authentic Swiss implants.',
     viewAllBtn: 'View All Frequently Asked Questions →',
-    askDoc: 'Ask Doctor via WhatsApp'
+    askDoc: 'Ask Doctor via Contact Desk'
   },
   de: {
     badge: 'Häufige Patientenfragen',
     title: 'Häufig gestellte Fragen',
     desc: 'Wichtige Antworten zu Behandlungsdauer, schmerzfreier Betäubung und originalen Schweizer Implantaten.',
     viewAllBtn: 'Alle häufig gestellten Fragen ansehen →',
-    askDoc: 'Arzt per WhatsApp fragen'
+    askDoc: 'Arzt über Beratung kontaktieren'
   },
   fr: {
     badge: 'Questions Fréquentes',
     title: 'Foire Aux Questions',
     desc: 'Réponses essentielles sur la durée du séjour, l\'anesthésie indolore et les implants suisses authentiques.',
     viewAllBtn: 'Consulter toutes les questions fréquentes →',
-    askDoc: 'Poser une question sur WhatsApp'
+    askDoc: 'Contacter l\'équipe médicale'
   },
   ru: {
     badge: 'Часто задаваемые вопросы',
     title: 'Вопросы и ответы',
     desc: 'Краткие ответы о сроках пребывания, безболезненной анестезии и оригинальных швейцарских имплантах.',
     viewAllBtn: 'Посмотреть все вопросы и ответы →',
-    askDoc: 'Задать вопрос в WhatsApp'
+    askDoc: 'Задать вопрос врачу'
   }
 };
 
@@ -138,15 +138,12 @@ export default function FaqSection() {
                         <span className="material-symbols-outlined text-sm">verified</span>
                         Verified by Hospital Medical Board
                       </span>
-                      <a
-                        href="https://wa.me/902129008080"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#211164] font-bold hover:underline flex items-center gap-1"
+                      <Link
+                        href="/contact"
+                        className="text-[#211164] font-bold hover:underline"
                       >
-                        <span>{t.askDoc}</span>
-                        <span className="material-symbols-outlined text-xs">arrow_forward</span>
-                      </a>
+                        {t.askDoc} →
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -167,15 +164,12 @@ export default function FaqSection() {
             </span>
           </Link>
 
-          <a
-            href="https://wa.me/902129008080"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 font-bold text-xs transition-colors"
+          <Link
+            href="/contact"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs transition-colors"
           >
-            <span className="material-symbols-outlined text-base text-emerald-600">chat</span>
-            <span>{t.askDoc}</span>
-          </a>
+            <span>Contact Medical Desk</span>
+          </Link>
         </div>
       </div>
     </section>

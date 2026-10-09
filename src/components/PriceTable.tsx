@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Link } from '@/navigation';
 
 export default function PriceTable() {
   const treatments = [
@@ -90,15 +91,12 @@ export default function PriceTable() {
               </p>
             </div>
           </div>
-          <a
-            href="https://wa.me/905308693368?text=Hello%20Dent%20Aktif!%20I%20would%20like%20a%20free%20pre-diagnostic%20evaluation%20from%20your%20surgeons."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:-translate-y-0.5"
+          <Link
+            href="/contact"
+            className="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-xl bg-[#1b0d52] hover:bg-[#281570] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
           >
-            <span className="material-symbols-outlined text-base">chat</span>
-            Send Your Scan / Photo via WhatsApp
-          </a>
+            Submit Records for Free Evaluation
+          </Link>
         </div>
 
         {/* Technique & Value Cards Grid */}
@@ -167,15 +165,12 @@ export default function PriceTable() {
 
               {/* Card Footer / Action Button */}
               <div className="p-6 sm:p-7 pt-0 space-y-2.5">
-                <a
-                  href={`https://wa.me/905308693368?text=${encodeURIComponent(item.chatMsg)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#211164] text-white hover:bg-opacity-90 transition-all shadow-md group-hover:shadow-lg"
+                <Link
+                  href="/contact"
+                  className="w-full inline-flex items-center justify-center py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#211164] text-white hover:bg-opacity-90 transition-all shadow-md group-hover:shadow-lg text-center"
                 >
-                  <span className="material-symbols-outlined text-base">calendar_month</span>
                   {item.ctaText}
-                </a>
+                </Link>
 
                 <a
                   href="#consultation-wizard"
