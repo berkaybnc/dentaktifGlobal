@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useLocale } from 'next-intl';
+import { Link } from '@/navigation';
 
 interface FaqItem {
   id: string;
@@ -9,7 +11,8 @@ interface FaqItem {
   category: string;
 }
 
-const FAQ_LIST: FaqItem[] = [
+// 3 Core Essential FAQs for Homepage (Full library available on /faq)
+const HOME_FAQ_LIST: FaqItem[] = [
   {
     id: 'stay-duration',
     category: 'Travel & Schedule',
@@ -29,65 +32,69 @@ const FAQ_LIST: FaqItem[] = [
     category: 'Quality & Materials',
     question: 'Are the materials genuine Swiss Straumann® and Ivoclar Vivadent E-Max®?',
     answer:
-      'Yes, 100%. We exclusively use authentic Swiss Straumann® Roxolid and SLAactive implants and genuine Liechtenstein Ivoclar Vivadent E-Max® ingots. Every patient receives an official manufacturer implant passport and holographic warranty card with registered batch serial numbers, verifiable worldwide through Straumann and Ivoclar international registers.',
-  },
-  {
-    id: 'cost-difference',
-    category: 'Pricing & Value',
-    question: 'Why are Dent Aktif prices up to 70% lower than private clinics in the UK, Germany, or the US?',
-    answer:
-      'Our hospital eliminates commercial third-party intermediaries and external dental laboratory commissions by fabricating every restoration in our own on-site CAD/CAM ceramic suite. In addition, lower clinical operational overheads in Turkey and official Ministry of Health International Medical Tourism framework incentives (Decree No. 5448) enable us to pass direct hospital savings to international patients without compromising clinical grade.',
-  },
-  {
-    id: 'cross-border-guarantee',
-    category: 'Warranty & Follow-up',
-    question: 'What happens if I experience any sensitivity or issue after returning home?',
-    answer:
-      'Our international care does not end when you board your flight. You receive direct access to our Teledentistry Follow-up Desk with scheduled check-ins at 1, 3, 6, and 12 months. In the rare event of mechanical complications, our Lifetime Implant Warranty and 10-Year Porcelain Guarantee cover free revisions at our hospital or through our collaborative partner dental centers in key European hubs.',
-  },
-  {
-    id: 'all-inclusive-inclusions',
-    category: 'Hospital Logistics',
-    question: 'What exactly is included in the All-Inclusive Hospital Care Package?',
-    answer:
-      'Our all-inclusive package covers everything required for your medical journey: 5 nights in a luxury 5-star Levent partner hotel, private chauffeured Mercedes-Benz Vito airport and clinic transfers, comprehensive 3D CBCT tomography diagnostics, chairside Master Ceramist try-ins, dedicated native language medical interpreters, and complete post-operative medication kits. There are zero hidden clinic fees.',
-  },
-  {
-    id: 'free-quote-xray',
-    category: 'Pre-Travel Triage',
-    question: 'How do I obtain a preliminary diagnosis and quote before booking my flights?',
-    answer:
-      'Simply upload your panoramic dental X-ray (OPG), 3D CBCT scan, or sharp smartphone photos of your smile using our secure triage portal below or send them directly via WhatsApp. Our Chief Oral Surgeon and Prosthodontic Faculty will review your radiographs and provide an itemized, binding treatment plan and exact schedule within 4 to 12 hours.',
+      'Yes, 100%. We exclusively use authentic Swiss Straumann® Roxolid and SLActive implants and genuine Liechtenstein Ivoclar Vivadent E-Max® ingots. Every patient receives an official manufacturer implant passport and holographic warranty card with registered batch serial numbers, verifiable worldwide through Straumann and Ivoclar international registers.',
   },
 ];
 
+const LOCALIZED_FAQ_UI: Record<string, { badge: string; title: string; desc: string; viewAllBtn: string; askDoc: string }> = {
+  en: {
+    badge: 'Quick Patient FAQ',
+    title: 'Frequently Asked Questions',
+    desc: 'Quick answers about treatment durations, painless anesthesia, and authentic Swiss implants.',
+    viewAllBtn: 'View All Frequently Asked Questions →',
+    askDoc: 'Ask Doctor via WhatsApp'
+  },
+  de: {
+    badge: 'Häufige Patientenfragen',
+    title: 'Häufig gestellte Fragen',
+    desc: 'Wichtige Antworten zu Behandlungsdauer, schmerzfreier Betäubung und originalen Schweizer Implantaten.',
+    viewAllBtn: 'Alle häufig gestellten Fragen ansehen →',
+    askDoc: 'Arzt per WhatsApp fragen'
+  },
+  fr: {
+    badge: 'Questions Fréquentes',
+    title: 'Foire Aux Questions',
+    desc: 'Réponses essentielles sur la durée du séjour, l\'anesthésie indolore et les implants suisses authentiques.',
+    viewAllBtn: 'Consulter toutes les questions fréquentes →',
+    askDoc: 'Poser une question sur WhatsApp'
+  },
+  ru: {
+    badge: 'Часто задаваемые вопросы',
+    title: 'Вопросы и ответы',
+    desc: 'Краткие ответы о сроках пребывания, безболезненной анестезии и оригинальных швейцарских имплантах.',
+    viewAllBtn: 'Посмотреть все вопросы и ответы →',
+    askDoc: 'Задать вопрос в WhatsApp'
+  }
+};
+
 export default function FaqSection() {
+  const locale = useLocale();
   const [openId, setOpenId] = useState<string>('stay-duration');
+  const t = LOCALIZED_FAQ_UI[locale] || LOCALIZED_FAQ_UI.en;
 
   const toggleItem = (id: string) => {
     setOpenId(openId === id ? '' : id);
   };
 
   return (
-    <section className="w-full py-20 bg-white border-b border-slate-200" id="faq-section">
+    <section className="w-full py-16 sm:py-20 bg-white border-b border-slate-200" id="faq-section">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center space-y-3 mb-12">
-          <span className="text-xs font-mono uppercase tracking-widest text-secondary font-extrabold bg-teal-50 border border-teal-200 px-3 py-1 rounded-full">
-            Clinical Transparency & Patient Guidance
+        <div className="text-center space-y-3 mb-10">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#006972] font-extrabold bg-teal-50 border border-teal-200 px-3.5 py-1 rounded-full inline-block">
+            {t.badge}
           </span>
-          <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-[#211164] tracking-tight">
-            Frequently Asked Questions
+          <h2 className="font-headline text-3xl sm:text-4xl font-black text-[#1b0d52] tracking-tight">
+            {t.title}
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Essential answers regarding our 5-day hospital protocol, painless anesthesia, genuine Swiss Straumann® implants,
-            warranty passports, and transparent package inclusions.
+            {t.desc}
           </p>
         </div>
 
-        {/* FAQ Accordion List */}
+        {/* 3 Core FAQ Items Accordion */}
         <div className="space-y-3.5">
-          {FAQ_LIST.map((faq) => {
+          {HOME_FAQ_LIST.map((faq) => {
             const isOpen = openId === faq.id;
             return (
               <div
@@ -105,7 +112,7 @@ export default function FaqSection() {
                   aria-expanded={isOpen}
                 >
                   <div className="space-y-1">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-secondary">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-teal-700">
                       {faq.category}
                     </span>
                     <h3 className="font-headline text-sm sm:text-base font-bold text-slate-900 leading-snug">
@@ -137,7 +144,7 @@ export default function FaqSection() {
                         rel="noopener noreferrer"
                         className="text-[#211164] font-bold hover:underline flex items-center gap-1"
                       >
-                        <span>Still have questions? Chat with our doctor</span>
+                        <span>{t.askDoc}</span>
                         <span className="material-symbols-outlined text-xs">arrow_forward</span>
                       </a>
                     </div>
@@ -148,21 +155,26 @@ export default function FaqSection() {
           })}
         </div>
 
-        {/* Bottom Help Banner */}
-        <div className="mt-10 p-6 rounded-2xl bg-gradient-to-r from-[#211164] to-[#006972] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-lg">
-          <div>
-            <h4 className="font-headline text-base font-extrabold text-white">
-              Have specific questions about your dental case?
-            </h4>
-            <p className="text-xs text-teal-100 mt-1">
-              Send your X-rays directly to our Chief Prosthodontist for an immediate personalized review.
-            </p>
-          </div>
-          <a
-            href="#consultation-wizard"
-            className="shrink-0 px-5 py-3 rounded-xl bg-white text-[#211164] hover:bg-slate-100 font-extrabold text-xs uppercase tracking-wider transition-all shadow-md hover:scale-105"
+        {/* View All FAQs CTA to Dedicated Page */}
+        <div className="mt-10 text-center flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <Link
+            href="/faq"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-100 group"
           >
-            Request Free Case Review
+            <span>{t.viewAllBtn}</span>
+            <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">
+              arrow_forward
+            </span>
+          </Link>
+
+          <a
+            href="https://wa.me/902129008080"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-emerald-300 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 font-bold text-xs transition-colors"
+          >
+            <span className="material-symbols-outlined text-base text-emerald-600">chat</span>
+            <span>{t.askDoc}</span>
           </a>
         </div>
       </div>

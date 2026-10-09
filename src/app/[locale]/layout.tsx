@@ -39,7 +39,7 @@ export async function generateMetadata({
   return {
     title: 'Dent Aktif Global • International Oral & Dental Hospital | Levent, Istanbul',
     description:
-      'Republic of Turkey Ministry of Health Licensed International Health Tourism Provider (Auth No: TR-34-DH-4892). Guided implant surgery, handcrafted E-Max restorations & 5-day VIP hospital protocol.',
+      'Republic of Turkey Ministry of Health & USHAŞ Licensed International Health Tourism Center (Cert No: 2026034015610080000425805). Guided implant surgery, handcrafted E-Max restorations & 5-day VIP hospital protocol.',
     alternates: {
       canonical: `${baseUrl}/${locale}`,
       languages: {
@@ -52,7 +52,7 @@ export async function generateMetadata({
     openGraph: {
       title: 'Dent Aktif Global • International Oral & Dental Hospital | Levent, Istanbul',
       description:
-        'Republic of Turkey Ministry of Health Licensed International Health Tourism Provider (Auth No: TR-34-DH-4892). Precision Surgical Implantology & Biocompatible Aesthetic Smile Restorations.',
+        'Republic of Turkey Ministry of Health & USHAŞ Licensed International Health Tourism Center (Cert No: 2026034015610080000425805). Precision Surgical Implantology & Biocompatible Aesthetic Smile Restorations.',
       url: `${baseUrl}/${locale}`,
       siteName: 'Dent Aktif Global',
       locale,

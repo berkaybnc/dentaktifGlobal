@@ -13,12 +13,11 @@ export default function TreatmentsOverviewPage() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const categories = treatmentsData.filterTabs || [
-    { id: 'all', label: 'All 12 Treatments' },
-    { id: 'surgery-implants', label: '⚙️ Surgery & Implants' },
-    { id: 'aesthetic-cosmetic', label: '✨ Aesthetic & Smile' },
+    { id: 'all', label: 'All 6 Treatments' },
+    { id: 'aesthetic', label: '✨ Aesthetic & Smile' },
     { id: 'prosthetics', label: '👑 Veneers & Crowns' },
-    { id: 'general-care', label: '🔬 General & Endodontics' },
-    { id: 'specialized', label: '🛡️ Specialized & Diagnostics' },
+    { id: 'surgery-implants', label: '⚙️ Implants' },
+    { id: 'endodontics', label: '🔬 Root Canal' },
   ];
 
   const filteredTreatments = activeCategory === 'all'
@@ -34,7 +33,7 @@ export default function TreatmentsOverviewPage() {
             <span className="material-symbols-outlined text-[16px] text-teal-600">verified</span>
             <span>{treatmentsData.pageHeader.badge}</span>
             <span className="text-slate-300">•</span>
-            <span className="text-slate-500 font-mono">Auth: TR-34-DH-4892</span>
+            <span className="text-slate-500 font-mono">Cert: 2026034015610080000425805</span>
           </div>
 
           <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b0d52] tracking-tight max-w-4xl mx-auto">

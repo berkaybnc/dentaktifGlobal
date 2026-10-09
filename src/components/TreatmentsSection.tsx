@@ -1,29 +1,41 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocale } from 'next-intl';
 import { Link } from '@/navigation';
 import { getTreatmentsList, getTreatmentsData } from '@/data/treatmentsData';
+
+// Top 3 most requested flagship treatments for international dental tourism
+const TOP_TREATMENT_IDS = ['dental-implants', 'hollywood-smile', 'dental-veneers'];
+
+const VIEW_ALL_TEXT: Record<string, { badge: string; button: string; desc: string }> = {
+  en: {
+    badge: 'Specialized Dental Treatments',
+    button: 'Compare All 6 Treatment Options →',
+    desc: 'Explore complete procedures, German CAD/CAM 3D technology & official warranty passports'
+  },
+  de: {
+    badge: 'Spezialisierte Zahnbehandlungen',
+    button: 'Alle 6 Behandlungsoptionen vergleichen →',
+    desc: 'Entdecken Sie Verfahren, deutsche 3D CAD/CAM-Technologie & offizielle Garantie-Pässe'
+  },
+  fr: {
+    badge: 'Traitements Dentaires Spécialisés',
+    button: 'Comparer les 6 Options de Traitement →',
+    desc: 'Découvrez nos protocoles, technologies 3D CAD/CAM et passeports de garantie officielle'
+  },
+  ru: {
+    badge: 'Специализированные направления лечения',
+    button: 'Сравнить все 6 направлений лечения →',
+    desc: 'Ознакомьтесь с протоколами, немецкими 3D CAD/CAM технологиями и паспортами гарантии'
+  }
+};
 
 export default function TreatmentsSection() {
   const locale = useLocale();
   const treatmentsData = getTreatmentsData(locale);
   const allTreatments = getTreatmentsList(locale);
-
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-
-  const categories = treatmentsData.filterTabs || [
-    { id: 'all', label: 'All 12 Treatments' },
-    { id: 'surgery-implants', label: '⚙️ Surgery & Implants' },
-    { id: 'aesthetic-cosmetic', label: '✨ Aesthetic & Smile' },
-    { id: 'prosthetics', label: '👑 Veneers & Crowns' },
-    { id: 'general-care', label: '🔬 General & Endodontics' },
-    { id: 'specialized', label: '🛡️ Specialized & Diagnostics' },
-  ];
-
-  const filteredTreatments = activeCategory === 'all'
-    ? allTreatments
-    : allTreatments.filter((t: any) => t.category === activeCategory);
+  const localizedContent = VIEW_ALL_TEXT[locale] || VIEW_ALL_TEXT.en;
 
   return (
     <section id="treatments-section" className="w-full bg-[#FAFBFC] py-16 sm:py-24 border-b border-slate-200">
@@ -32,9 +44,9 @@ export default function TreatmentsSection() {
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold shadow-xs">
             <span className="material-symbols-outlined text-[16px] text-teal-600">verified</span>
-            <span>{treatmentsData.pageHeader.badge}</span>
+            <span>{localizedContent.badge}</span>
             <span className="text-slate-300">•</span>
-            <span className="text-slate-500 font-mono">12 Departments</span>
+            <span className="text-slate-500 font-mono">6 Accredited Departments</span>
           </div>
 
           <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b0d52] tracking-tight">
@@ -46,27 +58,9 @@ export default function TreatmentsSection() {
           </p>
         </div>
 
-        {/* Filter Category Tabs */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
-          {categories.map((cat: { id: string; label: string }) => (
-            <button
-              key={cat.id}
-              type="button"
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-extrabold whitespace-nowrap transition-all duration-200 border ${
-                activeCategory === cat.id
-                  ? 'bg-[#1b0d52] text-white border-[#1b0d52] shadow-md shadow-[#1b0d52]/20 scale-105'
-                  : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* 12 Treatments Dynamic Grid */}
+        {/* 6 Specialized Treatments Showcase Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {filteredTreatments.map((treatment: any) => (
+          {allTreatments.map((treatment: any) => (
             <div
               key={treatment.id}
               className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col justify-between group"
@@ -165,15 +159,20 @@ export default function TreatmentsSection() {
           ))}
         </div>
 
-        {/* View All Treatments Hub Link */}
-        <div className="mt-12 text-center">
+        {/* View All Treatments Hub Call-To-Action Button */}
+        <div className="mt-14 text-center flex flex-col items-center gap-3">
           <Link
             href="/treatments"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white text-[#1b0d52] font-black text-xs uppercase tracking-wider border border-slate-300 shadow-sm hover:bg-slate-50 hover:border-primary transition-all"
+            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#211164] via-[#281570] to-[#006972] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-[#211164]/20 hover:shadow-xl hover:scale-105 active:scale-100 transition-all group"
           >
-            <span>View All 12 Departments Comprehensive Directory</span>
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            <span>{localizedContent.button}</span>
+            <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">
+              arrow_forward
+            </span>
           </Link>
+          <p className="text-xs text-slate-500 font-medium max-w-md">
+            {localizedContent.desc}
+          </p>
         </div>
       </div>
     </section>

@@ -5,8 +5,8 @@ import React from 'react';
 const TRUST_BADGES = [
   {
     icon: 'verified_user',
-    badge: 'Ministry Licensed',
-    title: 'Health Tourism Auth: TR-34-DH-4892',
+    badge: 'Ministry & USHAŞ Licensed',
+    title: 'Cert No: 2026034015610080000425805',
     desc: 'Official Republic of Turkey Ministry of Health Provider',
     color: 'emerald',
   },

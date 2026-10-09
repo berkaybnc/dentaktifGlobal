@@ -11,10 +11,10 @@
       "static/css/app/[locale]/layout.css",
       "static/chunks/app/[locale]/layout.js"
     ],
-    "/_not-found/page": [
+    "/[locale]/contact/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/[locale]/contact/page.js"
     ]
   }
 }

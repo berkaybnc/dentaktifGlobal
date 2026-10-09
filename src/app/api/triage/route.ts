@@ -41,7 +41,7 @@ export async function POST(req: Request) {
         treatmentInterest: body.treatment,
         urgency: body.urgency,
         recordsAttachedCount: body.files?.length || 0,
-        licenseVerification: 'TR-34-DH-4892',
+        licenseVerification: '2026034015610080000425805',
       },
     };
 

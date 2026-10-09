@@ -7,19 +7,12 @@ import { Link } from '@/navigation';
 import { getTreatmentDetail, getTreatmentsData } from '@/data/treatmentsData';
 
 const VALID_SLUGS = [
-  'oral-surgery',
-  'root-canal',
   'aesthetic-dentistry',
-  'sedation-anesthesia',
-  'dental-implants',
-  'restorative-dentistry',
   'hollywood-smile',
-  'orthodontics',
-  'pediatric-dentistry',
-  'periodontics',
   'dental-veneers',
-  'digital-radiology',
   'dental-crowns',
+  'dental-implants',
+  'root-canal',
 ];
 
 export default function TreatmentDetailPage({

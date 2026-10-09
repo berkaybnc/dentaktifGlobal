@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { FlipWords } from './FlipWords';
 
 interface TreatmentPlan {
   id: string;
@@ -109,8 +110,19 @@ export default function Hero() {
                 <span className="text-secondary font-bold">Levent, Istanbul</span>
               </div>
 
-              <h1 className="font-headline text-3xl sm:text-4xl lg:text-[46px] font-black tracking-tight text-[#211164] leading-[1.15]">
-                Precision Surgical Implantology & Biocompatible Aesthetic Smile Restorations.
+              <h1 className="font-headline text-3xl sm:text-4xl lg:text-[46px] font-black tracking-tight text-[#211164] leading-[1.2]">
+                Precision Surgical Implantology &amp;{' '}
+                <FlipWords
+                  words={[
+                    'Hollywood Smile',
+                    'Swiss Straumann® Implants',
+                    'Biocompatible E-Max® Veneers',
+                    'Monolithic Zirconia Crowns',
+                    'Full Mouth Restoration',
+                  ]}
+                  duration={2800}
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-sky-600 to-teal-500 font-black px-1"
+                />
               </h1>
 
               <p className="font-sans text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl font-normal">
@@ -161,7 +173,7 @@ export default function Hero() {
             <div className="pt-2 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-600 font-semibold border-t border-slate-200/90">
               <span className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[18px] text-emerald-600">verified</span>
-                Ministry of Health Auth #TR-34-DH-4892
+                Ministry of Health &amp; USHAŞ Cert #2026034015610080000425805
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[18px] text-emerald-600">verified</span>

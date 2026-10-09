@@ -7,7 +7,7 @@ export default function MedicalDisclosurePage() {
         <div className="border-b border-slate-200 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider mb-3">
             <ShieldCheck className="w-4 h-4 text-sky-600" />
-            Republic of Türkiye Ministry of Health Licensed • TR-34-DH-4892
+            Republic of Turkey Ministry of Health &amp; USHAŞ Licensed • Cert No: 2026034015610080000425805
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
             Medical Disclosure & Informed Consent Policy
