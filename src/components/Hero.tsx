@@ -1,304 +1,238 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useRouter, Link } from '@/navigation';
+import React from 'react';
+import { Link } from '@/navigation';
 import { FlipWords } from './FlipWords';
 
-interface TreatmentPlan {
-  id: string;
-  name: string;
-  icon: string;
-  label: string;
-  costUK: string;
-  costUS: string;
-  costDE: string;
-  costFR: string;
-  dentPrice: string;
-  savePercent: number;
-  details: string;
-}
-
-const TREATMENTS: TreatmentPlan[] = [
-  {
-    id: 'smile',
-    name: 'Hollywood Smile Makeover (20 E-Max® Veneers)',
-    icon: 'auto_awesome',
-    label: 'Smile / E-Max®',
-    costUK: '£16,500',
-    costUS: '$22,000',
-    costDE: '€18,000',
-    costFR: '€16,500',
-    dentPrice: '£4,250',
-    savePercent: 74,
-    details: '20 Ivoclar Vivadent E-Max® Veneers • Digital Smile Mock-Up • 5-Star Hotel Included',
-  },
-  {
-    id: 'allon4',
-    name: 'All-on-4 / All-on-6 Implants (Swiss Straumann®)',
-    icon: 'dentistry',
-    label: 'Full Arch Implants',
-    costUK: '£22,000',
-    costUS: '$29,000',
-    costDE: '€24,000',
-    costFR: '€22,500',
-    dentPrice: '£5,800',
-    savePercent: 74,
-    details: 'Straumann® SLA Implants • 3D Guided Flapless Surgery • Fixed Hybrid Bridge',
-  },
-  {
-    id: 'restoration',
-    name: 'Full Mouth Monolithic Zirconia Crowns (24 Units)',
-    icon: 'healing',
-    label: 'Zirconia Bridges',
-    costUK: '£19,500',
-    costUS: '$26,000',
-    costDE: '€21,500',
-    costFR: '€19,800',
-    dentPrice: '£4,900',
-    savePercent: 75,
-    details: 'German Katana™ Multilayer Zirconia • Robotic CAD/CAM • High-Translucency',
-  },
+// Marquee Partner Brands & Institutional Accreditations (White/Silver Monochrome Luxury Style)
+const MARQUEE_PARTNERS = [
+  { name: 'Straumann®', label: 'Swiss Dental Implants', badge: 'PLATINUM PARTNER', icon: 'verified' },
+  { name: 'Ivoclar Vivadent®', label: 'IPS e.max® Porcelain', badge: 'CERTIFIED LAB', icon: 'auto_awesome' },
+  { name: 'Katana™ Zirconia', label: '15-Micron Precision', badge: 'MONOLITHIC CAD/CAM', icon: 'layers' },
+  { name: 'Ministry of Health & USHAŞ', label: 'HealthTürkiye Licensed', badge: 'CERT #2026034015610080000425805', icon: 'local_hospital' },
+  { name: 'Dentsply Sirona', label: 'Digital Guided Surgery', badge: '3D NAVIGATION', icon: 'precision_manufacturing' },
+  { name: 'J. Morita 3D CBCT', label: 'Volumetric Tomography', badge: 'ON-SITE SCANNING', icon: 'perm_media' },
+  { name: 'ISO 9001:2015', label: 'Hospital Quality Standard', badge: 'INTERNATIONAL AUDIT', icon: 'fact_check' },
+  { name: 'Mercedes-Benz VIP', label: 'Chauffeured Transfers', badge: 'AIRPORT & HOTEL', icon: 'airport_shuttle' },
+  { name: '5-Star Partner Hotels', label: 'Levent & Bosphorus Suites', badge: 'ALL-INCLUSIVE STAY', icon: 'hotel' },
+  { name: 'Trustpilot ★ 4.9/5.0', label: '2,400+ Verified Reviews', badge: 'EXCELLENT SCORE', icon: 'star' },
+  { name: '3M™ ESPE', label: 'Bio-Adhesive Restorations', badge: 'BIO-COMPATIBLE', icon: 'shield' },
+  { name: 'EU GDPR Protected', label: 'Patient Data Privacy', badge: 'REGULATION 2016/679', icon: 'policy' },
 ];
 
 export default function Hero() {
-  const [selectedTreatment, setSelectedTreatment] = useState<TreatmentPlan>(TREATMENTS[0]);
-  const [selectedCountry, setSelectedCountry] = useState<string>('UK');
-  const [waNumber, setWaNumber] = useState<string>('');
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
-
-  const getAbroadCost = () => {
-    switch (selectedCountry) {
-      case 'DE':
-        return { cost: selectedTreatment.costDE, label: 'Germany Private Clinic Benchmark' };
-      case 'US':
-        return { cost: selectedTreatment.costUS, label: 'US / Canada Private Clinic Benchmark' };
-      case 'FR':
-        return { cost: selectedTreatment.costFR, label: 'France / Belgium Clinic Benchmark' };
-      case 'UK':
-      default:
-        return { cost: selectedTreatment.costUK, label: 'London Harley Street Clinic Benchmark' };
-    }
-  };
-
-  const router = useRouter();
-  const abroadData = getAbroadCost();
-
-  const handleQuickSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    router.push('/contact');
-  };
-
   return (
-    <section className="relative w-full bg-gradient-to-b from-white via-[#F0F4F7]/40 to-white border-b border-slate-200/90 pt-8 sm:pt-12 pb-16 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(#211164_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
+    <section className="relative w-full min-h-[92vh] lg:min-h-[94vh] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-white/10">
+      
+      {/* ========================================================================= */}
+      {/* 1. CINEMATIC VIDEO BACKGROUND LAYER (Exact Bluesense Atmosphere)          */}
+      {/* ========================================================================= */}
+      <div className="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/hero-patient.jpg"
+          className="w-full h-full object-cover object-center scale-105"
+        >
+          <source src="/agiz-dis.mov" type="video/quicktime" />
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-dentist-examining-a-patients-teeth-42686-large.mp4" type="video/mp4" />
+        </video>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          {/* Left Column: Hospital Prestige, Leadership & Clinical Imagery */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-xs text-xs font-bold text-slate-700">
-                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
-                <span className="text-[#211164] font-black">18+ Years Chief Surgical Leadership</span>
-                <span className="text-slate-300">•</span>
-                <span className="text-slate-600 font-semibold">On-Site German CAD/CAM Lab</span>
-                <span className="text-slate-300">•</span>
-                <span className="text-secondary font-bold">Levent, Istanbul</span>
-              </div>
+        {/* Cinematic Dark Gradient Layers for Crisp Text Readability */}
+        {/* Lateral gradient: heavy on left, reveals video in center & right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/45" />
+        {/* Top-down gradient: blends smoothly with navbar and bottom edge */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-slate-950/95" />
+      </div>
 
-              <h1 className="font-headline text-3xl sm:text-4xl lg:text-[46px] font-black tracking-tight text-[#211164] leading-[1.2]">
-                Precision Surgical Implantology &amp;{' '}
-                <FlipWords
-                  words={[
-                    'Hollywood Smile',
-                    'Swiss Straumann® Implants',
-                    'Biocompatible E-Max® Veneers',
-                    'Monolithic Zirconia Crowns',
-                    'Full Mouth Restoration',
-                  ]}
-                  duration={2800}
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-sky-600 to-teal-500 font-black px-1"
-                />
-              </h1>
+      {/* ========================================================================= */}
+      {/* 2. FOREGROUND CONTENT: Prestige Identity, Value Proposition & Dual CTAs   */}
+      {/* ========================================================================= */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-16 sm:pt-24 pb-12 flex-1 flex flex-col justify-center w-full">
+        <div className="max-w-3xl space-y-6 sm:space-y-7">
+          
+          {/* Top Accreditation Pill */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold shadow-lg">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Ministry of Health &amp; USHAŞ Licensed Hospital</span>
+            <span className="text-white/40 hidden sm:inline">•</span>
+            <span className="text-teal-300 font-mono text-[11px] hidden sm:inline">Cert #2026034015610080000425805</span>
+          </div>
 
-              <p className="font-sans text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl font-normal">
-                Dent Aktif International Oral & Dental Hospital delivers full-mouth oral rehabilitations, computer-guided
-                Swiss Straumann® implant surgeries, and handcrafted E-Max® restorations directly through our in-house German
-                Master Ceramist Suite within a certified 5-day hospital protocol.
-              </p>
-            </div>
-
-            {/* Hospital Imagery Showcase with High-Resolution Context */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-1">
-              <div className="relative rounded-xl overflow-hidden border border-slate-200 shadow-md group bg-slate-900">
-                <img
-                  alt="Dent Aktif VIP Dental Surgical Suite in Levent"
-                  className="w-full h-44 sm:h-52 object-cover transition-transform duration-700 group-hover:scale-105 opacity-95"
-                  src="https://lh3.googleusercontent.com/aida/AEtjO1XgZ-GBizAlxpwrfcy7NQKXYTAXKR1yw_556uExG9Ca0Z7Vi7bn_pznu7qDggg2ueQTAbto7EJ59loqXubg-1HIPeOMLG6An33a_XsRMjQZxjpwi76t9JwUZDPTLmCPEMObn3TbLxmmv56Ge5y9lH0L738NdbaDobMFXpbcA-yRCpVIMPo9UHXYW2Y0AnWCnYnGd24Gyqs3mwwVcNvUwDdb9Pw3K2rATHfS2gHLhV9XGw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-3.5">
-                  <div>
-                    <span className="text-white text-xs font-bold block font-headline">
-                      Levent Surgical Center & Suites
-                    </span>
-                    <span className="text-[10px] text-slate-300 block">3D CBCT Panoramic Tomography On-Site</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative rounded-xl overflow-hidden border border-slate-200 shadow-md group bg-slate-900">
-                <img
-                  alt="German CAD/CAM Ceramic Laboratory Hand Crafting"
-                  className="w-full h-44 sm:h-52 object-cover transition-transform duration-700 group-hover:scale-105 opacity-95"
-                  src="https://lh3.googleusercontent.com/aida/AEtjO1UKMqkmEo_pBGxhCpBes-2HTJXsjJSnJoLNYZvLTahZ04KGGZUsItqbfjhkBbHdRhYlkdWot2BUp9L03EQU9mVZjOgAYhSQW5ZtbX4MAvyigsCYwGMRZFxVbSzmAuraBkUypXaDUznuk6_gA_Uzh4h5U9pkG1CQFeP-jrHg5YloL1Pg-cIBd-JU--MfOaHJLeWFY5wWK4_n8D63i0H2IoPvl9Ew5cLS6SmnOP_J-4PA-g"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-3.5">
-                  <div>
-                    <span className="text-white text-xs font-bold block font-headline">
-                      In-House Master Ceramist Lab
-                    </span>
-                    <span className="text-[10px] text-slate-300 block">Ivoclar E-Max® & 5-Axis Milling Suite</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Regulatory Compliance Badges */}
-            <div className="pt-2 flex flex-wrap items-center gap-y-1.5 gap-x-3 text-xs text-slate-600 font-semibold border-t border-slate-200/90">
-              <span>Ministry of Health &amp; USHAŞ Cert #2026034015610080000425805</span>
-              <span className="text-slate-300">•</span>
-              <span>Swiss Straumann® Center</span>
-              <span className="text-slate-300">•</span>
-              <span>ISO 9001:2015 Hospital Accreditation</span>
+          {/* Main Headline */}
+          <div className="space-y-2">
+            <h1 className="font-headline text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+              World-Class Dental Surgery &amp;{' '}
+              <FlipWords
+                words={[
+                  'Hollywood Smile Design',
+                  'Swiss Straumann® Implants',
+                  'Ivoclar E-Max® Veneers',
+                  'Monolithic Zirconia Crowns',
+                  'Full-Mouth Rehabilitation',
+                ]}
+                duration={2800}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-200 font-black px-1"
+              />
+            </h1>
+            <div className="text-sm sm:text-lg font-extrabold text-teal-300 tracking-wide flex items-center gap-2 pt-1">
+              <span>✦ Handcrafted Smiles in Just 5 Days</span>
+              <span className="text-white/40">•</span>
+              <span className="text-slate-300 font-medium">Levent Surgical Hospital, Istanbul</span>
             </div>
           </div>
 
-          {/* Right Column: Transparent Package Estimator Card */}
-          <div
-            className="lg:col-span-5 bg-white rounded-2xl border border-slate-200 shadow-xl p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden"
-            id="quick-action-hub"
-          >
-            <div className="absolute top-0 right-0 bg-emerald-50 text-emerald-800 font-mono text-[10px] font-extrabold px-3 py-1 rounded-bl-xl border-b border-l border-emerald-200 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              TRANSPARENT ALL-INCLUSIVE ESTIMATOR
-            </div>
+          {/* Editorial Description */}
+          <p className="font-sans text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl text-shadow-sm">
+            Dent Aktif International Oral &amp; Dental Hospital delivers full-arch Swiss Straumann® implant surgeries 
+            and handcrafted Ivoclar E-Max® veneers directly through our in-house master ceramist laboratory. 
+            All-inclusive hospital packages with 5-star hotel accommodation and chauffeured Mercedes-Benz VIP transfers.
+          </p>
 
-            <div className="space-y-4">
+          {/* Dual Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+            {/* Primary Action */}
+            <Link
+              href="/contact"
+              className="py-4 px-8 rounded-2xl bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-teal-500/25 hover:shadow-teal-400/40 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 text-center group"
+            >
+              <span>Get Free Quote &amp; 3D Smile Simulation</span>
+              <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </Link>
+
+            {/* Secondary WhatsApp Line */}
+            <a
+              href="https://wa.me/905521617377"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-4 px-6 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 text-center shrink-0"
+            >
+              <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              <span>WhatsApp Doctor Line</span>
+            </a>
+          </div>
+
+          {/* Social Proof & Trust Badges */}
+          <div className="pt-3 flex flex-wrap items-center gap-6 border-t border-white/15">
+            {/* Trustpilot Score */}
+            <div className="flex items-center gap-2.5">
+              <div className="flex gap-0.5 text-emerald-400 text-sm">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
               <div>
-                <span className="font-mono text-[11px] font-bold text-secondary uppercase tracking-wider">
-                  Fast Hospital Inquiry
-                </span>
-                <h3 className="font-headline text-lg sm:text-xl font-extrabold text-[#211164]">
-                  Select Clinical Treatment Package
-                </h3>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  Itemized hospital-direct packages with hotel, transfer and materials bundled.
-                </p>
-              </div>
-
-              {/* Treatment Selector Buttons */}
-              <div className="grid grid-cols-3 gap-2">
-                {TREATMENTS.map((tr) => (
-                  <button
-                    key={tr.id}
-                    type="button"
-                    onClick={() => setSelectedTreatment(tr)}
-                    className={`rounded-xl py-3 px-2 text-center text-xs font-bold transition-all border-2 ${
-                      selectedTreatment.id === tr.id
-                        ? 'border-primary bg-primary/5 text-primary shadow-xs'
-                        : 'border-slate-200 hover:border-slate-300 text-slate-700 bg-white'
-                    }`}
-                  >
-                    <span className="leading-tight block">{tr.label}</span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Benchmark & Comparison Box */}
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2.5">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="text-slate-600 font-semibold">Your Residence Country:</span>
-                  <select
-                    value={selectedCountry}
-                    onChange={(e) => setSelectedCountry(e.target.value)}
-                    className="text-xs font-bold border-slate-300 rounded-lg py-1 px-2.5 text-slate-800 bg-white focus:ring-primary shadow-xs"
-                  >
-                    <option value="UK">United Kingdom (London Benchmark)</option>
-                    <option value="DE">Germany / Austria / Switzerland</option>
-                    <option value="US">United States / Canada</option>
-                    <option value="FR">France / Belgium / Luxembourg</option>
-                  </select>
+                <div className="text-xs font-black text-white leading-none">
+                  Trustpilot <strong className="text-emerald-400">4.9 / 5.0</strong>
                 </div>
-
-                <div className="flex items-baseline justify-between pt-1 border-t border-slate-200">
-                  <div>
-                    <div className="text-[11px] text-slate-400 font-medium">{abroadData.label}</div>
-                    <div className="text-sm line-through text-slate-400 font-bold">{abroadData.cost}</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700">
-                      Dent Aktif All-Inclusive Care
-                    </div>
-                    <div className="text-2xl font-black text-[#211164] font-headline">
-                      {selectedTreatment.dentPrice}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Progress bar */}
-                <div className="w-full bg-emerald-100 rounded-full h-2.5 overflow-hidden">
-                  <div
-                    className="bg-emerald-600 h-full rounded-full transition-all duration-700"
-                    style={{ width: `${selectedTreatment.savePercent}%` }}
-                  />
-                </div>
-
-                <div className="flex justify-between items-center text-[11px] font-bold text-emerald-800">
-                  <span>5-Star Hotel + VIP Mercedes Vito Included</span>
-                  <span>{selectedTreatment.savePercent}% Direct Value Advantage</span>
+                <div className="text-[10px] text-slate-300 font-medium mt-0.5">
+                  2,400+ Verified Patient Reviews
                 </div>
               </div>
-
-              {/* Fast WhatsApp Clinical Inquiry Form */}
-              <form onSubmit={handleQuickSubmit} className="space-y-2.5 pt-1">
-                <div className="relative">
-                  <span className="material-symbols-outlined absolute left-3 top-2.5 text-slate-400 text-lg">
-                    phone_iphone
-                  </span>
-                  <input
-                    type="tel"
-                    required
-                    value={waNumber}
-                    onChange={(e) => setWaNumber(e.target.value)}
-                    placeholder="WhatsApp Number with Country Code (+44, +1, +49...)"
-                    className="w-full pl-9 pr-3 py-2.5 text-xs border border-slate-300 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary shadow-xs"
-                  />
-                </div>
-                <div className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
-                  <span className="material-symbols-outlined text-[13px] text-teal-600">lock</span>
-                  GDPR & Health Tourism compliant data processing. Zero spam.
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-700/20 hover:-translate-y-0.5"
-                >
-                  <span className="material-symbols-outlined text-[16px]">send</span>
-                  <span>Request Preliminary Doctor Evaluation</span>
-                </button>
-              </form>
             </div>
 
-            <div className="mt-3 pt-2 text-center border-t border-slate-100">
-              <Link
-                className="text-xs font-bold text-primary hover:underline inline-flex items-center gap-1"
-                href="/contact"
+            {/* International Completed Smiles Counter */}
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-1.5 overflow-hidden">
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/20 border border-white text-xs">🇬🇧</span>
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/20 border border-white text-xs">🇩🇪</span>
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/20 border border-white text-xs">🇫🇷</span>
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/20 border border-white text-xs">🇺🇸</span>
+              </div>
+              <div>
+                <div className="text-xs font-extrabold text-white leading-none">
+                  15,000+ Completed Smiles
+                </div>
+                <div className="text-[10px] text-slate-300 font-medium mt-0.5">
+                  Patients across 48+ Countries
+                </div>
+              </div>
+            </div>
+
+            {/* Price Value Highlight */}
+            <div className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-teal-300 bg-teal-950/60 border border-teal-500/30 px-3 py-1 rounded-xl">
+              <span>💰</span>
+              <span>Save up to 75% vs UK &amp; EU Clinics</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 3. BOTTOM OVERLAPPING INFINITY LOOP MARQUEE (Exact Bluesense Pattern)     */}
+      {/* ========================================================================= */}
+      <div className="w-full relative z-20 border-t border-white/15 bg-slate-950/80 backdrop-blur-md py-3.5 overflow-hidden shadow-2xl">
+        <div className="flex select-none">
+          {/* Track 1 */}
+          <div
+            className="flex shrink-0 items-center gap-8 pr-8"
+            style={{ animation: 'marquee-smooth 40s linear infinite normal' }}
+          >
+            {MARQUEE_PARTNERS.map((partner, idx) => (
+              <div
+                key={`p1-${idx}`}
+                className="flex items-center gap-3 text-white/90 hover:text-white transition-colors group cursor-default whitespace-nowrap"
               >
-                Proceed to Contact &amp; Detailed 3D X-Ray Upload →
-              </Link>
-            </div>
+                <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-teal-300 group-hover:bg-teal-500 group-hover:text-slate-950 transition-all shrink-0">
+                  <span className="material-symbols-outlined text-lg">{partner.icon}</span>
+                </div>
+                <div className="text-left">
+                  <div className="flex items-center gap-1.5 leading-none">
+                    <span className="font-headline font-black text-xs tracking-tight text-white group-hover:text-teal-200 transition-colors">
+                      {partner.name}
+                    </span>
+                    <span className="text-[9px] font-mono font-bold text-teal-300 bg-white/10 px-1.5 py-0.2 rounded border border-white/10">
+                      {partner.badge}
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-slate-300 font-medium leading-none block mt-1">
+                    {partner.label}
+                  </span>
+                </div>
+                <span className="w-1.5 h-1.5 rounded-full bg-white/20 ml-4 shrink-0" />
+              </div>
+            ))}
+          </div>
+
+          {/* Track 2 (Clone for infinite seamless loop) */}
+          <div
+            className="flex shrink-0 items-center gap-8 pr-8"
+            style={{ animation: 'marquee-smooth 40s linear infinite normal' }}
+            aria-hidden="true"
+          >
+            {MARQUEE_PARTNERS.map((partner, idx) => (
+              <div
+                key={`p2-${idx}`}
+                className="flex items-center gap-3 text-white/90 hover:text-white transition-colors group cursor-default whitespace-nowrap"
+              >
+                <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-teal-300 group-hover:bg-teal-500 group-hover:text-slate-950 transition-all shrink-0">
+                  <span className="material-symbols-outlined text-lg">{partner.icon}</span>
+                </div>
+                <div className="text-left">
+                  <div className="flex items-center gap-1.5 leading-none">
+                    <span className="font-headline font-black text-xs tracking-tight text-white group-hover:text-teal-200 transition-colors">
+                      {partner.name}
+                    </span>
+                    <span className="text-[9px] font-mono font-bold text-teal-300 bg-white/10 px-1.5 py-0.2 rounded border border-white/10">
+                      {partner.badge}
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-slate-300 font-medium leading-none block mt-1">
+                    {partner.label}
+                  </span>
+                </div>
+                <span className="w-1.5 h-1.5 rounded-full bg-white/20 ml-4 shrink-0" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
     </section>
   );
 }

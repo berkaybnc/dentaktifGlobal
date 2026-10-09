@@ -33,7 +33,13 @@ export default function Header() {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      setTreatmentsOpen(false);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       if (dropdownTimeoutRef.current) {
         clearTimeout(dropdownTimeoutRef.current);
       }

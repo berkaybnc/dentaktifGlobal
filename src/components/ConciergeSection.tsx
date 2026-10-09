@@ -64,84 +64,43 @@ export default function ConciergeSection() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-            {/* Left Column (8 cols): Chief Surgeon Leadership Card + 4 Concierge Pillars */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-              {/* Chief Surgeon Feature Showcase */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-indigo-50/70 via-white to-teal-50/40 border border-slate-200/90 shadow-xs flex flex-col sm:flex-row items-center sm:items-start gap-5">
-                {/* Doctor Avatar / Photo */}
-                <div className="relative shrink-0">
-                  <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden border-2 border-white shadow-md bg-slate-100">
-                    <img
-                      src="/images/doctors/dt-abdullah-omur.png"
-                      alt="Dt. Abdullah Ömür"
-                      className="w-full h-full object-cover object-top"
-                      loading="lazy"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src =
-                          'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80';
-                      }}
-                    />
-                  </div>
-                  <div className="absolute -bottom-2 -right-1 bg-emerald-600 text-white p-1 rounded-full shadow-sm flex items-center justify-center">
-                    <span className="material-symbols-outlined text-xs">verified</span>
-                  </div>
-                </div>
-
-                {/* Doctor Credentials */}
-                <div className="space-y-1.5 text-center sm:text-left">
-                  <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-                    <h3 className="font-headline text-lg sm:text-xl font-black text-[#1b0d52]">
-                      Dt. Abdullah Ömür & Medical Faculty
-                    </h3>
-                  </div>
-
-                  <p className="text-xs font-bold text-[#006972]">
-                    Dental Surgeon & Clinical Director • Levent Hospital
-                  </p>
-
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                    Extensive surgical expertise in guided flapless implant placements, bone regenerations, and comprehensive international patient smile rehabilitations.
-                  </p>
-
-                  <div className="pt-2 flex items-center justify-center sm:justify-start gap-2 flex-wrap text-[11px] font-bold text-slate-600">
-                    <span className="px-2.5 py-0.5 rounded-md bg-white border border-slate-200 shadow-2xs">
-                      🏆 ITI Fellow
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-md bg-white border border-slate-200 shadow-2xs">
-                      💎 Straumann® Key Opinion Leader
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-md bg-white border border-slate-200 shadow-2xs">
-                      ⭐ 99.2% Clinical Success
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* 4 Concierge Pillars Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {/* Left Column (7 cols): 4 VIP Concierge Pillars Grid */}
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {CONCIERGE_FEATURES.map((item, i) => (
                   <div
                     key={i}
-                    className="p-4 sm:p-4.5 rounded-2xl border border-slate-200/90 bg-white hover:border-[#1b0d52]/40 hover:shadow-md transition-all space-y-2 group"
+                    className="p-5 sm:p-6 rounded-2xl border border-slate-200/90 bg-white hover:border-[#1b0d52]/40 hover:shadow-lg transition-all duration-300 space-y-3 group"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200/60">
+                      <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200/60 flex items-center justify-center text-[#006972] group-hover:bg-[#1b0d52] group-hover:text-white transition-colors">
+                        <span className="material-symbols-outlined text-xl">{item.icon}</span>
+                      </div>
+                      <span className="text-[10px] font-mono font-bold text-teal-800 bg-teal-50/80 px-2 py-0.5 rounded border border-teal-200/60">
                         {item.badge}
-                      </span>
-                      <span className="text-[11px] font-mono font-bold text-slate-300">
-                        0{i + 1}
                       </span>
                     </div>
 
-                    <h4 className="font-headline text-xs sm:text-sm font-extrabold text-[#1b0d52] group-hover:text-primary transition-colors leading-snug">
+                    <h4 className="font-headline text-sm sm:text-base font-extrabold text-[#1b0d52] group-hover:text-[#006972] transition-colors leading-snug">
                       {item.title}
                     </h4>
 
-                    <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
                       {item.desc}
                     </p>
                   </div>
                 ))}
+              </div>
+
+              {/* Patient Reassurance Guarantee Strip */}
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-3 text-xs text-slate-600">
+                <span className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-emerald-600 text-lg">flight_takeoff</span>
+                  <span><strong>All-Inclusive Protocol:</strong> Hotel + Mercedes Chauffeur + All Meds Included.</span>
+                </span>
+                <span className="font-mono text-[11px] text-[#006972] font-bold hidden sm:inline">
+                  Zero Hidden Fees
+                </span>
               </div>
             </div>
 

@@ -34,7 +34,7 @@ const REVIEWS: Testimonial[] = [
     treatment: 'Swiss Straumann® All-on-6 Rehabilitation',
     date: 'Verified Patient • Treated Jan 2025',
     quote:
-      '“German precision right in Istanbul. Having original Swiss Straumann implants with official guarantee passports gave me complete confidence. The surgery was 100% painless thanks to computer-guided digital templates. Dr. Mehmet and the multilingual team made me feel safe throughout my 5-day journey.”',
+      '“German precision right in Istanbul. Having original Swiss Straumann implants with official guarantee passports gave me complete confidence. The surgery was 100% painless thanks to computer-guided digital templates. Dt. Abdullah Ömür and the multilingual team made me feel safe throughout my 5-day journey.”',
     verifiedSource: 'Google Healthcare Verified',
     rating: 5,
     highlight: 'Full chewing strength restored in 5 days',
