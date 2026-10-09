@@ -7,7 +7,6 @@ import { Plus_Jakarta_Sans, Manrope } from 'next/font/google';
 import { locales, Locale } from '@/i18n';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import WhatsAppFloating from '@/components/WhatsAppFloating';
 import CookieBanner from '@/components/CookieBanner';
 import '../globals.css';
 
@@ -87,7 +86,6 @@ export default async function LocaleLayout({
           <Header />
           <main className="w-full pt-[116px] flex-1">{children}</main>
           <Footer />
-          <WhatsAppFloating />
           <CookieBanner />
         </NextIntlClientProvider>
       </body>

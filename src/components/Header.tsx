@@ -17,6 +17,7 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
@@ -35,7 +36,14 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setTreatmentsOpen(false);
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
+
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
@@ -46,10 +54,25 @@ export default function Header() {
     };
   }, []);
 
+  const isHome = pathname === '/' || pathname === '';
+  const isTransparent = isHome && !isScrolled;
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-[0_4px_25px_rgba(33,17,100,0.06)]">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isTransparent
+          ? 'bg-transparent border-b border-white/10 shadow-none'
+          : 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-[0_4px_25px_rgba(33,17,100,0.06)]'
+      }`}
+    >
       {/* 1. Official Ministry of Health Licensure & Accreditation Top Bar */}
-      <div className="bg-[#120a33] text-white py-1.5 px-4 sm:px-6 border-b border-white/10">
+      <div
+        className={`py-1.5 px-4 sm:px-6 border-b transition-colors duration-300 ${
+          isTransparent
+            ? 'bg-slate-950/40 backdrop-blur-md border-white/10 text-white'
+            : 'bg-[#120a33] text-white border-white/10'
+        }`}
+      >
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs tracking-tight">
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="text-slate-300 font-medium text-[11px]">
@@ -102,18 +125,26 @@ export default function Header() {
       <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-[72px] sm:h-[76px] flex items-center justify-between gap-4 lg:gap-6">
         {/* Brand Logo & Hospital Crest */}
         <Link className="flex items-center gap-3 shrink-0 group py-1" href="/">
-          {/* Official DentAktif Color Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center relative">
             <img
               src="/images/logo.png"
               alt="DentAktif Oral & Dental Hospital"
-              className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className={`h-9 sm:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                isTransparent ? 'hidden' : 'block'
+              }`}
+            />
+            <img
+              src="/images/logo-white.png"
+              alt="DentAktif Oral & Dental Hospital"
+              className={`h-9 sm:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                isTransparent ? 'block' : 'hidden'
+              }`}
             />
           </div>
         </Link>
 
         {/* Navigation Links (Desktop) */}
-        <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-8 text-[13px] font-bold text-slate-700 whitespace-nowrap">
+        <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-8 text-[13px] font-bold whitespace-nowrap">
           {/* Treatments Dropdown with Safe Hover Bridge */}
           <div
             className="relative py-3 shrink-0"
@@ -124,14 +155,18 @@ export default function Header() {
               type="button"
               onClick={() => setTreatmentsOpen(!treatmentsOpen)}
               className={`flex items-center gap-1 transition-colors whitespace-nowrap ${
-                treatmentsOpen ? 'text-[#211164]' : 'text-slate-800 hover:text-[#211164]'
+                isTransparent
+                  ? (treatmentsOpen ? 'text-teal-300' : 'text-white hover:text-teal-300')
+                  : (treatmentsOpen ? 'text-[#211164]' : 'text-slate-800 hover:text-[#211164]')
               }`}
               aria-expanded={treatmentsOpen}
             >
               <span className="whitespace-nowrap">Treatments & Implants</span>
               <span
                 className={`material-symbols-outlined text-[18px] transition-transform duration-200 ${
-                  treatmentsOpen ? 'rotate-180 text-[#211164]' : 'text-slate-500'
+                  treatmentsOpen
+                    ? `rotate-180 ${isTransparent ? 'text-teal-300' : 'text-[#211164]'}`
+                    : (isTransparent ? 'text-white/70' : 'text-slate-500')
                 }`}
               >
                 expand_more
@@ -193,42 +228,54 @@ export default function Header() {
           </div>
 
           <a
-            className="hover:text-[#211164] text-slate-800 transition-colors py-2 flex items-center gap-1 whitespace-nowrap shrink-0"
+            className={`transition-colors py-2 flex items-center gap-1 whitespace-nowrap shrink-0 ${
+              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
+            }`}
             href="#cost-calculator-section"
           >
             <span>Techniques & Plans</span>
           </a>
 
           <a
-            className="hover:text-[#211164] text-slate-800 transition-colors py-2 whitespace-nowrap shrink-0"
+            className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
+              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
+            }`}
             href="#clinical-cases"
           >
             Clinical Cases
           </a>
 
           <a
-            className="hover:text-[#211164] text-slate-800 transition-colors py-2 whitespace-nowrap shrink-0"
+            className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
+              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
+            }`}
             href="#patient-journey"
           >
             5-Day Journey
           </a>
 
           <a
-            className="hover:text-[#211164] text-slate-800 transition-colors py-2 whitespace-nowrap shrink-0"
+            className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
+              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
+            }`}
             href="#doctors-section"
           >
             Doctors
           </a>
 
           <Link
-            className="hover:text-[#211164] text-slate-800 transition-colors py-2 whitespace-nowrap shrink-0"
+            className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
+              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
+            }`}
             href="/faq"
           >
             FAQ
           </Link>
 
           <Link
-            className="hover:text-[#211164] text-slate-800 transition-colors py-2 whitespace-nowrap shrink-0"
+            className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
+              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
+            }`}
             href="/contact"
           >
             Contact Us
@@ -239,7 +286,11 @@ export default function Header() {
         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
           {/* Full button on sm+ screens */}
           <a
-            className="hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wide bg-gradient-to-r from-[#211164] via-[#2d1980] to-[#006972] text-white hover:opacity-95 shadow-md shadow-[#211164]/25 transition-all hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0"
+            className={`hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wide transition-all hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0 ${
+              isTransparent
+                ? 'bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] shadow-lg shadow-teal-500/25 hover:shadow-teal-400/40 hover:scale-[1.02]'
+                : 'bg-gradient-to-r from-[#211164] via-[#2d1980] to-[#006972] text-white hover:opacity-95 shadow-md shadow-[#211164]/25'
+            }`}
             href="#consultation-wizard"
           >
             <span className="whitespace-nowrap">Upload X-Ray / Free Quote</span>
@@ -247,7 +298,11 @@ export default function Header() {
 
           {/* Compact icon button on mobile screens */}
           <a
-            className="sm:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white shadow-md active:scale-95 text-xs font-bold"
+            className={`sm:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl shadow-md active:scale-95 text-xs font-bold ${
+              isTransparent
+                ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-[#0d072b]'
+                : 'bg-gradient-to-r from-[#211164] to-[#006972] text-white'
+            }`}
             href="#consultation-wizard"
             title="Upload X-Ray / Free Quote"
           >
@@ -258,7 +313,11 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors"
+            className={`lg:hidden p-2 rounded-xl transition-colors ${
+              isTransparent
+                ? 'text-white hover:bg-white/10'
+                : 'text-slate-700 hover:bg-slate-100'
+            }`}
             aria-label="Toggle Navigation Menu"
           >
             <span className="material-symbols-outlined text-2xl">
