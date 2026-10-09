@@ -20,9 +20,55 @@ const MARQUEE_PARTNERS = [
   { name: 'EU GDPR Protected', label: 'Patient Data Privacy', badge: 'REGULATION 2016/679', icon: 'policy' },
 ];
 
+// Lightweight dynamic number counter component with easeOut Quartic interpolation
+function AnimatedCounter({
+  end,
+  duration = 1800,
+  decimals = 0,
+  suffix = '',
+}: {
+  end: number;
+  duration?: number;
+  decimals?: number;
+  suffix?: string;
+}) {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    let startTimestamp: number | null = null;
+    let frameId: number;
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 4);
+      setCount(easeOut * end);
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(step);
+      }
+    };
+
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [end, duration]);
+
+  const formatted =
+    decimals > 0
+      ? count.toFixed(decimals)
+      : Math.floor(count).toLocaleString();
+
+  return (
+    <span>
+      {formatted}
+      {suffix}
+    </span>
+  );
+}
+
 export default function Hero() {
   return (
-    <section className="relative w-full -mt-[116px] h-screen min-h-[660px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-white/10">
+    <section className="relative w-full -mt-[72px] sm:-mt-[76px] h-screen min-h-[660px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-white/10">
       
       {/* ========================================================================= */}
       {/* 1. CINEMATIC VIDEO BACKGROUND LAYER (Exact Bluesense Atmosphere)          */}
@@ -50,21 +96,22 @@ export default function Hero() {
       {/* ========================================================================= */}
       {/* 2. FOREGROUND CONTENT: Prestige Identity, Value Proposition & Dual CTAs   */}
       {/* ========================================================================= */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 pt-[124px] sm:pt-[132px] lg:pt-[136px] pb-3 sm:pb-4 flex-1 flex flex-col justify-center w-full">
-        <div className="max-w-3xl space-y-4 sm:space-y-5">
+      <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[88px] sm:pt-[96px] lg:pt-[102px] pb-3 sm:pb-4 flex-1 flex flex-col justify-center w-full">
+        <div className="max-w-3xl space-y-4 sm:space-y-5 text-left">
           
           {/* Top Accreditation Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold shadow-lg w-fit">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold shadow-lg w-fit">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span>Ministry of Health &amp; USHAŞ Licensed Hospital</span>
             <span className="text-white/40 hidden sm:inline">•</span>
-            <span className="text-teal-300 font-mono text-[11px] hidden sm:inline">Cert #2026034015610080000425805</span>
+            <span className="text-teal-300 font-semibold text-xs hidden sm:inline">Cert #2026034015610080000425805</span>
           </div>
 
           {/* Main Headline */}
-          <div className="space-y-1.5">
-            <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-black tracking-tight text-white leading-[1.14]">
+          <div className="space-y-2">
+            <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-black tracking-tight text-white leading-[1.15]">
               World-Class Dental Surgery &amp;{' '}
+              <br className="hidden sm:inline" />
               <FlipWords
                 words={[
                   'Hollywood Smile Design',
@@ -74,7 +121,7 @@ export default function Hero() {
                   'Full-Mouth Rehabilitation',
                 ]}
                 duration={2800}
-                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-200 font-black px-1"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 font-black inline-block drop-shadow-sm"
               />
             </h1>
             <div className="text-xs sm:text-base font-extrabold text-teal-300 tracking-wide flex items-center gap-2 pt-0.5">
@@ -91,72 +138,77 @@ export default function Hero() {
             All-inclusive hospital packages with 5-star hotel accommodation and chauffeured Mercedes-Benz VIP transfers.
           </p>
 
-          {/* Dual Action Buttons */}
+          {/* Single Focused Action Button */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
-            {/* Primary Action */}
             <Link
               href="/contact"
-              className="py-3.5 px-6 sm:px-7 rounded-2xl bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-teal-500/25 hover:shadow-teal-400/40 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-center group"
+              className="py-3.5 px-7 sm:px-8 rounded-2xl bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-teal-500/25 hover:shadow-teal-400/40 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 text-center group w-fit"
             >
               <span>Get Free Quote &amp; 3D Smile Simulation</span>
               <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">
                 arrow_forward
               </span>
             </Link>
-
-            {/* Secondary WhatsApp Line */}
-            <a
-              href="https://wa.me/905521617377"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-3.5 px-5 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-center shrink-0"
-            >
-              <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-              </svg>
-              <span>WhatsApp Doctor Line</span>
-            </a>
           </div>
 
-          {/* Social Proof & Trust Badges */}
-          <div className="pt-2.5 flex flex-wrap items-center gap-4 sm:gap-6 border-t border-white/15">
-            {/* Trustpilot Score */}
-            <div className="flex items-center gap-2">
-              <div className="flex gap-0.5 text-emerald-400 text-xs sm:text-sm">
+          {/* Social Proof & Trust Badges (Dynamic Count-Up Numerator) */}
+          <div className="pt-3 flex flex-wrap items-center gap-6 sm:gap-8 border-t border-white/15">
+            {/* Trustpilot Score Numerator */}
+            <div className="flex items-center gap-2.5">
+              <div className="flex gap-0.5 text-emerald-400 text-sm">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <div>
-                <div className="text-[11px] sm:text-xs font-black text-white leading-none">
-                  Trustpilot <strong className="text-emerald-400">4.9 / 5.0</strong>
+                <div className="text-xs sm:text-sm font-black text-white leading-none flex items-center gap-1.5">
+                  <span>Trustpilot</span>
+                  <span className="text-emerald-400 font-black">
+                    <AnimatedCounter end={4.9} decimals={1} /> / 5.0
+                  </span>
                 </div>
-                <div className="text-[9px] sm:text-[10px] text-slate-300 font-medium mt-0.5">
-                  2,400+ Verified Patient Reviews
+                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1">
+                  <AnimatedCounter end={2400} suffix="+" /> Verified Patient Reviews
                 </div>
               </div>
             </div>
 
-            {/* International Completed Smiles Counter */}
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-1.5 overflow-hidden">
-                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/20 border border-white text-[10px] sm:text-xs">🇬🇧</span>
-                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/20 border border-white text-[10px] sm:text-xs">🇩🇪</span>
-                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/20 border border-white text-[10px] sm:text-xs">🇫🇷</span>
-                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/20 border border-white text-[10px] sm:text-xs">🇺🇸</span>
+            {/* Subtle Divider */}
+            <div className="h-7 w-px bg-white/20 hidden sm:block" />
+
+            {/* International Completed Smiles Numerator */}
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2 overflow-hidden items-center">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80"
+                  alt="Verified Patient"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80"
+                  alt="Verified Patient"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=80&h=80&q=80"
+                  alt="Verified Patient"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80"
+                  alt="Verified Patient"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                />
               </div>
               <div>
-                <div className="text-[11px] sm:text-xs font-extrabold text-white leading-none">
-                  15,000+ Completed Smiles
+                <div className="text-xs sm:text-sm font-extrabold text-white leading-none">
+                  <span className="text-teal-300 font-black mr-1">
+                    <AnimatedCounter end={15000} suffix="+" />
+                  </span>
+                  Completed Smiles
                 </div>
-                <div className="text-[9px] sm:text-[10px] text-slate-300 font-medium mt-0.5">
+                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1">
                   Patients across 48+ Countries
                 </div>
               </div>
-            </div>
-
-            {/* Price Value Highlight */}
-            <div className="hidden md:flex items-center gap-1.5 text-xs font-bold text-teal-300 bg-teal-950/60 border border-teal-500/30 px-3 py-1 rounded-xl">
-              <span>💰</span>
-              <span>Save up to 75% vs UK &amp; EU Clinics</span>
             </div>
           </div>
 
@@ -166,67 +218,67 @@ export default function Hero() {
       {/* ========================================================================= */}
       {/* 3. BOTTOM OVERLAPPING INFINITY LOOP MARQUEE (Exact Bluesense Pattern)     */}
       {/* ========================================================================= */}
-      <div className="w-full relative z-20 border-t border-white/15 bg-slate-950/80 backdrop-blur-md py-3 sm:py-3.5 overflow-hidden shadow-2xl shrink-0">
+      <div className="w-full relative z-20 border-t border-white/20 bg-slate-950/85 backdrop-blur-md py-4 sm:py-5 overflow-hidden shadow-[0_-10px_30px_rgba(0,0,0,0.4)] shrink-0">
         <div className="flex select-none">
           {/* Track 1 */}
           <div
-            className="flex shrink-0 items-center gap-8 pr-8"
+            className="flex shrink-0 items-center gap-10 sm:gap-12 pr-10 sm:pr-12"
             style={{ animation: 'marquee-smooth 40s linear infinite normal' }}
           >
             {MARQUEE_PARTNERS.map((partner, idx) => (
               <div
                 key={`p1-${idx}`}
-                className="flex items-center gap-3 text-white/90 hover:text-white transition-colors group cursor-default whitespace-nowrap"
+                className="flex items-center gap-3.5 text-white/90 hover:text-white transition-colors group cursor-default whitespace-nowrap"
               >
-                <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-teal-300 group-hover:bg-teal-500 group-hover:text-slate-950 transition-all shrink-0">
-                  <span className="material-symbols-outlined text-lg">{partner.icon}</span>
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-teal-300 group-hover:bg-gradient-to-br group-hover:from-teal-400 group-hover:to-cyan-500 group-hover:text-slate-950 transition-all shrink-0 shadow-sm">
+                  <span className="material-symbols-outlined text-xl sm:text-2xl">{partner.icon}</span>
                 </div>
                 <div className="text-left">
-                  <div className="flex items-center gap-1.5 leading-none">
-                    <span className="font-headline font-black text-xs tracking-tight text-white group-hover:text-teal-200 transition-colors">
+                  <div className="flex items-center gap-2 leading-none">
+                    <span className="font-headline font-black text-sm sm:text-base tracking-tight text-white group-hover:text-teal-200 transition-colors">
                       {partner.name}
                     </span>
-                    <span className="text-[9px] font-mono font-bold text-teal-300 bg-white/10 px-1.5 py-0.2 rounded border border-white/10">
+                    <span className="text-[10px] sm:text-[11px] font-mono font-bold text-teal-300 bg-white/15 px-2 py-0.5 rounded border border-white/15">
                       {partner.badge}
                     </span>
                   </div>
-                  <span className="text-[10px] text-slate-300 font-medium leading-none block mt-1">
+                  <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-none block mt-1.5">
                     {partner.label}
                   </span>
                 </div>
-                <span className="w-1.5 h-1.5 rounded-full bg-white/20 ml-4 shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-white/25 ml-6 sm:ml-8 shrink-0" />
               </div>
             ))}
           </div>
 
           {/* Track 2 (Clone for infinite seamless loop) */}
           <div
-            className="flex shrink-0 items-center gap-8 pr-8"
+            className="flex shrink-0 items-center gap-10 sm:gap-12 pr-10 sm:pr-12"
             style={{ animation: 'marquee-smooth 40s linear infinite normal' }}
             aria-hidden="true"
           >
             {MARQUEE_PARTNERS.map((partner, idx) => (
               <div
                 key={`p2-${idx}`}
-                className="flex items-center gap-3 text-white/90 hover:text-white transition-colors group cursor-default whitespace-nowrap"
+                className="flex items-center gap-3.5 text-white/90 hover:text-white transition-colors group cursor-default whitespace-nowrap"
               >
-                <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-teal-300 group-hover:bg-teal-500 group-hover:text-slate-950 transition-all shrink-0">
-                  <span className="material-symbols-outlined text-lg">{partner.icon}</span>
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-teal-300 group-hover:bg-gradient-to-br group-hover:from-teal-400 group-hover:to-cyan-500 group-hover:text-slate-950 transition-all shrink-0 shadow-sm">
+                  <span className="material-symbols-outlined text-xl sm:text-2xl">{partner.icon}</span>
                 </div>
                 <div className="text-left">
-                  <div className="flex items-center gap-1.5 leading-none">
-                    <span className="font-headline font-black text-xs tracking-tight text-white group-hover:text-teal-200 transition-colors">
+                  <div className="flex items-center gap-2 leading-none">
+                    <span className="font-headline font-black text-sm sm:text-base tracking-tight text-white group-hover:text-teal-200 transition-colors">
                       {partner.name}
                     </span>
-                    <span className="text-[9px] font-mono font-bold text-teal-300 bg-white/10 px-1.5 py-0.2 rounded border border-white/10">
+                    <span className="text-[10px] sm:text-[11px] font-mono font-bold text-teal-300 bg-white/15 px-2 py-0.5 rounded border border-white/15">
                       {partner.badge}
                     </span>
                   </div>
-                  <span className="text-[10px] text-slate-300 font-medium leading-none block mt-1">
+                  <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-none block mt-1.5">
                     {partner.label}
                   </span>
                 </div>
-                <span className="w-1.5 h-1.5 rounded-full bg-white/20 ml-4 shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-white/25 ml-6 sm:ml-8 shrink-0" />
               </div>
             ))}
           </div>

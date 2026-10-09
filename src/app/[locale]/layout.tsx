@@ -84,7 +84,7 @@ export default async function LocaleLayout({
       <body className="bg-[#FAFBFC] text-[#0f172a] font-sans antialiased selection:bg-[#211164] selection:text-white min-h-screen flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
-          <main className="w-full pt-[116px] flex-1">{children}</main>
+          <main className="w-full pt-[72px] sm:pt-[76px] flex-1">{children}</main>
           <Footer />
           <CookieBanner />
         </NextIntlClientProvider>

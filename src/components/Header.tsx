@@ -18,7 +18,9 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [langOpen, setLangOpen] = useState<boolean>(false);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const langTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
     if (dropdownTimeoutRef.current) {
@@ -33,9 +35,21 @@ export default function Header() {
     }, 180);
   };
 
+  const handleLangEnter = () => {
+    if (langTimeoutRef.current) clearTimeout(langTimeoutRef.current);
+    setLangOpen(true);
+  };
+
+  const handleLangLeave = () => {
+    langTimeoutRef.current = setTimeout(() => {
+      setLangOpen(false);
+    }, 180);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setTreatmentsOpen(false);
+      setLangOpen(false);
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
@@ -51,11 +65,15 @@ export default function Header() {
       if (dropdownTimeoutRef.current) {
         clearTimeout(dropdownTimeoutRef.current);
       }
+      if (langTimeoutRef.current) {
+        clearTimeout(langTimeoutRef.current);
+      }
     };
   }, []);
 
   const isHome = pathname === '/' || pathname === '';
   const isTransparent = isHome && !isScrolled;
+  const activeLang = LANGUAGES.find((l) => l.code === currentLocale) || LANGUAGES[0];
 
   return (
     <header
@@ -65,63 +83,7 @@ export default function Header() {
           : 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-[0_4px_25px_rgba(33,17,100,0.06)]'
       }`}
     >
-      {/* 1. Official Ministry of Health Licensure & Accreditation Top Bar */}
-      <div
-        className={`py-1.5 px-4 sm:px-6 border-b transition-colors duration-300 ${
-          isTransparent
-            ? 'bg-slate-950/40 backdrop-blur-md border-white/10 text-white'
-            : 'bg-[#120a33] text-white border-white/10'
-        }`}
-      >
-        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs tracking-tight">
-          <div className="flex items-center gap-2.5 flex-wrap">
-            <span className="text-slate-300 font-medium text-[11px]">
-              Republic of Turkey Ministry of Health • USHAŞ &amp; HealthTürkiye Accredited (Cert No: <span className="text-white font-mono font-bold">2026034015610080000425805</span>)
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3 sm:gap-5">
-            <a
-              className="hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-bold text-white text-xs"
-              href="tel:+902129008080"
-              title="Hospital Direct Phone Line"
-            >
-              <span className="material-symbols-outlined text-[15px] text-teal-300">call</span>
-              <span className="hidden sm:inline">+90 (212) 900 8080</span>
-              <span className="sm:hidden text-[11px]">Call Desk</span>
-            </a>
-
-            <Link
-              className="hidden md:inline-flex items-center gap-1 text-teal-300 hover:text-white transition-colors text-xs font-semibold"
-              href="/contact"
-            >
-              <span>International Patient Desk</span>
-            </Link>
-
-            {/* Language Switcher (Subpath routed, strictly EN, DE, FR, RU - No domestic Turkish) */}
-            <div className="flex items-center gap-0.5 sm:gap-1 border-l border-white/20 pl-2 sm:pl-3">
-              {LANGUAGES.map((lang) => (
-                <Link
-                  key={lang.code}
-                  href={pathname}
-                  locale={lang.code}
-                  title={lang.title}
-                  className={`px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px] transition-all flex items-center gap-1 ${
-                    currentLocale === lang.code
-                      ? 'text-white bg-white/25 font-extrabold shadow-xs'
-                      : 'text-slate-300 hover:text-white hover:bg-white/10 font-semibold'
-                  }`}
-                >
-                  <span className="text-[10px] sm:text-[11px]">{lang.flag}</span>
-                  <span className="hidden xs:inline">{lang.label}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Main Navigation Bar */}
+      {/* Main Navigation Bar */}
       <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-[72px] sm:h-[76px] flex items-center justify-between gap-4 lg:gap-6">
         {/* Brand Logo & Hospital Crest */}
         <Link className="flex items-center gap-3 shrink-0 group py-1" href="/">
@@ -282,8 +244,69 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Header Action Buttons */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        {/* Header Action Buttons & Language Switcher */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Elegant Luxury Language Capsule */}
+          <div
+            className="relative"
+            onMouseEnter={handleLangEnter}
+            onMouseLeave={handleLangLeave}
+          >
+            <button
+              type="button"
+              onClick={() => setLangOpen(!langOpen)}
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-xs font-bold transition-all ${
+                isTransparent
+                  ? 'bg-white/10 hover:bg-white/20 border-white/25 text-white backdrop-blur-md shadow-xs'
+                  : 'bg-slate-100 hover:bg-slate-200/80 border-slate-200 text-slate-800 shadow-xs'
+              }`}
+              aria-label="Select Language"
+              aria-expanded={langOpen}
+            >
+              <span className="text-sm leading-none">{activeLang.flag}</span>
+              <span className="uppercase text-[11px] font-extrabold tracking-wide">{activeLang.label}</span>
+              <span
+                className={`material-symbols-outlined text-[15px] transition-transform duration-200 ${
+                  langOpen ? 'rotate-180' : ''
+                } ${isTransparent ? 'text-white/70' : 'text-slate-500'}`}
+              >
+                expand_more
+              </span>
+            </button>
+
+            {langOpen && (
+              <div
+                className="absolute right-0 top-full mt-2 w-36 bg-[#160c3d]/95 backdrop-blur-xl border border-white/15 rounded-2xl shadow-2xl p-1.5 animate-in fade-in zoom-in-95 duration-150 z-50"
+                onMouseEnter={handleLangEnter}
+                onMouseLeave={handleLangLeave}
+              >
+                <div className="flex flex-col space-y-0.5">
+                  {LANGUAGES.map((lang) => (
+                    <Link
+                      key={lang.code}
+                      href={pathname}
+                      locale={lang.code}
+                      onClick={() => setLangOpen(false)}
+                      className={`flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                        currentLocale === lang.code
+                          ? 'bg-teal-500 text-slate-950 font-black shadow-sm'
+                          : 'text-white/80 hover:text-white hover:bg-white/10'
+                      }`}
+                    >
+                      <span className="flex items-center gap-2">
+                        <span className="text-sm">{lang.flag}</span>
+                        <span>{lang.title}</span>
+                      </span>
+                      {currentLocale === lang.code && (
+                        <span className="material-symbols-outlined text-sm font-bold">check</span>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Full button on sm+ screens */}
           <a
             className={`hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wide transition-all hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap shrink-0 ${
