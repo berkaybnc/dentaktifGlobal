@@ -23,6 +23,28 @@ const DEFAULT_SOCIAL_ITEMS: SocialIconItem[] = [
     ),
   },
   {
+    name: 'TikTok',
+    href: 'https://tiktok.com/@dentaktif',
+    colorHover: '#00F2FE',
+    bgHover: '#000000',
+    icon: (
+      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Pinterest',
+    href: 'https://pinterest.com/dentaktif',
+    colorHover: '#E60023',
+    bgHover: '#E60023',
+    icon: (
+      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026l.032-.026z" />
+      </svg>
+    ),
+  },
+  {
     name: 'Facebook',
     href: 'https://facebook.com/dentaktif',
     colorHover: '#1877F2',
@@ -112,18 +134,7 @@ export default function SocialDock({
   };
 
   return (
-    <div className="relative inline-flex flex-col items-start select-none pt-2">
-      {/* Tooltip Label */}
-      <div
-        className={`absolute -top-7 px-2.5 py-0.5 rounded-full bg-slate-900/90 text-teal-300 text-[10px] font-bold tracking-wider font-mono border border-teal-500/30 backdrop-blur-md transition-all duration-200 pointer-events-none ${
-          hoveredIndex !== null
-            ? 'opacity-100 -translate-y-1 scale-100'
-            : 'opacity-0 translate-y-1 scale-95'
-        }`}
-      >
-        {hoveredIndex !== null ? items[hoveredIndex]?.name : ''}
-      </div>
-
+    <div className="relative inline-flex flex-col items-start select-none pt-1">
       {/* Transparent Dock Container (Zero outer background/border) */}
       <div
         ref={dockRef}

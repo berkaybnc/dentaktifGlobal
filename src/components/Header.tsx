@@ -97,20 +97,12 @@ export default function Header() {
         {/* Brand Logo & Hospital Crest */}
         <Link className="flex items-center gap-3 shrink-0 group py-1" href="/">
           {/* Official DentAktif Color Logo */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center">
             <img
               src="/images/logo.png"
               alt="DentAktif Oral & Dental Hospital"
               className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="hidden sm:flex flex-col border-l border-slate-200 pl-2.5">
-              <span className="text-[9px] font-black uppercase tracking-widest text-[#006972] px-1.5 py-0.5 rounded-md bg-teal-50 border border-teal-200 w-fit">
-                Hospital
-              </span>
-              <span className="text-[10px] text-slate-500 font-semibold tracking-tight mt-0.5 whitespace-nowrap">
-                Levent, Istanbul
-              </span>
-            </div>
           </div>
         </Link>
 
