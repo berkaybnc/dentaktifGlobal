@@ -2,64 +2,11 @@
 
 import React from 'react';
 import { Link } from '@/navigation';
-
-interface Doctor {
-  id: string;
-  name: string;
-  title: string;
-  specialty: string;
-  image: string;
-  focus: string[];
-  bio: string;
-  consultationMsg: string;
-}
-
-const DOCTORS: Doctor[] = [
-  {
-    id: 'abdullah-omur',
-    name: 'Dt. Abdullah Ömür',
-    title: 'Dental Surgeon & Clinical Director',
-    specialty: 'Oral Surgery, Implantology & Smile Aesthetics',
-    image: '/images/doctors/dt-abdullah-omur.png',
-    focus: [
-      'Guided Implantology (All-on-4 / All-on-6)',
-      'Complex Bone Augmentation & Sinus Lifting',
-      'Full-Mouth Aesthetic Reconstructions',
-    ],
-    bio: 'Dedicated dental surgeon with extensive expertise in digital flapless implant placement, biological bone preservation, and international patient smile transformations.',
-    consultationMsg: 'Hello Dent Aktif! I would like to request a direct clinical evaluation from Dt. Abdullah Ömür.',
-  },
-  {
-    id: 'hilal-mutlu-er',
-    name: 'Dt. Hilal Mutlu Er',
-    title: 'Aesthetic & Restorative Dentist',
-    specialty: 'Digital Smile Design & Minimal-Invasive Veneers',
-    image: '/images/doctors/dt-hilal-mutlu-er.png',
-    focus: [
-      'Digital Smile Design (DSD) & Mock-Up Protocol',
-      'Ultra-Thin E-Max® Porcelain Laminate Veneers',
-      'Biocompatible CAD/CAM Aesthetic Restorations',
-    ],
-    bio: 'Specialist in precision aesthetic dentistry, combining facial symmetry analysis with micro-invasive enamel conditioning for natural, lifelike smile makeovers.',
-    consultationMsg: 'Hello Dent Aktif! I would like to request an aesthetic smile consultation with Dt. Hilal Mutlu Er.',
-  },
-  {
-    id: 'busra-tomo',
-    name: 'Dt. Büşra Tomo',
-    title: 'Specialist Dentist',
-    specialty: 'Endodontics & Conservative Dentistry',
-    image: '/images/doctors/dt-busra-tomo.png',
-    focus: [
-      'Microscopic Root Canal Therapy (Endodontics)',
-      'Conservative Aesthetic Tooth Preservation',
-      'Periodontal Health & Biological Maintenance',
-    ],
-    bio: 'Focused on tooth preservation through advanced rotary endodontic technologies, pain-free single-session treatments, and optimal tissue bio-integration.',
-    consultationMsg: 'Hello Dent Aktif! I would like to request a consultation with Dt. Büşra Tomo regarding restorative & endodontic care.',
-  },
-];
+import { getDoctorsList } from '@/data/doctorsData';
 
 export default function DoctorsSection() {
+  const doctors = getDoctorsList();
+
   return (
     <section className="w-full py-20 bg-white border-b border-slate-200" id="doctors-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -67,19 +14,19 @@ export default function DoctorsSection() {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
           <span className="text-xs font-mono uppercase tracking-widest text-[#006699] font-extrabold flex items-center justify-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#006699] animate-pulse"></span>
-            Official Dent Aktif Medical Faculty • Levent Hospital
+            T.C. Sağlık Bakanlığı Ruhsatlı Dentaktif Hekim Kadrosu
           </span>
           <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#211164] tracking-tight">
-            Meet Our Doctors
+            Uzman Hekimlerimiz
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            Our permanent in-house dental faculty in Levent, Istanbul provides hospital-grade surgical, aesthetic, and conservative care with international patient transparency.
+            Bayrampaşa ve Levent klinik merkezlerimizde görev yapan daimi hekim kadromuz; cerrahi, estetik ve koruyucu diş hekimliğinde mikron hassasiyetinde tedaviler sunmaktadır.
           </p>
         </div>
 
-        {/* 3 Doctors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-          {DOCTORS.map((doctor) => (
+        {/* 4 Doctors Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {doctors.map((doctor) => (
             <div
               key={doctor.id}
               className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
@@ -90,25 +37,20 @@ export default function DoctorsSection() {
                   src={doctor.image}
                   alt={doctor.name}
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  onError={(e) => {
-                    // Fallback to high quality medical photo if local file is still being copied
-                    (e.target as HTMLImageElement).src =
-                      'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80';
-                  }}
                 />
 
                 {/* Verified Badge */}
                 <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-xs font-bold text-[#211164] flex items-center gap-1 shadow-sm">
                   <span className="material-symbols-outlined text-sm text-emerald-600">verified</span>
-                  <span>DentAktif Faculty</span>
+                  <span>{doctor.treatedCases}</span>
                 </div>
 
                 {/* Subtle Gradient Shadow at Bottom of Image */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-teal-300 font-extrabold block">
-                    {doctor.specialty}
+                    {doctor.experience}
                   </span>
                 </div>
               </div>
@@ -120,10 +62,10 @@ export default function DoctorsSection() {
                     <h3 className="font-headline text-xl font-black text-[#211164] group-hover:text-[#006699] transition-colors">
                       {doctor.name}
                     </h3>
-                    <p className="text-xs font-bold text-slate-500">{doctor.title}</p>
+                    <p className="text-xs font-bold text-slate-500">{doctor.academicTitle}</p>
                   </div>
 
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1">
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1 line-clamp-3">
                     {doctor.bio}
                   </p>
                 </div>
@@ -131,13 +73,13 @@ export default function DoctorsSection() {
                 {/* Clinical Focus List */}
                 <div className="pt-3 border-t border-slate-100 space-y-2">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
-                    Key Areas of Practice:
+                    Temel Klinik Uygulamalar:
                   </span>
                   <ul className="space-y-1.5">
-                    {doctor.focus.map((item, idx) => (
+                    {doctor.specializations.slice(0, 3).map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#006699]" />
-                        <span>{item}</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#006972] shrink-0" />
+                        <span className="truncate">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -147,9 +89,9 @@ export default function DoctorsSection() {
                 <div className="pt-4 border-t border-slate-100">
                   <Link
                     href={`/doctors/${doctor.id}`}
-                    className="w-full inline-flex items-center justify-center py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#211164] text-white hover:bg-[#006699] transition-all shadow-md group-hover:shadow-lg text-center"
+                    className="w-full inline-flex items-center justify-center py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#211164] text-white hover:bg-[#006972] transition-all shadow-md group-hover:shadow-lg text-center"
                   >
-                    <span>View Profile &amp; Credentials →</span>
+                    <span>Detaylı Özgeçmiş &amp; Yöntemler →</span>
                   </Link>
                 </div>
               </div>
@@ -164,8 +106,8 @@ export default function DoctorsSection() {
               <span className="material-symbols-outlined text-xl">shield_with_heart</span>
             </div>
             <div>
-              <span className="font-bold text-slate-900 block">Permanent In-House Medical Staff</span>
-              <span className="text-slate-500">All treatments are performed by our registered hospital physicians, never outsourced.</span>
+              <span className="font-bold text-slate-900 block">Daimi Klinik Hekim Kadrosu</span>
+              <span className="text-slate-500">Tüm cerrahi, protetik ve estetik tedaviler merkezimizin ruhsatlı hekimleri tarafından bizzat uygulanır.</span>
             </div>
           </div>
 
@@ -173,7 +115,7 @@ export default function DoctorsSection() {
             href="#consultation-wizard"
             className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-[#211164] font-bold text-xs uppercase tracking-wide transition-colors"
           >
-            <span>Start Free Online Evaluation</span>
+            <span>Ücretsiz Ön Değerlendirme Başlat</span>
             <span className="material-symbols-outlined text-sm">arrow_forward</span>
           </a>
         </div>

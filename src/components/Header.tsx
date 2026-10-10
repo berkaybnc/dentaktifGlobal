@@ -92,14 +92,7 @@ export default function Header() {
               src="/images/logo.png"
               alt="DentAktif Oral & Dental Hospital"
               className={`h-9 sm:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
-                isTransparent ? 'hidden' : 'block'
-              }`}
-            />
-            <img
-              src="/images/logo-white.png"
-              alt="DentAktif Oral & Dental Hospital"
-              className={`h-9 sm:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
-                isTransparent ? 'block' : 'hidden'
+                isTransparent ? 'brightness-0 invert' : ''
               }`}
             />
           </div>
@@ -137,52 +130,58 @@ export default function Header() {
 
             {treatmentsOpen && (
               <div
-                className="absolute top-full left-0 w-[260px] bg-[#281566] text-white rounded-2xl shadow-2xl border border-white/10 p-2 animate-in fade-in zoom-in-95 duration-150 z-50"
+                className="absolute top-full left-0 mt-1 w-[280px] bg-slate-950/95 backdrop-blur-2xl text-white rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border border-white/15 p-2 animate-in fade-in zoom-in-95 duration-150 z-50"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="flex flex-col space-y-0.5">
+                <div className="flex flex-col space-y-1">
                   <Link
-                    className="px-3.5 py-2.5 text-xs font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-colors block text-left"
+                    className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
                     href="/treatments/aesthetic-dentistry"
                     onClick={() => setTreatmentsOpen(false)}
                   >
-                    Aesthetic Dentistry
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
+                    <span>Aesthetic Dentistry</span>
                   </Link>
                   <Link
-                    className="px-3.5 py-2.5 text-xs font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-colors block text-left"
+                    className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
                     href="/treatments/hollywood-smile"
                     onClick={() => setTreatmentsOpen(false)}
                   >
-                    Hollywood Smile
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
+                    <span>Hollywood Smile</span>
                   </Link>
                   <Link
-                    className="px-3.5 py-2.5 text-xs font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-colors block text-left"
+                    className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
                     href="/treatments/dental-veneers"
                     onClick={() => setTreatmentsOpen(false)}
                   >
-                    Dental Zirconium Veneers
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
+                    <span>Dental Zirconium Veneers</span>
                   </Link>
                   <Link
-                    className="px-3.5 py-2.5 text-xs font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-colors block text-left"
+                    className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
                     href="/treatments/dental-crowns"
                     onClick={() => setTreatmentsOpen(false)}
                   >
-                    Dental Crowns
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
+                    <span>Dental Crowns</span>
                   </Link>
                   <Link
-                    className="px-3.5 py-2.5 text-xs font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-colors block text-left"
+                    className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
                     href="/treatments/dental-implants"
                     onClick={() => setTreatmentsOpen(false)}
                   >
-                    Dental Implants
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
+                    <span>Dental Implants</span>
                   </Link>
                   <Link
-                    className="px-3.5 py-2.5 text-xs font-semibold text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-colors block text-left"
+                    className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
                     href="/treatments/root-canal"
                     onClick={() => setTreatmentsOpen(false)}
                   >
-                    Root Canal Treatment
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
+                    <span>Root Canal Treatment</span>
                   </Link>
                 </div>
               </div>
@@ -238,6 +237,15 @@ export default function Header() {
             className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
               isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
             }`}
+            href="/about"
+          >
+            About Us
+          </Link>
+
+          <Link
+            className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
+              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
+            }`}
             href="/contact"
           >
             Contact Us
@@ -276,7 +284,7 @@ export default function Header() {
 
             {langOpen && (
               <div
-                className="absolute right-0 top-full mt-2 w-36 bg-[#160c3d]/95 backdrop-blur-xl border border-white/15 rounded-2xl shadow-2xl p-1.5 animate-in fade-in zoom-in-95 duration-150 z-50"
+                className="absolute right-0 top-full mt-2 w-36 bg-slate-950/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] p-1.5 animate-in fade-in zoom-in-95 duration-150 z-50"
                 onMouseEnter={handleLangEnter}
                 onMouseLeave={handleLangLeave}
               >

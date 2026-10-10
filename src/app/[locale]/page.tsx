@@ -39,10 +39,6 @@ function ensureLocalAssets() {
         dest: path.join(process.cwd(), 'public', 'images', 'doctors', 'dt-abdullah-omur.png'),
       },
       {
-        src: 'C:\\Users\\berkay\\.gemini\\antigravity-ide\\brain\\747071f5-b147-4cd3-b768-a3470867598a\\.user_uploaded\\media_1791499537098.jpg',
-        dest: path.join(process.cwd(), 'public', 'images', 'doctors', 'dt-hilal-mutlu-er.png'),
-      },
-      {
         src: 'C:\\Users\\berkay\\.gemini\\antigravity-ide\\brain\\747071f5-b147-4cd3-b768-a3470867598a\\.user_uploaded\\media_1791499540315.jpg',
         dest: path.join(process.cwd(), 'public', 'images', 'doctors', 'dt-busra-tomo.png'),
       },
@@ -81,8 +77,8 @@ function ensureLocalAssets() {
         dest: path.join(process.cwd(), 'public', 'images', 'hero-patient.jpg'),
       },
       {
-        src: path.join(process.cwd(), 'src', 'agız diş.mov'),
-        dest: path.join(process.cwd(), 'public', 'agiz-dis.mov'),
+        src: 'C:\\Users\\berkay\\.gemini\\antigravity-ide\\brain\\99e304e3-4aa5-4688-87b2-1ec43c0d2585\\in_house_dental_lab_1791666613880.jpg',
+        dest: path.join(process.cwd(), 'public', 'images', 'in-house-lab.jpg'),
       },
     ];
 
@@ -90,6 +86,11 @@ function ensureLocalAssets() {
       if (fs.existsSync(item.src) && !fs.existsSync(item.dest)) {
         fs.copyFileSync(item.src, item.dest);
       }
+    }
+
+    const hilalImg = path.join(process.cwd(), 'public', 'images', 'doctors', 'dt-hilal-mutlu-er.png');
+    if (fs.existsSync(hilalImg)) {
+      try { fs.unlinkSync(hilalImg); } catch {}
     }
   } catch {}
 }

@@ -9,16 +9,18 @@ export default function InHouseLab() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Ceramist Laboratory Visual */}
           <div className="lg:col-span-6 relative">
-            <div className="rounded-xl border border-slate-200 overflow-hidden shadow-lg bg-white">
-              <img
-                alt="Dent Aktif In-House Master Ceramist Laboratory"
-                className="w-full h-auto object-cover"
-                src="https://lh3.googleusercontent.com/aida/AEtjO1UKMqkmEo_pBGxhCpBes-2HTJXsjJSnJoLNYZvLTahZ04KGGZUsItqbfjhkBbHdRhYlkdWot2BUp9L03EQU9mVZjOgAYhSQW5ZtbX4MAvyigsCYwGMRZFxVbSzmAuraBkUypXaDUznuk6_gA_Uzh4h5U9pkG1CQFeP-jrHg5YloL1Pg-cIBd-JU--MfOaHJLeWFY5wWK4_n8D63i0H2IoPvl9Ew5cLS6SmnOP_J-4PA-g"
-              />
-              <div className="p-4 bg-slate-900 text-white flex items-center justify-between text-xs">
-                <span className="font-mono text-slate-300">Ivoclar Vivadent® & 5-Axis Robotic Milling Suite</span>
-                <span className="font-bold text-emerald-400 flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-xl bg-slate-900 group">
+              <div className="aspect-4/3 w-full overflow-hidden">
+                <img
+                  alt="Dent Aktif In-House Master Ceramist Laboratory"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  src="/images/in-house-lab.jpg"
+                />
+              </div>
+              <div className="p-4 bg-slate-950 text-white flex flex-wrap items-center justify-between gap-2 text-xs border-t border-white/10">
+                <span className="font-mono text-slate-300 font-medium">Ivoclar Vivadent® &amp; 5-Axis Robotic Milling Suite</span>
+                <span className="font-bold text-emerald-400 flex items-center gap-1.5 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   Certified Master Ceramists On-Site
                 </span>
               </div>

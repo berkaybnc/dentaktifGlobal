@@ -21,7 +21,6 @@ export default function Footer() {
     <footer className="relative w-full bg-[#1b0d52] text-white overflow-hidden border-t-2 border-[#006972]/40">
       {/* Subtle Vector Dental Art Silhouette Background (Pure SVG - Zero External Heavy Images) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none opacity-10">
-        {/* Repeating/Styled Stylized Vector Tooth & Smile Waves */}
         <svg
           className="absolute -right-10 -bottom-16 w-[450px] h-[450px] text-[#2BA598]"
           viewBox="0 0 200 200"
@@ -46,22 +45,17 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-8">
+        
         {/* Top Grid: Brand & Treatments & Social Media */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/15">
           {/* 1. Brand Identity (4 cols) */}
           <div className="md:col-span-4 space-y-3">
             <Link href="/" className="inline-block group">
               <img
-                src="/images/logo-white.png"
+                src="/images/logo.png"
                 alt="DentAktif Global"
-                className="h-10 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
+                className="h-10 sm:h-11 w-auto object-contain brightness-0 invert transition-transform group-hover:scale-105"
               />
-              <span className="font-headline text-2xl font-black text-white tracking-tight block">
-                DentAktif
-              </span>
             </Link>
             <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
               Dent Aktif International Oral &amp; Dental Hospital. Delivering world-class digital aesthetic smile design, precision Swiss implantology, and biocompatible restorations.
@@ -69,6 +63,24 @@ export default function Footer() {
             <div className="flex items-center gap-2 pt-1 text-[11px] font-mono text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Accredited International Patient Centre • Istanbul</span>
+            </div>
+
+            {/* Official Accreditations Logos */}
+            <div className="pt-2 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shadow-md shrink-0">
+                <img
+                  src="/images/saglikBakanligi.png"
+                  alt="Republic of Turkey Ministry of Health"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="h-12 px-2.5 rounded-xl bg-white flex items-center justify-center shadow-md shrink-0">
+                <img
+                  src="/images/heart-of-health1-1logo.svg"
+                  alt="HealthTürkiye"
+                  className="h-8 w-auto object-contain"
+                />
+              </div>
             </div>
           </div>
 
@@ -125,10 +137,7 @@ export default function Footer() {
         <div className="py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           {/* 1. Address */}
           <div className="flex flex-col items-center justify-center space-y-1">
-            <svg className="w-6 h-6 text-[#2BA598] mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-              <circle cx="12" cy="9" r="2.5" />
-            </svg>
+            <span className="material-symbols-outlined text-[#2BA598] text-2xl mb-1">location_on</span>
             <div className="font-bold text-xs text-white">Dent Aktif Surgical Suites</div>
             <div className="text-[11px] text-slate-300 leading-snug">
               Cevatpaşa District, Eski Edirne Asfaltı St. No:407/409 A-1<br />
@@ -138,9 +147,7 @@ export default function Footer() {
 
           {/* 2. Phone */}
           <div className="flex flex-col items-center justify-center space-y-1">
-            <svg className="w-6 h-6 text-[#2BA598] mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
+            <span className="material-symbols-outlined text-[#2BA598] text-2xl mb-1">call</span>
             <div className="font-bold text-xs text-white">
               Direct Contact:{' '}
               <a href="tel:+905521617377" className="text-[#2BA598] hover:text-white transition-colors underline">
@@ -152,10 +159,7 @@ export default function Footer() {
 
           {/* 3. Email */}
           <div className="flex flex-col items-center justify-center space-y-1">
-            <svg className="w-6 h-6 text-[#2BA598] mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect width="20" height="16" x="2" y="4" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
+            <span className="material-symbols-outlined text-[#2BA598] text-2xl mb-1">mail</span>
             <div>
               <a href="mailto:info@dentaktif.com" className="font-bold text-xs text-[#2BA598] hover:text-white transition-colors underline">
                 info@dentaktif.com
@@ -167,10 +171,9 @@ export default function Footer() {
 
         {/* Bottom Legal Copyright */}
         <div className="pt-6 border-t border-white/10 text-center text-[11px] text-slate-400">
-          © 2026 Dent Aktif International Dental Hospital. All Rights Reserved. Republic of Turkey Ministry of Health Authorization Certificate No: 2026034015610080000425805 (Doc: 305180775) • USHAŞ &amp; HealthTürkiye Accredited.
+          © 2026 Dent Aktif International Dental Hospital. All Rights Reserved. Republic of Turkey Ministry of Health Authorization Certificate No: 2026034015610080000425805 • USHAŞ &amp; HealthTürkiye Accredited.
         </div>
       </div>
     </footer>
   );
 }
-

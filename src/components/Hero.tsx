@@ -4,20 +4,28 @@ import React from 'react';
 import { Link } from '@/navigation';
 import { FlipWords } from './FlipWords';
 
-// Marquee Partner Brands & Institutional Accreditations (White/Silver Monochrome Luxury Style)
-const MARQUEE_PARTNERS = [
-  { name: 'Straumann®', label: 'Swiss Dental Implants', badge: 'PLATINUM PARTNER', icon: 'verified' },
-  { name: 'Ivoclar Vivadent®', label: 'IPS e.max® Porcelain', badge: 'CERTIFIED LAB', icon: 'auto_awesome' },
-  { name: 'Katana™ Zirconia', label: '15-Micron Precision', badge: 'MONOLITHIC CAD/CAM', icon: 'layers' },
-  { name: 'Ministry of Health & USHAŞ', label: 'HealthTürkiye Licensed', badge: 'CERT #2026034015610080000425805', icon: 'local_hospital' },
-  { name: 'Dentsply Sirona', label: 'Digital Guided Surgery', badge: '3D NAVIGATION', icon: 'precision_manufacturing' },
-  { name: 'J. Morita 3D CBCT', label: 'Volumetric Tomography', badge: 'ON-SITE SCANNING', icon: 'perm_media' },
-  { name: 'ISO 9001:2015', label: 'Hospital Quality Standard', badge: 'INTERNATIONAL AUDIT', icon: 'fact_check' },
-  { name: 'Mercedes-Benz VIP', label: 'Chauffeured Transfers', badge: 'AIRPORT & HOTEL', icon: 'airport_shuttle' },
-  { name: '5-Star Partner Hotels', label: 'Levent & Bosphorus Suites', badge: 'ALL-INCLUSIVE STAY', icon: 'hotel' },
-  { name: 'Trustpilot ★ 4.9/5.0', label: '2,400+ Verified Reviews', badge: 'EXCELLENT SCORE', icon: 'star' },
-  { name: '3M™ ESPE', label: 'Bio-Adhesive Restorations', badge: 'BIO-COMPATIBLE', icon: 'shield' },
-  { name: 'EU GDPR Protected', label: 'Patient Data Privacy', badge: 'REGULATION 2016/679', icon: 'policy' },
+// Static 4-Pillar Prestige & Trust Pillars (Hospital Luxury Benchmark)
+const PRESTIGE_PILLARS = [
+  {
+    icon: 'verified',
+    title: 'Swiss Straumann® & Ivoclar Lab',
+    label: 'Certified Original Materials & In-House Milling',
+  },
+  {
+    icon: 'bolt',
+    title: '5-Day Express Completion',
+    label: 'Precision Handcrafted Smiles with Zero Delay',
+  },
+  {
+    icon: 'hotel',
+    title: '5★ Partner Hotel & VIP Transfers',
+    label: 'Airport & Clinic Chauffeured Mercedes-Benz',
+  },
+  {
+    icon: 'shield',
+    title: 'Lifetime Hospital Warranty',
+    label: 'Official Global Guarantee Certificate',
+  },
 ];
 
 // Lightweight dynamic number counter component with easeOut Quartic interpolation
@@ -216,69 +224,31 @@ export default function Hero() {
       </div>
 
       {/* ========================================================================= */}
-      {/* 3. BOTTOM OVERLAPPING INFINITY LOOP MARQUEE (Exact Bluesense Pattern)     */}
+      {/* 3. STATIC PRESTIGE & TRUST PILLARS (Modern Luxury Glassmorphism)         */}
       {/* ========================================================================= */}
-      <div className="w-full relative z-20 border-t border-white/20 bg-slate-950/85 backdrop-blur-md py-4 sm:py-5 overflow-hidden shadow-[0_-10px_30px_rgba(0,0,0,0.4)] shrink-0">
-        <div className="flex select-none">
-          {/* Track 1 */}
-          <div
-            className="flex shrink-0 items-center gap-10 sm:gap-12 pr-10 sm:pr-12"
-            style={{ animation: 'marquee-smooth 40s linear infinite normal' }}
-          >
-            {MARQUEE_PARTNERS.map((partner, idx) => (
+      <div className="w-full relative z-20 border-t border-white/15 bg-slate-950/85 backdrop-blur-xl py-3.5 sm:py-4 shadow-[0_-10px_35px_rgba(0,0,0,0.5)] shrink-0">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+            {PRESTIGE_PILLARS.map((pillar, idx) => (
               <div
-                key={`p1-${idx}`}
-                className="flex items-center gap-3.5 text-white/90 hover:text-white transition-colors group cursor-default whitespace-nowrap"
+                key={idx}
+                className={`flex items-center gap-3.5 py-1.5 ${
+                  idx > 0 ? 'sm:pl-4 lg:pl-6' : ''
+                } group cursor-default`}
               >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-teal-300 group-hover:bg-gradient-to-br group-hover:from-teal-400 group-hover:to-cyan-500 group-hover:text-slate-950 transition-all shrink-0 shadow-sm">
-                  <span className="material-symbols-outlined text-xl sm:text-2xl">{partner.icon}</span>
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-teal-500/10 border border-teal-400/25 flex items-center justify-center text-teal-300 group-hover:bg-gradient-to-br group-hover:from-teal-400 group-hover:to-cyan-500 group-hover:text-slate-950 transition-all duration-300 shrink-0 shadow-sm">
+                  <span className="material-symbols-outlined text-xl sm:text-2xl">{pillar.icon}</span>
                 </div>
-                <div className="text-left">
-                  <div className="flex items-center gap-2 leading-none">
-                    <span className="font-headline font-black text-sm sm:text-base tracking-tight text-white group-hover:text-teal-200 transition-colors">
-                      {partner.name}
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-mono font-bold text-teal-300 bg-white/15 px-2 py-0.5 rounded border border-white/15">
-                      {partner.badge}
-                    </span>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-headline font-black text-xs sm:text-sm tracking-tight text-white group-hover:text-teal-200 transition-colors truncate">
+                      {pillar.title}
+                    </h3>
                   </div>
-                  <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-none block mt-1.5">
-                    {partner.label}
-                  </span>
+                  <p className="text-[11px] text-slate-300/90 font-medium leading-tight mt-0.5 truncate">
+                    {pillar.label}
+                  </p>
                 </div>
-                <span className="w-2 h-2 rounded-full bg-white/25 ml-6 sm:ml-8 shrink-0" />
-              </div>
-            ))}
-          </div>
-
-          {/* Track 2 (Clone for infinite seamless loop) */}
-          <div
-            className="flex shrink-0 items-center gap-10 sm:gap-12 pr-10 sm:pr-12"
-            style={{ animation: 'marquee-smooth 40s linear infinite normal' }}
-            aria-hidden="true"
-          >
-            {MARQUEE_PARTNERS.map((partner, idx) => (
-              <div
-                key={`p2-${idx}`}
-                className="flex items-center gap-3.5 text-white/90 hover:text-white transition-colors group cursor-default whitespace-nowrap"
-              >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-teal-300 group-hover:bg-gradient-to-br group-hover:from-teal-400 group-hover:to-cyan-500 group-hover:text-slate-950 transition-all shrink-0 shadow-sm">
-                  <span className="material-symbols-outlined text-xl sm:text-2xl">{partner.icon}</span>
-                </div>
-                <div className="text-left">
-                  <div className="flex items-center gap-2 leading-none">
-                    <span className="font-headline font-black text-sm sm:text-base tracking-tight text-white group-hover:text-teal-200 transition-colors">
-                      {partner.name}
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-mono font-bold text-teal-300 bg-white/15 px-2 py-0.5 rounded border border-white/15">
-                      {partner.badge}
-                    </span>
-                  </div>
-                  <span className="text-xs sm:text-[13px] text-slate-300 font-medium leading-none block mt-1.5">
-                    {partner.label}
-                  </span>
-                </div>
-                <span className="w-2 h-2 rounded-full bg-white/25 ml-6 sm:ml-8 shrink-0" />
               </div>
             ))}
           </div>

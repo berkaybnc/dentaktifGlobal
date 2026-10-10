@@ -408,15 +408,33 @@ export default function ContactPage() {
 
       {/* 4. State Incentive & Ministry Legal Compliance Notice Box */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 mt-12">
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-teal-300">
-              <span className="material-symbols-outlined text-lg text-emerald-400">verified</span>
-              <span>REGULATORY COMPLIANCE &amp; INCENTIVE FRAMEWORK</span>
+        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 space-y-5">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-sm">
+                <img src="/images/saglikBakanligi.png" alt="Republic of Turkey Ministry of Health" className="w-full h-full object-contain" />
+              </div>
+              <div className="h-11 px-2.5 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
+                <img src="/images/heart-of-health1-1logo.svg" alt="HealthTürkiye" className="h-7 w-auto object-contain" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-teal-300">
+                  <span className="material-symbols-outlined text-base text-emerald-400">verified</span>
+                  <span>REGULATORY COMPLIANCE &amp; INCENTIVE FRAMEWORK</span>
+                </div>
+                <span className="text-[11px] font-mono text-slate-400 block mt-0.5">
+                  Ministry of Trade Decision No: 5448 • Ministry of Health Decree No: 3359 • Cert #2026034015610080000425805
+                </span>
+              </div>
             </div>
-            <span className="text-[11px] font-mono text-slate-400">
-              Ministry of Trade Decision No: 5448 • Ministry of Health Decree No: 3359
-            </span>
+            <button
+              type="button"
+              onClick={() => setShowCertModal(true)}
+              className="px-3.5 py-2 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/30 text-teal-300 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
+            >
+              <span>Inspect Official Certificate</span>
+              <span className="material-symbols-outlined text-sm">visibility</span>
+            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
