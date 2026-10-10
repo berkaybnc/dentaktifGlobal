@@ -1302,6 +1302,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.-mb-1\.5 {
+  margin-bottom: -0.375rem;
+}
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -2915,6 +2918,9 @@ video {
 .pt-\[88px\] {
   padding-top: 88px;
 }
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
 .text-left {
   text-align: left;
 }
@@ -3039,6 +3045,9 @@ video {
 }
 .leading-tight {
   line-height: 1.25;
+}
+.leading-\[1\.22\] {
+  line-height: 1.22;
 }
 .tracking-tight {
   letter-spacing: -0.025em;

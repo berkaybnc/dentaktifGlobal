@@ -38,7 +38,7 @@ export const FlipWords = ({
   return (
     <span
       className={cn(
-        'inline-block transition-all duration-300 ease-out whitespace-nowrap',
+        'inline-block pb-1 transition-all duration-300 ease-out whitespace-nowrap',
         isAnimating
           ? 'opacity-0 -translate-y-2.5 scale-95 blur-xs'
           : 'opacity-100 translate-y-0 scale-100 blur-0',

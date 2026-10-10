@@ -109,7 +109,7 @@ export default function Hero() {
 
           {/* Main Headline */}
           <div className="space-y-2">
-            <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-black tracking-tight text-white leading-[1.15]">
+            <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-black tracking-tight text-white leading-[1.22]">
               World-Class Dental Surgery &amp;{' '}
               <br className="hidden sm:inline" />
               <FlipWords
@@ -121,7 +121,7 @@ export default function Hero() {
                   'Full-Mouth Rehabilitation',
                 ]}
                 duration={2800}
-                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 font-black inline-block drop-shadow-sm"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 font-black inline-block drop-shadow-sm pb-2 -mb-1.5"
               />
             </h1>
             <div className="text-xs sm:text-base font-extrabold text-teal-300 tracking-wide flex items-center gap-2 pt-0.5">
