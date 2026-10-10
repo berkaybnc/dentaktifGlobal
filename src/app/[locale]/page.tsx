@@ -100,11 +100,11 @@ export default function HomePage() {
     <>
       <Hero />
       <ServiceIntentCards />
-      <TreatmentsSection />
       <CaseSlider />
       <PriceTable />
-      <InHouseLab />
+      <TreatmentsSection />
       <DoctorsSection />
+      <InHouseLab />
       <TravelSchedule />
       <ConciergeSection />
       <TestimonialsSection />
