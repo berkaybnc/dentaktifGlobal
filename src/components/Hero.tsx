@@ -75,6 +75,15 @@ function AnimatedCounter({
 }
 
 export default function Hero() {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
   return (
     <section className="relative w-full -mt-[72px] sm:-mt-[76px] h-screen min-h-[660px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-white/10">
       
@@ -83,41 +92,40 @@ export default function Hero() {
       {/* ========================================================================= */}
       <div className="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          poster="/images/hero-patient.jpg"
           className="w-full h-full object-cover object-center scale-105"
         >
-          <source src="/agiz-dis.mov" type="video/quicktime" />
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-dentist-examining-a-patients-teeth-42686-large.mp4" type="video/mp4" />
+          <source src="/images/Dentaktif_Hasta_Yolculugu_web.mp4" type="video/mp4" />
         </video>
 
         {/* Cinematic Dark Gradient Layers for Crisp Text Readability */}
-        {/* Lateral gradient: heavy on left, reveals video in center & right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/45" />
-        {/* Top-down gradient: blends smoothly with navbar and bottom edge */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-slate-950/95" />
+        {/* Lateral gradient: soft shadow behind text on left, highly transparent in center & right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/30 to-transparent" />
+        {/* Top-down gradient: subtle blend for navbar and bottom edge */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/35 via-transparent to-slate-950/40" />
       </div>
 
       {/* ========================================================================= */}
       {/* 2. FOREGROUND CONTENT: Prestige Identity, Value Proposition & Dual CTAs   */}
       {/* ========================================================================= */}
-      <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[88px] sm:pt-[96px] lg:pt-[102px] pb-3 sm:pb-4 flex-1 flex flex-col justify-center w-full">
-        <div className="max-w-3xl space-y-4 sm:space-y-5 text-left">
+      <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-16 relative z-10 pt-[88px] sm:pt-[96px] lg:pt-[102px] pb-3 sm:pb-4 flex-1 flex flex-col justify-center w-full">
+        <div className="max-w-xl lg:max-w-[540px] xl:max-w-[580px] space-y-3.5 sm:space-y-4 text-left">
           
           {/* Top Accreditation Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold shadow-lg w-fit">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-bold shadow-lg w-fit">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span>Ministry of Health &amp; USHAŞ Licensed Hospital</span>
             <span className="text-white/40 hidden sm:inline">•</span>
-            <span className="text-teal-300 font-semibold text-xs hidden sm:inline">Cert #2026034015610080000425805</span>
+            <span className="text-teal-300 font-semibold text-[11px] sm:text-xs hidden sm:inline">Cert #2026034015610080000425805</span>
           </div>
 
           {/* Main Headline */}
-          <div className="space-y-2">
-            <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-black tracking-tight text-white leading-[1.22]">
+          <div className="space-y-1.5">
+            <h1 className="font-headline text-2xl sm:text-3xl lg:text-4xl xl:text-[2.65rem] font-black tracking-tight text-white leading-[1.22]">
               World-Class Dental Surgery &amp;{' '}
               <br className="hidden sm:inline" />
               <FlipWords
@@ -129,10 +137,10 @@ export default function Hero() {
                   'Full-Mouth Rehabilitation',
                 ]}
                 duration={2800}
-                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 font-black inline-block drop-shadow-sm pb-2 -mb-1.5"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 font-black inline-block drop-shadow-sm pb-1 -mb-1"
               />
             </h1>
-            <div className="text-xs sm:text-base font-extrabold text-teal-300 tracking-wide flex items-center gap-2 pt-0.5">
+            <div className="text-xs sm:text-sm font-bold text-teal-300 tracking-wide flex items-center gap-2 pt-0.5">
               <span>✦ Handcrafted Smiles in Just 5 Days</span>
               <span className="text-white/40">•</span>
               <span className="text-slate-300 font-medium">Levent Surgical Hospital, Istanbul</span>
@@ -140,7 +148,7 @@ export default function Hero() {
           </div>
 
           {/* Editorial Description */}
-          <p className="font-sans text-xs sm:text-sm lg:text-base text-slate-200 leading-relaxed font-normal max-w-2xl text-shadow-sm">
+          <p className="font-sans text-xs sm:text-sm text-slate-200/90 leading-relaxed font-normal max-w-lg text-shadow-sm">
             Dent Aktif International Oral &amp; Dental Hospital delivers full-arch Swiss Straumann® implant surgeries 
             and handcrafted Ivoclar E-Max® veneers directly through our in-house master ceramist laboratory. 
             All-inclusive hospital packages with 5-star hotel accommodation and chauffeured Mercedes-Benz VIP transfers.
@@ -150,7 +158,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
             <Link
               href="/contact"
-              className="py-3.5 px-7 sm:px-8 rounded-2xl bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-teal-500/25 hover:shadow-teal-400/40 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 text-center group w-fit"
+              className="py-3 px-6 sm:px-7 rounded-xl bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] font-black text-xs sm:text-xs uppercase tracking-wider shadow-xl shadow-teal-500/25 hover:shadow-teal-400/40 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-center group w-fit"
             >
               <span>Get Free Quote &amp; 3D Smile Simulation</span>
               <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">
@@ -226,8 +234,8 @@ export default function Hero() {
       {/* ========================================================================= */}
       {/* 3. STATIC PRESTIGE & TRUST PILLARS (Modern Luxury Glassmorphism)         */}
       {/* ========================================================================= */}
-      <div className="w-full relative z-20 border-t border-white/15 bg-slate-950/85 backdrop-blur-xl py-3.5 sm:py-4 shadow-[0_-10px_35px_rgba(0,0,0,0.5)] shrink-0">
-        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full relative z-20 border-t border-white/15 bg-slate-950/40 backdrop-blur-md py-3.5 sm:py-4 shadow-[0_-10px_25px_rgba(0,0,0,0.2)] shrink-0">
+        <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
             {PRESTIGE_PILLARS.map((pillar, idx) => (
               <div

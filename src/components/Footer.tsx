@@ -19,96 +19,186 @@ export default function Footer() {
 
   return (
     <footer className="relative w-full bg-[#1b0d52] text-white overflow-hidden border-t-2 border-[#006972]/40">
-      {/* Subtle Vector Dental Art Silhouette Background (Pure SVG - Zero External Heavy Images) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none opacity-10">
-        <svg
-          className="absolute -right-10 -bottom-16 w-[450px] h-[450px] text-[#2BA598]"
-          viewBox="0 0 200 200"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path d="M100 20 C60 20 40 45 40 85 C40 125 55 175 75 185 C85 190 92 155 100 155 C108 155 115 190 125 185 C145 175 160 125 160 85 C160 45 140 20 100 20 Z" />
-          <path d="M60 80 Q100 120 140 80" strokeWidth="2" strokeLinecap="round" />
-        </svg>
+      {/* Vector Dental Art Emblems (Distinct, High-Contrast & Neatly Contained Watermarks) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+        {/* Left Tooth Crest Emblem (Clearly visible, centered vertically, safely contained) */}
+        <div className="absolute left-2 sm:left-6 lg:left-10 top-1/2 -translate-y-1/2 text-teal-300/85 transition-all pointer-events-none">
+          <svg
+            className="h-28 sm:h-32 lg:h-36 w-auto drop-shadow-[0_0_20px_rgba(45,212,191,0.3)]"
+            viewBox="0 0 140 140"
+            fill="none"
+            stroke="currentColor"
+          >
+            <defs>
+              <linearGradient id="toothGlowLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2dd4bf" stopOpacity="0.22" />
+                <stop offset="60%" stopColor="#0d9488" stopOpacity="0.10" />
+                <stop offset="100%" stopColor="#0f766e" stopOpacity="0.03" />
+              </linearGradient>
+            </defs>
 
-        <svg
-          className="absolute -left-16 -top-16 w-80 h-80 text-[#2BA598]"
-          viewBox="0 0 200 200"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.2"
-        >
-          <path d="M20 140 Q100 70 180 140" strokeLinecap="round" strokeDasharray="4 4" />
-          <path d="M100 30 C75 30 60 50 60 80 C60 115 72 150 85 160 C90 165 95 140 100 140 C105 140 110 165 115 160 C128 150 140 115 140 80 C140 50 125 30 100 30 Z" />
-        </svg>
+            {/* Subtle Geometric Orbital Accent Rings */}
+            <circle cx="70" cy="70" r="58" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
+            <circle cx="70" cy="70" r="50" strokeWidth="1" opacity="0.35" />
+
+            {/* Anatomical Tooth Contour with Luminous Fill */}
+            <path
+              d="M 70 34
+                 C 62 30, 52 28, 46 34
+                 C 36 42, 36 58, 40 76
+                 C 42 86, 44 98, 48 106
+                 C 50 110, 55 109, 58 102
+                 C 62 92, 66 78, 70 78
+                 C 74 78, 78 92, 82 102
+                 C 85 109, 90 110, 92 106
+                 C 96 98, 98 86, 100 76
+                 C 104 58, 104 42, 94 34
+                 C 88 28, 78 30, 70 34 Z"
+              fill="url(#toothGlowLeft)"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            {/* Gentle Smile Accent */}
+            <path
+              d="M 52 54 Q 70 66 88 54"
+              strokeWidth="2"
+              strokeLinecap="round"
+              opacity="0.9"
+            />
+
+            {/* Aesthetic Sparkle Accent */}
+            <path
+              d="M 88 38 L 89 41 L 92 42 L 89 43 L 88 46 L 87 43 L 84 42 L 87 41 Z"
+              fill="currentColor"
+              opacity="0.9"
+            />
+          </svg>
+        </div>
+
+        {/* Right Tooth Crest Emblem (Clearly visible, centered vertically, safely contained) */}
+        <div className="absolute right-2 sm:right-6 lg:right-10 top-1/2 -translate-y-1/2 text-teal-300/85 transition-all pointer-events-none">
+          <svg
+            className="h-28 sm:h-32 lg:h-36 w-auto drop-shadow-[0_0_20px_rgba(45,212,191,0.3)]"
+            viewBox="0 0 140 140"
+            fill="none"
+            stroke="currentColor"
+          >
+            <defs>
+              <linearGradient id="toothGlowRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#2dd4bf" stopOpacity="0.22" />
+                <stop offset="60%" stopColor="#0d9488" stopOpacity="0.10" />
+                <stop offset="100%" stopColor="#0f766e" stopOpacity="0.03" />
+              </linearGradient>
+            </defs>
+
+            {/* Subtle Geometric Orbital Accent Rings */}
+            <circle cx="70" cy="70" r="58" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
+            <circle cx="70" cy="70" r="50" strokeWidth="1" opacity="0.35" />
+
+            {/* Anatomical Tooth Contour with Luminous Fill */}
+            <path
+              d="M 70 34
+                 C 62 30, 52 28, 46 34
+                 C 36 42, 36 58, 40 76
+                 C 42 86, 44 98, 48 106
+                 C 50 110, 55 109, 58 102
+                 C 62 92, 66 78, 70 78
+                 C 74 78, 78 92, 82 102
+                 C 85 109, 90 110, 92 106
+                 C 96 98, 98 86, 100 76
+                 C 104 58, 104 42, 94 34
+                 C 88 28, 78 30, 70 34 Z"
+              fill="url(#toothGlowRight)"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            {/* Gentle Smile Accent */}
+            <path
+              d="M 52 54 Q 70 66 88 54"
+              strokeWidth="2"
+              strokeLinecap="round"
+              opacity="0.9"
+            />
+
+            {/* Symmetrical Sparkle Accent */}
+            <path
+              d="M 52 38 L 53 41 L 56 42 L 53 43 L 52 46 L 51 43 L 48 42 L 51 41 Z"
+              fill="currentColor"
+              opacity="0.9"
+            />
+          </svg>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-8">
-        
-        {/* Top Grid: Brand & Treatments & Social Media */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-white/15">
-          {/* 1. Brand Identity (4 cols) */}
-          <div className="md:col-span-4 space-y-3">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-6">
+        {/* Main Unified 4-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* 1. Brand Identity & Accreditations (4 cols) */}
+          <div className="lg:col-span-4 space-y-3">
             <Link href="/" className="inline-block group">
               <img
                 src="/images/logo.png"
                 alt="DentAktif Global"
-                className="h-10 sm:h-11 w-auto object-contain brightness-0 invert transition-transform group-hover:scale-105"
+                className="h-9 sm:h-10 w-auto object-contain brightness-0 invert transition-transform group-hover:scale-105"
               />
             </Link>
             <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
               Dent Aktif International Oral &amp; Dental Hospital. Delivering world-class digital aesthetic smile design, precision Swiss implantology, and biocompatible restorations.
             </p>
-            <div className="flex items-center gap-2 pt-1 text-[11px] font-mono text-emerald-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Accredited International Patient Centre • Istanbul</span>
-            </div>
 
             {/* Official Accreditations Logos */}
-            <div className="pt-2 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shadow-md shrink-0">
+            <div className="pt-1 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-md shrink-0">
                 <img
                   src="/images/saglikBakanligi.png"
                   alt="Republic of Turkey Ministry of Health"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="h-12 px-2.5 rounded-xl bg-white flex items-center justify-center shadow-md shrink-0">
+              <div className="h-10 px-2 rounded-xl bg-white flex items-center justify-center shadow-md shrink-0">
                 <img
                   src="/images/heart-of-health1-1logo.svg"
                   alt="HealthTürkiye"
-                  className="h-8 w-auto object-contain"
+                  className="h-7 w-auto object-contain"
                 />
+              </div>
+              <div className="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5 pl-1">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                <span>Ministry Licensed</span>
               </div>
             </div>
           </div>
 
-          {/* 2. Our Treatments (5 cols - 2 clean sub-columns) */}
-          <div className="md:col-span-5 space-y-3">
-            <h4 className="font-headline text-sm font-black uppercase tracking-wider text-white flex items-center gap-2">
+          {/* 2. Our Treatments (3 cols) */}
+          <div className="lg:col-span-3 space-y-2.5">
+            <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
               Our Treatments
             </h4>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
-              <ul className="space-y-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
+              <ul className="space-y-1.5">
                 {treatmentsCol1.map((item, idx) => (
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-slate-300 hover:text-white transition-colors block hover:translate-x-0.5"
+                      className="text-slate-300 hover:text-teal-300 transition-colors block text-[11.5px]"
                     >
                       {item.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 {treatmentsCol2.map((item, idx) => (
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-slate-300 hover:text-white transition-colors block hover:translate-x-0.5"
+                      className="text-slate-300 hover:text-teal-300 transition-colors block text-[11.5px]"
                     >
                       {item.label}
                     </Link>
@@ -118,59 +208,63 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* 3. Social Media (3 cols) */}
-          <div className="md:col-span-3 space-y-3">
-            <h4 className="font-headline text-sm font-black uppercase tracking-wider text-white flex items-center gap-2">
+          {/* 3. Direct Contact Details (Location, Phone, Email - Moved Up!) (3 cols) */}
+          <div className="lg:col-span-3 space-y-2.5">
+            <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
+              Hospital Contact
+            </h4>
+            <div className="space-y-2 text-xs text-slate-300">
+              {/* Address */}
+              <div className="flex items-start gap-2">
+                <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">location_on</span>
+                <div className="text-[11px] leading-snug">
+                  <span className="font-bold text-white block">Dent Aktif Surgical Suites</span>
+                  Eski Edirne Asfaltı No:407/409 A-1, Bayrampasa, Istanbul
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-start gap-2">
+                <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">call</span>
+                <div className="text-[11px] leading-snug">
+                  <span className="font-bold text-white block">Hotline &amp; WhatsApp:</span>
+                  <a href="tel:+905521617377" className="text-[#2BA598] hover:text-white transition-colors underline font-semibold">
+                    +90 552 161 73 77
+                  </a>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-start gap-2">
+                <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">mail</span>
+                <div className="text-[11px] leading-snug">
+                  <span className="font-bold text-white block">Clinical Advisory:</span>
+                  <a href="mailto:info@dentaktif.com" className="text-[#2BA598] hover:text-white transition-colors underline">
+                    info@dentaktif.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Official Channels & Social Media (2 cols) */}
+          <div className="lg:col-span-2 space-y-2.5">
+            <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
               Official Channels
             </h4>
             <p className="text-[11px] text-slate-300">
-              Connect with our international clinical concierge:
+              International clinical concierge:
             </p>
-            <div className="pt-1">
+            <div className="pt-0.5">
               <SocialDock />
             </div>
           </div>
         </div>
 
-        {/* Bottom Contact Trio */}
-        <div className="py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          {/* 1. Address */}
-          <div className="flex flex-col items-center justify-center space-y-1">
-            <span className="material-symbols-outlined text-[#2BA598] text-2xl mb-1">location_on</span>
-            <div className="font-bold text-xs text-white">Dent Aktif Surgical Suites</div>
-            <div className="text-[11px] text-slate-300 leading-snug">
-              Cevatpaşa District, Eski Edirne Asfaltı St. No:407/409 A-1<br />
-              34045 Bayrampasa, Istanbul, Turkey
-            </div>
-          </div>
-
-          {/* 2. Phone */}
-          <div className="flex flex-col items-center justify-center space-y-1">
-            <span className="material-symbols-outlined text-[#2BA598] text-2xl mb-1">call</span>
-            <div className="font-bold text-xs text-white">
-              Direct Contact:{' '}
-              <a href="tel:+905521617377" className="text-[#2BA598] hover:text-white transition-colors underline">
-                +90 552 161 73 77
-              </a>
-            </div>
-            <div className="text-[11px] text-slate-400">WhatsApp &amp; International Patient Hotline</div>
-          </div>
-
-          {/* 3. Email */}
-          <div className="flex flex-col items-center justify-center space-y-1">
-            <span className="material-symbols-outlined text-[#2BA598] text-2xl mb-1">mail</span>
-            <div>
-              <a href="mailto:info@dentaktif.com" className="font-bold text-xs text-[#2BA598] hover:text-white transition-colors underline">
-                info@dentaktif.com
-              </a>
-            </div>
-            <div className="text-[11px] text-slate-400">Official Clinical Advisory Desk</div>
-          </div>
-        </div>
-
         {/* Bottom Legal Copyright */}
-        <div className="pt-6 border-t border-white/10 text-center text-[11px] text-slate-400">
+        <div className="pt-5 mt-7 border-t border-white/10 text-center text-[10.5px] text-slate-400">
           © 2026 Dent Aktif International Dental Hospital. All Rights Reserved. Republic of Turkey Ministry of Health Authorization Certificate No: 2026034015610080000425805 • USHAŞ &amp; HealthTürkiye Accredited.
         </div>
       </div>

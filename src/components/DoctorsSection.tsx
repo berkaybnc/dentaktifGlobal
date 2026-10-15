@@ -14,13 +14,13 @@ export default function DoctorsSection() {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
           <span className="text-xs font-mono uppercase tracking-widest text-[#006699] font-extrabold flex items-center justify-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-[#006699] animate-pulse"></span>
-            T.C. Sağlık Bakanlığı Ruhsatlı Dentaktif Hekim Kadrosu
+            Ministry of Health Licensed Medical Faculty
           </span>
           <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#211164] tracking-tight">
-            Uzman Hekimlerimiz
+            Our Medical Specialists &amp; Surgeons
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            Bayrampaşa ve Levent klinik merkezlerimizde görev yapan daimi hekim kadromuz; cerrahi, estetik ve koruyucu diş hekimliğinde mikron hassasiyetinde tedaviler sunmaktadır.
+            Our permanent medical faculty across our Istanbul hospital centers delivers micron-precision dental restorations, digital implantology, and aesthetic smile architecture.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export default function DoctorsSection() {
                 {/* Clinical Focus List */}
                 <div className="pt-3 border-t border-slate-100 space-y-2">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
-                    Temel Klinik Uygulamalar:
+                    Key Clinical Focus:
                   </span>
                   <ul className="space-y-1.5">
                     {doctor.specializations.slice(0, 3).map((item, idx) => (
@@ -91,7 +91,7 @@ export default function DoctorsSection() {
                     href={`/doctors/${doctor.id}`}
                     className="w-full inline-flex items-center justify-center py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#211164] text-white hover:bg-[#006972] transition-all shadow-md group-hover:shadow-lg text-center"
                   >
-                    <span>Detaylı Özgeçmiş &amp; Yöntemler →</span>
+                    <span>Full Biography &amp; Protocols →</span>
                   </Link>
                 </div>
               </div>
@@ -106,8 +106,8 @@ export default function DoctorsSection() {
               <span className="material-symbols-outlined text-xl">shield_with_heart</span>
             </div>
             <div>
-              <span className="font-bold text-slate-900 block">Daimi Klinik Hekim Kadrosu</span>
-              <span className="text-slate-500">Tüm cerrahi, protetik ve estetik tedaviler merkezimizin ruhsatlı hekimleri tarafından bizzat uygulanır.</span>
+              <span className="font-bold text-slate-900 block">Permanent Hospital Faculty</span>
+              <span className="text-slate-500">All surgical, prosthetic, and aesthetic treatments are directly administered by our certified medical faculty.</span>
             </div>
           </div>
 
@@ -115,7 +115,7 @@ export default function DoctorsSection() {
             href="#consultation-wizard"
             className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-[#211164] font-bold text-xs uppercase tracking-wide transition-colors"
           >
-            <span>Ücretsiz Ön Değerlendirme Başlat</span>
+            <span>Start Free Consultation</span>
             <span className="material-symbols-outlined text-sm">arrow_forward</span>
           </a>
         </div>

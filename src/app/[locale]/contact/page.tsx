@@ -101,7 +101,10 @@ export default function ContactPage() {
             </div>
 
             <h3 className="font-headline text-lg sm:text-xl font-black text-[#1b0d52]">
-              Özel Dentaktif Ağız ve Diş Sağlığı Polikliniği
+              Dent Aktif International Oral &amp; Dental Hospital{' '}
+              <span className="text-xs font-normal text-slate-500 block sm:inline">
+                (Official Registry: Ozel Dentaktif Agiz ve Dis Sagligi Poliklinigi)
+              </span>
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -371,7 +374,7 @@ export default function ContactPage() {
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-1">
                   <span className="text-[10px] font-bold uppercase text-slate-400 block">Registered Clinical Address</span>
                   <div className="font-bold text-slate-900">
-                    Özel Dentaktif Ağız ve Diş Sağlığı Polikliniği
+                    Dent Aktif International Hospital (Main Campus)
                   </div>
                   <div className="text-[11px] text-slate-600 leading-snug">
                     Cevatpaşa District, Eski Edirne Asfaltı St. No:407/409 A-1<br />
@@ -470,7 +473,7 @@ export default function ContactPage() {
                   Republic of Turkey Ministry of Health Authorization Certificate
                 </h3>
                 <span className="text-xs font-mono text-slate-500">
-                  Uluslararası Sağlık Turizmi Yetki Belgesi • No: 2026034015610080000425805
+                  International Health Tourism Authorization Certificate • No: 2026034015610080000425805
                 </span>
               </div>
               <button

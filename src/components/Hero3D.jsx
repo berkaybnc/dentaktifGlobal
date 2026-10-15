@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext.jsx';
 
 // Fallback to public path or dental demo video to avoid Vite build error when local MOV is not present
 const DEFAULT_VIDEO = "https://assets.mixkit.co/videos/preview/mixkit-dentist-examining-a-patients-teeth-42686-large.mp4";
-const LOCAL_VIDEO = "/agız diş.mov";
+const LOCAL_VIDEO = "/images/Dentaktif_Hasta_Yolculugu_web.mp4";
 
 export default function Hero3D() {
   const { t } = useLanguage();
