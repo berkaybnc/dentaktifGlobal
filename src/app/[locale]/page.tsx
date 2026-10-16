@@ -24,6 +24,10 @@ function ensureLocalAssets() {
     if (!fs.existsSync(casesDir)) {
       fs.mkdirSync(casesDir, { recursive: true });
     }
+    const testimonialsDir = path.join(process.cwd(), 'public', 'images', 'testimonials');
+    if (!fs.existsSync(testimonialsDir)) {
+      fs.mkdirSync(testimonialsDir, { recursive: true });
+    }
 
     const assetMap = [
       {
