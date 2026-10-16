@@ -57,7 +57,7 @@ export default function TreatmentDetailPage({ treatmentId, onNavigate }) {
                   {ui.quoteBtn}
                 </button>
                 <a href="https://wa.me/+905521617377" target="_blank" rel="noreferrer" className="btn-secondary" style={{ padding: '1rem 2rem', fontSize: '1rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                  💬 {ui.whatsappBtn}
+                  <span className="material-symbols-outlined" style={{ verticalAlign: "middle", marginRight: "6px" }}>chat</span>{ui.whatsappBtn}
                 </a>
               </div>
             </div>
@@ -82,19 +82,19 @@ export default function TreatmentDetailPage({ treatmentId, onNavigate }) {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', fontSize: '0.88rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>⏱️ {ui.stay}</span>
+                  <span style={{ color: 'var(--text-muted)' }}><span className="material-symbols-outlined" style={{ verticalAlign: "middle", fontSize: "1rem", marginRight: "4px" }}>schedule</span>{ui.stay}</span>
                   <strong>{toothCount > 10 ? (lang === 'tr' ? '5 Gün' : lang === 'de' ? '5 Tage' : lang === 'ru' ? '5 дней' : '5 Days') : data.stay}</strong>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>🚘 {ui.vitoTransfer}</span>
+                  <span style={{ color: 'var(--text-muted)' }}><span className="material-symbols-outlined" style={{ verticalAlign: "middle", fontSize: "1rem", marginRight: "4px" }}>directions_car</span>{ui.vitoTransfer}</span>
                   <strong style={{ color: '#059669' }}>{toothCount >= 6 ? ui.vitoIncluded : (lang === 'tr' ? 'Mevcut' : 'Available')}</strong>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>🏨 {ui.hotelStay}</span>
+                  <span style={{ color: 'var(--text-muted)' }}><span className="material-symbols-outlined" style={{ verticalAlign: "middle", fontSize: "1rem", marginRight: "4px" }}>hotel</span>{ui.hotelStay}</span>
                   <strong style={{ color: '#059669' }}>{toothCount >= 10 ? ui.hotelIncluded : ui.hotelPartner}</strong>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>🛡️ {ui.warranty}</span>
+                  <span style={{ color: 'var(--text-muted)' }}><span className="material-symbols-outlined" style={{ verticalAlign: "middle", fontSize: "1rem", marginRight: "4px" }}>verified_user</span>{ui.warranty}</span>
                   <strong style={{ color: 'var(--color-brand-gold)' }}>{data.warranty}</strong>
                 </div>
               </div>
@@ -265,7 +265,7 @@ export default function TreatmentDetailPage({ treatmentId, onNavigate }) {
                   <tr key={idx} style={{ background: item.name === data.name ? 'rgba(2, 132, 199, 0.06)' : 'transparent', fontWeight: item.name === data.name ? 700 : 400 }}>
                     <td>
                       <strong style={{ color: item.name === data.name ? 'var(--color-brand-primary)' : 'var(--text-main)' }}>
-                        {item.name} {item.name === data.name && '👈'}
+                        {item.name} {item.name === data.name && " •"}
                       </strong>
                     </td>
                     <td>{item.strength}</td>

@@ -14,10 +14,10 @@ export default function TreatmentsOverviewPage() {
 
   const categories = treatmentsData.filterTabs || [
     { id: 'all', label: 'All 6 Treatments' },
-    { id: 'aesthetic', label: '✨ Aesthetic & Smile' },
-    { id: 'prosthetics', label: '👑 Veneers & Crowns' },
-    { id: 'surgery-implants', label: '⚙️ Implants' },
-    { id: 'endodontics', label: '🔬 Root Canal' },
+    { id: 'aesthetic', label: 'Aesthetic & Smile' },
+    { id: 'prosthetics', label: 'Veneers & Crowns' },
+    { id: 'surgery-implants', label: 'Dental Implants' },
+    { id: 'endodontics', label: 'Root Canal' },
   ];
 
   const filteredTreatments = activeCategory === 'all'

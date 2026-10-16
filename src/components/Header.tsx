@@ -272,41 +272,14 @@ export default function Header() {
             )}
           </div>
 
-          <a
-            className={`transition-colors py-2 flex items-center gap-1 whitespace-nowrap shrink-0 ${
-              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
-            }`}
-            href="#cost-calculator-section"
-          >
-            <span>{t('navPricing')}</span>
-          </a>
-
-          <a
+          <Link
             className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
               isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
             }`}
-            href="#clinical-cases"
+            href="/blog"
           >
-            {t('navCases')}
-          </a>
-
-          <a
-            className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
-              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
-            }`}
-            href="#patient-journey"
-          >
-            {t('navSchedule')}
-          </a>
-
-          <a
-            className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
-              isTransparent ? 'text-white/90 hover:text-teal-300' : 'text-slate-800 hover:text-[#211164]'
-            }`}
-            href="#doctors-section"
-          >
-            {t('navDoctors')}
-          </a>
+            Blog & Media
+          </Link>
 
           <Link
             className={`transition-colors py-2 whitespace-nowrap shrink-0 ${
@@ -556,49 +529,16 @@ export default function Header() {
               )}
             </div>
 
-            <a
-              href="#cost-calculator-section"
+            <Link
+              href="/blog"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span>{t('navPricing')}</span>
+              <span>Blog & Media</span>
               <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-            </a>
-
-            <a
-              href="#clinical-cases"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
-            >
-              <span>{t('navCases')}</span>
-              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-
-            <a
-              href="#patient-journey"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
-            >
-              <span>{t('navSchedule')}</span>
-              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-
-            <a
-              href="#doctors-section"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
-            >
-              <span>{t('navDoctors')}</span>
-              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+            </Link>
 
             <Link
               href="/faq"

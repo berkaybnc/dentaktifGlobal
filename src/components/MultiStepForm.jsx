@@ -158,12 +158,12 @@ export default function MultiStepForm() {
                       onChange={(e) => handleInputChange('country', e.target.value)}
                       style={{ width: '100%', padding: '0.9rem 1.2rem', borderRadius: '16px', border: '1px solid var(--glass-border-subtle)', background: 'white' }}
                     >
-                      <option value="United Kingdom">🇬🇧 United Kingdom</option>
-                      <option value="Germany">🇩🇪 Germany</option>
-                      <option value="United States">🇺🇸 United States</option>
-                      <option value="Ireland">🇮🇪 Ireland</option>
-                      <option value="France">🇫🇷 France</option>
-                      <option value="Other">🌍 Other International</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="Germany">Germany</option>
+                      <option value="United States">United States</option>
+                      <option value="Ireland">Ireland</option>
+                      <option value="France">France</option>
+                      <option value="Other">Other International</option>
                     </select>
                   </div>
                 </div>
@@ -175,10 +175,10 @@ export default function MultiStepForm() {
                   <h3 style={{ marginBottom: '1.5rem' }}>Step 2: Select Treatment</h3>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem' }}>
                     {[
-                      { name: 'Hollywood Smile', icon: '✨', detail: 'Veneers / E-Max Makeover' },
-                      { name: 'All-on-4 / 6 Implants', icon: '🦷', detail: 'Swiss Straumann Full Arch' },
-                      { name: 'Zirconia Crowns', icon: '💎', detail: 'High Aesthetic Durability' },
-                      { name: 'Full Reconstruction', icon: '👑', detail: 'Complete Functional Makeover' }
+                      { name: 'Hollywood Smile', icon: 'auto_awesome', detail: 'Veneers / E-Max Makeover' },
+                      { name: 'All-on-4 / 6 Implants', icon: 'dentistry', detail: 'Swiss Straumann Full Arch' },
+                      { name: 'Zirconia Crowns', icon: 'diamond', detail: 'High Aesthetic Durability' },
+                      { name: 'Full Reconstruction', icon: 'workspace_premium', detail: 'Complete Functional Makeover' }
                     ].map((t) => (
                       <div
                         key={t.name}
@@ -190,7 +190,9 @@ export default function MultiStepForm() {
                           cursor: 'pointer', textAlign: 'center'
                         }}
                       >
-                        <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{t.icon}</div>
+                        <div className="material-symbols-outlined" style={{ fontSize: '2.4rem', color: 'var(--color-brand-primary)', marginBottom: '0.5rem' }}>
+                          {t.icon}
+                        </div>
                         <strong>{t.name}</strong>
                         <p style={{ fontSize: '0.8rem', marginTop: '0.4rem' }}>{t.detail}</p>
                       </div>
@@ -212,15 +214,18 @@ export default function MultiStepForm() {
                       cursor: 'pointer'
                     }}
                   >
-                    <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>📷</div>
+                    <div className="material-symbols-outlined" style={{ fontSize: '2.8rem', color: 'var(--color-brand-primary)', marginBottom: '0.5rem' }}>
+                      cloud_upload
+                    </div>
                     <strong style={{ display: 'block', fontSize: '1.1rem' }}>Drag & drop files here, or click to browse</strong>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Supports JPG, PNG, PDF</span>
                   </div>
                   {files.length > 0 && (
-                    <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem' }}>
+                    <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                       {files.map((f, i) => (
-                        <div key={i} style={{ background: 'rgba(2, 132, 199, 0.1)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem' }}>
-                          📄 {f.name}
+                        <div key={i} style={{ background: 'rgba(2, 132, 199, 0.1)', padding: '0.4rem 0.8rem', borderRadius: '8px', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                          <span className="material-symbols-outlined" style={{ fontSize: '1.1rem', color: 'var(--color-brand-primary)' }}>description</span>
+                          {f.name}
                         </div>
                       ))}
                     </div>
@@ -271,8 +276,21 @@ export default function MultiStepForm() {
                   onClick={handleNext}
                   className={`btn-primary ${currentStep === totalSteps ? 'btn-gold' : ''}`}
                   disabled={isSubmitting}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}
                 >
-                  {isSubmitting ? '⏳ Processing...' : currentStep === totalSteps ? '🚀 Submit & Get 3D Quote' : 'Continue to Next Step →'}
+                  {isSubmitting ? (
+                    <>
+                      <span className="material-symbols-outlined text-[18px] animate-spin">progress_activity</span>
+                      <span>Processing...</span>
+                    </>
+                  ) : currentStep === totalSteps ? (
+                    <>
+                      <span className="material-symbols-outlined text-[18px]">send</span>
+                      <span>Submit & Get 3D Quote</span>
+                    </>
+                  ) : (
+                    <span>Continue to Next Step →</span>
+                  )}
                 </button>
               </div>
             </>
@@ -281,9 +299,9 @@ export default function MultiStepForm() {
               <div style={{
                 width: '80px', height: '80px', background: 'rgba(16, 185, 129, 0.1)',
                 borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                margin: '0 auto 1.5rem auto', color: '#10B981', fontSize: '2.5rem'
+                margin: '0 auto 1.5rem auto', color: '#10B981'
               }}>
-                ✓
+                <span className="material-symbols-outlined" style={{ fontSize: '3rem' }}>check_circle</span>
               </div>
               <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '0.75rem' }}>Free VIP Consultation Request Received!</h2>
               {submittedRef && (
@@ -305,8 +323,9 @@ export default function MultiStepForm() {
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 2rem auto' }}>
                 Thank you, <strong>{formData.fullName}</strong>. Our senior dental specialist team has received your application. A coordinator will contact you via WhatsApp (<strong>{formData.phone}</strong>) within 2 hours.
               </p>
-              <a href={`https://wa.me/+905521617377?text=Hello!%20I%20just%20submitted%20consultation%20for%20${encodeURIComponent(formData.fullName)}`} target="_blank" className="btn-primary btn-gold">
-                💬 Speak Immediately on WhatsApp
+              <a href={`https://wa.me/+905521617377?text=Hello!%20I%20just%20submitted%20consultation%20for%20${encodeURIComponent(formData.fullName)}`} target="_blank" className="btn-primary btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span className="material-symbols-outlined text-[20px]">chat</span>
+                <span>Speak Immediately on WhatsApp</span>
               </a>
             </div>
           )}

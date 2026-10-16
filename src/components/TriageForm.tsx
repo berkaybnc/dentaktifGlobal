@@ -20,7 +20,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'hollywood_smile',
       title: 'Hollywood Smile Makeover',
-      badge: '✨ 5-Day Stay • Most Popular',
+      badge: '5-Day Stay • Most Popular',
       badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
       desc: '16 to 20 handcrafted Ivoclar Vivadent E-Max® veneers for lifelike translucency and symmetrical smile architecture.',
       icon: 'auto_awesome',
@@ -29,7 +29,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'all_on_4',
       title: 'All-on-4 / All-on-6 Implants',
-      badge: '⚙️ Immediate Loading Protocol',
+      badge: 'Immediate Loading Protocol',
       badgeColor: 'bg-sky-50 text-sky-800 border-sky-200',
       desc: 'Full-arch fixed reconstruction using Swiss Straumann® titanium-zirconium implants and immediate 48-hour temporary bridge.',
       icon: 'dentistry',
@@ -38,7 +38,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'zirconia_crowns',
       title: 'Monolithic Zirconia Crowns',
-      badge: '👑 1200+ MPa Diamond Strength',
+      badge: '1200+ MPa Diamond Strength',
       badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       desc: 'German Kuraray Katana™ robotic CAD/CAM full bridges for heavy bite wear, bruxism, and deeply restored teeth.',
       icon: 'crown',
@@ -47,7 +47,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'full_mouth',
       title: 'Comprehensive Rehabilitation',
-      badge: '🏥 Faculty Surgical Care',
+      badge: 'Faculty Surgical Care',
       badgeColor: 'bg-purple-50 text-purple-800 border-purple-200',
       desc: 'Holistic combination of 3D sinus lifts, bone matrix grafting, computer-guided implants, and aesthetic ceramic crowns.',
       icon: 'medical_services',
@@ -58,7 +58,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'hollywood_smile',
       title: 'Hollywood Smile Gülüş Tasarımı',
-      badge: '✨ 5 Günde Tamamlanır • En Popüler',
+      badge: '5 Günde Tamamlanır • En Popüler',
       badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
       desc: 'Kişiye özel altın oran tasarımı ve doğal ışık geçirgenliği sunan 16-20 üye orijinal Ivoclar E-Max® lamine porselen.',
       icon: 'auto_awesome',
@@ -67,7 +67,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'all_on_4',
       title: 'All-on-4 / All-on-6 İmplant Tedavisi',
-      badge: '⚙️ Hemen Yükleme Protokolü',
+      badge: 'Hemen Yükleme Protokolü',
       badgeColor: 'bg-sky-50 text-sky-800 border-sky-200',
       desc: 'Orijinal İsviçre Straumann® implantları ile 48 saatte sabitlenen geçici köprü ve tam çene restorasyonu.',
       icon: 'dentistry',
@@ -76,7 +76,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'zirconia_crowns',
       title: 'Monolitik Zirkonyum Kuronlar',
-      badge: '👑 1200+ MPa Elmas Dayanımı',
+      badge: '1200+ MPa Elmas Dayanımı',
       badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       desc: 'Ağır diş sıkma ve madde kaybı olan dişler için Alman Katana robotik CAD/CAM çok katmanlı zirkonyum köprüler.',
       icon: 'crown',
@@ -85,7 +85,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'full_mouth',
       title: 'Kapsamlı Ağız & Çene Rehabilitasyonu',
-      badge: '🏥 Uzman Cerrahi Kadro',
+      badge: 'Uzman Cerrahi Kadro',
       badgeColor: 'bg-purple-50 text-purple-800 border-purple-200',
       desc: 'Sinüs lifting, kemik grefti, bilgisayar kılavuzlu implant cerrahisi ve estetik porselenlerin kombine edildiği tedavi.',
       icon: 'medical_services',
@@ -96,7 +96,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'hollywood_smile',
       title: 'Hollywood Smile Makeover',
-      badge: '✨ 5 Tage Aufenthalt • Am beliebtesten',
+      badge: '5 Tage Aufenthalt • Am beliebtesten',
       badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
       desc: '16 bis 20 handgefertigte Ivoclar Vivadent E-Max® Veneers für lebendige Transluzenz und symmetrische Lächeln-Architektur.',
       icon: 'auto_awesome',
@@ -105,7 +105,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'all_on_4',
       title: 'All-on-4 / All-on-6 Implantate',
-      badge: '⚙️ Sofortbelastungsprotokoll',
+      badge: 'Sofortbelastungsprotokoll',
       badgeColor: 'bg-sky-50 text-sky-800 border-sky-200',
       desc: 'Festsitzende Rekonstruktion mit Schweizer Straumann® Implantaten und festsitzender provisorischer Brücke innerhalb von 48 Std.',
       icon: 'dentistry',
@@ -114,7 +114,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'zirconia_crowns',
       title: 'Monolithische Zirkonkronen',
-      badge: '👑 1200+ MPa Diamantfestigkeit',
+      badge: '1200+ MPa Diamantfestigkeit',
       badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       desc: 'Deutsche Kuraray Katana™ robotisch gefräste Vollbrücken für hohe Kaubelastung und Zähneknirschen.',
       icon: 'crown',
@@ -123,7 +123,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'full_mouth',
       title: 'Ganzheitliche Gesamtrehabilitation',
-      badge: '🏥 Klinische Chefarztbetreuung',
+      badge: 'Klinische Chefarztbetreuung',
       badgeColor: 'bg-purple-50 text-purple-800 border-purple-200',
       desc: 'Kombination aus 3D-Sinuslift, Knochenaufbau, navigierten Implantaten und ästhetischen Keramikkronen.',
       icon: 'medical_services',
@@ -134,7 +134,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'hollywood_smile',
       title: 'Голливудская улыбка (Hollywood Smile)',
-      badge: '✨ 5 дней • Самый частый выбор',
+      badge: '5 дней • Самый частый выбор',
       badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
       desc: 'От 16 до 20 виниров Ivoclar Vivadent E-Max® с естественной глубиной цвета и золотым сечением улыбки.',
       icon: 'auto_awesome',
@@ -143,7 +143,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'all_on_4',
       title: 'Имплантация All-on-4 / All-on-6',
-      badge: '⚙️ Протокол немедленной нагрузки',
+      badge: 'Протокол немедленной нагрузки',
       badgeColor: 'bg-sky-50 text-sky-800 border-sky-200',
       desc: 'Тотальное восстановление челюсти на швейцарских Straumann® с установкой несъемного моста за 48 часов.',
       icon: 'dentistry',
@@ -152,7 +152,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'zirconia_crowns',
       title: 'Монолитные коронки из циркония',
-      badge: '👑 Прочность свыше 1200 МПа',
+      badge: 'Прочность свыше 1200 МПа',
       badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       desc: 'Немецкие мостовидные протезы Katana™ CAD/CAM для пациентов с бруксизмом и значительной стираемостью зубов.',
       icon: 'crown',
@@ -161,7 +161,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'full_mouth',
       title: 'Комплексная реабилитация полости рта',
-      badge: '🏥 Хирургический совет клиники',
+      badge: 'Хирургический совет клиники',
       badgeColor: 'bg-purple-50 text-purple-800 border-purple-200',
       desc: 'Комплекс из синус-лифтинга, костной пластики, навигационной имплантации и керамических коронок.',
       icon: 'medical_services',
@@ -172,7 +172,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'hollywood_smile',
       title: 'Transformation Hollywood Smile',
-      badge: '✨ Séjour de 5 Jours • Le Plus Demandé',
+      badge: 'Séjour de 5 Jours • Le Plus Demandé',
       badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
       desc: '16 à 20 facettes artisanales Ivoclar Vivadent E-Max® pour une translucidité naturelle et un alignement idéal.',
       icon: 'auto_awesome',
@@ -181,7 +181,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'all_on_4',
       title: 'Implants All-on-4 / All-on-6',
-      badge: '⚙️ Mise en Charge Immédiate',
+      badge: 'Mise en Charge Immédiate',
       badgeColor: 'bg-sky-50 text-sky-800 border-sky-200',
       desc: 'Reconstruction complète de l’arcade avec implants suisses Straumann® et bridge provisoire fixe sous 48h.',
       icon: 'dentistry',
@@ -190,7 +190,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'zirconia_crowns',
       title: 'Couronnes Monolithiques en Zircone',
-      badge: '👑 Résistance Diamant 1200+ MPa',
+      badge: 'Résistance Diamant 1200+ MPa',
       badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       desc: 'Bridges complets usinés Kuraray Katana™ pour les fortes pressions masticatoires et le bruxisme.',
       icon: 'crown',
@@ -199,7 +199,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'full_mouth',
       title: 'Réhabilitation Globale Complexe',
-      badge: '🏥 Soins Chirurgicaux Hospitaliers',
+      badge: 'Soins Chirurgicaux Hospitaliers',
       badgeColor: 'bg-purple-50 text-purple-800 border-purple-200',
       desc: 'Combinaison de comblement de sinus, greffe osseuse, implants guidés et couronnes esthétiques.',
       icon: 'medical_services',
@@ -210,7 +210,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'hollywood_smile',
       title: 'تصميم ابتسامة هوليوود',
-      badge: '✨ إقامة 5 أيام • الأكثر طلباً',
+      badge: 'إقامة 5 أيام • الأكثر طلباً',
       badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
       desc: '16 إلى 20 قشرة فينير E-Max® مصنعة يدوياً للحصول على شفافية طبيعية وابتسامة متناسقة وجذابة.',
       icon: 'auto_awesome',
@@ -219,7 +219,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'all_on_4',
       title: 'زراعة الفك الكامل All-on-4 / All-on-6',
-      badge: '⚙️ بروتوكول التحميل الفوري للأسنان',
+      badge: 'بروتوكول التحميل الفوري للأسنان',
       badgeColor: 'bg-sky-50 text-sky-800 border-sky-200',
       desc: 'إعادة بناء الفك بالكامل بزرعات Straumann® السويسرية وجسر مؤقت ثابت خلال 48 ساعة.',
       icon: 'dentistry',
@@ -228,7 +228,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'zirconia_crowns',
       title: 'تيجان الزيركون المتجانس',
-      badge: '👑 صلابة ماسية تفوق 1200 ميجاباسكال',
+      badge: 'صلابة ماسية تفوق 1200 ميجاباسكال',
       badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       desc: 'جسور روبوتية CAD/CAM كاملة من كتل Katana™ لمن يعانون من صرير الأسنان وتآكل الإطباق الشديد.',
       icon: 'crown',
@@ -237,7 +237,7 @@ const TREATMENT_OPTIONS_BY_LOCALE: Record<string, TreatmentOption[]> = {
     {
       id: 'full_mouth',
       title: 'إعادة التأهيل الشامل والمعقد للفكين',
-      badge: '🏥 إشراف جراحي استشاري متكامل',
+      badge: 'إشراف جراحي استشاري متكامل',
       badgeColor: 'bg-purple-50 text-purple-800 border-purple-200',
       desc: 'خطة علاجية تجمع بين رفع الجيوب الأنفية، زراعة العظام، الزرعات الموجهة وتيجان الخزف التجميلية.',
       icon: 'medical_services',

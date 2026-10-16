@@ -56,7 +56,7 @@ export default function TreatmentsPage({ onNavigate }) {
                 <div className="treatment-img-wrap" style={{ marginBottom: '1.5rem', height: '220px' }}>
                   <img src={t.image} alt={t.name} />
                   <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(8px)', padding: '0.35rem 0.85rem', borderRadius: '99px', fontSize: '0.75rem', fontWeight: 800, color: 'var(--color-brand-gold)' }}>
-                    🛡️ {t.warranty}
+                    <span className="material-symbols-outlined" style={{ verticalAlign: "middle", fontSize: "1rem", marginRight: "4px" }}>verified_user</span>{t.warranty}
                   </div>
                 </div>
 
@@ -88,7 +88,7 @@ export default function TreatmentsPage({ onNavigate }) {
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid var(--glass-border-subtle)', flexWrap: 'wrap', gap: '0.8rem' }}>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
-                  ⏱️ {treatmentsData.ui.stay} <strong>{t.duration}</strong>
+                  <span className="material-symbols-outlined" style={{ verticalAlign: "middle", fontSize: "1rem", marginRight: "4px" }}>schedule</span>{treatmentsData.ui.stay} <strong>{t.duration}</strong>
                 </span>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                   <button onClick={() => onNavigate(t.id)} className="btn-secondary" style={{ padding: '0.55rem 1.1rem', fontSize: '0.85rem' }}>

@@ -43,9 +43,7 @@ export default function ContactPage() {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
               <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(2, 132, 199, 0.08)', color: 'var(--color-brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
-                  📍
-                </div>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(2, 132, 199, 0.08)', color: 'var(--color-brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}><span className="material-symbols-outlined">location_on</span></div>
                 <div>
                   <strong style={{ display: 'block', fontSize: '1.05rem', color: 'var(--text-main)' }}>Location & Address</strong>
                   <p style={{ margin: 0, color: 'var(--text-muted)', lineHeight: 1.6 }}>
@@ -55,9 +53,7 @@ export default function ContactPage() {
               </div>
 
               <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(37, 211, 102, 0.1)', color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
-                  💬
-                </div>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(37, 211, 102, 0.1)', color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}><span className="material-symbols-outlined">chat</span></div>
                 <div>
                   <strong style={{ display: 'block', fontSize: '1.05rem', color: 'var(--text-main)' }}>WhatsApp & Phone Line</strong>
                   <p style={{ margin: '0 0 0.3rem 0', color: 'var(--text-muted)' }}>+90 552 161 7377</p>
@@ -68,9 +64,7 @@ export default function ContactPage() {
               </div>
 
               <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(217, 119, 6, 0.1)', color: 'var(--color-brand-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
-                  ✉️
-                </div>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(217, 119, 6, 0.1)', color: 'var(--color-brand-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}><span className="material-symbols-outlined">mail</span></div>
                 <div>
                   <strong style={{ display: 'block', fontSize: '1.05rem', color: 'var(--text-main)' }}>Email Inquiries</strong>
                   <p style={{ margin: 0, color: 'var(--text-muted)' }}>info@dentaktifglobal.com</p>
@@ -78,9 +72,7 @@ export default function ContactPage() {
               </div>
 
               <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(2, 132, 199, 0.08)', color: 'var(--color-brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}>
-                  🕒
-                </div>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(2, 132, 199, 0.08)', color: 'var(--color-brand-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', flexShrink: 0 }}><span className="material-symbols-outlined">schedule</span></div>
                 <div>
                   <strong style={{ display: 'block', fontSize: '1.05rem', color: 'var(--text-main)' }}>Working Hours</strong>
                   <p style={{ margin: 0, color: 'var(--text-muted)' }}>Monday - Saturday: 09:00 - 19:00 (GMT+3)</p>
@@ -157,7 +149,7 @@ export default function ContactPage() {
                   Thank you, {formState.name}. A representative will respond via WhatsApp or email shortly.
                 </p>
                 <a href="https://wa.me/+905521617377" target="_blank" rel="noreferrer" className="btn-primary" style={{ textDecoration: 'none' }}>
-                  💬 Chat on WhatsApp Now
+                  Chat on WhatsApp Now
                 </a>
               </div>
             )}

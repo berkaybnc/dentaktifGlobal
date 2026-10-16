@@ -65,8 +65,9 @@ export default function AdminDashboard({ onClose }) {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <h1 style={{ color: 'white', fontSize: '2rem', margin: 0 }}>Dent Aktif CMS Portal</h1>
-              <span style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.3)', padding: '0.2rem 0.6rem', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 600 }}>
-                ⚡ SQLite Connected
+              <span style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.3)', padding: '0.2rem 0.6rem', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                <span className="material-symbols-outlined text-[14px]">database</span>
+                <span>SQLite Connected</span>
               </span>
             </div>
             <p style={{ color: '#94a3b8', margin: '0.4rem 0 0 0', fontSize: '0.9rem' }}>
@@ -77,16 +78,18 @@ export default function AdminDashboard({ onClose }) {
             <button
               onClick={loadLeads}
               className="btn-secondary"
-              style={{ background: 'rgba(255,255,255,0.08)', color: 'white', borderColor: 'rgba(255,255,255,0.15)' }}
+              style={{ background: 'rgba(255,255,255,0.08)', color: 'white', borderColor: 'rgba(255,255,255,0.15)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
             >
-              🔄 Yenile
+              <span className="material-symbols-outlined text-[16px]">refresh</span>
+              <span>Yenile</span>
             </button>
             <button
               onClick={onClose}
               className="btn-secondary"
-              style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#f87171', borderColor: 'rgba(239, 68, 68, 0.3)' }}
+              style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#f87171', borderColor: 'rgba(239, 68, 68, 0.3)', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
             >
-              ✕ Çıkış Yap
+              <span className="material-symbols-outlined text-[16px]">logout</span>
+              <span>Çıkış Yap</span>
             </button>
           </div>
         </div>
@@ -221,7 +224,8 @@ export default function AdminDashboard({ onClose }) {
                                 gap: '0.25rem'
                               }}
                             >
-                              💬 WhatsApp
+                              <span className="material-symbols-outlined text-[14px]">chat</span>
+                              <span>WhatsApp</span>
                             </a>
                           ) : (
                             <span style={{ color: '#64748b', fontSize: '0.8rem' }}>No Phone</span>
@@ -236,10 +240,11 @@ export default function AdminDashboard({ onClose }) {
                               color: '#ef4444',
                               cursor: 'pointer',
                               padding: '0.3rem',
-                              fontSize: '1rem'
+                              display: 'inline-flex',
+                              alignItems: 'center'
                             }}
                           >
-                            🗑️
+                            <span className="material-symbols-outlined text-[18px]">delete</span>
                           </button>
                         </div>
                       </td>

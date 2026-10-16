@@ -36,7 +36,7 @@ export default function AdminPage({ onNavigate }) {
           textAlign: 'center',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
         }}>
-          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔐</div>
+          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}><span className="material-symbols-outlined" style={{ fontSize: "3rem" }}>lock</span></div>
           <h2 style={{ color: 'white', marginBottom: '0.5rem', fontSize: '1.5rem' }}>Dent Aktif CMS Portal</h2>
           <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '2rem' }}>
             Yetkisiz erişim yasaktır. Lütfen yönetici şifrenizi girin.
@@ -68,7 +68,7 @@ export default function AdminPage({ onNavigate }) {
 
             {error && (
               <div style={{ color: '#f87171', fontSize: '0.85rem', marginBottom: '1rem' }}>
-                ⚠️ {error}
+                <span className="material-symbols-outlined" style={{ verticalAlign: "middle", marginRight: "4px" }}>warning</span>{error}
               </div>
             )}
 

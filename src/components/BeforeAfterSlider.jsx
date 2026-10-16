@@ -215,8 +215,9 @@ export default function BeforeAfterSlider() {
 
         <div style={{ textAlign: 'center', marginTop: '1.5rem', color: 'var(--text-muted)', fontSize: '1rem' }}>
           <strong>{currentCase.name}</strong> — {currentCase.description}{' '}
-          <span style={{ color: 'var(--color-brand-primary)', marginLeft: '0.5rem' }}>
-            📍 {currentCase.patientOrigin} ({currentCase.duration})
+          <span style={{ color: 'var(--color-brand-primary)', marginLeft: '0.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}>
+            <span className="material-symbols-outlined text-[16px]">location_on</span>
+            <span>{currentCase.patientOrigin} ({currentCase.duration})</span>
           </span>
         </div>
       </div>

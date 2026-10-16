@@ -57,8 +57,7 @@ export default function TreatmentDetailPage({
             {/* Left Column: Clinical Title & Descriptions */}
             <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold">
-                <span>{data.icon}</span>
-                <span>{data.badge}</span>
+                <span className="material-symbols-outlined text-[16px] text-teal-600">verified</span><span>{data.badge}</span>
                 <span className="text-slate-300">•</span>
                 <span className="text-secondary font-mono">{ui.ministryAuth || 'Ministry Auth #4892'}</span>
               </div>
@@ -126,26 +125,26 @@ export default function TreatmentDetailPage({
               {/* Inclusions List */}
               <div className="space-y-2.5 pt-2 text-xs border-t border-white/10">
                 <div className="flex justify-between items-center py-1 border-b border-white/5">
-                  <span className="text-slate-300">⏱️ {ui.stay}</span>
+                  <span className="text-slate-300 flex items-center gap-1.5"><span className="material-symbols-outlined text-[15px] text-teal-300">schedule</span>{ui.stay}</span>
                   <strong className="text-white">{data.stay}</strong>
                 </div>
 
                 <div className="flex justify-between items-center py-1 border-b border-white/5">
-                  <span className="text-slate-300">🚘 {ui.vitoTransfer}</span>
+                  <span className="text-slate-300 flex items-center gap-1.5"><span className="material-symbols-outlined text-[15px] text-teal-300">directions_car</span>{ui.vitoTransfer}</span>
                   <strong className="text-emerald-300">
                     {toothCount >= 6 ? ui.vitoIncluded : (ui.partnerRate || 'Partner Rate')}
                   </strong>
                 </div>
 
                 <div className="flex justify-between items-center py-1 border-b border-white/5">
-                  <span className="text-slate-300">🏨 {ui.hotelStay}</span>
+                  <span className="text-slate-300 flex items-center gap-1.5"><span className="material-symbols-outlined text-[15px] text-teal-300">hotel</span>{ui.hotelStay}</span>
                   <strong className="text-emerald-300">
                     {toothCount >= 10 ? ui.hotelIncluded : ui.hotelPartner}
                   </strong>
                 </div>
 
                 <div className="flex justify-between items-center py-1">
-                  <span className="text-slate-300">🛡️ {ui.warranty}</span>
+                  <span className="text-slate-300 flex items-center gap-1.5"><span className="material-symbols-outlined text-[15px] text-amber-300">verified_user</span>{ui.warranty}</span>
                   <strong className="text-amber-300 font-extrabold">{data.warranty}</strong>
                 </div>
               </div>

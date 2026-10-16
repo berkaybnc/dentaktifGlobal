@@ -9,8 +9,8 @@ import { getTreatmentsData } from '@/data/treatmentsData';
 const TOP_TREATMENTS_CONFIG = [
   {
     id: 'hollywood-smile',
-    icon: '💎',
-    badgeText: '✨ Most Requested • 5-Day Stay',
+    icon: 'auto_awesome',
+    badgeText: 'Most Requested • 5-Day Stay',
     gradient: 'from-[#211164] to-[#006972]',
     // Guaranteed high-resolution photography strictly curated for Hollywood Smile & E-Max veneers
     images: [
@@ -21,8 +21,8 @@ const TOP_TREATMENTS_CONFIG = [
   },
   {
     id: 'dental-implants',
-    icon: '⚙️',
-    badgeText: '🏆 Swiss Straumann® • Lifetime Guarantee',
+    icon: 'dentistry',
+    badgeText: 'Swiss Straumann® • Lifetime Guarantee',
     gradient: 'from-[#006972] to-[#1e3a8a]',
     // Guaranteed high-resolution photography strictly curated for Dental Implants & All-on-4/6 surgical protocols
     images: [
@@ -33,8 +33,8 @@ const TOP_TREATMENTS_CONFIG = [
   },
   {
     id: 'dental-veneers',
-    icon: '👑',
-    badgeText: '🌟 1200+ MPa Diamond Zirconia',
+    icon: 'layers',
+    badgeText: '1200+ MPa Diamond Zirconia',
     gradient: 'from-[#1e3a8a] to-[#211164]',
     // Guaranteed high-resolution photography strictly curated for Dental Zirconium Veneers & robotic CAD/CAM milling
     images: [
@@ -56,9 +56,9 @@ const LOCALIZED_UI = {
     contactUs: 'Contact Us',
     viewAllButton: 'Compare All 6 Treatment Options →',
     loadingText: 'Loading Treatment Data...',
-    tab1Label: '✨ 1. Overview & Results',
-    tab2Label: '📋 2. 3-Step Protocol',
-    tab3Label: '🔬 3. Materials & FAQs',
+    tab1Label: '1. Overview & Results',
+    tab2Label: '2. 3-Step Protocol',
+    tab3Label: '3. Materials & FAQs',
     specMaterial: 'Material Standard',
     specAnesthesia: 'Comfort & Anesthesia',
     certifiedHighlights: 'Certified Clinical Advantages',
@@ -74,9 +74,9 @@ const LOCALIZED_UI = {
     contactUs: 'Kontaktieren Sie uns',
     viewAllButton: 'Alle 6 Behandlungsoptionen vergleichen →',
     loadingText: 'Behandlungsdaten werden geladen...',
-    tab1Label: '✨ 1. Übersicht & Ergebnisse',
-    tab2Label: '📋 2. 3-Schritte-Protokoll',
-    tab3Label: '🔬 3. Materialien & FAQ',
+    tab1Label: '1. Übersicht & Ergebnisse',
+    tab2Label: '2. 3-Schritte-Protokoll',
+    tab3Label: '3. Materialien & FAQ',
     specMaterial: 'Materialstandard',
     specAnesthesia: 'Komfort & Anästhesie',
     certifiedHighlights: 'Zertifizierte klinische Vorteile',
@@ -92,9 +92,9 @@ const LOCALIZED_UI = {
     contactUs: 'Contactez-nous',
     viewAllButton: 'Comparer les 6 options de traitement →',
     loadingText: 'Chargement des données du traitement...',
-    tab1Label: '✨ 1. Aperçu & Résultats',
-    tab2Label: '📋 2. Protocole en 3 Étapes',
-    tab3Label: '🔬 3. Matériaux & FAQ',
+    tab1Label: '1. Aperçu & Résultats',
+    tab2Label: '2. Protocole en 3 Étapes',
+    tab3Label: '3. Matériaux & FAQ',
     specMaterial: 'Standard des Matériaux',
     specAnesthesia: 'Confort & Anesthésie',
     certifiedHighlights: 'Avantages Cliniques Certifiés',
@@ -110,9 +110,9 @@ const LOCALIZED_UI = {
     contactUs: 'Связаться с нами',
     viewAllButton: 'Сравнить все 6 направлений лечения →',
     loadingText: 'Загрузка данных лечения...',
-    tab1Label: '✨ 1. Обзор и результаты',
-    tab2Label: '📋 2. Протокол из 3 шагов',
-    tab3Label: '🔬 3. Материалы и вопросы',
+    tab1Label: '1. Обзор и результаты',
+    tab2Label: '2. Протокол из 3 шагов',
+    tab3Label: '3. Материалы и вопросы',
     specMaterial: 'Стандарт материалов',
     specAnesthesia: 'Комфорт и анестезия',
     certifiedHighlights: 'Сертифицированные клинические преимущества',
@@ -128,9 +128,9 @@ const LOCALIZED_UI = {
     contactUs: 'Bizimle İletişime Geçin',
     viewAllButton: 'Tüm 6 Tedavi Seçeneğini Karşılaştır →',
     loadingText: 'Tedavi Verileri Yükleniyor...',
-    tab1Label: '✨ 1. Genel Bakış & Sonuçlar',
-    tab2Label: '📋 2. 3 Adımlı Protokol',
-    tab3Label: '🔬 3. Materyal & Sık Sorulanlar',
+    tab1Label: '1. Genel Bakış & Sonuçlar',
+    tab2Label: '2. 3 Adımlı Protokol',
+    tab3Label: '3. Materyal & Sık Sorulanlar',
     specMaterial: 'Materyal Standardı',
     specAnesthesia: 'Konfor & Anestezi',
     certifiedHighlights: 'Sertifikalı Klinik Avantajlar',
@@ -146,9 +146,9 @@ const LOCALIZED_UI = {
     contactUs: 'تواصل معنا',
     viewAllButton: 'مقارنة كافة خيارات العلاج الـ 6 ←',
     loadingText: 'جاري تحميل بيانات العلاج...',
-    tab1Label: '✨ 1. النظرة العامة والنتائج',
-    tab2Label: '📋 2. بروتوكول الخطوات الـ 3',
-    tab3Label: '🔬 3. المواد والأسئلة الشائعة',
+    tab1Label: '1. النظرة العامة والنتائج',
+    tab2Label: '2. بروتوكول الخطوات الـ 3',
+    tab3Label: '3. المواد والأسئلة الشائعة',
     specMaterial: 'معيار المواد',
     specAnesthesia: 'الراحة والتخدير',
     certifiedHighlights: 'المزايا السريرية المعتمدة',
@@ -218,19 +218,19 @@ export default function TreatmentsSection() {
               const isSelected = activeTabId === tab.id;
               const getBadgeText = () => {
                 if (locale === 'ar') {
-                  return tab.id === 'hollywood-smile' ? '✨ الأكثر طلباً • إقامة 5 أيام' : tab.id === 'dental-implants' ? '🏆 زرعات Straumann® • ضمان مدى الحياة' : '🌟 زيركون ألماس +1200 ميجاباسكال';
+                  return tab.id === 'hollywood-smile' ? 'الأكثر طلباً • إقامة 5 أيام' : tab.id === 'dental-implants' ? 'زرعات Straumann® • ضمان مدى الحياة' : 'زيركون ألماس +1200 ميجاباسكال';
                 }
                 if (locale === 'de') {
-                  return tab.id === 'hollywood-smile' ? '✨ Meistgefragt • 5 Tage Aufenthalt' : tab.id === 'dental-implants' ? '🏆 Schweizer Straumann® • Lebenslange Garantie' : '🌟 1200+ MPa Diamant-Zirkon';
+                  return tab.id === 'hollywood-smile' ? 'Meistgefragt • 5 Tage Aufenthalt' : tab.id === 'dental-implants' ? 'Schweizer Straumann® • Lebenslange Garantie' : '1200+ MPa Diamant-Zirkon';
                 }
                 if (locale === 'fr') {
-                  return tab.id === 'hollywood-smile' ? '✨ Le Plus Demandé • Séjour de 5 Jours' : tab.id === 'dental-implants' ? '🏆 Straumann® Suisse • Garantie à Vie' : '🌟 Zircone Diamant 1200+ MPa';
+                  return tab.id === 'hollywood-smile' ? 'Le Plus Demandé • Séjour de 5 Jours' : tab.id === 'dental-implants' ? 'Straumann® Suisse • Garantie à Vie' : 'Zircone Diamant 1200+ MPa';
                 }
                 if (locale === 'ru') {
-                  return tab.id === 'hollywood-smile' ? '✨ Самый частый выбор • 5 дней пребывания' : tab.id === 'dental-implants' ? '🏆 Швейцарский Straumann® • Пожизненная гарантия' : '🌟 Алмазный цирконий 1200+ МПа';
+                  return tab.id === 'hollywood-smile' ? 'Самый частый выбор • 5 дней пребывания' : tab.id === 'dental-implants' ? 'Швейцарский Straumann® • Пожизненная гарантия' : 'Алмазный цирконий 1200+ МПа';
                 }
                 if (locale === 'tr') {
-                  return tab.id === 'hollywood-smile' ? '✨ En Çok Tercih Edilen • 5 Gün Kalış' : tab.id === 'dental-implants' ? '🏆 İsviçre Straumann® • Ömür Boyu Garanti' : '🌟 1200+ MPa Elmas Zirkonyum';
+                  return tab.id === 'hollywood-smile' ? 'En Çok Tercih Edilen • 5 Gün Kalış' : tab.id === 'dental-implants' ? 'İsviçre Straumann® • Ömür Boyu Garanti' : '1200+ MPa Elmas Zirkonyum';
                 }
                 return tab.badgeText;
               };
@@ -252,9 +252,7 @@ export default function TreatmentsSection() {
                 >
                   {/* Left Icon & Treatment Name */}
                   <div className="flex items-center gap-3.5 z-10 min-w-0 pr-3">
-                    <span className="text-2xl shrink-0 p-1 rounded-lg bg-white/10 backdrop-blur-xs flex items-center justify-center">
-                      {tab.icon}
-                    </span>
+                    <span className="material-symbols-outlined text-2xl shrink-0 p-1.5 rounded-xl bg-white/10 backdrop-blur-xs flex items-center justify-center">{tab.icon}</span>
                     <div className="min-w-0">
                       <div className="font-headline font-extrabold text-sm sm:text-base tracking-tight truncate leading-tight">
                         {item?.name || tab.id}
@@ -383,7 +381,7 @@ export default function TreatmentsSection() {
                       {/* Bottom Badge: Stay & Sessions */}
                       <div className="absolute bottom-3 left-3 right-3 text-white">
                         <span className="text-[11px] font-mono font-bold text-teal-300 block">
-                          ⏱️ {ui.stayLabel} {activeTreatment.stay}
+                          <span className="material-symbols-outlined text-sm align-middle mr-1">schedule</span>{ui.stayLabel} {activeTreatment.stay}
                         </span>
                       </div>
                     </div>
@@ -434,7 +432,7 @@ export default function TreatmentsSection() {
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700">
                       {(activeTreatment.highlights || []).map((hl: string, idx: number) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <span className="text-teal-600 font-bold text-sm shrink-0">✓</span>
+                          <span className="material-symbols-outlined text-teal-600 text-sm shrink-0">check_circle</span>
                           <span className="leading-snug">{hl}</span>
                         </li>
                       ))}
@@ -468,7 +466,7 @@ export default function TreatmentsSection() {
 
                       <div className="absolute bottom-3 left-3 right-3 text-white">
                         <span className="text-[11px] font-mono font-bold text-teal-300 block">
-                          {locale === 'ar' ? '🏥 أجنحة الجراحة والمختبر الداخلي' : '🏥 In-House Surgical & Lab Suite'}
+                          <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-sm">local_hospital</span><span>{locale === 'ar' ? 'أجنحة الجراحة والمختبر الداخلي' : 'In-House Surgical & Lab Suite'}</span></span>
                         </span>
                       </div>
                     </div>
@@ -550,7 +548,7 @@ export default function TreatmentsSection() {
 
                       <div className="absolute bottom-3 left-3 right-3 text-white">
                         <span className="text-[11px] font-mono font-bold text-teal-300 block">
-                          {locale === 'ar' ? '🔬 سبيكة زرع / سيراميك أصلية معتمدة' : '🔬 Certified Genuine Ingot / Implant Alloy'}
+                          <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-sm">biotech</span><span>{locale === 'ar' ? 'سبيكة زرع / سيراميك أصلية معتمدة' : 'Certified Genuine Ingot / Implant Alloy'}</span></span>
                         </span>
                       </div>
                     </div>

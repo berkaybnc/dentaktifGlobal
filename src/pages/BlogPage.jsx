@@ -125,9 +125,9 @@ Day 5 concludes with your permanent E-Max or Zirconium fitting and a radiant cel
                 {filteredArticles[0].summary}
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
-                <span>✍️ {filteredArticles[0].author}</span>
-                <span>📅 {filteredArticles[0].date}</span>
-                <span>⏱️ {filteredArticles[0].readTime}</span>
+                <span>{filteredArticles[0].author}</span>
+                <span>{filteredArticles[0].date}</span>
+                <span>{filteredArticles[0].readTime}</span>
               </div>
               <button onClick={() => setActiveArticle(filteredArticles[0])} className="btn-primary" style={{ padding: '0.75rem 1.5rem', fontSize: '0.9rem' }}>
                 Read Full Article →
@@ -158,7 +158,7 @@ Day 5 concludes with your permanent E-Max or Zirconium fitting and a radiant cel
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px solid var(--glass-border-subtle)', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                <span>📅 {art.date}</span>
+                <span>{art.date}</span>
                 <button onClick={() => setActiveArticle(art)} style={{ background: 'none', border: 'none', color: 'var(--color-brand-primary)', fontWeight: 700, cursor: 'pointer' }}>
                   Read Article →
                 </button>
@@ -177,9 +177,9 @@ Day 5 concludes with your permanent E-Max or Zirconium fitting and a radiant cel
               <h2 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '0.5rem', marginBottom: '1rem' }}>{activeArticle.title}</h2>
               
               <div style={{ display: 'flex', gap: '1.2rem', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-                <span>✍️ {activeArticle.author}</span>
-                <span>📅 {activeArticle.date}</span>
-                <span>⏱️ {activeArticle.readTime}</span>
+                <span>{activeArticle.author}</span>
+                <span>{activeArticle.date}</span>
+                <span>{activeArticle.readTime}</span>
               </div>
 
               <img src={activeArticle.image} alt={activeArticle.title} style={{ width: '100%', height: '280px', objectFit: 'cover', borderRadius: '16px', marginBottom: '1.5rem' }} />

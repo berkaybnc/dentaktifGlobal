@@ -243,16 +243,18 @@ export default function Hero3D() {
               <div style={{ position: 'absolute', bottom: '0.8rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '0.5rem', background: 'rgba(15, 23, 42, 0.65)', backdropFilter: 'blur(8px)', padding: '0.3rem 0.8rem', borderRadius: '99px', zIndex: 10 }}>
                 <button
                   onClick={togglePlay}
-                  style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontWeight: 'bold', fontSize: '0.85rem' }}
+                  style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontWeight: 'bold', fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
                 >
-                  {isPlaying ? (lang === 'ar' ? '⏸️ إيقاف مؤقت' : '⏸️ Pause') : (lang === 'ar' ? '▶️ تشغيل' : '▶️ Play')}
+                  <span className="material-symbols-outlined text-[16px]">{isPlaying ? 'pause' : 'play_arrow'}</span>
+                  <span>{isPlaying ? (lang === 'ar' ? 'إيقاف مؤقت' : 'Pause') : (lang === 'ar' ? 'تشغيل' : 'Play')}</span>
                 </button>
                 <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
                 <button
                   onClick={() => setPlaybackSpeed(playbackSpeed === 1.0 ? 0.75 : playbackSpeed === 0.75 ? 0.5 : 1.0)}
-                  style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', fontWeight: 600, fontSize: '0.8rem' }}
+                  style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', fontWeight: 600, fontSize: '0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}
                 >
-                  {lang === 'ar' ? `⚡ السرعة: ${playbackSpeed}x` : `⚡ Speed: ${playbackSpeed}x`}
+                  <span className="material-symbols-outlined text-[14px]">speed</span>
+                  <span>{lang === 'ar' ? `السرعة: ${playbackSpeed}x` : `Speed: ${playbackSpeed}x`}</span>
                 </button>
               </div>
             </div>
@@ -261,7 +263,9 @@ export default function Hero3D() {
             <div className="showcase-card-footer" style={{ marginTop: '0.8rem' }}>
               <div className="doctor-badge" style={{ width: '100%', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <div className="doctor-avatar">👨‍⚕️</div>
+                  <div className="doctor-avatar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span className="material-symbols-outlined text-[20px] text-teal-600">medical_services</span>
+                  </div>
                   <div className="doctor-info">
                     <h5>{t('heroDoctorName')}</h5>
                     <p>{t('heroDoctorRole')}</p>

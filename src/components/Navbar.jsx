@@ -43,12 +43,12 @@ export default function Navbar({ currentPage, onNavigate }) {
   }, [langDropdownOpen]);
 
   const treatmentItems = [
-    { id: 'aesthetic-dentistry', nameKey: 'treatAesthetic', icon: '✨', descKey: 'treatAestheticDesc' },
-    { id: 'hollywood-smile', nameKey: 'treatHollywood', icon: '💎', descKey: 'treatHollywoodDesc' },
-    { id: 'dental-veneers', nameKey: 'treatVeneers', icon: '🦷', descKey: 'treatVeneersDesc' },
-    { id: 'dental-crowns', nameKey: 'treatCrowns', icon: '👑', descKey: 'treatCrownsDesc' },
-    { id: 'dental-implants', nameKey: 'treatImplants', icon: '⚙️', descKey: 'treatImplantsDesc' },
-    { id: 'root-canal', nameKey: 'treatRootCanal', icon: '🔬', descKey: 'treatRootCanalDesc' }
+    { id: 'aesthetic-dentistry', nameKey: 'treatAesthetic', icon: 'auto_awesome', descKey: 'treatAestheticDesc' },
+    { id: 'hollywood-smile', nameKey: 'treatHollywood', icon: 'diamond', descKey: 'treatHollywoodDesc' },
+    { id: 'dental-veneers', nameKey: 'treatVeneers', icon: 'layers', descKey: 'treatVeneersDesc' },
+    { id: 'dental-crowns', nameKey: 'treatCrowns', icon: 'workspace_premium', descKey: 'treatCrownsDesc' },
+    { id: 'dental-implants', nameKey: 'treatImplants', icon: 'dentistry', descKey: 'treatImplantsDesc' },
+    { id: 'root-canal', nameKey: 'treatRootCanal', icon: 'biotech', descKey: 'treatRootCanalDesc' }
   ];
 
   const handleNavClick = (e, pageKey) => {
@@ -123,7 +123,7 @@ export default function Navbar({ currentPage, onNavigate }) {
                     className={`dropdown-item ${currentPage === item.id ? 'active' : ''}`}
                     style={{ cursor: 'pointer', zIndex: 10 }}
                   >
-                    <span className="item-icon">{item.icon}</span>
+                    <span className="material-symbols-outlined item-icon" style={{ fontSize: '1.4rem', color: 'var(--color-brand-primary)' }}>{item.icon}</span>
                     <div className="item-text">
                       <strong>{t(item.nameKey)}</strong>
                       <small>{t(item.descKey)}</small>

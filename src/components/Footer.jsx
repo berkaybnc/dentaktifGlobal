@@ -15,8 +15,9 @@ export default function Footer() {
           gap: '3rem', marginBottom: '3rem'
         }}>
           <div>
-            <div style={{ fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-heading)', marginBottom: '1rem' }}>
-              🦷 DENT AKTİF GLOBAL
+            <div style={{ fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-heading)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span className="material-symbols-outlined text-teal-400" style={{ fontSize: '1.8rem' }}>dentistry</span>
+              <span>DENT AKTİF GLOBAL</span>
             </div>
             <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>
               {t('footerDesc')}
@@ -35,11 +36,20 @@ export default function Footer() {
 
           <div>
             <h4 style={{ color: 'white', marginBottom: '1.2rem' }}>{t('footerContactClinic')}</h4>
-            <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.8' }}>
-              📍 Cevatpaşa Mah. Eski Edirne Asfaltı Cad. No:407/409 Bayrampaşa / Levent, İstanbul<br />
-              📞 Phone / WhatsApp: +90 552 161 7377<br />
-              ✉️ Email: info@dentaktifglobal.com
-            </p>
+            <div style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '2', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+                <span className="material-symbols-outlined text-teal-400" style={{ fontSize: '1.1rem', marginTop: '0.2rem' }}>location_on</span>
+                <span>Cevatpaşa Mah. Eski Edirne Asfaltı Cad. No:407/409 Bayrampaşa / Levent, İstanbul</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span className="material-symbols-outlined text-teal-400" style={{ fontSize: '1.1rem' }}>call</span>
+                <span>Phone / WhatsApp: +90 552 161 7377</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span className="material-symbols-outlined text-teal-400" style={{ fontSize: '1.1rem' }}>mail</span>
+                <span>Email: info@dentaktifglobal.com</span>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -368,9 +368,9 @@ export default function CaseSlider() {
   const currentCase = localizedCases[activeTab] || localizedCases.hollywood;
 
   const categories = [
-    { key: 'hollywood', label: t('tabHollywood'), subtitle: t('tabHollywoodSub'), icon: '💎' },
-    { key: 'allon4', label: t('tabAllon4'), subtitle: t('tabAllon4Sub'), icon: '⚙️' },
-    { key: 'zirconia', label: t('tabZirconia'), subtitle: t('tabZirconiaSub'), icon: '👑' },
+    { key: 'hollywood', label: t('tabHollywood'), subtitle: t('tabHollywoodSub'), icon: 'diamond' },
+    { key: 'allon4', label: t('tabAllon4'), subtitle: t('tabAllon4Sub'), icon: 'dentistry' },
+    { key: 'zirconia', label: t('tabZirconia'), subtitle: t('tabZirconiaSub'), icon: 'workspace_premium' },
   ];
 
   return (
@@ -409,7 +409,7 @@ export default function CaseSlider() {
                     }
                   `}
                 >
-                  <span className="text-lg shrink-0">{cat.icon}</span>
+                  <span className={`material-symbols-outlined text-lg shrink-0 ${isActive ? 'text-teal-300' : 'text-teal-600'}`}>{cat.icon}</span>
                   <div>
                     <div className="text-xs sm:text-sm font-extrabold leading-tight">
                       {cat.label}

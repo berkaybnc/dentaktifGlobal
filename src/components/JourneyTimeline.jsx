@@ -11,7 +11,7 @@ export default function JourneyTimeline() {
         step: 1,
         title: "1. استشارة مجانية عبر الإنترنت وخطة 3D",
         subtitle: "الخطوة 1 - من منزلك",
-        icon: "📱",
+        icon: "laptop_chromebook",
         description: "أرسل صور أسنانك أو الأشعة البانورامية عبر نموذجنا الآمن. يقوم كبير جراحي الأسنان بتقييم حالتك وتقديم خطة تصميم ابتسامة رقمية ثلاثية الأبعاد وعرض سعر واضح خلال ساعتين.",
         badge: "مجاني 100% وبدون أي التزام"
       },
@@ -19,7 +19,7 @@ export default function JourneyTimeline() {
         step: 2,
         title: "2. وصول المطار واستقبال VIP فاخر",
         subtitle: "الخطوة 2 - مرحباً بك في إسطنبول",
-        icon: "✈️",
+        icon: "flight_land",
         description: "الوصول إلى مطار إسطنبول (IST / SAW). يستقبلك سائقنا الخاص بسيارة مرسيدس فيتو وينقلك مباشرة إلى الفندق الشريك 5 نجوم المطل على البحر.",
         badge: "شامل التوصيل الخاص VIP"
       },
@@ -27,7 +27,7 @@ export default function JourneyTimeline() {
         step: 3,
         title: "3. المعاينة السريرية والتصوير ثلاثي الأبعاد",
         subtitle: "الخطوة 3 - اليوم الأول في المستشفى",
-        icon: "🦷",
+        icon: "biotech",
         description: "زيارة مستشفى دنت أكتيف لإجراء أشعة CBCT الحجمية عالية الدقة والمسح الضوئي داخل الفم. مراجعة نموذج الابتسامة الافتراضي مباشرة مع الطاقم الاستشاري.",
         badge: "أحدث التقنيات الرقمية"
       },
@@ -35,7 +35,7 @@ export default function JourneyTimeline() {
         step: 4,
         title: "4. علاج غير مؤلم ودقة جمالية مجهرية",
         subtitle: "الخطوة 4 - الأيام من 2 إلى 4",
-        icon: "✨",
+        icon: "auto_awesome",
         description: "تحت التخدير الحاسوبي الدقيق بدون ألم، يتم تصنيع قشورك أو زرعاتك باستخدام وحدات النحت الروبوتية CAD/CAM في مختبرنا الداخلي.",
         badge: "تخدير حاسوبي بدون ألم"
       },
@@ -43,7 +43,7 @@ export default function JourneyTimeline() {
         step: 5,
         title: "5. التثبيت النهائي، شهادة الضمان والتوديع",
         subtitle: "الخطوة 5 - اليوم 5 وما بعده",
-        icon: "👑",
+        icon: "verified_user",
         description: "اخرج بابتسامة هوليوود المتألقة! استلم شهادة الضمان الدولي مدى الحياة، وحقيبة العناية بعد العلاج، والتوصيل بسيارة VIP إلى المطار.",
         badge: "ضمان دولي رسمي مدى الحياة"
       }
@@ -53,7 +53,7 @@ export default function JourneyTimeline() {
         step: 1,
         title: "1. Online Free Consultation & 3D Plan",
         subtitle: "Step 1 - From Home",
-        icon: "📱",
+        icon: "laptop_chromebook",
         description: "Send your teeth photos or X-Ray via our secure form. Our head dental surgeon evaluates your case and provides a detailed 3D digital smile design treatment plan & transparent quote within 2 hours.",
         badge: "100% Free & No Obligation"
       },
@@ -61,7 +61,7 @@ export default function JourneyTimeline() {
         step: 2,
         title: "2. VIP Airport Arrival & Luxury Transfer",
         subtitle: "Step 2 - Welcome to Istanbul",
-        icon: "✈️",
+        icon: "flight_land",
         description: "Arrive at Istanbul Airport (IST / SAW). Our private VIP chauffeur greets you at the gate and escorts you in a Mercedes V-Class to your 5-star ocean-view hotel partner.",
         badge: "VIP Transfer Included"
       },
@@ -69,7 +69,7 @@ export default function JourneyTimeline() {
         step: 3,
         title: "3. In-Person Consultation & 3D Scanning",
         subtitle: "Step 3 - Day 1 at Clinic",
-        icon: "🦷",
+        icon: "biotech",
         description: "Visit Dent Aktif Clinic Global for high-resolution 3D Tomography (CBCT) and intraoral scanning. Review your mock-up smile in real-time with our specialist team.",
         badge: "State-of-the-Art Technology"
       },
@@ -77,7 +77,7 @@ export default function JourneyTimeline() {
         step: 4,
         title: "4. Painless Treatment & Micro-Aesthetics",
         subtitle: "Step 4 - Days 2 to 4",
-        icon: "✨",
+        icon: "auto_awesome",
         description: "Under pain-free local computer-controlled anesthesia or sedation, your veneers/implants are crafted using CAD/CAM milling in our in-house dental laboratory.",
         badge: "Pain-Free Computerized Delivery"
       },
@@ -85,7 +85,7 @@ export default function JourneyTimeline() {
         step: 5,
         title: "5. Final Fit, Warranty Certificate & Celebration",
         subtitle: "Step 5 - Day 5 & Beyond",
-        icon: "👑",
+        icon: "verified_user",
         description: "Walk out with your picture-perfect Hollywood Smile! Receive your international lifetime warranty certificate, aftercare kit, and VIP transfer back to the airport.",
         badge: "Lifetime International Guarantee"
       }
@@ -179,10 +179,10 @@ export default function JourneyTimeline() {
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.8rem' }}>
-                    <div style={{
+                    <div className="material-symbols-outlined" style={{
                       width: '44px', height: '44px', borderRadius: '12px',
                       background: 'rgba(2, 132, 199, 0.08)', color: 'var(--color-brand-primary)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem'
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem'
                     }}>
                       {s.icon}
                     </div>
