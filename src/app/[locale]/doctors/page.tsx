@@ -1,10 +1,14 @@
 'use client';
 
 import React from 'react';
+import { useLocale } from 'next-intl';
 import { Link } from '@/navigation';
 import { getDoctorsList } from '@/data/doctorsData';
+import { getDoctorsOverviewUi } from '@/data/doctorsI18n';
 
 export default function DoctorsOverviewPage() {
+  const locale = useLocale();
+  const ui = getDoctorsOverviewUi(locale);
   const doctors = getDoctorsList();
 
   return (
@@ -17,32 +21,30 @@ export default function DoctorsOverviewPage() {
         <div className="max-w-7xl mx-auto text-center space-y-4 relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-teal-400/30 text-teal-200 text-xs font-bold font-mono">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Ministry of Health Licensed Medical Faculty</span>
-            <span className="text-white/40">•</span>
-            <span>Bayrampaşa &amp; Levent Hospital Campuses</span>
+            <span>{ui.badge}</span>
           </div>
 
           <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Our Specialist Medical Faculty
+            {ui.title}
           </h1>
 
           <p className="font-sans text-sm sm:text-base text-slate-200 max-w-3xl mx-auto leading-relaxed">
-            Dent Aktif's permanent medical faculty combines international surgical excellence, advanced 3D digital precision, and compassionate patient care standards.
+            {ui.description}
           </p>
 
           {/* Quick Credential Badges */}
           <div className="pt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-teal-100">
             <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex items-center gap-1.5">
               <span className="material-symbols-outlined text-sm text-teal-400">verified</span>
-              Licensed Dental Surgeons &amp; Specialists
+              {ui.credentialSurgeons}
             </span>
             <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex items-center gap-1.5">
               <span className="material-symbols-outlined text-sm text-teal-400">precision_manufacturing</span>
-              In-House CAD/CAM &amp; Morita 3D CBCT
+              {ui.credentialTech}
             </span>
             <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex items-center gap-1.5">
               <span className="material-symbols-outlined text-sm text-teal-400">workspace_premium</span>
-              18,000+ Completed Smiles
+              {ui.credentialSmiles}
             </span>
           </div>
         </div>
@@ -113,7 +115,7 @@ export default function DoctorsOverviewPage() {
                     {/* 3 Core Clinical Procedures */}
                     <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs text-slate-700 font-medium">
                       <span className="text-[10px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                        Key Clinical Focus:
+                        {ui.clinicalFocus}
                       </span>
                       {doctor.specializations.slice(0, 3).map((sp, i) => (
                         <div key={i} className="flex items-start gap-2">
@@ -133,7 +135,7 @@ export default function DoctorsOverviewPage() {
                     href={`/doctors/${doctor.id}`}
                     className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#211164] to-[#006972] hover:opacity-95 text-white text-xs font-black uppercase tracking-wider text-center transition-all block shadow-sm"
                   >
-                    Full Biography &amp; Protocols →
+                    {ui.fullBioBtn}
                   </Link>
                 </div>
               </div>
@@ -148,13 +150,13 @@ export default function DoctorsOverviewPage() {
           <div className="space-y-3 max-w-2xl">
             <span className="text-xs font-mono uppercase tracking-widest text-[#006972] font-bold flex items-center gap-1.5">
               <span className="material-symbols-outlined text-sm">verified_user</span>
-              Personalized Treatment &amp; Free Digital Triage
+              {ui.bannerBadge}
             </span>
             <h3 className="font-headline text-2xl sm:text-3xl font-black text-[#1b0d52]">
-              Unsure Which Specialist Is Right for Your Case?
+              {ui.bannerTitle}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Share your existing dental X-ray or smile photos. Our clinical board will review your case within 24 hours and deliver a complimentary 3D digital treatment plan.
+              {ui.bannerDesc}
             </p>
           </div>
 
@@ -163,13 +165,13 @@ export default function DoctorsOverviewPage() {
               href="/#consultation-wizard"
               className="w-full sm:w-auto px-6 py-4 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white font-extrabold text-xs uppercase tracking-wider text-center shadow-md hover:opacity-95 transition-all"
             >
-              Upload X-Ray &amp; Get Plan
+              {ui.bannerBtnPlan}
             </Link>
             <Link
               href="/contact"
               className="w-full sm:w-auto px-6 py-4 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider text-center transition-colors"
             >
-              Contact Clinical Concierge
+              {ui.bannerBtnContact}
             </Link>
           </div>
         </div>

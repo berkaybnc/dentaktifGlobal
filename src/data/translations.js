@@ -1,9 +1,11 @@
 export const languages = [
   { code: 'en', flag: '🇬🇧', label: 'English' },
+  { code: 'tr', flag: '🇹🇷', label: 'Türkçe' },
   { code: 'de', flag: '🇩🇪', label: 'Deutsch' },
   { code: 'ru', flag: '🇷🇺', label: 'Русский' },
-  { code: 'tr', flag: '🇹🇷', label: 'Türkçe' },
+  { code: 'fr', flag: '🇫🇷', label: 'Français' },
 ];
+
 
 export const translations = {
   en: {
@@ -320,5 +322,85 @@ export const translations = {
     footerQuickLinks: 'Быстрые ссылки',
     footerContactClinic: 'Контакты клиники',
     footerCopyright: '© 2026 Dent Aktif Clinic Global. Все права защищены.'
+  },
+
+  fr: {
+    // Navbar
+    navHome: 'ACCUEIL',
+    navTreatments: 'TRAITEMENTS',
+    navBlog: 'BLOG',
+    navContact: 'CONTACT',
+    navConsultationBtn: 'CONSULTATION EN LIGNE',
+
+    // Treatments dropdown
+    treatAesthetic: 'Dentisterie Esthétique',
+    treatAestheticDesc: 'Conception de Sourire & Blanchiment',
+    treatHollywood: 'Hollywood Smile',
+    treatHollywoodDesc: 'Transformation Complète du Sourire',
+    treatVeneers: 'Facettes Zircone',
+    treatVeneersDesc: 'Facettes en Porcelaine Haute Résistance',
+    treatCrowns: 'Couronnes Dentaires',
+    treatCrownsDesc: 'Couronnes E-Max® et Porcelaine sur Mesure',
+    treatImplants: 'Implants Dentaires',
+    treatImplantsDesc: 'Implants Suisses Straumann® Permanents',
+    treatRootCanal: 'Traitement de Canal',
+    treatRootCanalDesc: 'Endodontie Microscopique Indolore',
+
+    // Hero3D
+    heroTagline: '✨ Tourisme Dentaire d’Excellence à Istanbul',
+    heroTitlePart1: 'Où Naissent les Sourires Radieux & ',
+    heroTitlePart2: 'La Confiance Durable',
+    heroDesc: 'La Clinique Dent Aktif combine design digital du sourire, implants suisses Straumann® et facettes en céramique E-Max® en seulement 5 jours à Istanbul.',
+    heroCtaConsultation: '🚀 Consultation Gratuite',
+    heroCtaExplore: '👁️ Voir 500+ Résultats',
+    heroStat1Val: '50 000+',
+    heroStat1Label: 'Procédures Réussies',
+    heroStat2Val: '20+',
+    heroStat2Label: 'Ans d\'Expérience',
+    heroStat3Val: 'À Vie',
+    heroStat3Label: 'Garantie Officielle',
+    heroVideoBadge: '🎥 ANIMATION 3D CLINIQUE DU SOURIRE',
+    heroHdVideo: '🎬 Vidéo HD',
+    heroTransparent: '⬛ Transparent',
+    heroWhiteBlend: '⬜ Fond Blanc',
+    heroAnatomicalMotion: '🦷 Mouvement Anatomique HD',
+    heroOriginalClinic: '⚙️ Clinique Originale Dent Aktif',
+    heroDoctorName: 'Dr Mehmet Yılmaz',
+    heroDoctorRole: 'Chirurgien en Chef • Modélisation 3D',
+    heroLifetimeWarranty: 'GARANTIE À VIE',
+
+    // Trust Marquee
+    trustStraumann: 'Partenaire Officiel Suisse Straumann®',
+    trustEmax: 'Certifié Ivoclar Vivadent E-Max®',
+    trustIso: 'Clinique Accréditée ISO 9001:2015',
+    trustMinistry: 'Agréé par le Ministère de la Santé de Turquie',
+    trustVipTransfer: 'Chauffeur VIP Privé Mercedes Vito',
+    trustHotel: 'Hôtel 5 Étoiles sur le Bosphore',
+
+    // CTA Banner
+    ctaBadge: '✨ Réponse Garantie en 2 Heures',
+    ctaTitle: 'Prêt pour Votre Hollywood Smile ?',
+    ctaDesc: 'Envoyez vos photos dentaires ou radiographies panoramiques. Recevez un plan 3D sur-mesure et un devis transparent.',
+    ctaStartBtn: '🚀 Démarrer la Consultation Gratuite',
+    ctaWhatsappBtn: '💬 Écrivez-nous sur WhatsApp',
+
+    // Before/After
+    baBadge: 'CAS CLINIQUES RÉELS',
+    baTitle: 'Transformations du Sourire',
+    baDesc: 'Faites glisser pour comparer les résultats Avant/Après obtenus à la clinique Dent Aktif à Istanbul.',
+    baBefore: 'Avant',
+    baAfter: 'Après',
+
+    // Journey
+    journeyBadge: 'EXPÉRIENCE VIP SANS STRESS',
+    journeyTitle: 'Votre Parcours Dentaire en 5 Étapes à Istanbul',
+    journeyDesc: 'De la première consultation en ligne au transfert VIP et à votre retour avec un nouveau sourire.',
+
+    // Footer
+    footerDesc: 'Centre International de Tourisme Dentaire d\'Élite. Agréé par le Ministère de la Santé de la République de Turquie.',
+    footerQuickLinks: 'Liens Rapides',
+    footerContactClinic: 'Contacter la Clinique',
+    footerCopyright: '© 2026 Dent Aktif Clinic Global. Tous droits réservés. L’excellence dans chaque détail.'
   }
 };
+

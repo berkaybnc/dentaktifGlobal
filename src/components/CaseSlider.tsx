@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/navigation';
 
 interface CaseData {
@@ -18,74 +19,303 @@ interface CaseData {
   afterImg: string;
 }
 
-const CASE_DATABASE: Record<string, CaseData> = {
-  hollywood: {
-    id: '#CASE-8841',
-    categoryTag: 'Smile Architecture',
-    treatmentTitle: '20 Ivoclar Vivadent® E-Max® Veneers',
-    treatmentSubtitle: 'BL1 Bleach White • Natural Enamel Translucency',
-    indication: 'Severe staining, incisal wear and uneven tooth proportions.',
-    highlights: [
-      '3D Intraoral digital scanning & golden-ratio simulation',
-      '0.3mm conservative micro-prep with painless anesthesia',
-      'In-house master ceramist custom shade layering & glazing',
-    ],
-    material: 'IPS e.max® Press (Lithium Disilicate)',
-    duration: '5 Days / 2 Visits',
-    precision: 'Sub-15μm CAD/CAM Fit',
-    warranty: 'Lifetime Certificate',
-    beforeImg: '/images/cases/hollywood-before.jpg',
-    afterImg: '/images/cases/hollywood-after.jpg',
+const CASES_BY_LOCALE: Record<string, Record<string, CaseData>> = {
+  en: {
+    hollywood: {
+      id: '#CASE-8841',
+      categoryTag: 'Smile Architecture',
+      treatmentTitle: '20 Ivoclar Vivadent® E-Max® Veneers',
+      treatmentSubtitle: 'BL1 Bleach White • Natural Enamel Translucency',
+      indication: 'Severe staining, incisal wear and uneven tooth proportions.',
+      highlights: [
+        '3D Intraoral digital scanning & golden-ratio simulation',
+        '0.3mm conservative micro-prep with painless anesthesia',
+        'In-house master ceramist custom shade layering & glazing',
+      ],
+      material: 'IPS e.max® Press (Lithium Disilicate)',
+      duration: '5 Days / 2 Visits',
+      precision: 'Sub-15μm CAD/CAM Fit',
+      warranty: 'Lifetime Certificate',
+      beforeImg: '/images/cases/hollywood-before.jpg',
+      afterImg: '/images/cases/hollywood-after.jpg',
+    },
+    allon4: {
+      id: '#CASE-7920',
+      categoryTag: 'Full-Arch Implantology',
+      treatmentTitle: 'All-on-6 Swiss Straumann® Full Arch',
+      treatmentSubtitle: 'Roxolid® SLA Hybrid Bridge • 3D Guided Navigation',
+      indication: 'Missing dentition, bone volume loss, and collapsed vertical bite.',
+      highlights: [
+        '3D CBCT bone mapping & digital surgical stent guide',
+        'Flapless computer-navigated 6x Straumann® placement',
+        'Immediate fixed monolithic bridge delivery within 48h',
+      ],
+      material: 'Swiss Straumann® Roxolid® & Zirconia',
+      duration: '5 Days (Immediate Load)',
+      precision: '0.1mm 3D Stent Precision',
+      warranty: 'Global Lifetime Straumann®',
+      beforeImg: '/images/cases/allon6-before.jpg',
+      afterImg: '/images/cases/allon6-after.jpg',
+    },
+    zirconia: {
+      id: '#CASE-6514',
+      categoryTag: 'Aesthetic Prosthodontics',
+      treatmentTitle: '16 CAD/CAM Katana™ Zirconia Crowns',
+      treatmentSubtitle: '1200+ MPa Diamond Strength Core • Multi-Layer Gradient',
+      indication: 'Defective old metal fillings, chipped enamel and dark margins.',
+      highlights: [
+        'Digital shade spectrophotometry capturing root-to-tip tones',
+        'Conservative preparation preserving dental pulp vitality',
+        '5-Axis CNC milling & multi-tone oven glaze sintering',
+      ],
+      material: 'Katana™ Multi-Layered Zirconia',
+      duration: '5 Days / 3 Visits',
+      precision: '12-Micron CNC Precision',
+      warranty: '15-Year Certificate',
+      beforeImg: '/images/cases/zirconia-before.jpg',
+      afterImg: '/images/cases/zirconia-after.jpg',
+    },
   },
-  allon4: {
-    id: '#CASE-7920',
-    categoryTag: 'Full-Arch Implantology',
-    treatmentTitle: 'All-on-6 Swiss Straumann® Full Arch',
-    treatmentSubtitle: 'Roxolid® SLA Hybrid Bridge • 3D Guided Navigation',
-    indication: 'Missing dentition, bone volume loss, and collapsed vertical bite.',
-    highlights: [
-      '3D CBCT bone mapping & digital surgical stent guide',
-      'Flapless computer-navigated 6x Straumann® placement',
-      'Immediate fixed monolithic bridge delivery within 48h',
-    ],
-    material: 'Swiss Straumann® Roxolid® & Zirconia',
-    duration: '5 Days (Immediate Load)',
-    precision: '0.1mm 3D Stent Precision',
-    warranty: 'Global Lifetime Straumann®',
-    beforeImg: '/images/cases/allon6-before.jpg',
-    afterImg: '/images/cases/allon6-after.jpg',
+  tr: {
+    hollywood: {
+      id: '#CASE-8841',
+      categoryTag: 'Gülüş Mimarisi',
+      treatmentTitle: '20 Üye Ivoclar Vivadent® E-Max® Lamine',
+      treatmentSubtitle: 'BL1 Beyazlatılmış Beyaz • Doğal Mine Işık Geçirgenliği',
+      indication: 'İleri derecede renklenme, kesici kenar aşınması ve asimetrik diş oranları.',
+      highlights: [
+        '3D Ağız içi dijital tarama & altın oran simülasyonu',
+        '0.3mm koruyucu mikro-prep ile ağrısız anestezi',
+        'Klinik bünyesinde master seramist özel katmanlama ve fırınlama',
+      ],
+      material: 'IPS e.max® Press (Lityum Disilikat)',
+      duration: '5 Gün / 2 Seans',
+      precision: '15 Mikron Altı CAD/CAM Uyumu',
+      warranty: 'Ömür Boyu Garanti Sertifikası',
+      beforeImg: '/images/cases/hollywood-before.jpg',
+      afterImg: '/images/cases/hollywood-after.jpg',
+    },
+    allon4: {
+      id: '#CASE-7920',
+      categoryTag: 'Tam Çene İmplantoloji',
+      treatmentTitle: 'All-on-6 İsviçre Straumann® Tam Çene',
+      treatmentSubtitle: 'Roxolid® SLA Hibrit Köprü • 3D Navigasyonlu Cerrahi',
+      indication: 'Çoklu diş eksikliği, kemik hacmi kaybı ve dikey boyut çökmesi.',
+      highlights: [
+        '3D CBCT kemik haritalaması & cerrahi stent rehberi',
+        'Dikişsiz bilgisayar kılavuzlu 6x Straumann® yerleşimi',
+        '48 saat içinde anında sabit monolitik köprü teslimi',
+      ],
+      material: 'İsviçre Straumann® Roxolid® & Zirkonyum',
+      duration: '5 Gün (Hemen Yükleme)',
+      precision: '0.1mm 3D Cerrahi Kılavuz Hassasiyeti',
+      warranty: 'Global Ömür Boyu Straumann® Pasaportu',
+      beforeImg: '/images/cases/allon6-before.jpg',
+      afterImg: '/images/cases/allon6-after.jpg',
+    },
+    zirconia: {
+      id: '#CASE-6514',
+      categoryTag: 'Estetik Protetik Diş Tedavisi',
+      treatmentTitle: '16 Üye CAD/CAM Katana™ Zirkonyum Kuron',
+      treatmentSubtitle: '1200+ MPa Elmas Dayanımlı Çekirdek • Çok Katmanlı Gradyan',
+      indication: 'Eski metal destekli kaplamalar, kırık mine ve koyu diş eti kenarları.',
+      highlights: [
+        'Kökten uca tonları yakalayan dijital spektrofotometre analizi',
+        'Diş canlılığını koruyan minimal preparasyon',
+        '5 Eksenli CNC kazıma ve fırınlama cilası',
+      ],
+      material: 'Katana™ Çok Katmanlı Zirkonyum',
+      duration: '5 Gün / 3 Seans',
+      precision: '12 Mikron CNC Hassasiyeti',
+      warranty: '15 Yıl Garanti Sertifikası',
+      beforeImg: '/images/cases/zirconia-before.jpg',
+      afterImg: '/images/cases/zirconia-after.jpg',
+    },
   },
-  zirconia: {
-    id: '#CASE-6514',
-    categoryTag: 'Aesthetic Prosthodontics',
-    treatmentTitle: '16 CAD/CAM Katana™ Zirconia Crowns',
-    treatmentSubtitle: '1200+ MPa Diamond Strength Core • Multi-Layer Gradient',
-    indication: 'Defective old metal fillings, chipped enamel and dark margins.',
-    highlights: [
-      'Digital shade spectrophotometry capturing root-to-tip tones',
-      'Conservative preparation preserving dental pulp vitality',
-      '5-Axis CNC milling & multi-tone oven glaze sintering',
-    ],
-    material: 'Katana™ Multi-Layered Zirconia',
-    duration: '5 Days / 3 Visits',
-    precision: '12-Micron CNC Precision',
-    warranty: '15-Year Certificate',
-    beforeImg: '/images/cases/zirconia-before.jpg',
-    afterImg: '/images/cases/zirconia-after.jpg',
+  de: {
+    hollywood: {
+      id: '#CASE-8841',
+      categoryTag: 'Lächeln-Architektur',
+      treatmentTitle: '20 Ivoclar Vivadent® E-Max® Veneers',
+      treatmentSubtitle: 'BL1 Bleach White • Natürliche Schmelz-Transluzenz',
+      indication: 'Starke Verfärbungen, Inzisalkantenabrieb und unregelmäßige Zahnproportionen.',
+      highlights: [
+        '3D-Intraoralscan & digitale Simulation im Goldenen Schnitt',
+        '0,3 mm substanzschonende Mikropreparation mit schmerzfreier Anästhesie',
+        'Individuelle Schichtung & Glasur durch unseren hauseigenen Keramikmeister',
+      ],
+      material: 'IPS e.max® Press (Lithiumdisilikat)',
+      duration: '5 Tage / 2 Besuche',
+      precision: 'Sub-15μm CAD/CAM Passung',
+      warranty: 'Lebenslanges Zertifikat',
+      beforeImg: '/images/cases/hollywood-before.jpg',
+      afterImg: '/images/cases/hollywood-after.jpg',
+    },
+    allon4: {
+      id: '#CASE-7920',
+      categoryTag: 'Vollkiefer-Implantologie',
+      treatmentTitle: 'All-on-6 Schweizer Straumann® Vollkiefer',
+      treatmentSubtitle: 'Roxolid® SLA Hybridbrücke • 3D-Navigation',
+      indication: 'Zahnverlust, reduziertes Knochenvolumen und abgesenkter Biss.',
+      highlights: [
+        '3D-DVT-Knochenanalyse & navigierte Bohrschablone',
+        'Schlüsselloch-geführte Implantation von 6x Straumann®',
+        'Festsitzende monolithische Sofortbrücke innerhalb von 48 Std.',
+      ],
+      material: 'Schweizer Straumann® Roxolid® & Zirkon',
+      duration: '5 Tage (Sofortbelastung)',
+      precision: '0,1 mm 3D-Schablonen-Präzision',
+      warranty: 'Globaler lebenslanger Straumann® Pass',
+      beforeImg: '/images/cases/allon6-before.jpg',
+      afterImg: '/images/cases/allon6-after.jpg',
+    },
+    zirconia: {
+      id: '#CASE-6514',
+      categoryTag: 'Ästhetische Prothetik',
+      treatmentTitle: '16 CAD/CAM Katana™ Zirkonkronen',
+      treatmentSubtitle: '1200+ MPa Diamantfestigkeit • Multilayer-Farbverlauf',
+      indication: 'Defekte alte Metallfüllungen, Schmelzabplatzungen und dunkle Ränder.',
+      highlights: [
+        'Digitale Farbspektrophotometrie von Wurzel bis Spitze',
+        'Schonende Präparation zum Erhalt der Zahnvitalität',
+        '5-Achs-CNC-Fräsen & mehrstufige Sinterglasur im Brennofen',
+      ],
+      material: 'Katana™ Multilayer-Zirkon',
+      duration: '5 Tage / 3 Besuche',
+      precision: '12-Mikron CNC-Präzision',
+      warranty: '15-Jahre Zertifikat',
+      beforeImg: '/images/cases/zirconia-before.jpg',
+      afterImg: '/images/cases/zirconia-after.jpg',
+    },
+  },
+  ru: {
+    hollywood: {
+      id: '#CASE-8841',
+      categoryTag: 'Архитектура улыбки',
+      treatmentTitle: '20 виниров Ivoclar Vivadent® E-Max®',
+      treatmentSubtitle: 'BL1 Bleach White • Натуральная прозрачность эмали',
+      indication: 'Глубокая пигментация, истирание режущего края и диспропорция зубного ряда.',
+      highlights: [
+        '3D внутриротовое сканирование и расчет золотого сечения',
+        'Щадящее препарирование 0.3 мм под безыгольной анестезией',
+        'Индивидуальное послойное нанесение и глазурование в лаборатории клиники',
+      ],
+      material: 'IPS e.max® Press (дисиликат лития)',
+      duration: '5 дней / 2 визита',
+      precision: 'CAD/CAM прилегание до 15 мкм',
+      warranty: 'Пожизненный сертификат',
+      beforeImg: '/images/cases/hollywood-before.jpg',
+      afterImg: '/images/cases/hollywood-after.jpg',
+    },
+    allon4: {
+      id: '#CASE-7920',
+      categoryTag: 'Тотальная имплантация',
+      treatmentTitle: 'All-on-6 на швейцарских Straumann®',
+      treatmentSubtitle: 'Гибридный мост Roxolid® SLA • 3D навигационный шаблон',
+      indication: 'Множественная адентия, атрофия кости и снижение высоты прикуса.',
+      highlights: [
+        '3D КЛКТ анализ плотности кости и цифровой хирургический шаблон',
+        'Безоперационная навигационная установка 6 имплантов Straumann®',
+        'Несъемный монолитный мост с немедленной нагрузкой за 48 часов',
+      ],
+      material: 'Швейцарский Straumann® Roxolid® и цирконий',
+      duration: '5 дней (немедленная нагрузка)',
+      precision: 'Точность шаблона 0.1 мм',
+      warranty: 'Международный паспорт Straumann®',
+      beforeImg: '/images/cases/allon6-before.jpg',
+      afterImg: '/images/cases/allon6-after.jpg',
+    },
+    zirconia: {
+      id: '#CASE-6514',
+      categoryTag: 'Эстетическое протезирование',
+      treatmentTitle: '16 циркониевых коронок CAD/CAM Katana™',
+      treatmentSubtitle: 'Прочность свыше 1200 МПа • Многослойный градиент',
+      indication: 'Старые металлокерамические коронки, сколы и темный десневой край.',
+      highlights: [
+        'Спектрофотометрический подбор естественного тона эмали',
+        'Минимальная обточка с сохранением витальности зубов',
+        '5-осевая фрезеровка ЧПУ и высокотемпературный обжиг',
+      ],
+      material: 'Многослойный цирконий Katana™',
+      duration: '5 дней / 3 визита',
+      precision: 'ЧПУ точность 12 микрон',
+      warranty: '15-летняя гарантия',
+      beforeImg: '/images/cases/zirconia-before.jpg',
+      afterImg: '/images/cases/zirconia-after.jpg',
+    },
+  },
+  fr: {
+    hollywood: {
+      id: '#CASE-8841',
+      categoryTag: 'Architecture du Sourire',
+      treatmentTitle: '20 Facettes Ivoclar Vivadent® E-Max®',
+      treatmentSubtitle: 'BL1 Bleach White • Translucidité Naturelle de l’Émail',
+      indication: 'Coloration sévère, usure incisive et proportions dentaires asymétriques.',
+      highlights: [
+        'Empreinte optique 3D & simulation numérique du nombre d’or',
+        'Micro-préparation ultra-conservatrice de 0,3 mm sans douleur',
+        'Stratification artisanale personnalisée et glaçage au laboratoire',
+      ],
+      material: 'IPS e.max® Press (Disilicate de Lithium)',
+      duration: '5 Jours / 2 Séances',
+      precision: 'Ajustement CAD/CAM < 15μm',
+      warranty: 'Certificat à Vie',
+      beforeImg: '/images/cases/hollywood-before.jpg',
+      afterImg: '/images/cases/hollywood-after.jpg',
+    },
+    allon4: {
+      id: '#CASE-7920',
+      categoryTag: 'Implantologie Arcade Complète',
+      treatmentTitle: 'All-on-6 Implants Suisses Straumann®',
+      treatmentSubtitle: 'Bridge Hybride Roxolid® SLA • Chirurgie Guidée 3D',
+      indication: 'Pertes dentaires multiples, résorption osseuse et effondrement de l’occlusion.',
+      highlights: [
+        'Cartographie osseuse CBCT 3D & guide chirurgical de précision',
+        'Pose guidée par ordinateur de 6 implants Straumann® sans ouverture gingivale',
+        'Bridge monolithique fixe à chargement immédiat sous 48h',
+      ],
+      material: 'Straumann® Roxolid® Suisse & Zircone',
+      duration: '5 Jours (Charge Immédiate)',
+      precision: 'Précision du Guide 3D 0,1 mm',
+      warranty: 'Passeport International Straumann® à Vie',
+      beforeImg: '/images/cases/allon6-before.jpg',
+      afterImg: '/images/cases/allon6-after.jpg',
+    },
+    zirconia: {
+      id: '#CASE-6514',
+      categoryTag: 'Prothèse Dentaire Esthétique',
+      treatmentTitle: '16 Couronnes Zircone CAD/CAM Katana™',
+      treatmentSubtitle: 'Résistance Diamant 1200+ MPa • Dégradé Multicouche Naturel',
+      indication: 'Anciennes obturations métalliques défectueuses et liserés grisâtres.',
+      highlights: [
+        'Spectrophotométrie numérique reproduisant la translucidité naturelle',
+        'Préparation conservatrice préservant la vitalité pulpaire',
+        'Usinage CNC 5 axes et cuisson de glaçage au four céramique',
+      ],
+      material: 'Zircone Multicouche Katana™',
+      duration: '5 Jours / 3 Séances',
+      precision: 'Précision CNC 12 Microns',
+      warranty: 'Garantie Certifiée 15 Ans',
+      beforeImg: '/images/cases/zirconia-before.jpg',
+      afterImg: '/images/cases/zirconia-after.jpg',
+    },
   },
 };
 
-const CATEGORIES = [
-  { key: 'hollywood', label: 'Hollywood Smile', subtitle: 'E-Max® Veneers', icon: '💎' },
-  { key: 'allon4', label: 'All-on-6 Implants', subtitle: 'Full Arch Restoration', icon: '⚙️' },
-  { key: 'zirconia', label: 'Zirconia Crowns', subtitle: 'Monolithic Katana™', icon: '👑' },
-];
-
 export default function CaseSlider() {
+  const t = useTranslations('caseSlider');
+  const locale = useLocale();
   const [activeTab, setActiveTab] = useState<string>('hollywood');
   const [sliderVal, setSliderVal] = useState<number>(50);
 
-  const currentCase = CASE_DATABASE[activeTab] || CASE_DATABASE.hollywood;
+  const localizedCases = CASES_BY_LOCALE[locale] || CASES_BY_LOCALE.en;
+  const currentCase = localizedCases[activeTab] || localizedCases.hollywood;
+
+  const categories = [
+    { key: 'hollywood', label: t('tabHollywood'), subtitle: t('tabHollywoodSub'), icon: '💎' },
+    { key: 'allon4', label: t('tabAllon4'), subtitle: t('tabAllon4Sub'), icon: '⚙️' },
+    { key: 'zirconia', label: t('tabZirconia'), subtitle: t('tabZirconiaSub'), icon: '👑' },
+  ];
 
   return (
     <section className="w-full py-14 sm:py-20 bg-gradient-to-b from-white via-slate-50/50 to-slate-100/60 border-b border-slate-200" id="clinical-cases">
@@ -95,16 +325,16 @@ export default function CaseSlider() {
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-[#006972] text-xs font-bold shadow-xs">
             <span className="material-symbols-outlined text-[15px] text-teal-600">verified</span>
-            <span>Clinical Portfolio • Authentic Patient Transformations</span>
+            <span>{t('badge')}</span>
           </div>
 
           <h2 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-black text-[#1b0d52] tracking-tight">
-            Before &amp; After Clinical Cases
+            {t('title')}
           </h2>
 
           {/* Treatment Category Switcher */}
           <div className="pt-2 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            {CATEGORIES.map((cat) => {
+            {categories.map((cat) => {
               const isActive = activeTab === cat.key;
               return (
                 <button
@@ -142,7 +372,7 @@ export default function CaseSlider() {
           </div>
         </div>
 
-        {/* 2. Main Showcase Grid (Balanced Height) */}
+        {/* 2. Main Showcase Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* LEFT: Comparison Slider (7 Cols) */}
@@ -154,13 +384,13 @@ export default function CaseSlider() {
               {/* AFTER IMAGE (Base Layer) */}
               <img
                 key={`after-${activeTab}`}
-                alt={`${currentCase.treatmentTitle} After`}
+                alt={`${currentCase.treatmentTitle} ${t('after')}`}
                 className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
                 src={currentCase.afterImg}
               />
               <span className="absolute top-3.5 right-3.5 z-20 px-3 py-1 rounded-xl bg-slate-950/85 backdrop-blur-md border border-emerald-400/40 text-emerald-300 font-mono text-[11px] font-bold tracking-wider shadow-md pointer-events-none flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>AFTER</span>
+                <span>{t('after')}</span>
               </span>
 
               {/* BEFORE IMAGE (Clipped Layer) */}
@@ -170,13 +400,13 @@ export default function CaseSlider() {
               >
                 <img
                   key={`before-${activeTab}`}
-                  alt={`${currentCase.treatmentTitle} Before`}
+                  alt={`${currentCase.treatmentTitle} ${t('before')}`}
                   className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
                   src={currentCase.beforeImg}
                 />
                 <span className="absolute top-3.5 left-3.5 z-20 px-3 py-1 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/20 text-white font-mono text-[11px] font-bold tracking-wider shadow-md pointer-events-none flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                  <span>BEFORE</span>
+                  <span>{t('before')}</span>
                 </span>
               </div>
 
@@ -207,10 +437,10 @@ export default function CaseSlider() {
             <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium px-1">
               <span className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-sm text-[#006972]">drag_indicator</span>
-                <span>Drag left or right to compare results</span>
+                <span>{t('dragTip')}</span>
               </span>
               <span className="font-mono text-slate-600 bg-slate-200/70 px-2 py-0.5 rounded text-[10px] font-bold">
-                {currentCase.id} • Cross-Polarized Daylight Lighting
+                {currentCase.id} • {t('lightingNotice')}
               </span>
             </div>
           </div>
@@ -227,7 +457,7 @@ export default function CaseSlider() {
                 </span>
                 <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1">
                   <span className="material-symbols-outlined text-xs">task_alt</span>
-                  Completed Case
+                  {t('completedCase')}
                 </span>
               </div>
 
@@ -239,20 +469,20 @@ export default function CaseSlider() {
               </p>
             </div>
 
-            {/* Baseline Diagnosis (Compact) */}
+            {/* Baseline Diagnosis */}
             <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/70 text-xs">
               <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block mb-0.5">
-                Pre-Op Diagnosis
+                {t('preOpDiag')}
               </span>
               <span className="text-slate-800 font-medium block leading-snug">
                 {currentCase.indication}
               </span>
             </div>
 
-            {/* Applied Treatment Protocol (3 Clean Bullets) */}
+            {/* Applied Treatment Protocol */}
             <div className="space-y-1.5">
               <span className="text-[10px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                Applied Clinical Protocol
+                {t('appliedProtocol')}
               </span>
               <div className="space-y-1.5">
                 {currentCase.highlights.map((item, idx) => (
@@ -269,25 +499,25 @@ export default function CaseSlider() {
             {/* Compact Technical Specs (2x2 Grid) */}
             <div className="grid grid-cols-2 gap-2 pt-1">
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
-                <span className="text-[9px] font-mono text-slate-400 block uppercase font-bold">Material</span>
+                <span className="text-[9px] font-mono text-slate-400 block uppercase font-bold">{t('specMaterial')}</span>
                 <span className="text-xs font-bold text-[#1b0d52] block leading-tight mt-0.5">
                   {currentCase.material}
                 </span>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
-                <span className="text-[9px] font-mono text-slate-400 block uppercase font-bold">Duration</span>
+                <span className="text-[9px] font-mono text-slate-400 block uppercase font-bold">{t('specDuration')}</span>
                 <span className="text-xs font-bold text-[#1b0d52] block leading-tight mt-0.5">
                   {currentCase.duration}
                 </span>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
-                <span className="text-[9px] font-mono text-slate-400 block uppercase font-bold">Precision</span>
+                <span className="text-[9px] font-mono text-slate-400 block uppercase font-bold">{t('specPrecision')}</span>
                 <span className="text-xs font-bold text-[#1b0d52] block leading-tight mt-0.5">
                   {currentCase.precision}
                 </span>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80">
-                <span className="text-[9px] font-mono text-slate-400 block uppercase font-bold">Warranty</span>
+                <span className="text-[9px] font-mono text-slate-400 block uppercase font-bold">{t('specWarranty')}</span>
                 <span className="text-xs font-bold text-teal-700 block leading-tight mt-0.5">
                   {currentCase.warranty}
                 </span>
@@ -300,7 +530,7 @@ export default function CaseSlider() {
                 href="/contact"
                 className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-2xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-[#211164] to-[#006972] text-white shadow-md shadow-[#211164]/15 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
               >
-                <span>Get Case Evaluation &amp; 3D Smile Plan</span>
+                <span>{t('ctaEvaluate')}</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>

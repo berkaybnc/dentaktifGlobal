@@ -1,68 +1,71 @@
 'use client';
 
 import React from 'react';
-
-const DAYS = [
-  {
-    day: 'Day 01',
-    phase: 'Arrival & Diagnostics',
-    title: 'VIP Arrival & 3D CBCT Scanning',
-    desc: 'Private Mercedes-Benz Vito transfer from Istanbul Airport (IST/SAW) to 5-star partner hotel in Levent. Clinical reception, comprehensive 3D CBCT tomography, digital optical intraoral scanning, and surgical review.',
-    metric: '• 45-Min Comprehensive Triage',
-    time: 'Morning / Afternoon',
-  },
-  {
-    day: 'Day 02',
-    phase: 'Digital Design & Prep',
-    title: 'Live Mock-Up & Gentle Preparation',
-    desc: 'Live intraoral aesthetic smile mock-up preview. Minimally invasive 0.3mm enamel conditioning or guided flapless implant placement. Immediate placement of aesthetic high-comfort temporary restorations.',
-    metric: '• Intraoral Aesthetic Mock-Up',
-    time: 'Clinical Appointment 1',
-  },
-  {
-    day: 'Day 03',
-    phase: 'Robotic Fabrication',
-    title: 'In-House Milling & Leisure Rest',
-    desc: 'Relax at your 5-star hotel or enjoy private Bosphorus sightseeing. Inside our hospital lab, German 5-axis milling units and Master Ceramists craft and bake your custom E-Max® or Katana™ restorations.',
-    metric: '• In-House Lab Crafting',
-    time: 'Lab Day / Free Leisure',
-  },
-  {
-    day: 'Day 04',
-    phase: 'Chairside Refinement',
-    title: 'Clinical Try-in & Micro-Aesthetics',
-    desc: 'Individual try-in session under natural daylight operatory lamps. Master Ceramist chairside shade gradient verification, dynamic bite registration, and personalized patient approval.',
-    metric: '• Surgical Loupe Inspection',
-    time: 'Clinical Appointment 2',
-  },
-  {
-    day: 'Day 05',
-    phase: 'Final Clearance',
-    title: 'Permanent Bonding & VIP Farewell',
-    desc: 'Permanent adhesive resin cementation under magnification. Issuance of the Official International Warranty Certificate & Straumann® Implant Passport. Chauffeured Mercedes transfer to Istanbul Airport.',
-    metric: '• Official Guarantee Passport',
-    time: 'Final Check & Departure',
-  },
-];
+import { useTranslations } from 'next-intl';
 
 export default function TravelSchedule() {
+  const t = useTranslations('schedule');
+
+  const days = [
+    {
+      day: 'Day 01',
+      phase: 'Diagnostics',
+      title: t('day1Title'),
+      desc: t('day1Desc'),
+      metric: '• 3D CBCT & Triage',
+      time: 'Day 1',
+    },
+    {
+      day: 'Day 02',
+      phase: 'Design & Prep',
+      title: t('day2Title'),
+      desc: t('day2Desc'),
+      metric: '• Digital Mock-Up',
+      time: 'Day 2',
+    },
+    {
+      day: 'Day 03',
+      phase: 'CAD/CAM Lab',
+      title: t('day3Title'),
+      desc: t('day3Desc'),
+      metric: '• In-House Milling',
+      time: 'Day 3',
+    },
+    {
+      day: 'Day 04',
+      phase: 'Try-in',
+      title: t('day4Title'),
+      desc: t('day4Desc'),
+      metric: '• Shade Grading',
+      time: 'Day 4',
+    },
+    {
+      day: 'Day 05',
+      phase: 'Final Bond',
+      title: t('day5Title'),
+      desc: t('day5Desc'),
+      metric: '• Official Passport',
+      time: 'Day 5',
+    },
+  ];
+
   return (
     <section className="w-full py-20 bg-white border-b border-slate-200" id="patient-journey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto space-y-2 mb-14">
           <span className="text-xs font-mono uppercase tracking-widest text-secondary font-extrabold">
-            Time-Optimized International Hospital Protocol
+            {t('badge')}
           </span>
           <h2 className="font-headline text-3xl sm:text-4xl font-black text-[#211164] tracking-tight">
-            Your 5-Day Istanbul Clinical Travel Schedule
+            {t('title')}
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            A seamless, physician-monitored protocol designed to maximize comfort, precision, and efficiency from arrival through departure.
+            {t('subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
-          {DAYS.map((d) => (
+          {days.map((d) => (
             <div
               key={d.day}
               className="p-5 sm:p-6 rounded-2xl border border-slate-200 bg-[#FAFBFC] flex flex-col justify-between hover:border-primary hover:shadow-premium-hover transition-all duration-300 group"

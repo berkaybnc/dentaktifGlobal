@@ -1,19 +1,66 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/navigation';
 import { Locale } from '@/i18n';
 
 const LANGUAGES: Array<{ code: Locale; label: string; flag: string; title: string }> = [
   { code: 'en', label: 'EN', flag: '🇬🇧', title: 'English' },
+  { code: 'tr', label: 'TR', flag: '🇹🇷', title: 'Türkçe' },
   { code: 'de', label: 'DE', flag: '🇩🇪', title: 'Deutsch' },
-  { code: 'fr', label: 'FR', flag: '🇫🇷', title: 'Français' },
   { code: 'ru', label: 'RU', flag: '🇷🇺', title: 'Русский' },
+  { code: 'fr', label: 'FR', flag: '🇫🇷', title: 'Français' },
 ];
+
+const TREATMENT_LABELS: Record<string, Record<string, string>> = {
+  'aesthetic-dentistry': {
+    en: 'Aesthetic Dentistry',
+    tr: 'Estetik Diş Hekimliği',
+    de: 'Ästhetische Zahnheilkunde',
+    ru: 'Эстетическая стоматология',
+    fr: 'Dentisterie Esthétique',
+  },
+  'hollywood-smile': {
+    en: 'Hollywood Smile',
+    tr: 'Hollywood Smile',
+    de: 'Hollywood Smile',
+    ru: 'Голливудская улыбка',
+    fr: 'Hollywood Smile',
+  },
+  'dental-veneers': {
+    en: 'Dental Zirconium Veneers',
+    tr: 'Zirkonyum Kaplama & Lamine',
+    de: 'Zirkon Veneers',
+    ru: 'Циркониевые виниры',
+    fr: 'Facettes Zircone',
+  },
+  'dental-crowns': {
+    en: 'Dental Crowns',
+    tr: 'Diş Kuronları',
+    de: 'Zahnkronen',
+    ru: 'Зубные коронки',
+    fr: 'Couronnes Dentaires',
+  },
+  'dental-implants': {
+    en: 'Dental Implants',
+    tr: 'Dental İmplantlar',
+    de: 'Zahnimplantate',
+    ru: 'Зубные импланты',
+    fr: 'Implants Dentaires',
+  },
+  'root-canal': {
+    en: 'Root Canal Treatment',
+    tr: 'Kanal Tedavisi',
+    de: 'Wurzelkanalbehandlung',
+    ru: 'Лечение каналов',
+    fr: 'Traitement de Canal',
+  },
+};
 
 export default function Header() {
   const currentLocale = useLocale();
+  const t = useTranslations('header');
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState<boolean>(false);
@@ -21,6 +68,11 @@ export default function Header() {
   const [langOpen, setLangOpen] = useState<boolean>(false);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const langTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const langRef = useRef<HTMLDivElement | null>(null);
+
+  const getTreatmentLabel = (key: string) => {
+    return TREATMENT_LABELS[key]?.[currentLocale] || TREATMENT_LABELS[key]?.['en'] || key;
+  };
 
   const handleMouseEnter = () => {
     if (dropdownTimeoutRef.current) {
@@ -71,6 +123,30 @@ export default function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLangOpen(false);
+      }
+    };
+
+    if (langOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [langOpen]);
+
   const isHome = pathname === '/' || pathname === '';
   const isTransparent = isHome && !isScrolled;
   const activeLang = LANGUAGES.find((l) => l.code === currentLocale) || LANGUAGES[0];
@@ -116,16 +192,18 @@ export default function Header() {
               }`}
               aria-expanded={treatmentsOpen}
             >
-              <span className="whitespace-nowrap">Treatments & Implants</span>
-              <span
-                className={`material-symbols-outlined text-[18px] transition-transform duration-200 ${
-                  treatmentsOpen
-                    ? `rotate-180 ${isTransparent ? 'text-teal-300' : 'text-[#211164]'}`
-                    : (isTransparent ? 'text-white/70' : 'text-slate-500')
-                }`}
+              <span className="whitespace-nowrap">{t('navTreatments')}</span>
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  treatmentsOpen ? 'rotate-180' : ''
+                } ${isTransparent ? 'text-white/70' : 'text-slate-500'}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                expand_more
-              </span>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
 
             {treatmentsOpen && (
@@ -141,7 +219,7 @@ export default function Header() {
                     onClick={() => setTreatmentsOpen(false)}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
-                    <span>Aesthetic Dentistry</span>
+                    <span>{getTreatmentLabel('aesthetic-dentistry')}</span>
                   </Link>
                   <Link
                     className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
@@ -149,7 +227,7 @@ export default function Header() {
                     onClick={() => setTreatmentsOpen(false)}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
-                    <span>Hollywood Smile</span>
+                    <span>{getTreatmentLabel('hollywood-smile')}</span>
                   </Link>
                   <Link
                     className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
@@ -157,7 +235,7 @@ export default function Header() {
                     onClick={() => setTreatmentsOpen(false)}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
-                    <span>Dental Zirconium Veneers</span>
+                    <span>{getTreatmentLabel('dental-veneers')}</span>
                   </Link>
                   <Link
                     className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
@@ -165,7 +243,7 @@ export default function Header() {
                     onClick={() => setTreatmentsOpen(false)}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
-                    <span>Dental Crowns</span>
+                    <span>{getTreatmentLabel('dental-crowns')}</span>
                   </Link>
                   <Link
                     className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
@@ -173,7 +251,7 @@ export default function Header() {
                     onClick={() => setTreatmentsOpen(false)}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
-                    <span>Dental Implants</span>
+                    <span>{getTreatmentLabel('dental-implants')}</span>
                   </Link>
                   <Link
                     className="flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:text-teal-300 hover:bg-teal-500/10 rounded-xl transition-all border border-transparent hover:border-teal-500/20 text-left group"
@@ -181,7 +259,7 @@ export default function Header() {
                     onClick={() => setTreatmentsOpen(false)}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform" />
-                    <span>Root Canal Treatment</span>
+                    <span>{getTreatmentLabel('root-canal')}</span>
                   </Link>
                 </div>
               </div>
@@ -194,7 +272,7 @@ export default function Header() {
             }`}
             href="#cost-calculator-section"
           >
-            <span>Techniques & Plans</span>
+            <span>{t('navPricing')}</span>
           </a>
 
           <a
@@ -203,7 +281,7 @@ export default function Header() {
             }`}
             href="#clinical-cases"
           >
-            Clinical Cases
+            {t('navCases')}
           </a>
 
           <a
@@ -212,7 +290,7 @@ export default function Header() {
             }`}
             href="#patient-journey"
           >
-            5-Day Journey
+            {t('navSchedule')}
           </a>
 
           <a
@@ -221,7 +299,7 @@ export default function Header() {
             }`}
             href="#doctors-section"
           >
-            Doctors
+            {t('navDoctors')}
           </a>
 
           <Link
@@ -230,7 +308,7 @@ export default function Header() {
             }`}
             href="/faq"
           >
-            FAQ
+            {t('navFaq')}
           </Link>
 
           <Link
@@ -239,7 +317,7 @@ export default function Header() {
             }`}
             href="/about"
           >
-            About Us
+            {t('navAbout')}
           </Link>
 
           <Link
@@ -248,7 +326,7 @@ export default function Header() {
             }`}
             href="/contact"
           >
-            Contact Us
+            {t('navContact')}
           </Link>
         </nav>
 
@@ -256,6 +334,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Elegant Luxury Language Capsule */}
           <div
+            ref={langRef}
             className="relative"
             onMouseEnter={handleLangEnter}
             onMouseLeave={handleLangLeave}
@@ -263,53 +342,91 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setLangOpen(!langOpen)}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-xs font-bold transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-full border text-xs font-bold transition-all shadow-xs ${
                 isTransparent
-                  ? 'bg-white/10 hover:bg-white/20 border-white/25 text-white backdrop-blur-md shadow-xs'
-                  : 'bg-slate-100 hover:bg-slate-200/80 border-slate-200 text-slate-800 shadow-xs'
+                  ? 'bg-white/10 hover:bg-white/20 border-white/25 text-white backdrop-blur-md hover:border-white/40'
+                  : 'bg-white/90 hover:bg-white border-slate-200/90 hover:border-sky-400 text-slate-800 hover:shadow-sky-500/10'
               }`}
               aria-label="Select Language"
               aria-expanded={langOpen}
             >
-              <span className="text-sm leading-none">{activeLang.flag}</span>
-              <span className="uppercase text-[11px] font-extrabold tracking-wide">{activeLang.label}</span>
-              <span
-                className={`material-symbols-outlined text-[15px] transition-transform duration-200 ${
-                  langOpen ? 'rotate-180' : ''
-                } ${isTransparent ? 'text-white/70' : 'text-slate-500'}`}
-              >
-                expand_more
+              <span className="w-5 h-5 rounded-full bg-slate-100/90 dark:bg-white/10 flex items-center justify-center text-xs shadow-xs shrink-0 leading-none">
+                {activeLang.flag}
               </span>
+              <span className={`text-[11px] font-extrabold tracking-wider px-1.5 py-0.5 rounded ${
+                isTransparent ? 'bg-white/15 text-white' : 'bg-sky-50 text-sky-700'
+              }`}>
+                {activeLang.label}
+              </span>
+              <svg
+                className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
+                  langOpen ? 'rotate-180' : ''
+                } ${isTransparent ? 'text-white/80' : 'text-slate-500'}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
 
             {langOpen && (
               <div
-                className="absolute right-0 top-full mt-2 w-36 bg-slate-950/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] p-1.5 animate-in fade-in zoom-in-95 duration-150 z-50"
+                className="absolute right-0 top-full mt-2 w-48 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border border-slate-200/90 dark:border-white/15 rounded-2xl shadow-[0_20px_45px_-10px_rgba(15,23,42,0.18)] p-1.5 animate-in fade-in zoom-in-95 duration-150 z-50"
                 onMouseEnter={handleLangEnter}
                 onMouseLeave={handleLangLeave}
               >
-                <div className="flex flex-col space-y-0.5">
-                  {LANGUAGES.map((lang) => (
-                    <Link
-                      key={lang.code}
-                      href={pathname}
-                      locale={lang.code}
-                      onClick={() => setLangOpen(false)}
-                      className={`flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                        currentLocale === lang.code
-                          ? 'bg-teal-500 text-slate-950 font-black shadow-sm'
-                          : 'text-white/80 hover:text-white hover:bg-white/10'
-                      }`}
-                    >
-                      <span className="flex items-center gap-2">
-                        <span className="text-sm">{lang.flag}</span>
-                        <span>{lang.title}</span>
-                      </span>
-                      {currentLocale === lang.code && (
-                        <span className="material-symbols-outlined text-sm font-bold">check</span>
-                      )}
-                    </Link>
-                  ))}
+                <div className="flex items-center gap-1.5 px-3 py-1.5 mb-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 dark:border-white/10">
+                  <svg className="w-3 h-3 text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  <span>Select Language</span>
+                </div>
+                <div className="flex flex-col space-y-1">
+                  {LANGUAGES.map((lang) => {
+                    const isSelected = currentLocale === lang.code;
+                    return (
+                      <Link
+                        key={lang.code}
+                        href={pathname}
+                        locale={lang.code}
+                        onClick={() => {
+                          setLangOpen(false);
+                          try {
+                            localStorage.setItem('dentaktif_lang', lang.code);
+                          } catch (e) {}
+                        }}
+                        className={`flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs transition-all ${
+                          isSelected
+                            ? 'bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 font-bold border border-sky-200/60 dark:border-sky-800/60'
+                            : 'text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/10'
+                        }`}
+                      >
+                        <span className="flex items-center gap-2.5">
+                          <span className="w-5 h-5 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-xs shadow-xs shrink-0 leading-none">
+                            {lang.flag}
+                          </span>
+                          <span className="font-semibold">{lang.title}</span>
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded ${
+                            isSelected ? 'bg-sky-100 dark:bg-sky-900/80 text-sky-800 dark:text-sky-200' : 'bg-slate-100 dark:bg-white/10 text-slate-500'
+                          }`}>
+                            {lang.label}
+                          </span>
+                          {isSelected && (
+                            <svg className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -324,7 +441,7 @@ export default function Header() {
             }`}
             href="#consultation-wizard"
           >
-            <span className="whitespace-nowrap">Upload X-Ray / Free Quote</span>
+            <span className="whitespace-nowrap">{t('ctaQuote')}</span>
           </a>
 
           {/* Compact icon button on mobile screens */}
@@ -335,7 +452,7 @@ export default function Header() {
                 : 'bg-gradient-to-r from-[#211164] to-[#006972] text-white'
             }`}
             href="#consultation-wizard"
-            title="Upload X-Ray / Free Quote"
+            title={t('ctaQuote')}
           >
             +
           </a>
@@ -373,10 +490,16 @@ export default function Header() {
                 onClick={() => setTreatmentsOpen(!treatmentsOpen)}
                 className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors text-left"
               >
-                <span>Treatments</span>
-                <span className={`material-symbols-outlined text-slate-400 text-sm transition-transform duration-200 ${treatmentsOpen ? 'rotate-90' : ''}`}>
-                  chevron_right
-                </span>
+                <span>{t('navTreatments')}</span>
+                <svg
+                  className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${treatmentsOpen ? 'rotate-90' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
               </button>
 
               {treatmentsOpen && (
@@ -386,42 +509,42 @@ export default function Header() {
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
                     className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    Aesthetic Dentistry
+                    {getTreatmentLabel('aesthetic-dentistry')}
                   </Link>
                   <Link
                     href="/treatments/hollywood-smile"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
                     className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    Hollywood Smile
+                    {getTreatmentLabel('hollywood-smile')}
                   </Link>
                   <Link
                     href="/treatments/dental-veneers"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
                     className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    Dental Zirconium Veneers
+                    {getTreatmentLabel('dental-veneers')}
                   </Link>
                   <Link
                     href="/treatments/dental-crowns"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
                     className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    Dental Crowns
+                    {getTreatmentLabel('dental-crowns')}
                   </Link>
                   <Link
                     href="/treatments/dental-implants"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
                     className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    Dental Implants
+                    {getTreatmentLabel('dental-implants')}
                   </Link>
                   <Link
                     href="/treatments/root-canal"
                     onClick={() => { setMobileMenuOpen(false); setTreatmentsOpen(false); }}
                     className="block py-1.5 text-xs text-slate-700 hover:text-primary font-medium"
                   >
-                    Root Canal Treatment
+                    {getTreatmentLabel('root-canal')}
                   </Link>
                 </div>
               )}
@@ -432,8 +555,10 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span>Techniques &amp; Plans</span>
-              <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+              <span>{t('navPricing')}</span>
+              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </a>
 
             <a
@@ -441,8 +566,10 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span>Verified Clinical Outcomes</span>
-              <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+              <span>{t('navCases')}</span>
+              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </a>
 
             <a
@@ -450,8 +577,10 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span>5-Day Travel &amp; Hotel Protocol</span>
-              <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+              <span>{t('navSchedule')}</span>
+              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </a>
 
             <a
@@ -459,8 +588,10 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span>Doctors &amp; Medical Faculty</span>
-              <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+              <span>{t('navDoctors')}</span>
+              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </a>
 
             <Link
@@ -468,8 +599,21 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span>Frequently Asked Questions</span>
-              <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+              <span>{t('navFaq')}</span>
+              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+
+            <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
+            >
+              <span>{t('navAbout')}</span>
+              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
 
             <Link
@@ -477,8 +621,10 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span>Contact &amp; International Concierge</span>
-              <span className="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+              <span>{t('navContact')}</span>
+              <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           </nav>
 
@@ -488,7 +634,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white text-xs font-bold uppercase tracking-wider text-center shadow-md flex items-center justify-center"
             >
-              Upload X-Ray / Free Plan
+              {t('ctaQuote')}
             </a>
 
             <Link
@@ -496,7 +642,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="w-full py-3 rounded-xl bg-slate-800 text-white text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center"
             >
-              Contact Us &amp; Location
+              {t('navContact')}
             </Link>
           </div>
         </div>

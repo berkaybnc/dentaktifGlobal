@@ -1,9 +1,12 @@
 'use client';
 
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
 
 export default function ServiceIntentCards() {
+  const t = useTranslations('intentCards');
+
   return (
     <section className="w-full bg-white py-10 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -18,13 +21,13 @@ export default function ServiceIntentCards() {
                 <span className="text-[11px] font-mono font-black text-[#1b0d52] bg-slate-200/60 px-2 py-0.5 rounded">
                   01
                 </span>
-                <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">Pricing</span>
+                <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">{t('card1Tag')}</span>
               </div>
               <h4 className="font-headline text-sm font-bold text-[#1b0d52] group-hover:text-primary leading-snug">
-                Transparent Itemized Estimates
+                {t('card1Title')}
               </h4>
               <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Clear hospital package breakdown with 5-star hotel, chauffeur, and laboratory inclusions. Zero hidden fees.
+                {t('card1Desc')}
               </p>
             </div>
           </a>
@@ -39,13 +42,13 @@ export default function ServiceIntentCards() {
                 <span className="text-[11px] font-mono font-black text-[#1b0d52] bg-slate-200/60 px-2 py-0.5 rounded">
                   02
                 </span>
-                <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">Results</span>
+                <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">{t('card2Tag')}</span>
               </div>
               <h4 className="font-headline text-sm font-bold text-[#1b0d52] group-hover:text-primary leading-snug">
-                Verified Clinical Cases Archive
+                {t('card2Title')}
               </h4>
               <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Unretouched 1:1 macro documentation, shade matching, and healthy biological gum margin adaptation.
+                {t('card2Desc')}
               </p>
             </div>
           </a>
@@ -60,13 +63,13 @@ export default function ServiceIntentCards() {
                 <span className="text-[11px] font-mono font-black text-[#1b0d52] bg-slate-200/60 px-2 py-0.5 rounded">
                   03
                 </span>
-                <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">Logistics</span>
+                <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">{t('card3Tag')}</span>
               </div>
               <h4 className="font-headline text-sm font-bold text-[#1b0d52] group-hover:text-primary leading-snug">
-                5-Day All-Inclusive Travel Guide
+                {t('card3Title')}
               </h4>
               <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Private Mercedes Vito airport transfers, 5-star Levent partner accommodation, and personal concierge.
+                {t('card3Desc')}
               </p>
             </div>
           </a>
@@ -81,13 +84,13 @@ export default function ServiceIntentCards() {
                 <span className="text-[11px] font-mono font-black text-[#1b0d52] bg-slate-200/60 px-2 py-0.5 rounded">
                   04
                 </span>
-                <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">Doctor Line</span>
+                <span className="text-[11px] font-bold text-teal-700 uppercase tracking-wider">{t('card4Tag')}</span>
               </div>
               <h4 className="font-headline text-sm font-bold text-[#1b0d52] group-hover:text-primary leading-snug">
-                Live Video Doctor Consultation
+                {t('card4Title')}
               </h4>
               <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                Direct online discussion with our Chief Prosthodontist to review your dental X-rays before traveling.
+                {t('card4Desc')}
               </p>
             </div>
           </Link>

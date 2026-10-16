@@ -1,32 +1,47 @@
 'use client';
 
 import React from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/navigation';
 import { FlipWords } from './FlipWords';
 
-// Static 4-Pillar Prestige & Trust Pillars (Hospital Luxury Benchmark)
-const PRESTIGE_PILLARS = [
-  {
-    icon: 'verified',
-    title: 'Swiss Straumann® & Ivoclar Lab',
-    label: 'Certified Original Materials & In-House Milling',
-  },
-  {
-    icon: 'bolt',
-    title: '5-Day Express Completion',
-    label: 'Precision Handcrafted Smiles with Zero Delay',
-  },
-  {
-    icon: 'hotel',
-    title: '5★ Partner Hotel & VIP Transfers',
-    label: 'Airport & Clinic Chauffeured Mercedes-Benz',
-  },
-  {
-    icon: 'shield',
-    title: 'Lifetime Hospital Warranty',
-    label: 'Official Global Guarantee Certificate',
-  },
-];
+const FLIP_WORDS_BY_LOCALE: Record<string, string[]> = {
+  tr: [
+    'Hollywood Smile Gülüş Tasarımı',
+    'İsviçre Straumann® İmplantlar',
+    'Ivoclar E-Max® Porselen Lamineler',
+    'Monolitik Zirkonyum Kuronlar',
+    'Tam Çene İmplant Cerrahisi',
+  ],
+  de: [
+    'Hollywood Smile Design',
+    'Schweizer Straumann® Implantate',
+    'Ivoclar E-Max® Porzellan-Veneers',
+    'Monolithische Zirkonkronen',
+    'Komplette Gebisssanierung',
+  ],
+  ru: [
+    'Голливудская улыбка',
+    'Швейцарские импланты Straumann®',
+    'Виниры Ivoclar E-Max®',
+    'Коронки из диоксида циркония',
+    'Полная реабилитация улыбки',
+  ],
+  fr: [
+    'Design Hollywood Smile',
+    'Implants Suisses Straumann®',
+    'Facettes Ivoclar E-Max®',
+    'Couronnes Zircone Monolithiques',
+    'Réhabilitation Complète',
+  ],
+  en: [
+    'Hollywood Smile Design',
+    'Swiss Straumann® Implants',
+    'Ivoclar E-Max® Veneers',
+    'Monolithic Zirconia Crowns',
+    'Full-Mouth Rehabilitation',
+  ],
+};
 
 // Lightweight dynamic number counter component with easeOut Quartic interpolation
 function AnimatedCounter({
@@ -75,6 +90,8 @@ function AnimatedCounter({
 }
 
 export default function Hero() {
+  const t = useTranslations('hero');
+  const locale = useLocale();
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
   React.useEffect(() => {
@@ -83,6 +100,81 @@ export default function Hero() {
       videoRef.current.play().catch(() => {});
     }
   }, []);
+
+  const flipWords = FLIP_WORDS_BY_LOCALE[locale] || FLIP_WORDS_BY_LOCALE['en'];
+
+  const accreditationText = locale === 'tr'
+    ? 'T.C. Sağlık Bakanlığı ve USHAŞ Yetkili Hastane'
+    : locale === 'de'
+    ? 'Lizenziert durch das türkische Gesundheitsministerium'
+    : locale === 'ru'
+    ? 'Лицензировано Минздравом Турции и USHAŞ'
+    : locale === 'fr'
+    ? 'Agréé par le Ministère de la Santé & USHAŞ'
+    : 'Ministry of Health & USHAŞ Licensed Hospital';
+
+  const subBadgeText = locale === 'tr'
+    ? '✦ Sadece 5 Günde El İşçiliği Özel Gülüşler'
+    : locale === 'de'
+    ? '✦ Handgefertigtes Lächeln in nur 5 Tagen'
+    : locale === 'ru'
+    ? '✦ Авторские улыбки всего за 5 дней'
+    : locale === 'fr'
+    ? '✦ Sourires sur mesure en seulement 5 jours'
+    : '✦ Handcrafted Smiles in Just 5 Days';
+
+  const hospitalLocationText = locale === 'tr'
+    ? 'Levent Cerrahi Diş Hastanesi, İstanbul'
+    : locale === 'de'
+    ? 'Levent Chirurgische Klinik, Istanbul'
+    : locale === 'ru'
+    ? 'Хирургическая клиника в Левенте, Стамбул'
+    : locale === 'fr'
+    ? 'Hôpital Chirurgical de Levent, Istanbul'
+    : 'Levent Surgical Hospital, Istanbul';
+
+  const reviewsLabel = locale === 'tr'
+    ? 'Doğrulanmış Hasta Yorumu'
+    : locale === 'de'
+    ? 'Verifizierte Patientenbewertungen'
+    : locale === 'ru'
+    ? 'Проверенных отзывов'
+    : locale === 'fr'
+    ? 'Avis Patients Vérifiés'
+    : 'Verified Patient Reviews';
+
+  const countriesLabel = locale === 'tr'
+    ? '48+ Farklı Ülkeden Hasta'
+    : locale === 'de'
+    ? 'Patienten aus über 48 Ländern'
+    : locale === 'ru'
+    ? 'Пациенты из 48+ стран'
+    : locale === 'fr'
+    ? 'Patients de plus de 48 pays'
+    : 'Patients across 48+ Countries';
+
+  const prestigePillars = [
+    {
+      icon: 'verified',
+      title: t('pillar1Title'),
+      label: t('pillar1Label'),
+    },
+    {
+      icon: 'bolt',
+      title: t('pillar2Title'),
+      label: t('pillar2Label'),
+    },
+    {
+      icon: 'hotel',
+      title: t('pillar3Title'),
+      label: t('pillar3Label'),
+    },
+    {
+      icon: 'shield',
+      title: t('pillar4Title'),
+      label: t('pillar4Label'),
+    },
+  ];
 
   return (
     <section className="relative w-full -mt-[72px] sm:-mt-[76px] h-screen min-h-[660px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-white/10">
@@ -103,9 +195,7 @@ export default function Hero() {
         </video>
 
         {/* Cinematic Dark Gradient Layers for Crisp Text Readability */}
-        {/* Lateral gradient: soft shadow behind text on left, highly transparent in center & right */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/30 to-transparent" />
-        {/* Top-down gradient: subtle blend for navbar and bottom edge */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/35 via-transparent to-slate-950/40" />
       </div>
 
@@ -118,7 +208,7 @@ export default function Hero() {
           {/* Top Accreditation Pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-bold shadow-lg w-fit">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <span>Ministry of Health &amp; USHAŞ Licensed Hospital</span>
+            <span>{accreditationText}</span>
             <span className="text-white/40 hidden sm:inline">•</span>
             <span className="text-teal-300 font-semibold text-[11px] sm:text-xs hidden sm:inline">Cert #2026034015610080000425805</span>
           </div>
@@ -126,32 +216,24 @@ export default function Hero() {
           {/* Main Headline */}
           <div className="space-y-1.5">
             <h1 className="font-headline text-2xl sm:text-3xl lg:text-4xl xl:text-[2.65rem] font-black tracking-tight text-white leading-[1.22]">
-              World-Class Dental Surgery &amp;{' '}
+              {t('title')}{' '}
               <br className="hidden sm:inline" />
               <FlipWords
-                words={[
-                  'Hollywood Smile Design',
-                  'Swiss Straumann® Implants',
-                  'Ivoclar E-Max® Veneers',
-                  'Monolithic Zirconia Crowns',
-                  'Full-Mouth Rehabilitation',
-                ]}
+                words={flipWords}
                 duration={2800}
                 className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 font-black inline-block drop-shadow-sm pb-1 -mb-1"
               />
             </h1>
             <div className="text-xs sm:text-sm font-bold text-teal-300 tracking-wide flex items-center gap-2 pt-0.5">
-              <span>✦ Handcrafted Smiles in Just 5 Days</span>
+              <span>{subBadgeText}</span>
               <span className="text-white/40">•</span>
-              <span className="text-slate-300 font-medium">Levent Surgical Hospital, Istanbul</span>
+              <span className="text-slate-300 font-medium">{hospitalLocationText}</span>
             </div>
           </div>
 
           {/* Editorial Description */}
           <p className="font-sans text-xs sm:text-sm text-slate-200/90 leading-relaxed font-normal max-w-lg text-shadow-sm">
-            Dent Aktif International Oral &amp; Dental Hospital delivers full-arch Swiss Straumann® implant surgeries 
-            and handcrafted Ivoclar E-Max® veneers directly through our in-house master ceramist laboratory. 
-            All-inclusive hospital packages with 5-star hotel accommodation and chauffeured Mercedes-Benz VIP transfers.
+            {t('subtitle')}
           </p>
 
           {/* Single Focused Action Button */}
@@ -160,16 +242,16 @@ export default function Hero() {
               href="/contact"
               className="py-3 px-6 sm:px-7 rounded-xl bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] font-black text-xs sm:text-xs uppercase tracking-wider shadow-xl shadow-teal-500/25 hover:shadow-teal-400/40 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-center group w-fit"
             >
-              <span>Get Free Quote &amp; 3D Smile Simulation</span>
+              <span>{t('ctaStart')}</span>
               <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">
                 arrow_forward
               </span>
             </Link>
           </div>
 
-          {/* Social Proof & Trust Badges (Dynamic Count-Up Numerator) */}
+          {/* Social Proof & Trust Badges */}
           <div className="pt-3 flex flex-wrap items-center gap-6 sm:gap-8 border-t border-white/15">
-            {/* Trustpilot Score Numerator */}
+            {/* Trustpilot Score */}
             <div className="flex items-center gap-2.5">
               <div className="flex gap-0.5 text-emerald-400 text-sm">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -182,7 +264,7 @@ export default function Hero() {
                   </span>
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1">
-                  <AnimatedCounter end={2400} suffix="+" /> Verified Patient Reviews
+                  <AnimatedCounter end={2400} suffix="+" /> {reviewsLabel}
                 </div>
               </div>
             </div>
@@ -219,10 +301,10 @@ export default function Hero() {
                   <span className="text-teal-300 font-black mr-1">
                     <AnimatedCounter end={15000} suffix="+" />
                   </span>
-                  Completed Smiles
+                  {t('stat1Label')}
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1">
-                  Patients across 48+ Countries
+                  {countriesLabel}
                 </div>
               </div>
             </div>
@@ -237,7 +319,7 @@ export default function Hero() {
       <div className="w-full relative z-20 border-t border-white/15 bg-slate-950/40 backdrop-blur-md py-3.5 sm:py-4 shadow-[0_-10px_25px_rgba(0,0,0,0.2)] shrink-0">
         <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-            {PRESTIGE_PILLARS.map((pillar, idx) => (
+            {prestigePillars.map((pillar, idx) => (
               <div
                 key={idx}
                 className={`flex items-center gap-3.5 py-1.5 ${

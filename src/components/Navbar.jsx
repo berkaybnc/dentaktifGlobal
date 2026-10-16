@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function Navbar({ currentPage, onNavigate }) {
@@ -6,7 +6,8 @@ export default function Navbar({ currentPage, onNavigate }) {
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { setLanguage, t, languages, currentLanguageObj } = useLanguage();
+  const langDropdownRef = useRef(null);
+  const { setLanguage, t, languages, currentLanguageObj, lang } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,31 @@ export default function Navbar({ currentPage, onNavigate }) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close language dropdown on outside click or escape key
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (langDropdownRef.current && !langDropdownRef.current.contains(e.target)) {
+        setLangDropdownOpen(false);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setLangDropdownOpen(false);
+      }
+    };
+
+    if (langDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [langDropdownOpen]);
 
   const treatmentItems = [
     { id: 'aesthetic-dentistry', nameKey: 'treatAesthetic', icon: '✨', descKey: 'treatAestheticDesc' },
@@ -145,30 +171,93 @@ export default function Navbar({ currentPage, onNavigate }) {
         {/* Actions (Language & Consultation Button & Mobile Toggle) */}
         <div className="nav-actions">
           {/* LANGUAGE SELECTOR */}
-          <div className="lang-selector">
+          <div className="lang-selector" ref={langDropdownRef}>
             <button 
+              type="button"
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="lang-btn"
-              style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}
+              className={`lang-btn ${langDropdownOpen ? 'active' : ''}`}
               aria-label="Select Language"
+              aria-expanded={langDropdownOpen}
+              aria-haspopup="listbox"
             >
-              <span>{currentLanguageObj.flag}</span>
-              <span className="lang-label-text">{currentLanguageObj.label}</span> ▾
+              <span className="lang-flag-badge" aria-hidden="true">
+                {currentLanguageObj.flag}
+              </span>
+              <span className="lang-code-badge">
+                {currentLanguageObj.code?.toUpperCase()}
+              </span>
+              <span className="lang-label-text">
+                {currentLanguageObj.label}
+              </span>
+              <svg 
+                className={`lang-chevron ${langDropdownOpen ? 'rotated' : ''}`} 
+                width="13" 
+                height="13" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
 
             {langDropdownOpen && (
-              <ul className="lang-dropdown glass-card" style={{ zIndex: 120 }}>
-                {languages.map((l) => (
-                  <li 
-                    key={l.code}
-                    onClick={() => { setLanguage(l.code); setLangDropdownOpen(false); }}
-                    style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.8rem' }}
-                  >
-                    <span>{l.flag}</span>
-                    <span>{l.label}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="lang-dropdown-panel" role="listbox" aria-label="Languages">
+                <div className="lang-dropdown-header">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                  <span>Language / Dil</span>
+                </div>
+                <div className="lang-dropdown-list">
+                  {languages.map((l) => {
+                    const isSelected = (currentLanguageObj.code || lang) === l.code;
+                    return (
+                      <button
+                        type="button"
+                        key={l.code}
+                        role="option"
+                        aria-selected={isSelected}
+                        onClick={() => { 
+                          setLanguage(l.code); 
+                          setLangDropdownOpen(false); 
+                        }}
+                        className={`lang-dropdown-item ${isSelected ? 'selected' : ''}`}
+                      >
+                        <div className="lang-item-content">
+                          <span className="lang-item-flag">{l.flag}</span>
+                          <span className="lang-item-label">{l.label}</span>
+                        </div>
+                        <div className="lang-item-meta">
+                          <span className="lang-item-code">{l.code.toUpperCase()}</span>
+                          {isSelected && (
+                            <svg 
+                              className="lang-item-check" 
+                              width="14" 
+                              height="14" 
+                              viewBox="0 0 24 24" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="3" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round"
+                              aria-hidden="true"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             )}
           </div>
 

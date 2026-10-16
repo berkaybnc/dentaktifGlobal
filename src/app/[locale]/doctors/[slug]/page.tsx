@@ -2,14 +2,18 @@
 
 import React, { useState } from 'react';
 import { notFound } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { Link } from '@/navigation';
 import { getDoctorDetail, getDoctorsList } from '@/data/doctorsData';
+import { getDoctorDetailUi } from '@/data/doctorsI18n';
 
 export default function DoctorDetailPage({
   params: { slug },
 }: {
   params: { slug: string };
 }) {
+  const locale = useLocale();
+  const ui = getDoctorDetailUi(locale);
   const doctor = getDoctorDetail(slug);
 
   if (!doctor) {
@@ -29,11 +33,11 @@ export default function DoctorDetailPage({
       <section className="bg-white border-b border-slate-200 py-3.5 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs font-semibold text-slate-500">
           <Link href="/" className="hover:text-[#006972] transition-colors">
-            Home
+            {ui.breadcrumbHome}
           </Link>
           <span>/</span>
           <Link href="/doctors" className="hover:text-[#006972] transition-colors">
-            Medical Faculty
+            {ui.breadcrumbDoctors}
           </Link>
           <span>/</span>
           <span className="text-[#1b0d52] font-bold">{doctor.name}</span>
@@ -58,7 +62,7 @@ export default function DoctorDetailPage({
                 <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-white/50 shadow-lg flex items-center justify-between text-xs">
                   <div>
                     <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
-                      Clinical Experience
+                      {ui.experienceLabel}
                     </span>
                     <span className="font-extrabold text-[#1b0d52]">
                       {doctor.experience}
@@ -73,21 +77,21 @@ export default function DoctorDetailPage({
               {/* Clinic Registry & Regulatory Tag Card */}
               <div className="w-full max-w-md bg-white rounded-2xl border border-slate-200 p-4 space-y-3 shadow-xs text-xs">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <span className="text-slate-500 font-medium">Primary Campus:</span>
+                  <span className="text-slate-500 font-medium">{ui.primaryCampus}</span>
                   <span className="font-bold text-slate-800 text-right">{doctor.clinicLocation}</span>
                 </div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <span className="text-slate-500 font-medium">Consultation Languages:</span>
+                  <span className="text-slate-500 font-medium">{ui.languages}</span>
                   <span className="font-bold text-[#006699]">{doctor.languages.join(' • ')}</span>
                 </div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <span className="text-slate-500 font-medium">Medical Licensure:</span>
+                  <span className="text-slate-500 font-medium">{ui.licensure}</span>
                   <span className="font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 text-[11px]">
                     {doctor.licenseId}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-500 font-medium">Medical Board ID:</span>
+                  <span className="text-slate-500 font-medium">{ui.boardId}</span>
                   <span className="font-semibold text-slate-700 text-[11px]">
                     {doctor.registrationNumber}
                   </span>
@@ -133,14 +137,14 @@ export default function DoctorDetailPage({
                   href="/contact"
                   className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white font-extrabold text-xs uppercase tracking-wider text-center shadow-md hover:opacity-95 transition-all"
                 >
-                  Schedule Consultation with {doctor.name}
+                  {ui.scheduleBtn.replace('{name}', doctor.name)}
                 </Link>
 
                 <Link
                   href="/#consultation-wizard"
                   className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider text-center transition-colors"
                 >
-                  Upload X-Ray / CT Scan
+                  {ui.uploadScanBtn}
                 </Link>
               </div>
             </div>
@@ -153,13 +157,13 @@ export default function DoctorDetailPage({
         <div className="space-y-3 mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-mono font-bold">
             <span className="w-2 h-2 rounded-full bg-teal-600 animate-pulse" />
-            <span>Clinical Expertise &amp; Advanced Protocols</span>
+            <span>{ui.proceduresBadge}</span>
           </div>
           <h2 className="font-headline text-2xl sm:text-3xl font-black text-[#1b0d52]">
-            Advanced Treatment Procedures Administered by {doctor.name}
+            {ui.proceduresTitle.replace('{name}', doctor.name)}
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed">
-            Each procedure within the doctor's clinical purview is directly executed according to international hospital protocols, state-of-the-art dental technology, and certified biocompatible materials.
+            {ui.proceduresDesc}
           </p>
         </div>
 
@@ -206,10 +210,10 @@ export default function DoctorDetailPage({
           <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-xs">
             <div className="border-b border-slate-100 pb-4">
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                Professional Chronology
+                {ui.timelineBadge}
               </span>
               <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#1b0d52] mt-1">
-                Career &amp; Clinical Experience Timeline
+                {ui.timelineTitle}
               </h3>
             </div>
 
@@ -242,10 +246,10 @@ export default function DoctorDetailPage({
           <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-xs">
             <div className="border-b border-slate-100 pb-4">
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                Patient Care Standards
+                {ui.philosophyBadge}
               </span>
               <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#1b0d52] mt-1">
-                Clinical Philosophy &amp; Treatment Principles
+                {ui.philosophyTitle}
               </h3>
             </div>
 
@@ -283,7 +287,7 @@ export default function DoctorDetailPage({
           {/* Education & Academic History (6 cols) */}
           <div className="lg:col-span-6 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-5 shadow-xs">
             <h3 className="font-headline text-lg sm:text-xl font-bold text-[#1b0d52] border-b border-slate-100 pb-3 flex items-center justify-between">
-              <span>Academic Education &amp; Medical Training</span>
+              <span>{ui.timelineTitle}</span>
               <span className="material-symbols-outlined text-slate-400">school</span>
             </h3>
 
@@ -314,14 +318,14 @@ export default function DoctorDetailPage({
           {/* Accreditations & Scientific Memberships (6 cols) */}
           <div className="lg:col-span-6 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-5 shadow-xs">
             <h3 className="font-headline text-lg sm:text-xl font-bold text-[#1b0d52] border-b border-slate-100 pb-3 flex items-center justify-between">
-              <span>Certifications &amp; Professional Associations</span>
+              <span>{ui.certificationsTitle}</span>
               <span className="material-symbols-outlined text-slate-400">workspace_premium</span>
             </h3>
 
             <div className="space-y-4">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">
-                  Scientific &amp; Professional Memberships:
+                  {ui.membershipsTitle}:
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {doctor.scientificMemberships.map((membership, idx) => (
@@ -337,7 +341,7 @@ export default function DoctorDetailPage({
 
               <div className="pt-2">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">
-                  Official Certifications:
+                  {ui.certificationsBadge}:
                 </span>
                 <div className="space-y-2">
                   {doctor.certifications.map((cert, idx) => (
@@ -362,10 +366,10 @@ export default function DoctorDetailPage({
           <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-6">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                Frequently Asked Questions
+                {ui.faqBadge}
               </span>
               <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#1b0d52] mt-1">
-                Frequently Asked Questions About {doctor.name}
+                {ui.faqTitle.replace('{name}', doctor.name)}
               </h3>
             </div>
 
@@ -403,9 +407,14 @@ export default function DoctorDetailPage({
       {otherDoctors.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16">
           <div className="border-t border-slate-200 pt-10">
-            <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#1b0d52] mb-6">
-              Meet Other Specialists of Our Medical Faculty
-            </h3>
+            <div className="mb-6">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
+                {ui.otherDoctorsBadge}
+              </span>
+              <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#1b0d52] mt-1">
+                {ui.otherDoctorsTitle}
+              </h3>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {otherDoctors.map((other) => (
@@ -435,7 +444,7 @@ export default function DoctorDetailPage({
                       href={`/doctors/${other.id}`}
                       className="text-xs font-bold text-[#006972] hover:text-[#1b0d52] flex items-center justify-between group-hover:translate-x-1 transition-all"
                     >
-                      <span>View Full Biography</span>
+                      <span>{ui.viewProfile}</span>
                       <span>→</span>
                     </Link>
                   </div>

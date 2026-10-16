@@ -1,0 +1,267 @@
+export interface DoctorsOverviewUi {
+  badge: string;
+  title: string;
+  description: string;
+  credentialSurgeons: string;
+  credentialTech: string;
+  credentialSmiles: string;
+  clinicalFocus: string;
+  fullBioBtn: string;
+  bannerBadge: string;
+  bannerTitle: string;
+  bannerDesc: string;
+  bannerBtnPlan: string;
+  bannerBtnContact: string;
+}
+
+export interface DoctorDetailUi {
+  breadcrumbHome: string;
+  breadcrumbDoctors: string;
+  experienceLabel: string;
+  primaryCampus: string;
+  languages: string;
+  licensure: string;
+  boardId: string;
+  scheduleBtn: string;
+  uploadScanBtn: string;
+  proceduresBadge: string;
+  proceduresTitle: string;
+  proceduresDesc: string;
+  timelineBadge: string;
+  timelineTitle: string;
+  certificationsBadge: string;
+  certificationsTitle: string;
+  membershipsBadge: string;
+  membershipsTitle: string;
+  philosophyBadge: string;
+  philosophyTitle: string;
+  faqBadge: string;
+  faqTitle: string;
+  otherDoctorsBadge: string;
+  otherDoctorsTitle: string;
+  viewProfile: string;
+}
+
+export const DOCTORS_OVERVIEW_I18N: Record<string, DoctorsOverviewUi> = {
+  en: {
+    badge: 'Ministry of Health Licensed Medical Faculty • Bayrampaşa & Levent Hospital Campuses',
+    title: 'Our Specialist Medical Faculty',
+    description: 'Dent Aktif\'s permanent medical faculty combines international surgical excellence, advanced 3D digital precision, and compassionate patient care standards.',
+    credentialSurgeons: 'Licensed Dental Surgeons & Specialists',
+    credentialTech: 'In-House CAD/CAM & Morita 3D CBCT',
+    credentialSmiles: '18,000+ Completed Smiles',
+    clinicalFocus: 'Key Clinical Focus:',
+    fullBioBtn: 'Full Biography & Protocols →',
+    bannerBadge: 'Personalized Treatment & Free Digital Triage',
+    bannerTitle: 'Unsure Which Specialist Is Right for Your Case?',
+    bannerDesc: 'Share your existing dental X-ray or smile photos. Our clinical board will review your case within 24 hours and deliver a complimentary 3D digital treatment plan.',
+    bannerBtnPlan: 'Upload X-Ray & Get Plan',
+    bannerBtnContact: 'Contact Clinical Concierge',
+  },
+  tr: {
+    badge: 'Sağlık Bakanlığı Lisanslı Uzman Hekim Kadrosu • Bayrampaşa & Levent Hastane Kampüsleri',
+    title: 'Uzman Hekim Kadromuz',
+    description: 'Dent Aktif\'in daimi medikal kadrosu; uluslararası cerrahi tecrübeyi, 3D dijital hassasiyeti ve hasta odaklı etik tedavi standartlarını bir araya getirir.',
+    credentialSurgeons: 'Ruhsatlı Çene Cerrahları & Uzman Hekimler',
+    credentialTech: 'Bünyemizde CAD/CAM & Morita 3D CBCT',
+    credentialSmiles: '18.000+ Mutlu Gülüş',
+    clinicalFocus: 'Temel Klinik Uzmanlıklar:',
+    fullBioBtn: 'Özgeçmiş & Protokoller →',
+    bannerBadge: 'Kişiye Özel Tedavi & Ücretsiz Dijital Triyaj',
+    bannerTitle: 'Vakanız İçin Hangi Uzmanın Uygun Olduğundan Emin Değil misiniz?',
+    bannerDesc: 'Mevcut diş röntgeninizi veya fotoğraflarınızı paylaşın. Hekim kurulumuz dosyanızı 24 saat içinde inceleyerek ücretsiz 3D tedavi planınızı hazırlasın.',
+    bannerBtnPlan: 'Röntgen Yükle & Plan Al',
+    bannerBtnContact: 'Hasta Danışmanıyla Görüşün',
+  },
+  de: {
+    badge: 'Vom Gesundheitsministerium lizenzierte Fachärzte • Campus Levent & Bayrampaşa',
+    title: 'Unser Fachärztliches Ärzteteam',
+    description: 'Das permanente Ärzteteam von Dent Aktif vereint internationale chirurgische Exzellenz, hochpräzise 3D-Digitaltechnik und einfühlsame Patientenbetreuung.',
+    credentialSurgeons: 'Zertifizierte Zahnchirurgen & Fachzahnärzte',
+    credentialTech: 'Eigenes CAD/CAM & Morita 3D DVT',
+    credentialSmiles: '18.000+ Vollendete Lächeln',
+    clinicalFocus: 'Klinische Schwerpunkte:',
+    fullBioBtn: 'Vollständige Biografie & Details →',
+    bannerBadge: 'Individuelle Beratung & Kostenlose Fallprüfung',
+    bannerTitle: 'Unsicher, welcher Spezialist für Sie der Richtige ist?',
+    bannerDesc: 'Senden Sie uns Ihr Panoramaröntgenbild oder Fotos. Unser Ärzteteam prüft Ihren Fall innerhalb von 24 Stunden und erstellt einen kostenlosen 3D-Behandlungsplan.',
+    bannerBtnPlan: 'Röntgenbild senden & Plan erhalten',
+    bannerBtnContact: 'Klinik-Concierge kontaktieren',
+  },
+  ru: {
+    badge: 'Лицензированный медицинский состав Минздрава • Кампусы Байрампаша и Левент',
+    title: 'Наши Врачи-Специалисты',
+    description: 'Постоянная врачебная коллегия Dent Aktif сочетает международный хирургический опыт, передовые 3D цифровые технологии и внимательное отношение к каждому пациенту.',
+    credentialSurgeons: 'Дипломированные хирурги и стоматологи',
+    credentialTech: 'Собственная CAD/CAM и КТ Morita 3D',
+    credentialSmiles: '18 000+ Успешных улыбок',
+    clinicalFocus: 'Ключевые направления:',
+    fullBioBtn: 'Биография и протоколы →',
+    bannerBadge: 'Персональный подход и бесплатная диагностика',
+    bannerTitle: 'Не уверены, какой специалист нужен именно вам?',
+    bannerDesc: 'Отправьте ваш снимок КТ или фото зубов. Наш консилиум врачей изучит случай в течение 24 часов и предоставит бесплатный 3D-план лечения.',
+    bannerBtnPlan: 'Загрузить снимок и получить план',
+    bannerBtnContact: 'Связаться с куратором клиники',
+  },
+  fr: {
+    badge: 'Corps Médical Agréé par le Ministère de la Santé • Campus Levent & Bayrampaşa',
+    title: 'Notre Équipe Médicale Spécialisée',
+    description: 'Le corps médical permanent de Dent Aktif associe excellence chirurgicale internationale, précision numérique 3D et dévouement au confort des patients.',
+    credentialSurgeons: 'Chirurgiens Dentistes Diplômés & Spécialistes',
+    credentialTech: 'Laboratoire CAD/CAM & Scanner 3D Morita',
+    credentialSmiles: '18 000+ Sourires Réalisés',
+    clinicalFocus: 'Domaines d\'Expertise Clés :',
+    fullBioBtn: 'Biographie Complète & Protocoles →',
+    bannerBadge: 'Traitement Personnalisé & Diagnostic Gratuit',
+    bannerTitle: 'Vous hésitez sur le spécialiste adapté à votre situation ?',
+    bannerDesc: 'Partagez votre radiographie ou vos photos dentaires. Notre comité médical analysera votre dossier sous 24h et vous remettra un plan 3D offert.',
+    bannerBtnPlan: 'Envoyer Radio & Obtenir Mon Devis',
+    bannerBtnContact: 'Contacter Notre Conciergerie Médicale',
+  },
+};
+
+export const DOCTOR_DETAIL_I18N: Record<string, DoctorDetailUi> = {
+  en: {
+    breadcrumbHome: 'Home',
+    breadcrumbDoctors: 'Medical Faculty',
+    experienceLabel: 'Clinical Experience',
+    primaryCampus: 'Primary Campus:',
+    languages: 'Consultation Languages:',
+    licensure: 'Medical Licensure:',
+    boardId: 'Medical Board ID:',
+    scheduleBtn: 'Schedule Consultation with {name}',
+    uploadScanBtn: 'Upload X-Ray / CT Scan',
+    proceduresBadge: 'Clinical Expertise & Advanced Protocols',
+    proceduresTitle: 'Advanced Treatment Procedures Administered by {name}',
+    proceduresDesc: 'Each procedure within the doctor\'s clinical purview is directly executed according to international hospital protocols, state-of-the-art dental technology, and certified biocompatible materials.',
+    timelineBadge: 'Academic & Hospital Excellence',
+    timelineTitle: 'Clinical Timeline & Academic Milestones',
+    certificationsBadge: 'Verified Credentials',
+    certificationsTitle: 'Certifications & Professional Licensures',
+    membershipsBadge: 'Global Clinical Network',
+    membershipsTitle: 'Verified Scientific Memberships',
+    philosophyBadge: 'Clinical Standard',
+    philosophyTitle: 'Doctor\'s Clinical Philosophy & Protocols',
+    faqBadge: 'Patient Q&A',
+    faqTitle: 'Frequently Asked Questions About Treatments with {name}',
+    otherDoctorsBadge: 'Multi-Disciplinary Team',
+    otherDoctorsTitle: 'Meet Other Specialist Doctors',
+    viewProfile: 'View Profile & Cases →',
+  },
+  tr: {
+    breadcrumbHome: 'Ana Sayfa',
+    breadcrumbDoctors: 'Hekim Kadromuz',
+    experienceLabel: 'Klinik Deneyim',
+    primaryCampus: 'Ana Kampüs:',
+    languages: 'Konsültasyon Dilleri:',
+    licensure: 'Uzmanlık Ruhsatı:',
+    boardId: 'Tabip Odası Sicil No:',
+    scheduleBtn: '{name} ile Konsültasyon Planla',
+    uploadScanBtn: 'Röntgen / Tomografi Yükle',
+    proceduresBadge: 'Klinik Uzmanlık & İleri Protokoller',
+    proceduresTitle: '{name} Tarafından Uygulanan İleri Tedaviler',
+    proceduresDesc: 'Hekimimizin uzmanlık alanındaki tüm işlemler uluslararası hastane protokolleri, en son teknoloji ve biyo-uyumlu sertifikalı malzemelerle gerçekleştirilmektedir.',
+    timelineBadge: 'Akademik & Klinik Başarılar',
+    timelineTitle: 'Klinik Kariyer & Akademik Dönüm Noktaları',
+    certificationsBadge: 'Onaylı Yetkinlikler',
+    certificationsTitle: 'Sertifikalar & Mesleki Ruhsatlar',
+    membershipsBadge: 'Bilimsel Ağ',
+    membershipsTitle: 'Üye Olunan Bilimsel Kuruluşlar',
+    philosophyBadge: 'Klinik Standart',
+    philosophyTitle: 'Hekimin Klinik Felsefesi & Tedavi İlkeleri',
+    faqBadge: 'Hasta Soruları',
+    faqTitle: '{name} ile Tedaviler Hakkında Sıkça Sorulan Sorular',
+    otherDoctorsBadge: 'Multidisipliner Kadro',
+    otherDoctorsTitle: 'Diğer Uzman Hekimlerimizle Tanışın',
+    viewProfile: 'Profili & Vakaları İncele →',
+  },
+  de: {
+    breadcrumbHome: 'Startseite',
+    breadcrumbDoctors: 'Ärzteteam',
+    experienceLabel: 'Klinische Erfahrung',
+    primaryCampus: 'Hauptstandort:',
+    languages: 'Beratungssprachen:',
+    licensure: 'Fachärztliche Approbation:',
+    boardId: 'Ärztekammer-Registernummer:',
+    scheduleBtn: 'Beratung mit {name} vereinbaren',
+    uploadScanBtn: 'Röntgen / DVT hochladen',
+    proceduresBadge: 'Klinische Expertise & Moderne Protokolle',
+    proceduresTitle: 'Spezialisierte Behandlungen durch {name}',
+    proceduresDesc: 'Alle Eingriffe werden nach strengen europäischen Krankenhausstandards mit modernsten CAD/CAM- und 3D-Verfahren durchgeführt.',
+    timelineBadge: 'Akademische & Klinische Meilensteine',
+    timelineTitle: 'Beruflicher Werdegang & Qualifikationen',
+    certificationsBadge: 'Geprüfte Qualifikationen',
+    certificationsTitle: 'Zertifikate & Fortbildungen',
+    membershipsBadge: 'Wissenschaftliches Netzwerk',
+    membershipsTitle: 'Wissenschaftliche Fachgesellschaften',
+    philosophyBadge: 'Behandlungsphilosophie',
+    philosophyTitle: 'Klinische Philosophie & Qualitätsstandards',
+    faqBadge: 'Fragen & Antworten',
+    faqTitle: 'Häufig gestellte Fragen zu Behandlungen mit {name}',
+    otherDoctorsBadge: 'Interdisziplinäres Team',
+    otherDoctorsTitle: 'Weitere Fachärzte unseres Klinikteams',
+    viewProfile: 'Profil ansehen →',
+  },
+  ru: {
+    breadcrumbHome: 'Главная',
+    breadcrumbDoctors: 'Врачи',
+    experienceLabel: 'Клинический стаж',
+    primaryCampus: 'Основной кампус:',
+    languages: 'Языки приема:',
+    licensure: 'Лицензия врача:',
+    boardId: 'Номер в реестре:',
+    scheduleBtn: 'Записаться на консультацию к {name}',
+    uploadScanBtn: 'Загрузить снимок КТ',
+    proceduresBadge: 'Клиническая экспертиза и протоколы',
+    proceduresTitle: 'Специализированные процедуры врача {name}',
+    proceduresDesc: 'Все процедуры проводятся строго по международным больничным стандартам с использованием биосовместимых сертифицированных материалов.',
+    timelineBadge: 'Академические достижения',
+    timelineTitle: 'Клиническая карьера и образование',
+    certificationsBadge: 'Сертификация',
+    certificationsTitle: 'Сертификаты и дипломы',
+    membershipsBadge: 'Научные ассоциации',
+    membershipsTitle: 'Членство в научных сообществах',
+    philosophyBadge: 'Клинический подход',
+    philosophyTitle: 'Философия лечения и протоколы врача',
+    faqBadge: 'Вопросы пациентов',
+    faqTitle: 'Часто задаваемые вопросы о лечении у врача {name}',
+    otherDoctorsBadge: 'Коллегия специалистов',
+    otherDoctorsTitle: 'Познакомьтесь с другими врачами клиники',
+    viewProfile: 'Подробнее о враче →',
+  },
+  fr: {
+    breadcrumbHome: 'Accueil',
+    breadcrumbDoctors: 'Corps Médical',
+    experienceLabel: 'Expérience Clinique',
+    primaryCampus: 'Campus Principal :',
+    languages: 'Langues de Consultation :',
+    licensure: 'Agrément Médical :',
+    boardId: 'Numéro d\'Ordre :',
+    scheduleBtn: 'Prendre Rendez-vous avec {name}',
+    uploadScanBtn: 'Envoyer Radio / Scanner 3D',
+    proceduresBadge: 'Expertise Clinique & Protocoles Avancés',
+    proceduresTitle: 'Actes Médicaux Spécialisés Réalisés par {name}',
+    proceduresDesc: 'Chaque intervention respecte rigoureusement les normes hospitalières internationales et s\'appuie sur des matériaux certifiés de premier choix.',
+    timelineBadge: 'Parcours Hospitalier & Universitaire',
+    timelineTitle: 'Chronologie Clinique & Diplômes',
+    certificationsBadge: 'Qualifications Certifiées',
+    certificationsTitle: 'Certifications & Habilitations Médicales',
+    membershipsBadge: 'Réseau Scientifique International',
+    membershipsTitle: 'Sociétés Savantes & Affiliations',
+    philosophyBadge: 'Philosophie Médicale',
+    philosophyTitle: 'Philosophie de Prise en Charge du Praticien',
+    faqBadge: 'Questions Fréquentes',
+    faqTitle: 'Questions Posées sur les Soins avec {name}',
+    otherDoctorsBadge: 'Équipe Multidisciplinaire',
+    otherDoctorsTitle: 'Découvrez Nos Autres Médecins Spécialistes',
+    viewProfile: 'Consulter le Profil →',
+  },
+};
+
+export function getDoctorsOverviewUi(lang = 'en'): DoctorsOverviewUi {
+  return DOCTORS_OVERVIEW_I18N[lang] || DOCTORS_OVERVIEW_I18N['en'];
+}
+
+export function getDoctorDetailUi(lang = 'en'): DoctorDetailUi {
+  return DOCTOR_DETAIL_I18N[lang] || DOCTOR_DETAIL_I18N['en'];
+}

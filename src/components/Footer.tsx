@@ -1,20 +1,73 @@
 'use client';
 
 import React from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/navigation';
 import SocialDock from './SocialDock';
 
+const FOOTER_TREATMENTS: Record<string, Record<string, string>> = {
+  'aesthetic-dentistry': {
+    en: 'Aesthetic Dentistry',
+    tr: 'Estetik Diş Hekimliği',
+    de: 'Ästhetische Zahnheilkunde',
+    ru: 'Эстетическая стоматология',
+    fr: 'Dentisterie Esthétique',
+  },
+  'hollywood-smile': {
+    en: 'Hollywood Smile',
+    tr: 'Hollywood Smile',
+    de: 'Hollywood Smile',
+    ru: 'Голливудская улыбка',
+    fr: 'Hollywood Smile',
+  },
+  'dental-veneers': {
+    en: 'Dental Zirconium Veneers',
+    tr: 'Zirkonyum Kaplama & Lamine',
+    de: 'Zirkon Veneers',
+    ru: 'Циркониевые виниры',
+    fr: 'Facettes Zircone',
+  },
+  'dental-crowns': {
+    en: 'Dental Crowns',
+    tr: 'Diş Kuronları',
+    de: 'Zahnkronen',
+    ru: 'Зубные коронки',
+    fr: 'Couronnes Dentaires',
+  },
+  'dental-implants': {
+    en: 'Dental Implants',
+    tr: 'Dental İmplantlar',
+    de: 'Zahnimplantate',
+    ru: 'Зубные импланты',
+    fr: 'Implants Dentaires',
+  },
+  'root-canal': {
+    en: 'Root Canal Treatment',
+    tr: 'Kanal Tedavisi',
+    de: 'Wurzelkanalbehandlung',
+    ru: 'Лечение каналов',
+    fr: 'Traitement de Canal',
+  },
+};
+
 export default function Footer() {
+  const t = useTranslations('footer');
+  const locale = useLocale();
+
+  const getLabel = (key: string) => {
+    return FOOTER_TREATMENTS[key]?.[locale] || FOOTER_TREATMENTS[key]?.['en'] || key;
+  };
+
   const treatmentsCol1 = [
-    { label: 'Aesthetic Dentistry', href: '/treatments/aesthetic-dentistry' },
-    { label: 'Hollywood Smile', href: '/treatments/hollywood-smile' },
-    { label: 'Dental Zirconium Veneers', href: '/treatments/dental-veneers' },
+    { label: getLabel('aesthetic-dentistry'), href: '/treatments/aesthetic-dentistry' },
+    { label: getLabel('hollywood-smile'), href: '/treatments/hollywood-smile' },
+    { label: getLabel('dental-veneers'), href: '/treatments/dental-veneers' },
   ];
 
   const treatmentsCol2 = [
-    { label: 'Dental Crowns', href: '/treatments/dental-crowns' },
-    { label: 'Dental Implants', href: '/treatments/dental-implants' },
-    { label: 'Root Canal Treatment', href: '/treatments/root-canal' },
+    { label: getLabel('dental-crowns'), href: '/treatments/dental-crowns' },
+    { label: getLabel('dental-implants'), href: '/treatments/dental-implants' },
+    { label: getLabel('root-canal'), href: '/treatments/root-canal' },
   ];
 
   return (
@@ -148,7 +201,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
-              Dent Aktif International Oral &amp; Dental Hospital. Delivering world-class digital aesthetic smile design, precision Swiss implantology, and biocompatible restorations.
+              {t('about')}
             </p>
 
             {/* Official Accreditations Logos */}
@@ -178,7 +231,7 @@ export default function Footer() {
           <div className="lg:col-span-3 space-y-2.5">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
-              Our Treatments
+              {locale === 'tr' ? 'Tedavilerimiz' : locale === 'de' ? 'Unsere Behandlungen' : locale === 'ru' ? 'Наши услуги' : locale === 'fr' ? 'Nos Traitements' : 'Our Treatments'}
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
               <ul className="space-y-1.5">
@@ -208,11 +261,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* 3. Direct Contact Details (Location, Phone, Email - Moved Up!) (3 cols) */}
+          {/* 3. Direct Contact Details (Location, Phone, Email) */}
           <div className="lg:col-span-3 space-y-2.5">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
-              Hospital Contact
+              {locale === 'tr' ? 'Klinik İletişim' : locale === 'de' ? 'Klinik-Kontakt' : locale === 'ru' ? 'Контакты клиники' : locale === 'fr' ? 'Contact Clinique' : 'Hospital Contact'}
             </h4>
             <div className="space-y-2 text-xs text-slate-300">
               {/* Address */}
@@ -220,7 +273,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">location_on</span>
                 <div className="text-[11px] leading-snug">
                   <span className="font-bold text-white block">Dent Aktif Surgical Suites</span>
-                  Eski Edirne Asfaltı No:407/409 A-1, Bayrampasa, Istanbul
+                  {t('address')}
                 </div>
               </div>
 
@@ -230,7 +283,7 @@ export default function Footer() {
                 <div className="text-[11px] leading-snug">
                   <span className="font-bold text-white block">Hotline &amp; WhatsApp:</span>
                   <a href="tel:+905521617377" className="text-[#2BA598] hover:text-white transition-colors underline font-semibold">
-                    +90 552 161 73 77
+                    {t('phone')}
                   </a>
                 </div>
               </div>
@@ -240,22 +293,22 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">mail</span>
                 <div className="text-[11px] leading-snug">
                   <span className="font-bold text-white block">Clinical Advisory:</span>
-                  <a href="mailto:info@dentaktif.com" className="text-[#2BA598] hover:text-white transition-colors underline">
-                    info@dentaktif.com
+                  <a href="mailto:international@dentaktifglobal.com" className="text-[#2BA598] hover:text-white transition-colors underline">
+                    {t('email')}
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 4. Official Channels & Social Media (2 cols) */}
+          {/* 4. Official Channels & Social Media */}
           <div className="lg:col-span-2 space-y-2.5">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
-              Official Channels
+              {locale === 'tr' ? 'Resmi Kanallar' : locale === 'de' ? 'Offizielle Kanäle' : locale === 'ru' ? 'Официальные каналы' : locale === 'fr' ? 'Canaux Officiels' : 'Official Channels'}
             </h4>
             <p className="text-[11px] text-slate-300">
-              International clinical concierge:
+              {locale === 'tr' ? 'Uluslararası hasta koordinasyonu:' : locale === 'de' ? 'Internationaler Patientenservice:' : locale === 'ru' ? 'Международный отдел пациентов:' : locale === 'fr' ? 'Conciergerie internationale :' : 'International clinical concierge:'}
             </p>
             <div className="pt-0.5">
               <SocialDock />
@@ -265,7 +318,7 @@ export default function Footer() {
 
         {/* Bottom Legal Copyright */}
         <div className="pt-5 mt-7 border-t border-white/10 text-center text-[10.5px] text-slate-400">
-          © 2026 Dent Aktif International Dental Hospital. All Rights Reserved. Republic of Turkey Ministry of Health Authorization Certificate No: 2026034015610080000425805 • USHAŞ &amp; HealthTürkiye Accredited.
+          {t('copyright')}
         </div>
       </div>
     </footer>

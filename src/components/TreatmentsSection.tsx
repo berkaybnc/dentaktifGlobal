@@ -118,6 +118,24 @@ const LOCALIZED_UI = {
     certifiedHighlights: 'Сертифицированные клинические преимущества',
     frequentlyAsked: 'Часто задаваемые вопросы',
   },
+  tr: {
+    sectionBadge: 'Uzman Tedaviler • Hastalarımızın İlk 3 Tercihi',
+    sectionTitle: 'En Çok Tercih Edilen Diş Tedavilerimiz',
+    sectionDesc: 'İstanbul hastanemizi ziyaret eden uluslararası hastalarımızın %85\'inden fazlasının estetik gülüş dönüşümü ve implant için seçtiği öncelikli tedaviler.',
+    stayLabel: 'Kalış Süresi:',
+    vipHotel: 'VIP 5★ Otel Dahil',
+    viewDetails: 'Tüm Aşamaları & 3D Planı İncele →',
+    contactUs: 'Bizimle İletişime Geçin',
+    viewAllButton: 'Tüm 6 Tedavi Seçeneğini Karşılaştır →',
+    loadingText: 'Tedavi Verileri Yükleniyor...',
+    tab1Label: '✨ 1. Genel Bakış & Sonuçlar',
+    tab2Label: '📋 2. 3 Adımlı Protokol',
+    tab3Label: '🔬 3. Materyal & Sık Sorulanlar',
+    specMaterial: 'Materyal Standardı',
+    specAnesthesia: 'Konfor & Anestezi',
+    certifiedHighlights: 'Sertifikalı Klinik Avantajlar',
+    frequentlyAsked: 'Sıkça Sorulan Sorular',
+  },
 };
 
 export default function TreatmentsSection() {
