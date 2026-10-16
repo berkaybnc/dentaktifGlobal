@@ -2,48 +2,86 @@ import React, { useState, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function BeforeAfterSlider() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const wrapperRef = useRef(null);
 
-  const cases = [
-    {
-      id: "hollywood-smile",
-      name: "Hollywood Smile Makeover",
-      description: "20 E-Max Porcelain Veneers with custom shade matching and digital smile design.",
-      duration: "5 Days (2 Appointments)",
-      patientOrigin: "London, United Kingdom",
-      beforeImage: "https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp",
-      afterImage: "https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp",
-      fallbackBefore: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
-      fallbackAfter: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      id: "full-arch-implants",
-      name: "All-on-6 Dental Implants",
-      description: "Full mouth restoration using Swiss Straumann implants and fixed Zirconia bridges.",
-      duration: "6 Days (1st Phase)",
-      patientOrigin: "Munich, Germany",
-      beforeImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
-      afterImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80",
-      fallbackBefore: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg",
-      fallbackAfter: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-      id: "zirconia-crowns",
-      name: "Zirconia Porcelain Crowns",
-      description: "Full makeover fixing severe wear, misalignment and discoloration.",
-      duration: "4 Days",
-      patientOrigin: "Dublin, Ireland",
-      beforeImage: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg",
-      afterImage: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80",
-      fallbackBefore: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
-      fallbackAfter: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80"
-    }
-  ];
+  const CASES_BY_LANG = {
+    ar: [
+      {
+        id: "hollywood-smile",
+        name: "ابتسامة هوليوود المتكاملة",
+        description: "20 قشرة خزفية E-Max مع تصميم رقمي مخصص ومطابقة دقيقة لدرجة اللون.",
+        duration: "5 أيام (جلستان)",
+        patientOrigin: "لندن، المملكة المتحدة",
+        beforeImage: "https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp",
+        afterImage: "https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp",
+        fallbackBefore: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
+        fallbackAfter: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: "full-arch-implants",
+        name: "زراعة كامل الفك All-on-6",
+        description: "ترميم كامل الفك باستخدام زرعات Straumann® السويسرية وجسور الزيركون الثابتة.",
+        duration: "6 أيام (المرحلة الأولى)",
+        patientOrigin: "ميونخ، ألمانيا",
+        beforeImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
+        afterImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80",
+        fallbackBefore: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg",
+        fallbackAfter: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: "zirconia-crowns",
+        name: "تيجان الزيركون الخزفية",
+        description: "تحول كامل لمعالجة تآكل الأسنان الشديد، وعدم المحاذاة، والتصبغات العميقة.",
+        duration: "4 أيام",
+        patientOrigin: "دبلن، أيرلندا",
+        beforeImage: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg",
+        afterImage: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80",
+        fallbackBefore: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
+        fallbackAfter: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80"
+      }
+    ],
+    en: [
+      {
+        id: "hollywood-smile",
+        name: "Hollywood Smile Makeover",
+        description: "20 E-Max Porcelain Veneers with custom shade matching and digital smile design.",
+        duration: "5 Days (2 Appointments)",
+        patientOrigin: "London, United Kingdom",
+        beforeImage: "https://dentaktifglobal.com/wp-content/uploads/2024/03/Hollywood-Smile-What-to-Expect.webp",
+        afterImage: "https://dentaktifglobal.com/wp-content/uploads/2024/03/Benefits-of-Hollywood-Smile.webp",
+        fallbackBefore: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
+        fallbackAfter: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: "full-arch-implants",
+        name: "All-on-6 Dental Implants",
+        description: "Full mouth restoration using Swiss Straumann implants and fixed Zirconia bridges.",
+        duration: "6 Days (1st Phase)",
+        patientOrigin: "Munich, Germany",
+        beforeImage: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
+        afterImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80",
+        fallbackBefore: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg",
+        fallbackAfter: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        id: "zirconia-crowns",
+        name: "Zirconia Porcelain Crowns",
+        description: "Full makeover fixing severe wear, misalignment and discoloration.",
+        duration: "4 Days",
+        patientOrigin: "Dublin, Ireland",
+        beforeImage: "https://dentaktifglobal.com/wp-content/uploads/2025/09/Root-Canal-Treatment-2x-1.jpg",
+        afterImage: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=80",
+        fallbackBefore: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
+        fallbackAfter: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80"
+      }
+    ]
+  };
 
+  const cases = CASES_BY_LANG[lang] || CASES_BY_LANG.en;
   const currentCase = cases[activeCaseIndex];
 
   const updatePos = (clientX) => {
@@ -185,4 +223,3 @@ export default function BeforeAfterSlider() {
     </section>
   );
 }
-

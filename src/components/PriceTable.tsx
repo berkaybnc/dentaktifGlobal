@@ -437,7 +437,7 @@ export default function PriceTable() {
             href="/contact"
             className="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-xl bg-[#1b0d52] hover:bg-[#281570] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
           >
-            {locale === 'tr' ? 'Ücretsiz Değerlendirme İçin Gönderin' : 'Submit Records for Free Evaluation'}
+            {locale === 'ar' ? 'إرسال السجلات للتقييم المجاني' : locale === 'tr' ? 'Ücretsiz Değerlendirme İçin Gönderin' : 'Submit Records for Free Evaluation'}
           </Link>
         </div>
 

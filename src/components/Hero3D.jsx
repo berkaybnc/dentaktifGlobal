@@ -6,7 +6,7 @@ const DEFAULT_VIDEO = "https://assets.mixkit.co/videos/preview/mixkit-dentist-ex
 const LOCAL_VIDEO = "/images/Dentaktif_Hasta_Yolculugu_web.mp4";
 
 export default function Hero3D() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -245,14 +245,14 @@ export default function Hero3D() {
                   onClick={togglePlay}
                   style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontWeight: 'bold', fontSize: '0.85rem' }}
                 >
-                  {isPlaying ? '⏸️ Pause' : '▶️ Play'}
+                  {isPlaying ? (lang === 'ar' ? '⏸️ إيقاف مؤقت' : '⏸️ Pause') : (lang === 'ar' ? '▶️ تشغيل' : '▶️ Play')}
                 </button>
                 <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
                 <button
                   onClick={() => setPlaybackSpeed(playbackSpeed === 1.0 ? 0.75 : playbackSpeed === 0.75 ? 0.5 : 1.0)}
                   style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', fontWeight: 600, fontSize: '0.8rem' }}
                 >
-                  ⚡ Speed: {playbackSpeed}x
+                  {lang === 'ar' ? `⚡ السرعة: ${playbackSpeed}x` : `⚡ Speed: ${playbackSpeed}x`}
                 </button>
               </div>
             </div>

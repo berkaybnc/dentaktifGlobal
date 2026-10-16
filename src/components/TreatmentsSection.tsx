@@ -216,9 +216,25 @@ export default function TreatmentsSection() {
             {TOP_TREATMENTS_CONFIG.map((tab) => {
               const item = itemsDict[tab.id];
               const isSelected = activeTabId === tab.id;
-              const badgeText = locale === 'ar'
-                ? (tab.id === 'hollywood-smile' ? '✨ الأكثر طلباً • إقامة 5 أيام' : tab.id === 'dental-implants' ? '🏆 زرعات Straumann® • ضمان مدى الحياة' : '🌟 زيركون ألماس +1200 ميجاباسكال')
-                : tab.badgeText;
+              const getBadgeText = () => {
+                if (locale === 'ar') {
+                  return tab.id === 'hollywood-smile' ? '✨ الأكثر طلباً • إقامة 5 أيام' : tab.id === 'dental-implants' ? '🏆 زرعات Straumann® • ضمان مدى الحياة' : '🌟 زيركون ألماس +1200 ميجاباسكال';
+                }
+                if (locale === 'de') {
+                  return tab.id === 'hollywood-smile' ? '✨ Meistgefragt • 5 Tage Aufenthalt' : tab.id === 'dental-implants' ? '🏆 Schweizer Straumann® • Lebenslange Garantie' : '🌟 1200+ MPa Diamant-Zirkon';
+                }
+                if (locale === 'fr') {
+                  return tab.id === 'hollywood-smile' ? '✨ Le Plus Demandé • Séjour de 5 Jours' : tab.id === 'dental-implants' ? '🏆 Straumann® Suisse • Garantie à Vie' : '🌟 Zircone Diamant 1200+ MPa';
+                }
+                if (locale === 'ru') {
+                  return tab.id === 'hollywood-smile' ? '✨ Самый частый выбор • 5 дней пребывания' : tab.id === 'dental-implants' ? '🏆 Швейцарский Straumann® • Пожизненная гарантия' : '🌟 Алмазный цирконий 1200+ МПа';
+                }
+                if (locale === 'tr') {
+                  return tab.id === 'hollywood-smile' ? '✨ En Çok Tercih Edilen • 5 Gün Kalış' : tab.id === 'dental-implants' ? '🏆 İsviçre Straumann® • Ömür Boyu Garanti' : '🌟 1200+ MPa Elmas Zirkonyum';
+                }
+                return tab.badgeText;
+              };
+              const badgeText = getBadgeText();
 
               return (
                 <button

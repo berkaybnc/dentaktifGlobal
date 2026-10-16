@@ -9,7 +9,7 @@ import { getDoctorsOverviewUi } from '@/data/doctorsI18n';
 export default function DoctorsOverviewPage() {
   const locale = useLocale();
   const ui = getDoctorsOverviewUi(locale);
-  const doctors = getDoctorsList();
+  const doctors = getDoctorsList(locale);
 
   return (
     <div className="w-full bg-[#FAFBFC] min-h-screen pb-24">

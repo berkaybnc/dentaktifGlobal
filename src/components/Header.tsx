@@ -390,7 +390,7 @@ export default function Header() {
                     <line x1="2" y1="12" x2="22" y2="12" />
                     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                   </svg>
-                  <span>Select Language</span>
+                  <span>{currentLocale === 'ar' ? 'اختر اللغة' : currentLocale === 'de' ? 'Sprache wählen' : currentLocale === 'fr' ? 'Choisir la langue' : currentLocale === 'ru' ? 'Выберите язык' : 'Select Language'}</span>
                 </div>
                 <div className="flex flex-col space-y-1">
                   {LANGUAGES.map((lang) => {
@@ -485,7 +485,7 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-slate-200 px-5 py-6 space-y-4 shadow-2xl animate-in slide-in-from-top-4 duration-200 max-h-[85vh] overflow-y-auto">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-            Navigation Menu
+            {currentLocale === 'ar' ? 'قائمة التنقل' : currentLocale === 'de' ? 'Navigationsmenü' : currentLocale === 'fr' ? 'Menu de Navigation' : currentLocale === 'ru' ? 'Меню навигации' : 'Navigation Menu'}
           </div>
 
           <nav className="space-y-1 font-bold text-sm text-slate-800">

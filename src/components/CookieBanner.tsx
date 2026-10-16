@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/navigation';
 import { Cookie } from 'lucide-react';
 
 export default function CookieBanner() {
   const t = useTranslations('gdpr');
+  const locale = useLocale();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function CookieBanner() {
           <p className="text-slate-300 leading-relaxed">{t('cookieDesc')}</p>
           <div className="mt-2 text-[11px] text-slate-400">
             <Link href="/gdpr-policy" className="underline hover:text-sky-300">
-              Read GDPR & Privacy Policy
+              {locale === 'ar' ? 'قراءة سياسة الخصوصية وحماية البيانات (GDPR)' : locale === 'de' ? 'DSGVO & Datenschutzrichtlinie lesen' : locale === 'fr' ? 'Lire la Politique RGPD & Confidentialité' : locale === 'ru' ? 'Читать политику конфиденциальности GDPR' : 'Read GDPR & Privacy Policy'}
             </Link>
           </div>
         </div>

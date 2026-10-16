@@ -122,56 +122,58 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3">
                 <span className="text-xs font-bold text-white flex items-center gap-1.5 font-headline">
                   <span className="material-symbols-outlined text-teal-300 text-sm">zoom_in</span>
-                  <span>{locale === 'tr' ? 'Belgeyi Büyütmek İçin Tıklayın' : 'Click to View Full Certificate'}</span>
+                  <span>{locale === 'ar' ? 'انقر لتكبير الشهادة الرسمية' : locale === 'tr' ? 'Belgeyi Büyütmek İçin Tıklayın' : 'Click to View Full Certificate'}</span>
                 </span>
               </div>
             </div>
             <span className="text-[11px] font-mono text-slate-500">
-              {locale === 'tr' ? 'Sağlık Hizmetleri Genel Müdürlüğü Resmi Mührü' : 'Official Seal of General Directorate of Health Services'}
+              {locale === 'ar' ? 'الختم الرسمي للمديرية العامة للخدمات الصحية' : locale === 'tr' ? 'Sağlık Hizmetleri Genel Müdürlüğü Resmi Mührü' : 'Official Seal of General Directorate of Health Services'}
             </span>
           </div>
 
           <div className="lg:col-span-8 space-y-3.5">
             <div className="flex flex-wrap items-center gap-2">
               <span className="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold font-mono">
-                {locale === 'tr' ? '✓ ONAYLI DEVLET YETKİ BELGESİ' : '✓ VERIFIED GOVERNMENT LICENSURE'}
+                {locale === 'ar' ? '✓ ترخيص رسمي معتمد من الحكومة' : locale === 'tr' ? '✓ ONAYLI DEVLET YETKİ BELGESİ' : '✓ VERIFIED GOVERNMENT LICENSURE'}
               </span>
               <span className="px-2.5 py-1 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-bold font-mono">
-                USHAŞ &amp; HEALTHTÜRKİYE ACCREDITED
+                {locale === 'ar' ? 'اعتماد USHAŞ وسياحة تركيا الصحية' : 'USHAŞ & HEALTHTÜRKİYE ACCREDITED'}
               </span>
               <span className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-mono">
-                DECREE NO: 3359
+                {locale === 'ar' ? 'مرسوم رقم: 3359' : 'DECREE NO: 3359'}
               </span>
             </div>
 
             <h3 className="font-headline text-lg sm:text-xl font-black text-[#1b0d52]">
-              Dent Aktif International Oral &amp; Dental Hospital{' '}
+              {locale === 'ar' ? 'مستشفى دنت أكتيف الدولي لطب وجراحة الفم والأسنان' : 'Dent Aktif International Oral & Dental Hospital'}{' '}
               <span className="text-xs font-normal text-slate-500 block sm:inline">
                 (Özel Dentaktif Ağız ve Diş Sağlığı Polikliniği)
               </span>
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              {locale === 'tr'
+              {locale === 'ar'
+                ? 'هذه المنشأة الطبية معتمدة ومرخصة رسمياً من وزارة الصحة بالجمهورية التركية - المديرية العامة للخدمات الصحية لممارسة أنشطة السياحة العلاجية الدولية وفق أعلى المعايير القانونية والطبية.'
+                : locale === 'tr'
                 ? 'Bu sağlık tesisi, T.C. Sağlık Bakanlığı Sağlık Hizmetleri Genel Müdürlüğü tarafından Uluslararası Sağlık Turizmi ve Turistin Sağlığı Hakkında Yönetmelik kapsamında yetkilendirilmiştir.'
                 : 'This institution has been authorized by the Republic of Turkey Ministry of Health - General Directorate of Health Services to conduct international health tourism activities in full compliance with regulatory standards.'}
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs font-mono border-t border-slate-100">
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/60">
-                <span className="text-[10px] text-slate-400 block uppercase font-bold">{locale === 'tr' ? 'Belge Numarası' : 'Certificate Number'}</span>
+                <span className="text-[10px] text-slate-400 block uppercase font-bold">{locale === 'ar' ? 'رقم الوثيقة' : locale === 'tr' ? 'Belge Numarası' : 'Certificate Number'}</span>
                 <span className="font-bold text-slate-900 text-[11px] break-all">2026034015610080000425805</span>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/60">
-                <span className="text-[10px] text-slate-400 block uppercase font-bold">{locale === 'tr' ? 'Belge Barkodu' : 'Document Barcode'}</span>
+                <span className="text-[10px] text-slate-400 block uppercase font-bold">{locale === 'ar' ? 'باركود الوثيقة' : locale === 'tr' ? 'Belge Barkodu' : 'Document Barcode'}</span>
                 <span className="font-bold text-emerald-700 text-xs">305180775</span>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/60">
-                <span className="text-[10px] text-slate-400 block uppercase font-bold">{locale === 'tr' ? 'Düzenleme Tarihi' : 'Issue Date'}</span>
+                <span className="text-[10px] text-slate-400 block uppercase font-bold">{locale === 'ar' ? 'تاريخ الإصدار' : locale === 'tr' ? 'Düzenleme Tarihi' : 'Issue Date'}</span>
                 <span className="font-bold text-slate-900 text-xs">11.02.2026</span>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/60">
-                <span className="text-[10px] text-slate-400 block uppercase font-bold">{locale === 'tr' ? 'Mesul Müdür' : 'Medical Director'}</span>
+                <span className="text-[10px] text-slate-400 block uppercase font-bold">{locale === 'ar' ? 'المدير الطبي المسئول' : locale === 'tr' ? 'Mesul Müdür' : 'Medical Director'}</span>
                 <span className="font-bold text-slate-900 text-xs">Dt. Abdullah Ömür</span>
               </div>
             </div>
@@ -186,13 +188,15 @@ export default function ContactPage() {
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-md space-y-6">
             <div className="space-y-2">
               <span className="text-xs font-mono uppercase tracking-widest text-[#006972] font-extrabold">
-                {locale === 'tr' ? 'Doğrudan Başvuru Masası' : 'Direct Patient Submission'}
+                {locale === 'ar' ? 'مكتب استقبال المرضى المباشر' : locale === 'tr' ? 'Doğrudan Başvuru Masası' : 'Direct Patient Submission'}
               </span>
               <h2 className="font-headline text-2xl sm:text-3xl font-black text-[#1b0d52] tracking-tight">
                 {t('formTitle')}
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {locale === 'tr'
+                {locale === 'ar'
+                  ? 'أرسل بياناتك وسجلات أسنانك الطبية. سيقوم فريقنا الجراحي ومنسق المرضى بتحليل حالتك وإعداد عرض سعر تفصيلي خلال ساعتين.'
+                  : locale === 'tr'
                   ? 'Diş kayıtlarınızı ve iletişim bilgilerinizi iletin. Cerrahi ekibimiz vakanızı inceleyip 2 saat içinde detaylı teklifinizi hazırlasın.'
                   : 'Submit your details and dental history. Our surgical team and patient coordinator will analyze your case and provide an itemized quote within 2 hours.'}
               </p>
@@ -212,7 +216,7 @@ export default function ContactPage() {
                   onClick={() => setFormSubmitted(false)}
                   className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors"
                 >
-                  {locale === 'tr' ? 'Yeni Bir Başvuru Yap' : 'Submit Another Inquiry'}
+                  {locale === 'ar' ? 'تقديم استفسار جديد' : locale === 'tr' ? 'Yeni Bir Başvuru Yap' : 'Submit Another Inquiry'}
                 </button>
               </div>
             ) : (
@@ -302,10 +306,10 @@ export default function ContactPage() {
                       onChange={(e) => setPatientData({ ...patientData, arrivalMonth: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:outline-hidden focus:ring-2 focus:ring-teal-500 bg-slate-50/50"
                     >
-                      <option value="Next 14 Days">{locale === 'tr' ? 'Acil (14 Gün İçinde)' : 'Within 14 Days (Urgent)'}</option>
-                      <option value="Next 30 Days">{locale === 'tr' ? 'Önümüzdeki 30 Gün İçinde' : 'Within 30 Days'}</option>
-                      <option value="1 to 3 Months">{locale === 'tr' ? '1 ile 3 Ay Arasında' : 'In 1 to 3 Months'}</option>
-                      <option value="Planning Later">{locale === 'tr' ? 'Yalnızca Bilgi Alıyorum' : 'Just Exploring Options'}</option>
+                      <option value="Next 14 Days">{locale === 'ar' ? 'خلال 14 يوماً (عاجل)' : locale === 'tr' ? 'Acil (14 Gün İçinde)' : 'Within 14 Days (Urgent)'}</option>
+                      <option value="Next 30 Days">{locale === 'ar' ? 'خلال الـ 30 يوماً القادمة' : locale === 'tr' ? 'Önümüzdeki 30 Gün İçinde' : 'Within 30 Days'}</option>
+                      <option value="1 to 3 Months">{locale === 'ar' ? 'خلال 1 إلى 3 أشهر' : locale === 'tr' ? '1 ile 3 Ay Arasında' : 'In 1 to 3 Months'}</option>
+                      <option value="Planning Later">{locale === 'ar' ? 'أستكشف الخيارات فقط حالياً' : locale === 'tr' ? 'Yalnızca Bilgi Alıyorum' : 'Just Exploring Options'}</option>
                     </select>
                   </div>
                 </div>
@@ -316,7 +320,7 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     rows={3}
-                    placeholder={locale === 'tr' ? 'Mevcut diş şikayetiniz veya istediğiniz estetik değişim...' : 'Describe your current tooth condition, previous dental work, or specific requests...'}
+                    placeholder={locale === 'ar' ? 'اشرح حالة أسنانك الحالية، أو العلاجات السابقة، أو متطلباتك التجميلية الخاصة...' : locale === 'tr' ? 'Mevcut diş şikayetiniz veya istediğiniz estetik değişim...' : 'Describe your current tooth condition, previous dental work, or specific requests...'}
                     value={patientData.message}
                     onChange={(e) => setPatientData({ ...patientData, message: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:outline-hidden focus:ring-2 focus:ring-teal-500 bg-slate-50/50"
@@ -326,7 +330,7 @@ export default function ContactPage() {
                 <div className="p-3 rounded-xl bg-teal-50/80 border border-teal-200/80 flex items-start gap-2.5 text-xs text-teal-900">
                   <span className="material-symbols-outlined text-teal-600 text-lg shrink-0 mt-0.5">verified_user</span>
                   <div className="text-[11px] leading-relaxed">
-                    <strong>256-Bit TLS &amp; GDPR / KVKK:</strong> {locale === 'tr' ? 'Kayıtlarınız yalnızca lisanslı diş hekimlerimizce incelenir ve asla 3. taraflarla paylaşılmaz.' : 'Your diagnostic records are reviewed exclusively by registered dental surgeons under medical confidentiality. No spam.'}
+                    <strong>256-Bit TLS &amp; GDPR / KVKK:</strong> {locale === 'ar' ? 'تتم مراجعة سجلاتك التشخيصية حصرياً من قِبل جراحي الأسنان المرخصين تحت بند السرية الطبية التامة ولن يتم إرسال أي رسائل غير مرغوب فيها.' : locale === 'tr' ? 'Kayıtlarınız yalnızca lisanslı diş hekimlerimizce incelenir ve asla 3. taraflarla paylaşılmaz.' : 'Your diagnostic records are reviewed exclusively by registered dental surgeons under medical confidentiality. No spam.'}
                   </div>
                 </div>
 
@@ -346,7 +350,7 @@ export default function ContactPage() {
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-md space-y-4">
               <h3 className="font-headline text-lg font-black text-[#1b0d52] flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>{locale === 'tr' ? '7/24 Uluslararası İletişim Kanalları' : '24/7 International Contact Channels'}</span>
+                <span>{locale === 'ar' ? 'قنوات الاتصال الدولية على مدار الساعة 24/7' : locale === 'tr' ? '7/24 Uluslararası İletişim Kanalları' : '24/7 International Contact Channels'}</span>
               </h3>
 
               <div className="space-y-3 text-xs">
@@ -361,7 +365,7 @@ export default function ContactPage() {
                   <div>
                     <span className="text-[10px] text-slate-400 font-bold uppercase block">{t('phoneTitle')}</span>
                     <span className="font-bold text-sm text-[#1b0d52] font-mono">{t('phoneVal')}</span>
-                    <span className="text-[10px] text-slate-500 block mt-0.5">{locale === 'tr' ? 'Çok dilli koordinasyon (TR, EN, DE, FR, RU)' : 'Bilingual operators (EN, DE, FR, RU)'}</span>
+                    <span className="text-[10px] text-slate-500 block mt-0.5">{locale === 'ar' ? 'تنسيق المرضى بعدة لغات (العربية، EN, DE, FR, RU)' : locale === 'tr' ? 'Çok dilli koordinasyon (TR, EN, DE, FR, RU)' : 'Bilingual operators (EN, DE, FR, RU)'}</span>
                   </div>
                 </a>
 
@@ -376,9 +380,9 @@ export default function ContactPage() {
                     <span className="material-symbols-outlined text-[20px]">chat</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-emerald-800 font-bold uppercase block">{locale === 'tr' ? 'Hızlı WhatsApp Hekim Hattı' : 'Instant WhatsApp Doctor Desk'}</span>
+                    <span className="text-[10px] text-emerald-800 font-bold uppercase block">{locale === 'ar' ? 'مكتب أطباء واتساب الفوري' : locale === 'tr' ? 'Hızlı WhatsApp Hekim Hattı' : 'Instant WhatsApp Doctor Desk'}</span>
                     <span className="font-bold text-sm text-emerald-900 font-mono">+90 552 161 73 77</span>
-                    <span className="text-[10px] text-emerald-700 block mt-0.5">{locale === 'tr' ? 'Doğrudan röntgen ve fotoğraf danışması' : 'Direct photo & panoramic X-ray chat'}</span>
+                    <span className="text-[10px] text-emerald-700 block mt-0.5">{locale === 'ar' ? 'استشارة مباشرة للأشعة البانورامية وصور الأسنان' : locale === 'tr' ? 'Doğrudan röntgen ve fotoğraf danışması' : 'Direct photo & panoramic X-ray chat'}</span>
                   </div>
                 </a>
 
@@ -393,7 +397,7 @@ export default function ContactPage() {
                   <div>
                     <span className="text-[10px] text-slate-400 font-bold uppercase block">{t('emailTitle')}</span>
                     <span className="font-bold text-xs text-[#1b0d52] font-mono break-all">{t('emailVal')}</span>
-                    <span className="text-[10px] text-slate-500 block mt-0.5">{locale === 'tr' ? 'Resmi dijital vaka koordinasyonu' : 'Official digital case management'}</span>
+                    <span className="text-[10px] text-slate-500 block mt-0.5">{locale === 'ar' ? 'الإدارة الرسمية للحالات الرقمية الدولية' : locale === 'tr' ? 'Resmi dijital vaka koordinasyonu' : 'Official digital case management'}</span>
                   </div>
                 </a>
               </div>
@@ -403,14 +407,14 @@ export default function ContactPage() {
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-md space-y-4">
               <h3 className="font-headline text-lg font-black text-[#1b0d52] flex items-center gap-2">
                 <span className="material-symbols-outlined text-teal-600">location_on</span>
-                <span>{locale === 'tr' ? 'Hastane Konumu & Ulaşım Bilgisi' : 'Hospital Campus & Arrival Logistics'}</span>
+                <span>{locale === 'ar' ? 'مجمع المستشفى ومعلومات الوصول' : locale === 'tr' ? 'Hastane Konumu & Ulaşım Bilgisi' : 'Hospital Campus & Arrival Logistics'}</span>
               </h3>
 
               <div className="space-y-3 text-xs text-slate-600">
                 <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-1">
                   <span className="text-[10px] font-bold uppercase text-slate-400 block">{t('addressTitle')}</span>
                   <div className="font-bold text-slate-900">
-                    Dent Aktif International Hospital
+                    {locale === 'ar' ? 'مستشفى دنت أكتيف الدولي' : 'Dent Aktif International Hospital'}
                   </div>
                   <div className="text-[11px] text-slate-600 leading-snug">
                     {t('addressVal')}
@@ -427,12 +431,12 @@ export default function ContactPage() {
                 {/* Airport Transit Times */}
                 <div className="grid grid-cols-2 gap-2 text-center pt-1 font-mono">
                   <div className="p-2.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-900">
-                    <span className="text-[10px] text-teal-700 block font-bold">Istanbul Airport (IST)</span>
-                    <span className="font-bold text-xs">~28 Min Chauffeur</span>
+                    <span className="text-[10px] text-teal-700 block font-bold">{locale === 'ar' ? 'مطار إسطنبول (IST)' : 'Istanbul Airport (IST)'}</span>
+                    <span className="font-bold text-xs">{locale === 'ar' ? '~28 دقيقة مع سائق خاص' : '~28 Min Chauffeur'}</span>
                   </div>
                   <div className="p-2.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-900">
-                    <span className="text-[10px] text-teal-700 block font-bold">Sabiha Gökçen (SAW)</span>
-                    <span className="font-bold text-xs">~45 Min Chauffeur</span>
+                    <span className="text-[10px] text-teal-700 block font-bold">{locale === 'ar' ? 'مطار صبيحة كوكجن (SAW)' : 'Sabiha Gökçen (SAW)'}</span>
+                    <span className="font-bold text-xs">{locale === 'ar' ? '~45 دقيقة مع سائق خاص' : '~45 Min Chauffeur'}</span>
                   </div>
                 </div>
               </div>
@@ -453,7 +457,7 @@ export default function ContactPage() {
           >
             <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-4">
               <h3 className="font-headline font-bold text-slate-900 text-sm sm:text-base">
-                {locale === 'tr' ? 'T.C. Sağlık Bakanlığı Uluslararası Sağlık Turizmi Yetki Belgesi' : 'Republic of Turkey Ministry of Health Authorization Certificate'}
+                {locale === 'ar' ? 'شهادة ترخيص السياحة العلاجية الدولية من وزارة الصحة بالجمهورية التركية' : locale === 'tr' ? 'T.C. Sağlık Bakanlığı Uluslararası Sağlık Turizmi Yetki Belgesi' : 'Republic of Turkey Ministry of Health Authorization Certificate'}
               </h3>
               <button
                 type="button"

@@ -1,50 +1,98 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext.jsx';
 
 export default function JourneyTimeline() {
+  const { t, lang } = useLanguage();
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const steps = [
-    {
-      step: 1,
-      title: "1. Online Free Consultation & 3D Plan",
-      subtitle: "Step 1 - From Home",
-      icon: "📱",
-      description: "Send your teeth photos or X-Ray via our secure form. Our head dental surgeon evaluates your case and provides a detailed 3D digital smile design treatment plan & transparent quote within 2 hours.",
-      badge: "100% Free & No Obligation"
-    },
-    {
-      step: 2,
-      title: "2. VIP Airport Arrival & Luxury Transfer",
-      subtitle: "Step 2 - Welcome to Istanbul",
-      icon: "✈️",
-      description: "Arrive at Istanbul Airport (IST / SAW). Our private VIP chauffeur greets you at the gate and escorts you in a Mercedes V-Class to your 5-star ocean-view hotel partner.",
-      badge: "VIP Transfer Included"
-    },
-    {
-      step: 3,
-      title: "3. In-Person Consultation & 3D Scanning",
-      subtitle: "Step 3 - Day 1 at Clinic",
-      icon: "🦷",
-      description: "Visit Dent Aktif Clinic Global for high-resolution 3D Tomography (CBCT) and intraoral scanning. Review your mock-up smile in real-time with our specialist team.",
-      badge: "State-of-the-Art Technology"
-    },
-    {
-      step: 4,
-      title: "4. Painless Treatment & Micro-Aesthetics",
-      subtitle: "Step 4 - Days 2 to 4",
-      icon: "✨",
-      description: "Under pain-free local computer-controlled anesthesia or sedation, your veneers/implants are crafted using CAD/CAM milling in our in-house dental laboratory.",
-      badge: "Pain-Free Computerized Delivery"
-    },
-    {
-      step: 5,
-      title: "5. Final Fit, Warranty Certificate & Celebration",
-      subtitle: "Step 5 - Day 5 & Beyond",
-      icon: "👑",
-      description: "Walk out with your picture-perfect Hollywood Smile! Receive your international lifetime warranty certificate, aftercare kit, and VIP transfer back to the airport.",
-      badge: "Lifetime International Guarantee"
-    }
-  ];
+  const STEPS_BY_LANG = {
+    ar: [
+      {
+        step: 1,
+        title: "1. استشارة مجانية عبر الإنترنت وخطة 3D",
+        subtitle: "الخطوة 1 - من منزلك",
+        icon: "📱",
+        description: "أرسل صور أسنانك أو الأشعة البانورامية عبر نموذجنا الآمن. يقوم كبير جراحي الأسنان بتقييم حالتك وتقديم خطة تصميم ابتسامة رقمية ثلاثية الأبعاد وعرض سعر واضح خلال ساعتين.",
+        badge: "مجاني 100% وبدون أي التزام"
+      },
+      {
+        step: 2,
+        title: "2. وصول المطار واستقبال VIP فاخر",
+        subtitle: "الخطوة 2 - مرحباً بك في إسطنبول",
+        icon: "✈️",
+        description: "الوصول إلى مطار إسطنبول (IST / SAW). يستقبلك سائقنا الخاص بسيارة مرسيدس فيتو وينقلك مباشرة إلى الفندق الشريك 5 نجوم المطل على البحر.",
+        badge: "شامل التوصيل الخاص VIP"
+      },
+      {
+        step: 3,
+        title: "3. المعاينة السريرية والتصوير ثلاثي الأبعاد",
+        subtitle: "الخطوة 3 - اليوم الأول في المستشفى",
+        icon: "🦷",
+        description: "زيارة مستشفى دنت أكتيف لإجراء أشعة CBCT الحجمية عالية الدقة والمسح الضوئي داخل الفم. مراجعة نموذج الابتسامة الافتراضي مباشرة مع الطاقم الاستشاري.",
+        badge: "أحدث التقنيات الرقمية"
+      },
+      {
+        step: 4,
+        title: "4. علاج غير مؤلم ودقة جمالية مجهرية",
+        subtitle: "الخطوة 4 - الأيام من 2 إلى 4",
+        icon: "✨",
+        description: "تحت التخدير الحاسوبي الدقيق بدون ألم، يتم تصنيع قشورك أو زرعاتك باستخدام وحدات النحت الروبوتية CAD/CAM في مختبرنا الداخلي.",
+        badge: "تخدير حاسوبي بدون ألم"
+      },
+      {
+        step: 5,
+        title: "5. التثبيت النهائي، شهادة الضمان والتوديع",
+        subtitle: "الخطوة 5 - اليوم 5 وما بعده",
+        icon: "👑",
+        description: "اخرج بابتسامة هوليوود المتألقة! استلم شهادة الضمان الدولي مدى الحياة، وحقيبة العناية بعد العلاج، والتوصيل بسيارة VIP إلى المطار.",
+        badge: "ضمان دولي رسمي مدى الحياة"
+      }
+    ],
+    en: [
+      {
+        step: 1,
+        title: "1. Online Free Consultation & 3D Plan",
+        subtitle: "Step 1 - From Home",
+        icon: "📱",
+        description: "Send your teeth photos or X-Ray via our secure form. Our head dental surgeon evaluates your case and provides a detailed 3D digital smile design treatment plan & transparent quote within 2 hours.",
+        badge: "100% Free & No Obligation"
+      },
+      {
+        step: 2,
+        title: "2. VIP Airport Arrival & Luxury Transfer",
+        subtitle: "Step 2 - Welcome to Istanbul",
+        icon: "✈️",
+        description: "Arrive at Istanbul Airport (IST / SAW). Our private VIP chauffeur greets you at the gate and escorts you in a Mercedes V-Class to your 5-star ocean-view hotel partner.",
+        badge: "VIP Transfer Included"
+      },
+      {
+        step: 3,
+        title: "3. In-Person Consultation & 3D Scanning",
+        subtitle: "Step 3 - Day 1 at Clinic",
+        icon: "🦷",
+        description: "Visit Dent Aktif Clinic Global for high-resolution 3D Tomography (CBCT) and intraoral scanning. Review your mock-up smile in real-time with our specialist team.",
+        badge: "State-of-the-Art Technology"
+      },
+      {
+        step: 4,
+        title: "4. Painless Treatment & Micro-Aesthetics",
+        subtitle: "Step 4 - Days 2 to 4",
+        icon: "✨",
+        description: "Under pain-free local computer-controlled anesthesia or sedation, your veneers/implants are crafted using CAD/CAM milling in our in-house dental laboratory.",
+        badge: "Pain-Free Computerized Delivery"
+      },
+      {
+        step: 5,
+        title: "5. Final Fit, Warranty Certificate & Celebration",
+        subtitle: "Step 5 - Day 5 & Beyond",
+        icon: "👑",
+        description: "Walk out with your picture-perfect Hollywood Smile! Receive your international lifetime warranty certificate, aftercare kit, and VIP transfer back to the airport.",
+        badge: "Lifetime International Guarantee"
+      }
+    ]
+  };
+
+  const steps = STEPS_BY_LANG[lang] || STEPS_BY_LANG.en;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,12 +115,12 @@ export default function JourneyTimeline() {
     <section id="journey" className="section-padding" style={{ background: 'var(--bg-surface)' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-badge">Seamless 5-Step Process</span>
+          <span className="section-badge">{t('journeyBadge')}</span>
           <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', marginBottom: '1.25rem' }}>
-            Your 5-Day VIP Journey in Istanbul
+            {t('journeyTitle')}
           </h2>
           <p style={{ fontSize: '1.15rem' }}>
-            From your initial WhatsApp consultation to your flight home with a glowing new smile, every single detail is taken care of.
+            {t('journeyDesc')}
           </p>
         </div>
 

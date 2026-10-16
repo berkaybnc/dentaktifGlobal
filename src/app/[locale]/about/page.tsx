@@ -383,7 +383,7 @@ export default function AboutPage() {
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-mono font-bold text-teal-700 uppercase tracking-wider bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
-                    Official Recognition
+                    {locale === 'ar' ? 'اعتماد واعتراف رسمي' : locale === 'tr' ? 'Resmi Tanınırlık' : 'Official Recognition'}
                   </span>
                   <h3 className="font-headline font-bold text-sm sm:text-base text-[#1b0d52]">
                     {item.title}
