@@ -40,6 +40,19 @@ export interface DoctorDetailUi {
   otherDoctorsBadge: string;
   otherDoctorsTitle: string;
   viewProfile: string;
+  customProtocol: string;
+  professionalChronology: string;
+  careerTimelineTitle: string;
+  patientCareStandards: string;
+  philosophyPrinciplesTitle: string;
+  intlWarrantyTitle: string;
+  intlWarrantyDesc: string;
+  academicEducationTitle: string;
+  certificationsAssocTitle: string;
+  scientificMembershipsLabel: string;
+  officialCertificationsLabel: string;
+  faqSectionBadge: string;
+  viewFullBioBtn: string;
 }
 
 export const DOCTORS_OVERVIEW_I18N: Record<string, DoctorsOverviewUi> = {
@@ -147,6 +160,19 @@ export const DOCTOR_DETAIL_I18N: Record<string, DoctorDetailUi> = {
     otherDoctorsBadge: 'Multi-Disciplinary Team',
     otherDoctorsTitle: 'Meet Other Specialist Doctors',
     viewProfile: 'View Profile & Cases →',
+    customProtocol: 'Custom Clinical Protocol',
+    professionalChronology: 'Professional Chronology',
+    careerTimelineTitle: 'Career & Clinical Experience Timeline',
+    patientCareStandards: 'Patient Care Standards',
+    philosophyPrinciplesTitle: 'Clinical Philosophy & Treatment Principles',
+    intlWarrantyTitle: 'International Patient Warranty',
+    intlWarrantyDesc: 'All surgical and prosthetic restorations utilize certified, barcoded materials backed by international guarantee passports.',
+    academicEducationTitle: 'Academic Education & Medical Training',
+    certificationsAssocTitle: 'Certifications & Professional Associations',
+    scientificMembershipsLabel: 'Scientific & Professional Memberships:',
+    officialCertificationsLabel: 'Official Certifications:',
+    faqSectionBadge: 'Frequently Asked Questions',
+    viewFullBioBtn: 'View Full Biography',
   },
   tr: {
     breadcrumbHome: 'Ana Sayfa',
@@ -174,6 +200,19 @@ export const DOCTOR_DETAIL_I18N: Record<string, DoctorDetailUi> = {
     otherDoctorsBadge: 'Multidisipliner Kadro',
     otherDoctorsTitle: 'Diğer Uzman Hekimlerimizle Tanışın',
     viewProfile: 'Profili & Vakaları İncele →',
+    customProtocol: 'Özel Klinik Protokolü',
+    professionalChronology: 'Mesleki Kronoloji',
+    careerTimelineTitle: 'Kariyer & Klinik Deneyim Zaman Çizelgesi',
+    patientCareStandards: 'Hasta Bakım Standartları',
+    philosophyPrinciplesTitle: 'Klinik Felsefe & Tedavi İlkeleri',
+    intlWarrantyTitle: 'Uluslararası Hasta Garantisi',
+    intlWarrantyDesc: 'Tüm cerrahi ve protetik restorasyonlar, uluslararası garanti pasaportu ile desteklenen sertifikalı ve barkodlu malzemelerle uygulanır.',
+    academicEducationTitle: 'Akademik Eğitim & Uzmanlık',
+    certificationsAssocTitle: 'Sertifikalar & Mesleki Kuruluşlar',
+    scientificMembershipsLabel: 'Bilimsel ve Mesleki Üyelikler:',
+    officialCertificationsLabel: 'Resmi Sertifikalar:',
+    faqSectionBadge: 'Sıkça Sorulan Sorular',
+    viewFullBioBtn: 'Özgeçmişi İncele',
   },
   de: {
     breadcrumbHome: 'Startseite',
@@ -201,6 +240,19 @@ export const DOCTOR_DETAIL_I18N: Record<string, DoctorDetailUi> = {
     otherDoctorsBadge: 'Interdisziplinäres Team',
     otherDoctorsTitle: 'Weitere Fachärzte unseres Klinikteams',
     viewProfile: 'Profil ansehen →',
+    customProtocol: 'Individuelles klinisches Protokoll',
+    professionalChronology: 'Berufliche Chronologie',
+    careerTimelineTitle: 'Karriere- & Erfahrungszeitstrahl',
+    patientCareStandards: 'Patientenversorgungs-Standards',
+    philosophyPrinciplesTitle: 'Klinische Philosophie & Behandlungsprinzipien',
+    intlWarrantyTitle: 'Internationale Patientengarantie',
+    intlWarrantyDesc: 'Alle chirurgischen und prothetischen Versorgungen erfolgen mit zertifizierten Materialien und internationalem Garantiepass.',
+    academicEducationTitle: 'Akademische Ausbildung & Qualifikation',
+    certificationsAssocTitle: 'Zertifikate & Berufsverbände',
+    scientificMembershipsLabel: 'Wissenschaftliche Mitgliedschaften:',
+    officialCertificationsLabel: 'Offizielle Zertifikate:',
+    faqSectionBadge: 'Häufig Gestellte Fragen',
+    viewFullBioBtn: 'Vollständige Biografie ansehen',
   },
   ru: {
     breadcrumbHome: 'Главная',
@@ -228,6 +280,19 @@ export const DOCTOR_DETAIL_I18N: Record<string, DoctorDetailUi> = {
     otherDoctorsBadge: 'Коллегия специалистов',
     otherDoctorsTitle: 'Познакомьтесь с другими врачами клиники',
     viewProfile: 'Подробнее о враче →',
+    customProtocol: 'Специализированный клинический протокол',
+    professionalChronology: 'Профессиональная хронология',
+    careerTimelineTitle: 'Хронология карьеры и клинического опыта',
+    patientCareStandards: 'Стандарты обслуживания пациентов',
+    philosophyPrinciplesTitle: 'Философия лечения и клинические принципы',
+    intlWarrantyTitle: 'Международная гарантия пациента',
+    intlWarrantyDesc: 'Все хирургические и ортопедические конструкции изготавливаются из сертифицированных материалов с международным паспортом гарантии.',
+    academicEducationTitle: 'Образование и академическая подготовка',
+    certificationsAssocTitle: 'Сертификаты и профессиональные ассоциации',
+    scientificMembershipsLabel: 'Научные и профессиональные сообщества:',
+    officialCertificationsLabel: 'Официальные сертификаты:',
+    faqSectionBadge: 'Часто задаваемые вопросы',
+    viewFullBioBtn: 'Подробнее о враче',
   },
   fr: {
     breadcrumbHome: 'Accueil',
@@ -255,6 +320,19 @@ export const DOCTOR_DETAIL_I18N: Record<string, DoctorDetailUi> = {
     otherDoctorsBadge: 'Équipe Multidisciplinaire',
     otherDoctorsTitle: 'Découvrez Nos Autres Médecins Spécialistes',
     viewProfile: 'Consulter le Profil →',
+    customProtocol: 'Protocole Clinique Sur-Mesure',
+    professionalChronology: 'Chronologie Professionnelle',
+    careerTimelineTitle: 'Chronologie de Carrière & Expérience',
+    patientCareStandards: 'Normes de Prise en Charge',
+    philosophyPrinciplesTitle: 'Philosophie Clinique & Principes Thérapeutiques',
+    intlWarrantyTitle: 'Garantie Internationale du Patient',
+    intlWarrantyDesc: 'Toutes les restaurations chirurgicales et prothétiques s\'appuient sur des matériaux certifiés avec passeport de garantie international.',
+    academicEducationTitle: 'Formation Académique & Médicale',
+    certificationsAssocTitle: 'Certifications & Ordres Professionnels',
+    scientificMembershipsLabel: 'Affiliations Scientifiques & Professionnelles :',
+    officialCertificationsLabel: 'Certifications Officielles :',
+    faqSectionBadge: 'Foire Aux Questions',
+    viewFullBioBtn: 'Voir la Biographie Complète',
   },
 };
 

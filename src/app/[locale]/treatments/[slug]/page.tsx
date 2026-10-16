@@ -60,7 +60,7 @@ export default function TreatmentDetailPage({
                 <span>{data.icon}</span>
                 <span>{data.badge}</span>
                 <span className="text-slate-300">•</span>
-                <span className="text-secondary font-mono">Ministry Auth #4892</span>
+                <span className="text-secondary font-mono">{ui.ministryAuth || 'Ministry Auth #4892'}</span>
               </div>
 
               <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b0d52] tracking-tight leading-tight">
@@ -86,7 +86,7 @@ export default function TreatmentDetailPage({
                   href="/contact"
                   className="px-5 py-3.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 text-xs font-bold uppercase tracking-wider shadow-xs transition-all text-center"
                 >
-                  Contact Clinic Desk
+                  {ui.contactDesk || 'Contact Clinic Desk'}
                 </Link>
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function TreatmentDetailPage({
                 <div className="flex justify-between items-center py-1 border-b border-white/5">
                   <span className="text-slate-300">🚘 {ui.vitoTransfer}</span>
                   <strong className="text-emerald-300">
-                    {toothCount >= 6 ? ui.vitoIncluded : 'Partner Rate'}
+                    {toothCount >= 6 ? ui.vitoIncluded : (ui.partnerRate || 'Partner Rate')}
                   </strong>
                 </div>
 
@@ -155,7 +155,7 @@ export default function TreatmentDetailPage({
                   href="/#consultation-wizard"
                   className="w-full py-3 rounded-xl bg-white text-[#1b0d52] font-black text-xs uppercase tracking-wider text-center block shadow-md hover:bg-slate-100 transition-all"
                 >
-                  Confirm Free Estimate & Diagnosis →
+                  {ui.confirmEstimate || 'Confirm Free Estimate & Diagnosis →'}
                 </Link>
               </div>
             </div>
@@ -173,13 +173,13 @@ export default function TreatmentDetailPage({
             <div className="text-white space-y-2 max-w-2xl">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/25 backdrop-blur-md border border-teal-400/40 text-teal-300 text-xs font-bold">
                 <span className="material-symbols-outlined text-[16px]">verified</span>
-                <span>Dent Aktif Hospital • Official Operatory Suite</span>
+                <span>{ui.suiteBadge || 'Dent Aktif Hospital • Official Operatory Suite'}</span>
               </div>
               <h3 className="font-headline text-xl sm:text-3xl font-black text-white">
-                {data.name} — Clinical Documentation & Surgical Suite
+                {data.name} — {ui.suiteTitle || 'Clinical Documentation & Surgical Suite'}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                Conducted under surgical magnification with genuine manufacturer warranty passports in Levent, Istanbul.
+                {ui.suiteDesc || 'Conducted under surgical magnification with genuine manufacturer warranty passports in Levent, Istanbul.'}
               </p>
             </div>
           </div>
@@ -200,11 +200,11 @@ export default function TreatmentDetailPage({
 
             <div className="grid grid-cols-2 gap-4 pt-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Anesthesia & Sedation</span>
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">{ui.anesthesiaLabel || 'Anesthesia & Sedation'}</span>
                 <span className="font-bold text-slate-900 mt-0.5 block">{data.anesthesia}</span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Certified Materials</span>
+                <span className="text-slate-400 block text-[10px] uppercase font-bold">{ui.materialLabel || 'Certified Materials'}</span>
                 <span className="font-bold text-slate-900 mt-0.5 block">{data.material}</span>
               </div>
             </div>
@@ -212,7 +212,7 @@ export default function TreatmentDetailPage({
 
           <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200 p-7 sm:p-8 space-y-4">
             <span className="text-[11px] font-mono uppercase tracking-wider font-extrabold text-secondary">
-              Clinical Advantages
+              {ui.advantagesBadge || 'Clinical Advantages'}
             </span>
             <h3 className="font-headline text-xl font-black text-[#1b0d52]">
               {ui.keyHighlights}
@@ -358,7 +358,7 @@ export default function TreatmentDetailPage({
               href="/treatments"
               className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider transition-all"
             >
-              ← All Other Treatments
+              {ui.allOtherTreatments || '← All Other Treatments'}
             </Link>
           </div>
         </section>

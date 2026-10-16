@@ -129,7 +129,7 @@ export default function TreatmentsOverviewPage() {
                       <span>{treatment.duration}</span>
                     </span>
                     <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                      VIP Hotel Included
+                      {treatmentsData.ui.hotelIncluded ? `VIP ${treatmentsData.ui.hotelStay?.replace(':', '') || 'Hotel'} ${treatmentsData.ui.hotelIncluded}` : 'VIP Hotel Included'}
                     </span>
                   </div>
 
@@ -187,7 +187,7 @@ export default function TreatmentsOverviewPage() {
               href="/contact"
               className="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-white/30 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider text-center transition-all"
             >
-              Contact Medical Desk
+              {treatmentsData.ui.contactDesk || 'Contact Medical Desk'}
             </Link>
           </div>
         </div>

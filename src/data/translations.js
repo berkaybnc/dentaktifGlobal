@@ -1,6 +1,5 @@
 export const languages = [
   { code: 'en', flag: '🇬🇧', label: 'English' },
-  { code: 'tr', flag: '🇹🇷', label: 'Türkçe' },
   { code: 'de', flag: '🇩🇪', label: 'Deutsch' },
   { code: 'ru', flag: '🇷🇺', label: 'Русский' },
   { code: 'fr', flag: '🇫🇷', label: 'Français' },

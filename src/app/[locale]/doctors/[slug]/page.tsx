@@ -14,13 +14,13 @@ export default function DoctorDetailPage({
 }) {
   const locale = useLocale();
   const ui = getDoctorDetailUi(locale);
-  const doctor = getDoctorDetail(slug);
+  const doctor = getDoctorDetail(slug, locale);
 
   if (!doctor) {
     notFound();
   }
 
-  const otherDoctors = getDoctorsList().filter((d) => d.id !== doctor.id);
+  const otherDoctors = getDoctorsList(locale).filter((d) => d.id !== doctor.id);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const toggleFaq = (idx: number) => {
@@ -196,7 +196,7 @@ export default function DoctorDetailPage({
 
               <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] font-bold text-[#006972]">
                 <span className="material-symbols-outlined text-sm">verified</span>
-                <span>Custom Clinical Protocol</span>
+                <span>{ui.customProtocol}</span>
               </div>
             </div>
           ))}
@@ -210,10 +210,10 @@ export default function DoctorDetailPage({
           <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-xs">
             <div className="border-b border-slate-100 pb-4">
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                {ui.timelineBadge}
+                {ui.professionalChronology}
               </span>
               <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#1b0d52] mt-1">
-                {ui.timelineTitle}
+                {ui.careerTimelineTitle}
               </h3>
             </div>
 
@@ -246,10 +246,10 @@ export default function DoctorDetailPage({
           <div className="lg:col-span-5 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-xs">
             <div className="border-b border-slate-100 pb-4">
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                {ui.philosophyBadge}
+                {ui.patientCareStandards}
               </span>
               <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#1b0d52] mt-1">
-                {ui.philosophyTitle}
+                {ui.philosophyPrinciplesTitle}
               </h3>
             </div>
 
@@ -271,10 +271,10 @@ export default function DoctorDetailPage({
 
             <div className="p-4 rounded-2xl bg-[#1b0d52] text-white space-y-2">
               <h5 className="font-headline text-xs font-bold uppercase tracking-wider text-teal-300">
-                International Patient Warranty
+                {ui.intlWarrantyTitle}
               </h5>
               <p className="text-xs text-slate-200 leading-relaxed">
-                All surgical and prosthetic restorations utilize certified, barcoded materials backed by international guarantee passports.
+                {ui.intlWarrantyDesc}
               </p>
             </div>
           </div>
@@ -287,7 +287,7 @@ export default function DoctorDetailPage({
           {/* Education & Academic History (6 cols) */}
           <div className="lg:col-span-6 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-5 shadow-xs">
             <h3 className="font-headline text-lg sm:text-xl font-bold text-[#1b0d52] border-b border-slate-100 pb-3 flex items-center justify-between">
-              <span>{ui.timelineTitle}</span>
+              <span>{ui.academicEducationTitle}</span>
               <span className="material-symbols-outlined text-slate-400">school</span>
             </h3>
 
@@ -318,14 +318,14 @@ export default function DoctorDetailPage({
           {/* Accreditations & Scientific Memberships (6 cols) */}
           <div className="lg:col-span-6 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-5 shadow-xs">
             <h3 className="font-headline text-lg sm:text-xl font-bold text-[#1b0d52] border-b border-slate-100 pb-3 flex items-center justify-between">
-              <span>{ui.certificationsTitle}</span>
+              <span>{ui.certificationsAssocTitle}</span>
               <span className="material-symbols-outlined text-slate-400">workspace_premium</span>
             </h3>
 
             <div className="space-y-4">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">
-                  {ui.membershipsTitle}:
+                  {ui.scientificMembershipsLabel}
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {doctor.scientificMemberships.map((membership, idx) => (
@@ -341,7 +341,7 @@ export default function DoctorDetailPage({
 
               <div className="pt-2">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2">
-                  {ui.certificationsBadge}:
+                  {ui.officialCertificationsLabel}
                 </span>
                 <div className="space-y-2">
                   {doctor.certifications.map((cert, idx) => (
@@ -366,7 +366,7 @@ export default function DoctorDetailPage({
           <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-xs space-y-6">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                {ui.faqBadge}
+                {ui.faqSectionBadge}
               </span>
               <h3 className="font-headline text-xl sm:text-2xl font-bold text-[#1b0d52] mt-1">
                 {ui.faqTitle.replace('{name}', doctor.name)}
@@ -444,7 +444,7 @@ export default function DoctorDetailPage({
                       href={`/doctors/${other.id}`}
                       className="text-xs font-bold text-[#006972] hover:text-[#1b0d52] flex items-center justify-between group-hover:translate-x-1 transition-all"
                     >
-                      <span>{ui.viewProfile}</span>
+                      <span>{ui.viewFullBioBtn}</span>
                       <span>→</span>
                     </Link>
                   </div>
