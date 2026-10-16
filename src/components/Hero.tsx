@@ -41,6 +41,13 @@ const FLIP_WORDS_BY_LOCALE: Record<string, string[]> = {
     'Monolithic Zirconia Crowns',
     'Full-Mouth Rehabilitation',
   ],
+  ar: [
+    'تصميم ابتسامة هوليوود',
+    'زرعات Straumann® السويسرية',
+    'قشور Ivoclar E-Max® الخزفية',
+    'تيجان الزيركون المتجانس',
+    'إعادة تأهيل الفك والأسنان بالكامل',
+  ],
 };
 
 // Lightweight dynamic number counter component with easeOut Quartic interpolation
@@ -103,7 +110,9 @@ export default function Hero() {
 
   const flipWords = FLIP_WORDS_BY_LOCALE[locale] || FLIP_WORDS_BY_LOCALE['en'];
 
-  const accreditationText = locale === 'tr'
+  const accreditationText = locale === 'ar'
+    ? 'مستشفى مرخص ومعتمد من وزارة الصحة التركية و USHAŞ'
+    : locale === 'tr'
     ? 'T.C. Sağlık Bakanlığı ve USHAŞ Yetkili Hastane'
     : locale === 'de'
     ? 'Lizenziert durch das türkische Gesundheitsministerium'
@@ -113,7 +122,9 @@ export default function Hero() {
     ? 'Agréé par le Ministère de la Santé & USHAŞ'
     : 'Ministry of Health & USHAŞ Licensed Hospital';
 
-  const subBadgeText = locale === 'tr'
+  const subBadgeText = locale === 'ar'
+    ? '✦ ابتسامات مخصصة يدوياً خلال 5 أيام فقط'
+    : locale === 'tr'
     ? '✦ Sadece 5 Günde El İşçiliği Özel Gülüşler'
     : locale === 'de'
     ? '✦ Handgefertigtes Lächeln in nur 5 Tagen'
@@ -123,7 +134,9 @@ export default function Hero() {
     ? '✦ Sourires sur mesure en seulement 5 jours'
     : '✦ Handcrafted Smiles in Just 5 Days';
 
-  const hospitalLocationText = locale === 'tr'
+  const hospitalLocationText = locale === 'ar'
+    ? 'مستشفى جراحة الأسنان في ليفنت، إسطنبول'
+    : locale === 'tr'
     ? 'Levent Cerrahi Diş Hastanesi, İstanbul'
     : locale === 'de'
     ? 'Levent Chirurgische Klinik, Istanbul'
@@ -133,7 +146,9 @@ export default function Hero() {
     ? 'Hôpital Chirurgical de Levent, Istanbul'
     : 'Levent Surgical Hospital, Istanbul';
 
-  const reviewsLabel = locale === 'tr'
+  const reviewsLabel = locale === 'ar'
+    ? 'تقييم مريض معتمد'
+    : locale === 'tr'
     ? 'Doğrulanmış Hasta Yorumu'
     : locale === 'de'
     ? 'Verifizierte Patientenbewertungen'
@@ -143,7 +158,9 @@ export default function Hero() {
     ? 'Avis Patients Vérifiés'
     : 'Verified Patient Reviews';
 
-  const countriesLabel = locale === 'tr'
+  const countriesLabel = locale === 'ar'
+    ? 'مرضى من أكثر من 48 دولة'
+    : locale === 'tr'
     ? '48+ Farklı Ülkeden Hasta'
     : locale === 'de'
     ? 'Patienten aus über 48 Ländern'

@@ -267,6 +267,56 @@ const TREATMENTS_BY_LOCALE: Record<string, TreatmentPlan[]> = {
       ctaText: 'Demander la Spécification Zircone',
     },
   ],
+  ar: [
+    {
+      id: 'veneers',
+      badge: 'الخيار التجميلي الأكثر طلباً',
+      title: 'تجميل الابتسامة (قشور E-Max®)',
+      subtitle: 'ترميم تجميلي طفيف التوغل',
+      techniqueHighlight: 'برد مجهري 0.3 مم وتجربة حية مباشرة مع كبير فناني الخزف',
+      techniques: [
+        'تصميم الابتسامة الرقمي 3D DSD بما ينسجم تماماً مع ملامح الوجه',
+        'بروتوكول تحفظي للغاية يحافظ على مينا الأسنان ببرد 0.3 مم فقط',
+        'تدرج لوني فائق الشفافية يتم تشكيله وصقله على كرسي العلاج',
+        'قشور IPS e.max® الأصلية من Ivoclar Vivadent مع شهادة أصالة',
+      ],
+      ukEuropeBenchmark: 'العيادات الخاصة في أوروبا والمملكة المتحدة: £15,000 – £18,500',
+      advantage: 'توفير مباشر يصل إلى ~72% مع باقة الضيافة الفاخرة VIP الشاملة كلياً',
+      ctaText: 'طلب المخطط التجميلي للقشور',
+    },
+    {
+      id: 'implants',
+      badge: 'التميز الجراحي المتقدم',
+      title: 'إعادة التأهيل الجراحي All-on-4 / All-on-6',
+      subtitle: 'جسر ثابت متكامل ملتحم بالعظم للفك بالكامل',
+      techniqueHighlight: 'جراحة ملاحة ثلاثية الأبعاد 3D موجهة بالحاسوب بدون شق جراحي',
+      techniques: [
+        'تخطيط عظمي مقطعي عالي الدقة 3D CBCT قبل الجراحة لقياس كثافة العظم',
+        'جراحة بدون شق موجهة بالكمبيوتر لتعافي سريع جداً بدون تورم',
+        'زرعات Straumann® SLA السويسرية الأصلية مع جواز سفر عالمي مدى الحياة',
+        'تحميل فوري لأسنان ثابتة ومؤقتة في نفس اليوم (وظيفة مضغ فورية)',
+      ],
+      ukEuropeBenchmark: 'العيادات الخاصة في أوروبا والمملكة المتحدة: £14,000 – £19,000',
+      advantage: 'توفير مباشر يصل إلى ~70% مع جناح إقامة واستشفاء فاخر',
+      ctaText: 'استشارة مع كبير جراحي الزرع',
+    },
+    {
+      id: 'zirconia',
+      badge: 'أقصى درجات الصلابة والمتانة',
+      title: 'تيجان الزيركون المتجانس CAD/CAM',
+      subtitle: 'ترميم كامل عالي القوة ومتوافق حيوياً بنسبة 100%',
+      techniqueHighlight: 'نحت روبوتي خماسي المحاور بدقة 15 ميكرون وتقنية الطبقات المتعددة',
+      techniques: [
+        'كتل Katana™ الألمانية متعددة الطبقات بتدرج لوني طبيعي يحاكي الضوء',
+        'تحديد الحواف بالليزر تحت خط اللثة لمنع حدوث أي انحسار لثوي',
+        'خالٍ تماماً من المعادن — متوافق حيوياً 100% ومضاد للتحسس',
+        'مطابقة وتلميع الخزف داخل مختبرنا بالمستشفى لنفاذية ضوئية حيوية',
+      ],
+      ukEuropeBenchmark: 'العيادات الخاصة في أوروبا والمملكة المتحدة: £14,500 – £18,000',
+      advantage: 'توفير مباشر يصل إلى ~74% مع الفندق والسائق الخاص مشمولين بالكامل',
+      ctaText: 'طلب خطة مواصفات الزيركون',
+    },
+  ],
 };
 
 const AMENITIES_BY_LOCALE: Record<string, Array<{ icon: string; title: string; desc: string }>> = {
@@ -300,6 +350,12 @@ const AMENITIES_BY_LOCALE: Record<string, Array<{ icon: string; title: string; d
     { icon: 'translate', title: 'Coordinateur Médical Francophone', desc: 'Assistance dédiée dans votre langue 24h/24' },
     { icon: 'verified_user', title: 'Diagnostic 3D & Passeport Garantie', desc: 'Scanner CBCT 3D, kit de soins et garantie internationale' },
   ],
+  ar: [
+    { icon: 'hotel', title: 'فندق شريك فاخر 5 نجوم', desc: 'إقامة 4-5 ليالٍ في منطقة ليفنت / البوسفور' },
+    { icon: 'airport_shuttle', title: 'سائق خاص وسيارة مرسيدس فيتو VIP', desc: 'المطار (IST/SAW) ↔ الفندق ↔ المستشفى' },
+    { icon: 'translate', title: 'منسق طبي شخصي مخصص', desc: 'دعم ورعاية للمرضى باللغة العربية والإنجليزية 24/7' },
+    { icon: 'verified_user', title: 'فحوصات وتشخيص 3D شامل', desc: 'أشعة CBCT مقطعية، باقة الأدوية وجواز سفر الضمان' },
+  ],
 };
 
 export default function PriceTable() {
@@ -315,6 +371,7 @@ export default function PriceTable() {
     de: 'Was unser klinisches Protokoll beinhaltet:',
     ru: 'Что включает наш клинический протокол:',
     fr: 'Ce que comprend notre protocole clinique :',
+    ar: 'ما تتضمنه باقة البروتوكول السريري في المستشفى:',
   }[locale] || 'What Our Clinical Protocol Includes:';
 
   const hospitalProtocolTag = {
@@ -323,6 +380,7 @@ export default function PriceTable() {
     de: 'Klinikprotokoll',
     ru: 'Протокол клиники',
     fr: 'Protocole Hospitalier',
+    ar: 'بروتوكول المستشفى',
   }[locale] || 'Hospital Protocol';
 
   const keyTechLabel = {
@@ -331,6 +389,7 @@ export default function PriceTable() {
     de: 'Wesentliche chirurgische / labortechnische Methode:',
     ru: 'Ключевая хирургическая / лабораторная методика:',
     fr: 'Technique Chirurgicale / Laboratoire Clé :',
+    ar: 'التقنية الجراحية والمخبرية الرئيسية:',
   }[locale] || 'Key Surgical / Lab Technique:';
 
   const wizardBtnLabel = {
@@ -339,6 +398,7 @@ export default function PriceTable() {
     de: 'Oder nutzen Sie unser 3-Schritte-Online-Formular',
     ru: 'Или воспользуйтесь нашей 3-этапной онлайн-формой',
     fr: 'Ou utilisez notre formulaire en 3 étapes',
+    ar: 'أو استخدم نموذجنا الإلكتروني في 3 خطوات',
   }[locale] || 'Or use our 3-Step Online Form';
 
   return (

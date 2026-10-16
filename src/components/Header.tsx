@@ -10,6 +10,7 @@ const LANGUAGES: Array<{ code: Locale; label: string; flag: string; title: strin
   { code: 'de', label: 'DE', flag: '🇩🇪', title: 'Deutsch' },
   { code: 'ru', label: 'RU', flag: '🇷🇺', title: 'Русский' },
   { code: 'fr', label: 'FR', flag: '🇫🇷', title: 'Français' },
+  { code: 'ar', label: 'AR', flag: '🇸🇦', title: 'العربية' },
 ];
 
 const TREATMENT_LABELS: Record<string, Record<string, string>> = {
@@ -19,6 +20,7 @@ const TREATMENT_LABELS: Record<string, Record<string, string>> = {
     de: 'Ästhetische Zahnheilkunde',
     ru: 'Эстетическая стоматология',
     fr: 'Dentisterie Esthétique',
+    ar: 'طب الأسنان التجميلي',
   },
   'hollywood-smile': {
     en: 'Hollywood Smile',
@@ -26,6 +28,7 @@ const TREATMENT_LABELS: Record<string, Record<string, string>> = {
     de: 'Hollywood Smile',
     ru: 'Голливудская улыбка',
     fr: 'Hollywood Smile',
+    ar: 'ابتسامة هوليوود',
   },
   'dental-veneers': {
     en: 'Dental Zirconium Veneers',
@@ -33,13 +36,15 @@ const TREATMENT_LABELS: Record<string, Record<string, string>> = {
     de: 'Zirkon Veneers',
     ru: 'Циркониевые виниры',
     fr: 'Facettes Zircone',
+    ar: 'قشور الزيركون التجميلية',
   },
   'dental-crowns': {
     en: 'Dental Crowns',
     tr: 'Diş Kuronları',
     de: 'Zahnkronen',
-    ru: 'Зубные коронки',
+    ru: 'Зуبные коронки',
     fr: 'Couronnes Dentaires',
+    ar: 'تيجان الأسنان',
   },
   'dental-implants': {
     en: 'Dental Implants',
@@ -47,6 +52,7 @@ const TREATMENT_LABELS: Record<string, Record<string, string>> = {
     de: 'Zahnimplantate',
     ru: 'Зубные импланты',
     fr: 'Implants Dentaires',
+    ar: 'زراعة الأسنان',
   },
   'root-canal': {
     en: 'Root Canal Treatment',
@@ -54,6 +60,7 @@ const TREATMENT_LABELS: Record<string, Record<string, string>> = {
     de: 'Wurzelkanalbehandlung',
     ru: 'Лечение каналов',
     fr: 'Traitement de Canal',
+    ar: 'علاج جذور الأسنان',
   },
 };
 

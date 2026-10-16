@@ -46,6 +46,7 @@ export async function generateMetadata({
         de: `${baseUrl}/de`,
         fr: `${baseUrl}/fr`,
         ru: `${baseUrl}/ru`,
+        ar: `${baseUrl}/ar`,
       },
     },
     openGraph: {
@@ -74,7 +75,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`scroll-smooth ${plusJakartaSans.variable} ${manrope.variable}`}>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`scroll-smooth ${plusJakartaSans.variable} ${manrope.variable}`}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

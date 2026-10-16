@@ -12,6 +12,7 @@ const FOOTER_TREATMENTS: Record<string, Record<string, string>> = {
     de: 'Ästhetische Zahnheilkunde',
     ru: 'Эстетическая стоматология',
     fr: 'Dentisterie Esthétique',
+    ar: 'طب الأسنان التجميلي',
   },
   'hollywood-smile': {
     en: 'Hollywood Smile',
@@ -19,6 +20,7 @@ const FOOTER_TREATMENTS: Record<string, Record<string, string>> = {
     de: 'Hollywood Smile',
     ru: 'Голливудская улыбка',
     fr: 'Hollywood Smile',
+    ar: 'ابتسامة هوليوود',
   },
   'dental-veneers': {
     en: 'Dental Zirconium Veneers',
@@ -26,6 +28,7 @@ const FOOTER_TREATMENTS: Record<string, Record<string, string>> = {
     de: 'Zirkon Veneers',
     ru: 'Циркониевые виниры',
     fr: 'Facettes Zircone',
+    ar: 'قشور الزيركون التجميلية',
   },
   'dental-crowns': {
     en: 'Dental Crowns',
@@ -33,6 +36,7 @@ const FOOTER_TREATMENTS: Record<string, Record<string, string>> = {
     de: 'Zahnkronen',
     ru: 'Зубные коронки',
     fr: 'Couronnes Dentaires',
+    ar: 'تيجان الأسنان',
   },
   'dental-implants': {
     en: 'Dental Implants',
@@ -40,6 +44,7 @@ const FOOTER_TREATMENTS: Record<string, Record<string, string>> = {
     de: 'Zahnimplantate',
     ru: 'Зубные импланты',
     fr: 'Implants Dentaires',
+    ar: 'زراعة الأسنان',
   },
   'root-canal': {
     en: 'Root Canal Treatment',
@@ -47,6 +52,7 @@ const FOOTER_TREATMENTS: Record<string, Record<string, string>> = {
     de: 'Wurzelkanalbehandlung',
     ru: 'Лечение каналов',
     fr: 'Traitement de Canal',
+    ar: 'علاج جذور الأسنان',
   },
 };
 
@@ -222,7 +228,7 @@ export default function Footer() {
               </div>
               <div className="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5 pl-1">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                <span>Ministry Licensed</span>
+                <span>{locale === 'ar' ? 'مرخص من وزارة الصحة' : 'Ministry Licensed'}</span>
               </div>
             </div>
           </div>
@@ -231,7 +237,7 @@ export default function Footer() {
           <div className="lg:col-span-3 space-y-2.5">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
-              {locale === 'tr' ? 'Tedavilerimiz' : locale === 'de' ? 'Unsere Behandlungen' : locale === 'ru' ? 'Наши услуги' : locale === 'fr' ? 'Nos Traitements' : 'Our Treatments'}
+              {locale === 'ar' ? 'علاجاتنا' : locale === 'tr' ? 'Tedavilerimiz' : locale === 'de' ? 'Unsere Behandlungen' : locale === 'ru' ? 'Наши услуги' : locale === 'fr' ? 'Nos Traitements' : 'Our Treatments'}
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
               <ul className="space-y-1.5">
@@ -265,14 +271,16 @@ export default function Footer() {
           <div className="lg:col-span-3 space-y-2.5">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
-              {locale === 'tr' ? 'Klinik İletişim' : locale === 'de' ? 'Klinik-Kontakt' : locale === 'ru' ? 'Контакты клиники' : locale === 'fr' ? 'Contact Clinique' : 'Hospital Contact'}
+              {locale === 'ar' ? 'اتصل بالمستشفى' : locale === 'tr' ? 'Klinik İletişim' : locale === 'de' ? 'Klinik-Kontakt' : locale === 'ru' ? 'Контакты клиники' : locale === 'fr' ? 'Contact Clinique' : 'Hospital Contact'}
             </h4>
             <div className="space-y-2 text-xs text-slate-300">
               {/* Address */}
               <div className="flex items-start gap-2">
                 <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">location_on</span>
                 <div className="text-[11px] leading-snug">
-                  <span className="font-bold text-white block">Dent Aktif Surgical Suites</span>
+                  <span className="font-bold text-white block">
+                    {locale === 'ar' ? 'أجنحة دنت أكتيف الجراحية' : 'Dent Aktif Surgical Suites'}
+                  </span>
                   {t('address')}
                 </div>
               </div>
@@ -281,7 +289,9 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">call</span>
                 <div className="text-[11px] leading-snug">
-                  <span className="font-bold text-white block">Hotline &amp; WhatsApp:</span>
+                  <span className="font-bold text-white block">
+                    {locale === 'ar' ? 'الخط الساخن وواتساب:' : 'Hotline & WhatsApp:'}
+                  </span>
                   <a href="tel:+905521617377" className="text-[#2BA598] hover:text-white transition-colors underline font-semibold">
                     {t('phone')}
                   </a>
@@ -292,7 +302,9 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">mail</span>
                 <div className="text-[11px] leading-snug">
-                  <span className="font-bold text-white block">Clinical Advisory:</span>
+                  <span className="font-bold text-white block">
+                    {locale === 'ar' ? 'الاستشارات السريرية:' : 'Clinical Advisory:'}
+                  </span>
                   <a href="mailto:international@dentaktifglobal.com" className="text-[#2BA598] hover:text-white transition-colors underline">
                     {t('email')}
                   </a>
@@ -305,10 +317,10 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-2.5">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
-              {locale === 'tr' ? 'Resmi Kanallar' : locale === 'de' ? 'Offizielle Kanäle' : locale === 'ru' ? 'Официальные каналы' : locale === 'fr' ? 'Canaux Officiels' : 'Official Channels'}
+              {locale === 'ar' ? 'القنوات الرسمية' : locale === 'tr' ? 'Resmi Kanallar' : locale === 'de' ? 'Offizielle Kanäle' : locale === 'ru' ? 'Официальные каналы' : locale === 'fr' ? 'Canaux Officiels' : 'Official Channels'}
             </h4>
             <p className="text-[11px] text-slate-300">
-              {locale === 'tr' ? 'Uluslararası hasta koordinasyonu:' : locale === 'de' ? 'Internationaler Patientenservice:' : locale === 'ru' ? 'Международный отдел пациентов:' : locale === 'fr' ? 'Conciergerie internationale :' : 'International clinical concierge:'}
+              {locale === 'ar' ? 'تنسيق المرضى الدوليين:' : locale === 'tr' ? 'Uluslararası hasta koordinasyonu:' : locale === 'de' ? 'Internationaler Patientenservice:' : locale === 'ru' ? 'Международный отдел пациентов:' : locale === 'fr' ? 'Conciergerie internationale :' : 'International clinical concierge:'}
             </p>
             <div className="pt-0.5">
               <SocialDock />

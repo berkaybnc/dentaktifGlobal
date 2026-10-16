@@ -3,6 +3,7 @@ export const languages = [
   { code: 'de', flag: '🇩🇪', label: 'Deutsch' },
   { code: 'ru', flag: '🇷🇺', label: 'Русский' },
   { code: 'fr', flag: '🇫🇷', label: 'Français' },
+  { code: 'ar', flag: '🇸🇦', label: 'العربية' },
 ];
 
 
@@ -400,6 +401,85 @@ export const translations = {
     footerQuickLinks: 'Liens Rapides',
     footerContactClinic: 'Contacter la Clinique',
     footerCopyright: '© 2026 Dent Aktif Clinic Global. Tous droits réservés. L’excellence dans chaque détail.'
+  },
+
+  ar: {
+    // Navbar
+    navHome: 'الرئيسية',
+    navTreatments: 'العلاجات',
+    navBlog: 'المدونة',
+    navContact: 'اتصل بنا',
+    navConsultationBtn: 'استشارة أونلاين',
+
+    // Treatments dropdown
+    treatAesthetic: 'طب الأسنان التجميلي',
+    treatAestheticDesc: 'تجميل الابتسامة والتبييض بالليزر',
+    treatHollywood: 'ابتسامة هوليوود',
+    treatHollywoodDesc: 'تحول كامل للابتسامة بـ E-Max',
+    treatVeneers: 'قشور الزيركون التجميلية',
+    treatVeneersDesc: 'فينير خزفي فائق المتانة',
+    treatCrowns: 'تيجان الأسنان',
+    treatCrownsDesc: 'تيجان زيركون وخزف مخصصة',
+    treatImplants: 'زراعة الأسنان',
+    treatImplantsDesc: 'زرعات Straumann® السويسرية الدائمة',
+    treatRootCanal: 'علاج جذور الأسنان',
+    treatRootCanalDesc: 'علاج مجهري بدون ألم',
+
+    // Hero3D
+    heroTagline: '✨ سياحة الأسنان الفاخرة في إسطنبول',
+    heroTitlePart1: 'حيث تبدأ الابتسامات المشرقة و ',
+    heroTitlePart2: 'تدوم الثقة مدى الحياة',
+    heroDesc: 'يجمع مستشفى دنت أكتيف بين تصميم الابتسامة الرقمي، وزرعات Straumann® السويسرية، وتيجان E-Max® فائقة الشفافية لتجديد ابتسامتك خلال 5 أيام فقط في إسطنبول.',
+    heroCtaConsultation: '🚀 احجز استشارة مجانية',
+    heroCtaExplore: '👁️ استعرض أكثر من 500 نتيجة',
+    heroStat1Val: '+50,000',
+    heroStat1Label: 'إجراء سريري ناجح',
+    heroStat2Val: '+20',
+    heroStat2Label: 'عاماً من الخبرة',
+    heroStat3Val: 'مدى الحياة',
+    heroStat3Label: 'ضمان رسمي موثق',
+    heroVideoBadge: '🎥 محاكاة 3D لحركة الابتسامة السريرية',
+    heroHdVideo: '🎬 فيديو عالي الدقة HD',
+    heroTransparent: '⬛ شفاف',
+    heroWhiteBlend: '⬜ خلفية بيضاء',
+    heroAnatomicalMotion: '🦷 حركة تشريحية فائقة الدقة',
+    heroOriginalClinic: '⚙️ مستشفى دنت أكتيف الأصلي',
+    heroDoctorName: 'د. محمد يلماز',
+    heroDoctorRole: 'كبير الجراحين • الرسوم المتحركة الرقمية للأسنان',
+    heroLifetimeWarranty: 'ضمان مدى الحياة',
+
+    // Trust Marquee
+    trustStraumann: 'شريك معتمد لـ Straumann® السويسرية',
+    trustEmax: 'معتمد لمنتجات Ivoclar E-Max®',
+    trustIso: 'مستشفى معتمد بمعيار ISO 9001:2015',
+    trustMinistry: 'مرخص من وزارة الصحة التركية',
+    trustVipTransfer: 'سائق خاص وتوصيل VIP بمرسيدس فيتو',
+    trustHotel: 'إقامة فاخرة بفندق 5 نجوم على البوسفور',
+
+    // CTA Banner
+    ctaBadge: '✨ رد سريع ومضمون خلال ساعتين',
+    ctaTitle: 'هل أنت مستعد لبدء رحلة ابتسامة هوليوود؟',
+    ctaDesc: 'أرسل صور أسنانك أو الأشعة البانورامية عبر الإنترنت. احصل على خطة علاجية 3D مخصصة وعرض سعر شفاف من أطبائنا الاستشاريين.',
+    ctaStartBtn: '🚀 بدء نموذج الاستشارة المجانية',
+    ctaWhatsappBtn: '💬 تحدث معنا عبر واتساب',
+
+    // Before/After
+    baBadge: 'نتائج سريرية حقيقية',
+    baTitle: 'تحولات الابتسامة',
+    baDesc: 'حرك الشريط لمشاهدة النتائج قبل وبعد العلاج في مستشفى دنت أكتيف في إسطنبول.',
+    baBefore: 'قبل',
+    baAfter: 'بعد',
+
+    // Journey
+    journeyBadge: 'تجربة VIP فاخرة بدون قلق',
+    journeyTitle: 'رحلتك العلاجية في 5 خطوات في إسطنبول',
+    journeyDesc: 'من الاستشارة الأولى وحتى التوصيل VIP والمغادرة بابتسامة متألقة.',
+
+    // Footer
+    footerDesc: 'المركز الرائد لسياحة الأسنان الدولية. معتمد ومرخص من وزارة الصحة التركية.',
+    footerQuickLinks: 'روابط سريعة',
+    footerContactClinic: 'اتصل بالمستشفى',
+    footerCopyright: '© 2026 مستشفى دنت أكتيف الدولي. جميع الحقوق محفوظة. التميز في كل تفصيل.'
   }
 };
 

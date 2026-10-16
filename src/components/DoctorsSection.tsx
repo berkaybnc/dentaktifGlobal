@@ -8,7 +8,7 @@ import { getDoctorsList } from '@/data/doctorsData';
 export default function DoctorsSection() {
   const t = useTranslations('doctorsSection');
   const locale = useLocale();
-  const doctors = getDoctorsList();
+  const doctors = getDoctorsList(locale);
 
   const labels = {
     en: {
@@ -45,6 +45,13 @@ export default function DoctorsSection() {
       trustTitle: 'Corps Médical Hospitalier Permanent',
       trustDesc: 'Tous les actes chirurgicaux et prothétiques sont réalisés par nos chirurgiens-dentistes titulaires.',
       ctaBtn: 'Démarrer la Consultation Gratuite',
+    },
+    ar: {
+      focus: 'التخصصات والاهتمامات السريرية:',
+      profileBtn: 'السيرة الذاتية الكاملة والبروتوكولات ←',
+      trustTitle: 'الكادر الطبي الدائم في المستشفى',
+      trustDesc: 'تُجرى كافة الإجراءات الجراحية والتعويضية والتجميلية حصرياً على يد أطبائنا الاستشاريين المرخصين.',
+      ctaBtn: 'بدء الاستشارة المجانية',
     },
   }[locale] || {
     focus: 'Key Clinical Focus:',

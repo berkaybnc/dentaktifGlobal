@@ -136,6 +136,24 @@ const LOCALIZED_UI = {
     certifiedHighlights: 'Sertifikalı Klinik Avantajlar',
     frequentlyAsked: 'Sıkça Sorulan Sorular',
   },
+  ar: {
+    sectionBadge: 'علاجات متخصصة • أفضل 3 خيارات للمرضى',
+    sectionTitle: 'علاجات الأسنان الأكثر طلباً في مستشفانا',
+    sectionDesc: 'يختارها أكثر من 85% من المرضى الدوليين القادمين إلى مستشفانا في إسطنبول لتجميل الابتسامة وزراعة الأسنان الدقيقة.',
+    stayLabel: 'مدة الإقامة:',
+    vipHotel: 'فندق 5★ VIP مشمول',
+    viewDetails: 'عرض تفاصيل الإجراء والخطة 3D ←',
+    contactUs: 'تواصل معنا',
+    viewAllButton: 'مقارنة كافة خيارات العلاج الـ 6 ←',
+    loadingText: 'جاري تحميل بيانات العلاج...',
+    tab1Label: '✨ 1. النظرة العامة والنتائج',
+    tab2Label: '📋 2. بروتوكول الخطوات الـ 3',
+    tab3Label: '🔬 3. المواد والأسئلة الشائعة',
+    specMaterial: 'معيار المواد',
+    specAnesthesia: 'الراحة والتخدير',
+    certifiedHighlights: 'المزايا السريرية المعتمدة',
+    frequentlyAsked: 'الأسئلة الشائعة',
+  },
 };
 
 export default function TreatmentsSection() {
@@ -191,13 +209,16 @@ export default function TreatmentsSection() {
           {/* 1. Left Sidebar Navigation Tabs */}
           <div className="lg:w-80 shrink-0 flex flex-col gap-2.5 p-2 sm:p-3 rounded-2xl bg-slate-100/90 border border-slate-200 backdrop-blur-md">
             <div className="px-3 pt-1 pb-2 hidden lg:flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-slate-500 font-bold border-b border-slate-200/60">
-              <span>Flagship Departments</span>
-              <span className="text-teal-700">Top 3</span>
+              <span>{locale === 'ar' ? 'الأقسام الرئيسية' : locale === 'tr' ? 'Öncelikli Bölümler' : locale === 'de' ? 'Hauptabteilungen' : locale === 'ru' ? 'Главные направления' : locale === 'fr' ? 'Départements Clés' : 'Flagship Departments'}</span>
+              <span className="text-teal-700">{locale === 'ar' ? 'أفضل 3' : 'Top 3'}</span>
             </div>
 
             {TOP_TREATMENTS_CONFIG.map((tab) => {
               const item = itemsDict[tab.id];
               const isSelected = activeTabId === tab.id;
+              const badgeText = locale === 'ar'
+                ? (tab.id === 'hollywood-smile' ? '✨ الأكثر طلباً • إقامة 5 أيام' : tab.id === 'dental-implants' ? '🏆 زرعات Straumann® • ضمان مدى الحياة' : '🌟 زيركون ألماس +1200 ميجاباسكال')
+                : tab.badgeText;
 
               return (
                 <button
@@ -227,7 +248,7 @@ export default function TreatmentsSection() {
                           isSelected ? 'text-teal-200 font-bold' : 'text-slate-500'
                         }`}
                       >
-                        {tab.badgeText}
+                        {badgeText}
                       </div>
                     </div>
                   </div>
@@ -262,7 +283,7 @@ export default function TreatmentsSection() {
                 </span>
               </Link>
               <div className="px-1 text-[11px] text-slate-500 leading-tight">
-                Explore Aesthetic Dentistry, Dental Crowns &amp; Root Canal
+                {locale === 'ar' ? 'استكشف طب الأسنان التجميلي، التيجان، وعلاج الجذور' : 'Explore Aesthetic Dentistry, Dental Crowns & Root Canal'}
               </div>
             </div>
           </div>
@@ -346,7 +367,7 @@ export default function TreatmentsSection() {
                       {/* Bottom Badge: Stay & Sessions */}
                       <div className="absolute bottom-3 left-3 right-3 text-white">
                         <span className="text-[11px] font-mono font-bold text-teal-300 block">
-                          ⏱️ Stay: {activeTreatment.stay}
+                          ⏱️ {ui.stayLabel} {activeTreatment.stay}
                         </span>
                       </div>
                     </div>
@@ -389,7 +410,9 @@ export default function TreatmentsSection() {
                         <span className="material-symbols-outlined text-base">check_circle</span>
                         <span>{ui.certifiedHighlights}</span>
                       </span>
-                      <span className="text-slate-400 font-normal">Section 1 of 3</span>
+                      <span className="text-slate-400 font-normal">
+                        {locale === 'ar' ? 'القسم 1 من 3' : 'Section 1 of 3'}
+                      </span>
                     </div>
 
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700">
@@ -429,7 +452,7 @@ export default function TreatmentsSection() {
 
                       <div className="absolute bottom-3 left-3 right-3 text-white">
                         <span className="text-[11px] font-mono font-bold text-teal-300 block">
-                          🏥 In-House Surgical &amp; Lab Suite
+                          {locale === 'ar' ? '🏥 أجنحة الجراحة والمختبر الداخلي' : '🏥 In-House Surgical & Lab Suite'}
                         </span>
                       </div>
                     </div>
@@ -438,11 +461,11 @@ export default function TreatmentsSection() {
                     <div className="lg:col-span-7 space-y-3">
                       <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#006972]">
                         <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-                        <span>3-Step Hospital Clinical Timeline</span>
+                        <span>{locale === 'ar' ? 'الجدول السريري في المستشفى في 3 خطوات' : '3-Step Hospital Clinical Timeline'}</span>
                       </div>
 
                       <h3 className="font-headline text-xl sm:text-2xl font-black text-[#1b0d52] leading-tight">
-                        Your Treatment Steps for {activeTreatment.name}
+                        {locale === 'ar' ? `خطوات العلاج لـ ${activeTreatment.name}` : `Your Treatment Steps for ${activeTreatment.name}`}
                       </h3>
 
                       <div className="space-y-2.5 pt-1">
@@ -474,7 +497,7 @@ export default function TreatmentsSection() {
                       <span className="material-symbols-outlined text-teal-600">medical_services</span>
                       <span>
                         <strong className="text-[#1b0d52]">{ui.specAnesthesia}:</strong>{' '}
-                        {activeTreatment.anesthesia || 'Painless Computer-Controlled Anesthesia'}
+                        {activeTreatment.anesthesia || (locale === 'ar' ? 'تخدير حاسوبي بدون ألم' : 'Painless Computer-Controlled Anesthesia')}
                       </span>
                     </div>
 
@@ -506,12 +529,12 @@ export default function TreatmentsSection() {
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
 
                       <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-[#1b0d52] shadow-md border border-slate-200">
-                        {activeTreatment.name} • Materials
+                        {activeTreatment.name} • {locale === 'ar' ? 'المواد' : 'Materials'}
                       </div>
 
                       <div className="absolute bottom-3 left-3 right-3 text-white">
                         <span className="text-[11px] font-mono font-bold text-teal-300 block">
-                          🔬 Certified Genuine Ingot / Implant Alloy
+                          {locale === 'ar' ? '🔬 سبيكة زرع / سيراميك أصلية معتمدة' : '🔬 Certified Genuine Ingot / Implant Alloy'}
                         </span>
                       </div>
                     </div>
@@ -520,11 +543,11 @@ export default function TreatmentsSection() {
                     <div className="lg:col-span-7 space-y-3">
                       <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#006972]">
                         <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-                        <span>Materials &amp; Clinical Knowledge</span>
+                        <span>{locale === 'ar' ? 'المواد والمعرفة السريرية' : 'Materials & Clinical Knowledge'}</span>
                       </div>
 
                       <h3 className="font-headline text-xl sm:text-2xl font-black text-[#1b0d52] leading-tight">
-                        Certified Specifications for {activeTreatment.name}
+                        {locale === 'ar' ? `المواصفات المعتمدة لـ ${activeTreatment.name}` : `Certified Specifications for ${activeTreatment.name}`}
                       </h3>
 
                       {/* Material Spec Card */}
@@ -533,7 +556,7 @@ export default function TreatmentsSection() {
                           {ui.specMaterial}:
                         </strong>
                         <span className="leading-relaxed font-medium">
-                          {activeTreatment.material || 'Genuine European / Swiss Medical Standard'}
+                          {activeTreatment.material || (locale === 'ar' ? 'معيار طبي أوروبي / سويسري أصلي' : 'Genuine European / Swiss Medical Standard')}
                         </span>
                       </div>
 
@@ -545,7 +568,7 @@ export default function TreatmentsSection() {
                         {(activeTreatment.faq || []).map((faqItem: any, fIdx: number) => (
                           <div key={fIdx} className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs space-y-1">
                             <strong className="text-[#1b0d52] block font-bold leading-tight">
-                              Q: {faqItem.q}
+                              {locale === 'ar' ? 'س:' : 'Q:'} {faqItem.q}
                             </strong>
                             <p className="text-slate-600 text-[11px] leading-relaxed">
                               {faqItem.a}
@@ -560,10 +583,10 @@ export default function TreatmentsSection() {
                   <div className="bg-[#FAFBFC] border border-slate-200/80 rounded-2xl p-4 sm:p-5 flex items-center justify-between text-xs text-slate-600">
                     <span className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-emerald-600 text-base">verified_user</span>
-                      <span>Ministry of Health &amp; USHAŞ Certified Health Tourism Center</span>
+                      <span>{locale === 'ar' ? 'مركز سياحة صحية مرخص ومعتمد من وزارة الصحة التركية و USHAŞ' : 'Ministry of Health & USHAŞ Certified Health Tourism Center'}</span>
                     </span>
                     <span className="font-mono text-[11px] text-slate-500 font-bold hidden sm:inline">
-                      Official Manufacturer Barcode Provided
+                      {locale === 'ar' ? 'تسليم باركود رسمي موثق من المصنع' : 'Official Manufacturer Barcode Provided'}
                     </span>
                   </div>
                 </div>

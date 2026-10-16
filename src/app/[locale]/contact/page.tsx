@@ -15,7 +15,7 @@ export default function ContactPage() {
     fullName: '',
     email: '',
     phone: '',
-    country: locale === 'tr' ? 'Türkiye' : locale === 'de' ? 'Deutschland' : locale === 'fr' ? 'France' : locale === 'ru' ? 'Россия' : 'United Kingdom',
+    country: locale === 'ar' ? 'المملكة العربية السعودية' : locale === 'de' ? 'Deutschland' : locale === 'fr' ? 'France' : locale === 'ru' ? 'Россия' : 'United Kingdom',
     arrivalMonth: 'Next 30 Days',
     message: '',
   });
@@ -27,13 +27,6 @@ export default function ContactPage() {
       { val: 'Full Mouth Monolithic Zirconia', label: 'Monolithic Katana™ Zirconia Bridges' },
       { val: 'Single / Multi Dental Implants', label: 'Single / Multi Dental Implants' },
       { val: 'General Smile Renovation', label: 'General Smile Renovation & Surgery' },
-    ],
-    tr: [
-      { val: 'All-on-4 / Full Arch Implants', label: 'All-on-4 / All-on-6 İmplant (Straumann®)' },
-      { val: 'Hollywood Smile (E-Max Veneers)', label: 'Hollywood Smile (E-Max® Lamine Porselen)' },
-      { val: 'Full Mouth Monolithic Zirconia', label: 'Katana™ Monolitik Zirkonyum Köprü' },
-      { val: 'Single / Multi Dental Implants', label: 'Tek / Çoklu Diş İmplantı' },
-      { val: 'General Smile Renovation', label: 'Genel Gülüş Tasarımı & Cerrahi' },
     ],
     de: [
       { val: 'All-on-4 / Full Arch Implants', label: 'All-on-4 / All-on-6 Implantate (Straumann®)' },
@@ -55,6 +48,13 @@ export default function ContactPage() {
       { val: 'Full Mouth Monolithic Zirconia', label: 'Bridges Monolithiques Zircone Katana™' },
       { val: 'Single / Multi Dental Implants', label: 'Implants Unitaires / Multiples' },
       { val: 'General Smile Renovation', label: 'Rénovation Esthétique Complète' },
+    ],
+    ar: [
+      { val: 'All-on-4 / Full Arch Implants', label: 'زراعة كامل الفك All-on-4 / All-on-6 (Straumann®)' },
+      { val: 'Hollywood Smile (E-Max Veneers)', label: 'ابتسامة هوليوود (قشور E-Max® الأصلية)' },
+      { val: 'Full Mouth Monolithic Zirconia', label: 'جسور زيركون Katana™ المتجانسة' },
+      { val: 'Single / Multi Dental Implants', label: 'زرعات الأسنان المفردة أو المتعددة' },
+      { val: 'General Smile Renovation', label: 'تجديد شامل للابتسامة والجراحة' },
     ],
   }[locale] || [
     { val: 'All-on-4 / Full Arch Implants', label: 'All-on-4 / All-on-6 Implants (Straumann®)' },
