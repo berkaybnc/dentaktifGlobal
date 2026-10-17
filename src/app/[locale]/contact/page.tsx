@@ -115,7 +115,7 @@ export default function ContactPage() {
               className="relative w-full max-w-[280px] rounded-2xl overflow-hidden border-2 border-teal-500/40 shadow-lg cursor-pointer group bg-slate-950 aspect-4/3 flex items-center justify-center"
             >
               <img
-                src="/images/health-tourism-certificate.png"
+                src="/images/health-tourism-certificate.webp"
                 alt="Health Tourism Authorization Certificate"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
               />
@@ -469,7 +469,7 @@ export default function ContactPage() {
             </div>
             <div className="w-full max-h-[75vh] overflow-y-auto flex items-center justify-center bg-slate-950 rounded-2xl p-2">
               <img
-                src="/images/health-tourism-certificate.png"
+                src="/images/health-tourism-certificate.webp"
                 alt="Health Tourism Certificate"
                 className="w-full h-auto object-contain rounded-xl"
               />
