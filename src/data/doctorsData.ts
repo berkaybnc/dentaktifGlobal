@@ -3205,9 +3205,13 @@ export const DOCTORS_DATA_BY_LOCALE: Record<string, Record<string, DoctorDetail>
   ar: AR_DOCTORS,
 };
 
+export const DOCTOR_ORDER = ['abdullah-omur', 'busra-tomo', 'berru-savur', 'berfin-savur'];
+
 export function getDoctorsList(lang = 'en'): DoctorDetail[] {
   const safeLang = DOCTORS_DATA_BY_LOCALE[lang] ? lang : 'en';
-  return Object.values(DOCTORS_DATA_BY_LOCALE[safeLang]);
+  const doctorsMap = DOCTORS_DATA_BY_LOCALE[safeLang];
+  if (!doctorsMap) return [];
+  return DOCTOR_ORDER.map((id) => doctorsMap[id]).filter(Boolean);
 }
 
 export function getDoctorDetail(id: string, lang = 'en'): DoctorDetail | undefined {
