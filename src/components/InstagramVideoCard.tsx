@@ -11,33 +11,34 @@ interface Props {
 export default function InstagramVideoCard({ reel, locale }: Props) {
   const title = reel.title[locale] || reel.title.en;
   const caption = reel.caption[locale] || reel.caption.en;
-  const doctorRole = reel.doctorRole[locale] || reel.doctorRole.en;
+  const topicLabel = reel.doctorRole[locale] || reel.doctorRole.en;
 
   return (
     <div className="bg-white rounded-3xl border border-slate-200/90 shadow-md shadow-slate-200/50 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-teal-400 group">
-      {/* 1. Video Player Container
-          - Uses 9:16 aspect ratio (standard Instagram Reel ratio)
-          - iframe scaled slightly (scale-105) to eliminate Instagram's letterboxing/pillarboxing black bars
+      {/* 1. Clean Video Player Container
+          - overflow-hidden with black backdrop
+          - iframe precision-scaled & centered to crop out:
+            a) Top Instagram profile header
+            b) Left & right black pillarbox bars
+            c) Bottom unclickable like/comment/save buttons
       */}
-      <div className="relative w-full aspect-[9/16] bg-slate-900 overflow-hidden flex items-center justify-center">
+      <div className="relative w-full aspect-[9/13.5] bg-black overflow-hidden rounded-t-3xl">
         <iframe
           src={`${reel.embedUrl}?autoplay=0`}
-          className="w-full h-full border-0 scale-[1.04] origin-center"
+          className="absolute w-[138%] h-[134%] -left-[19%] -top-[52px] border-0 pointer-events-auto"
           allowFullScreen
           scrolling="no"
           title={title}
         />
       </div>
 
-      {/* 2. Clean Clinical Context & Caption Card */}
+      {/* 2. Content & Accurate Instagram Caption */}
       <div className="p-5 flex-1 flex flex-col justify-between space-y-4 bg-white">
-        <div className="space-y-2">
-          {/* Doctor Badge */}
-          <div className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold">
-            <span className="material-symbols-outlined text-[15px] text-teal-600">verified</span>
-            <span className="text-slate-900 font-bold">{reel.doctor}</span>
-            <span>•</span>
-            <span className="text-[11px] text-slate-500">{doctorRole}</span>
+        <div className="space-y-2.5">
+          {/* Topic Badge (Doctor names completely removed) */}
+          <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200/60 w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+            <span>{topicLabel}</span>
           </div>
 
           {/* Video Title */}
@@ -45,7 +46,7 @@ export default function InstagramVideoCard({ reel, locale }: Props) {
             {title}
           </h3>
 
-          {/* Video Description */}
+          {/* Real Instagram Description */}
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             {caption}
           </p>
