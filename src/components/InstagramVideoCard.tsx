@@ -15,17 +15,21 @@ export default function InstagramVideoCard({ reel, locale }: Props) {
 
   return (
     <div className="bg-white rounded-3xl border border-slate-200/90 shadow-md shadow-slate-200/50 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-teal-400 group">
-      {/* 1. Clean Video Player Container
-          - overflow-hidden with black backdrop
-          - iframe precision-scaled & centered to crop out:
-            a) Top Instagram profile header
-            b) Left & right black pillarbox bars
-            c) Bottom unclickable like/comment/save buttons
+      {/* 1. Clean Edge-to-Edge Video Player Container
+          - Uses aspect-[9/16] native Reel aspect ratio
+          - transform: scale(1.48) with origin 50% 42% zooms directly into the video pixels,
+            pushing all side black bars, top header, and bottom like/comment icons completely off-screen
       */}
-      <div className="relative w-full aspect-[9/13.5] bg-black overflow-hidden rounded-t-3xl">
+      <div className="relative w-full aspect-[9/16] bg-slate-100 overflow-hidden rounded-t-3xl">
         <iframe
           src={`${reel.embedUrl}?autoplay=0`}
-          className="absolute w-[138%] h-[134%] -left-[19%] -top-[52px] border-0 pointer-events-auto"
+          className="w-full h-full border-0 pointer-events-auto"
+          style={{
+            transform: 'scale(1.48)',
+            transformOrigin: '50% 42%',
+            width: '100%',
+            height: '100%',
+          }}
           allowFullScreen
           scrolling="no"
           title={title}
