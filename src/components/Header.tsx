@@ -423,18 +423,7 @@ export default function Header() {
             <span className="whitespace-nowrap">{t('ctaQuote')}</span>
           </a>
 
-          {/* Compact icon button on mobile screens */}
-          <a
-            className={`sm:hidden inline-flex items-center justify-center w-9 h-9 rounded-xl shadow-md active:scale-95 text-xs font-bold ${
-              isTransparent
-                ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-[#0d072b]'
-                : 'bg-gradient-to-r from-[#211164] to-[#006972] text-white'
-            }`}
-            href="#consultation-wizard"
-            title={t('ctaQuote')}
-          >
-            +
-          </a>
+
 
           {/* Mobile menu toggle */}
           <button
