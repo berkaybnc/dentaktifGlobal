@@ -321,9 +321,9 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="w-full min-h-screen bg-[#FAFBFC] text-slate-800 pt-28 pb-20">
+    <div className="w-full min-h-screen bg-[#FAFBFC] text-slate-800 pb-20">
       {/* 1. Header & Breadcrumb Hero */}
-      <section className="relative w-full bg-gradient-to-b from-[#1b0d52] via-[#211164] to-[#120733] text-white py-14 sm:py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="relative w-full bg-gradient-to-b from-[#1b0d52] via-[#211164] to-[#120733] text-white py-12 sm:py-20 px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#2BA598_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-[#006972]/20 blur-3xl pointer-events-none" />
 
@@ -334,14 +334,14 @@ export default function AboutPage() {
             <span className="text-white">{data.breadcrumbAbout}</span>
           </nav>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-teal-400/30 text-teal-200 text-xs font-bold font-mono">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-white/10 border border-teal-400/30 text-teal-200 text-xs font-bold font-mono">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
             <span>{data.badge}</span>
-            <span className="text-white/40">•</span>
-            <span>Cert No: 2026034015610080000425805</span>
+            <span className="hidden sm:inline text-white/40">•</span>
+            <span className="text-teal-300/90 text-[11px] sm:text-xs">Cert No: 2026034015610080000425805</span>
           </div>
 
-          <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl">
+          <h1 className="font-headline text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl">
             {data.heroTitle}
           </h1>
 
@@ -507,6 +507,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
