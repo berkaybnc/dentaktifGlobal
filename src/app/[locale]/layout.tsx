@@ -51,6 +51,14 @@ export async function generateMetadata({
         ar: `${baseUrl}/ar`,
       },
     },
+    icons: {
+      icon: [
+        { url: '/favicon.ico' },
+        { url: '/icon.png', type: 'image/png' },
+      ],
+      shortcut: '/favicon.ico',
+      apple: '/icon.png',
+    },
     openGraph: {
       title: 'Dent Aktif Global • International Oral & Dental Hospital | Levent, Istanbul',
       description:
