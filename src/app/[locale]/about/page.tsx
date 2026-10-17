@@ -301,7 +301,7 @@ export default function AboutPage() {
       title: data.acc1Title,
       subtitle: data.acc1Sub,
       cert: data.acc1Cert,
-      logo: '/images/saglikBakanligi.png',
+      logo: '/images/saglikBakanligi.webp',
       alt: 'Ministry of Health Turkey Emblem',
     },
     {

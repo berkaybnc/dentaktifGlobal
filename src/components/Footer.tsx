@@ -201,7 +201,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-3">
             <Link href="/" className="inline-block group">
               <img
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="DentAktif Global"
                 className="h-9 sm:h-10 w-auto object-contain brightness-0 invert transition-transform group-hover:scale-105"
               />
@@ -214,7 +214,7 @@ export default function Footer() {
             <div className="pt-1 flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-md shrink-0">
                 <img
-                  src="/images/saglikBakanligi.png"
+                  src="/images/saglikBakanligi.webp"
                   alt="Republic of Turkey Ministry of Health"
                   className="w-full h-full object-contain"
                 />

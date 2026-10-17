@@ -180,7 +180,7 @@ export default function Header() {
         <Link className="flex items-center gap-3 shrink-0 group py-1" href="/">
           <div className="flex items-center relative">
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="DentAktif Oral & Dental Hospital"
               className={`h-9 sm:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
                 isTransparent ? 'brightness-0 invert' : ''
