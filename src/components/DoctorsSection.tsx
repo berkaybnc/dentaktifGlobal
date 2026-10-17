@@ -94,21 +94,6 @@ export default function DoctorsSection() {
                   decoding="async"
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
-
-                {/* Verified Badge */}
-                <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-xs font-bold text-[#211164] flex items-center gap-1 shadow-sm">
-                  <span className="material-symbols-outlined text-sm text-emerald-600">verified</span>
-                  <span>{doctor.treatedCases}</span>
-                </div>
-
-                {/* Subtle Gradient Shadow at Bottom of Image */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-teal-300 font-extrabold block">
-                    {doctor.experience}
-                  </span>
-                </div>
               </div>
 
               {/* Doctor Details Body */}

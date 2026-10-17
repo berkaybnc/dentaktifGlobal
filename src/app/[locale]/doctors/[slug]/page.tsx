@@ -50,28 +50,27 @@ export default function DoctorDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left Column: Doctor Portrait & Quick Badges */}
             <div className="lg:col-span-5 flex flex-col items-center sm:items-start space-y-5">
-              <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl bg-slate-900 w-full max-w-md">
+              <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-[#F5F8FA] w-full max-w-md aspect-[3/4]">
                 <img
                   src={doctor.image}
                   alt={doctor.name}
-                  className="w-full h-auto max-h-[480px] object-cover object-top"
+                  className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent pointer-events-none" />
+              </div>
 
-                {/* Experience & Cases Floating Badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-white/50 shadow-lg flex items-center justify-between text-xs">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
-                      {ui.experienceLabel}
-                    </span>
-                    <span className="font-extrabold text-[#1b0d52]">
-                      {doctor.experience}
-                    </span>
-                  </div>
-                  <span className="text-xs font-bold text-teal-800 bg-teal-50 px-3 py-1.5 rounded-xl border border-teal-200">
-                    {doctor.treatedCases}
+              {/* Experience & Cases Card */}
+              <div className="w-full max-w-md bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex items-center justify-between text-xs">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
+                    {ui.experienceLabel}
+                  </span>
+                  <span className="font-extrabold text-[#1b0d52]">
+                    {doctor.experience}
                   </span>
                 </div>
+                <span className="text-xs font-bold text-teal-800 bg-teal-50 px-3 py-1.5 rounded-xl border border-teal-200">
+                  {doctor.treatedCases}
+                </span>
               </div>
 
               {/* Clinic Registry & Regulatory Tag Card */}

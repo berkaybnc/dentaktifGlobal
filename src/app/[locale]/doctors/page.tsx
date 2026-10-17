@@ -62,36 +62,24 @@ export default function DoctorsOverviewPage() {
               >
                 <div>
                   {/* Doctor Portrait Container */}
-                  <div className="relative h-84 w-full overflow-hidden bg-slate-950">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#F5F8FA]">
                     <img
                       src={doctor.image}
                       alt={doctor.name}
                       className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none" />
-
-                    {/* Standing and Cases Badge */}
-                    <div className="absolute top-3.5 right-3.5 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 rounded-xl border border-white/20 text-white text-[10px] font-mono font-bold flex items-center gap-1 shadow-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                      <span>{doctor.treatedCases}</span>
-                    </div>
-
-                    {/* Bottom Caption Overlay */}
-                    <div className="absolute bottom-3.5 left-4 right-4 text-white">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-teal-300 font-extrabold block">
-                        {doctor.experience}
-                      </span>
-                      <h3 className="font-headline text-lg sm:text-xl font-black text-white leading-tight">
-                        {doctor.name}
-                      </h3>
-                      <p className="text-[11px] text-slate-300 font-medium line-clamp-1 mt-0.5">
-                        {doctor.academicTitle}
-                      </p>
-                    </div>
                   </div>
 
                   {/* Body Content */}
                   <div className="p-5 space-y-3.5">
+                    <div>
+                      <h3 className="font-headline text-lg sm:text-xl font-black text-[#211164] group-hover:text-[#006699] transition-colors leading-tight">
+                        {doctor.name}
+                      </h3>
+                      <p className="text-xs font-bold text-slate-500 mt-0.5">
+                        {doctor.academicTitle}
+                      </p>
+                    </div>
                     {/* Education Pill */}
                     {primaryEducation && (
                       <div className="p-2.5 rounded-xl bg-teal-50/70 border border-teal-100 flex items-center gap-2 text-[11px]">
