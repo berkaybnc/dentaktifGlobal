@@ -1,4 +1,3 @@
-import { HeartHandshake } from 'lucide-react';
 
 export default function PatientRightsPage({ params: { locale } }: { params: { locale: string } }) {
   const isAr = locale === 'ar';
@@ -7,12 +6,6 @@ export default function PatientRightsPage({ params: { locale } }: { params: { lo
     <div className="py-16 sm:py-24 bg-white text-slate-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="border-b border-slate-200 pb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <HeartHandshake className="w-4 h-4 text-emerald-600" />
-            {isAr
-              ? 'ميثاق المريض الدولي • ترخيص رقم: 2026034015610080000425805'
-              : 'International Patient Charter • Cert No: 2026034015610080000425805'}
-          </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
             {isAr ? 'ميثاق حقوق المرضى الدوليين' : 'Charter of International Patient Rights'}
           </h1>

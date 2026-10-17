@@ -154,10 +154,6 @@ export default function DoctorDetailPage({
       {/* 3. Specialized Procedures & Clinical Methods (Detailed Procedure Cards) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16">
         <div className="space-y-3 mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-mono font-bold">
-            <span className="w-2 h-2 rounded-full bg-teal-600 animate-pulse" />
-            <span>{ui.proceduresBadge}</span>
-          </div>
           <h2 className="font-headline text-2xl sm:text-3xl font-black text-[#1b0d52]">
             {ui.proceduresTitle.replace('{name}', doctor.name)}
           </h2>
@@ -177,11 +173,6 @@ export default function DoctorDetailPage({
                   <span className="w-8 h-8 rounded-xl bg-[#211164]/10 text-[#211164] font-mono font-bold text-xs flex items-center justify-center">
                     0{idx + 1}
                   </span>
-                  {proc.badge && (
-                    <span className="px-2.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-[10px] font-bold">
-                      {proc.badge}
-                    </span>
-                  )}
                 </div>
 
                 <h3 className="font-headline text-base font-bold text-[#1b0d52] group-hover:text-[#006972] transition-colors leading-snug">

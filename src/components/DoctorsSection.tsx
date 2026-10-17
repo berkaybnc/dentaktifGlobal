@@ -66,10 +66,6 @@ export default function DoctorsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#006699] font-extrabold flex items-center justify-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#006699] animate-pulse"></span>
-            {t('badge')}
-          </span>
           <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#211164] tracking-tight">
             {t('title')}
           </h2>

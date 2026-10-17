@@ -192,9 +192,6 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center space-y-3 mb-10">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#006972] font-extrabold bg-teal-50 border border-teal-200 px-3.5 py-1 rounded-full inline-block">
-            {t.badge}
-          </span>
           <h2 className="font-headline text-3xl sm:text-4xl font-black text-[#1b0d52] tracking-tight">
             {t.title}
           </h2>

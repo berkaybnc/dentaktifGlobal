@@ -406,10 +406,6 @@ export default function PriceTable() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#006699] font-extrabold flex items-center justify-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-[#006699] animate-pulse"></span>
-            {t('badge')}
-          </span>
           <h2 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-black text-[#211164] tracking-tight">
             {t('title')}
           </h2>
@@ -450,16 +446,6 @@ export default function PriceTable() {
             >
               {/* Card Top / Header */}
               <div className="p-6 sm:p-7 border-b border-slate-100 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-wider bg-[#211164]/10 text-[#211164]">
-                    {item.badge}
-                  </span>
-                  <span className="text-[11px] font-mono font-bold text-emerald-700 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-sm">verified</span>
-                    {hospitalProtocolTag}
-                  </span>
-                </div>
-
                 <div>
                   <h3 className="font-headline text-lg sm:text-xl font-black text-[#211164]">
                     {item.title}

@@ -334,13 +334,6 @@ export default function AboutPage() {
             <span className="text-white">{data.breadcrumbAbout}</span>
           </nav>
 
-          <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-white/10 border border-teal-400/30 text-teal-200 text-xs font-bold font-mono">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <span>{data.badge}</span>
-            <span className="hidden sm:inline text-white/40">•</span>
-            <span className="text-teal-300/90 text-[11px] sm:text-xs">Cert No: 2026034015610080000425805</span>
-          </div>
-
           <h1 className="font-headline text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl">
             {data.heroTitle}
           </h1>
@@ -356,9 +349,6 @@ export default function AboutPage() {
         <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-5">
             <div>
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#006972] block">
-                {data.licBadge}
-              </span>
               <h2 className="font-headline text-xl sm:text-2xl font-black text-[#1b0d52]">
                 {data.licTitle}
               </h2>
@@ -441,9 +431,6 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-6 space-y-4">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#006972]">
-              {data.campusBadge}
-            </span>
             <h2 className="font-headline text-2xl sm:text-4xl font-black text-[#1b0d52] leading-tight">
               {data.campusTitle}
             </h2>

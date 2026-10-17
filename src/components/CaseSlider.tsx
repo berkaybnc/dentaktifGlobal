@@ -379,11 +379,6 @@ export default function CaseSlider() {
         
         {/* 1. Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-[#006972] text-xs font-bold shadow-xs">
-            <span className="material-symbols-outlined text-[15px] text-teal-600">verified</span>
-            <span>{t('badge')}</span>
-          </div>
-
           <h2 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-black text-[#1b0d52] tracking-tight">
             {t('title')}
           </h2>
@@ -512,19 +507,8 @@ export default function CaseSlider() {
           {/* RIGHT: Compact Clean Treatment Card (5 Cols) */}
           <div className="lg:col-span-5 bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-xl space-y-4">
             
-            {/* Header Badge & Title */}
+            {/* Title */}
             <div>
-              <div className="flex items-center justify-between gap-2 mb-1.5">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-50 text-[#006972] font-mono text-[10px] font-bold uppercase tracking-wider border border-teal-200/60">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-                  {currentCase.categoryTag}
-                </span>
-                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1">
-                  <span className="material-symbols-outlined text-xs">task_alt</span>
-                  {t('completedCase')}
-                </span>
-              </div>
-
               <h3 className="font-headline font-black text-lg sm:text-xl text-[#1b0d52] leading-snug">
                 {currentCase.treatmentTitle}
               </h3>

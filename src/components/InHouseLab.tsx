@@ -24,8 +24,7 @@ export default function InHouseLab() {
               </div>
               <div className="p-4 bg-slate-950 text-white flex flex-wrap items-center justify-between gap-2 text-xs border-t border-white/10">
                 <span className="font-mono text-slate-300 font-medium">{t('imageFooterLeft')}</span>
-                <span className="font-bold text-emerald-400 flex items-center gap-1.5 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span className="font-bold text-emerald-400">
                   {t('imageFooterRight')}
                 </span>
               </div>
@@ -35,9 +34,6 @@ export default function InHouseLab() {
           {/* Right Column: Lab Quality Differentiators */}
           <div className="lg:col-span-6 space-y-5">
             <div className="space-y-2">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#006972] font-bold">
-                {t('badge')}
-              </span>
               <h2 className="font-headline text-2xl sm:text-3xl font-extrabold text-[#1b0d52] tracking-tight">
                 {t('title')}
               </h2>

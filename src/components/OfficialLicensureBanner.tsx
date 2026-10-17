@@ -14,11 +14,8 @@ export default function OfficialLicensureBanner() {
     >
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="flex items-center gap-1 bg-amber-500/20 text-amber-300 font-semibold px-2 py-0.5 rounded-full border border-amber-500/30">
+          <span className="text-slate-200 font-semibold flex items-center gap-1.5">
             <Award className="w-3.5 h-3.5 text-amber-400" />
-            {t('badge')}
-          </span>
-          <span className="hidden sm:inline text-slate-300 font-medium">
             {t('title')}
           </span>
         </div>

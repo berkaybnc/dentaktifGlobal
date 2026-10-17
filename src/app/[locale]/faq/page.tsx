@@ -50,13 +50,6 @@ export default function FaqPage() {
       {/* 1. Page Header & Prestige Badge */}
       <section className="relative bg-gradient-to-b from-white via-[#F0F4F7]/60 to-[#FAFBFC] border-b border-slate-200 py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold shadow-xs">
-            <span className="material-symbols-outlined text-[16px] text-teal-600">help_center</span>
-            <span>{ui.badgeText}</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-500 font-mono">{ui.countBadge}</span>
-          </div>
-
           <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b0d52] tracking-tight">
             {ui.title}
           </h1>

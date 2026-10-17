@@ -19,11 +19,6 @@ export default function DoctorsOverviewPage() {
         <div className="absolute inset-0 bg-[radial-gradient(#2BA598_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto text-center space-y-4 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-teal-400/30 text-teal-200 text-xs font-bold font-mono">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>{ui.badge}</span>
-          </div>
-
           <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             {ui.title}
           </h1>
@@ -31,22 +26,6 @@ export default function DoctorsOverviewPage() {
           <p className="font-sans text-sm sm:text-base text-slate-200 max-w-3xl mx-auto leading-relaxed">
             {ui.description}
           </p>
-
-          {/* Quick Credential Badges */}
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-teal-100">
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm text-teal-400">verified</span>
-              {ui.credentialSurgeons}
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm text-teal-400">precision_manufacturing</span>
-              {ui.credentialTech}
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm text-teal-400">workspace_premium</span>
-              {ui.credentialSmiles}
-            </span>
-          </div>
         </div>
       </section>
 

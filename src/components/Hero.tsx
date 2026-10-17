@@ -222,14 +222,6 @@ export default function Hero() {
       <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-16 relative z-10 pt-[88px] sm:pt-[96px] lg:pt-[102px] pb-3 sm:pb-4 flex-1 flex flex-col justify-center w-full">
         <div className="max-w-xl lg:max-w-[540px] xl:max-w-[580px] space-y-3.5 sm:space-y-4 text-left">
           
-          {/* Top Accreditation Pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-bold shadow-lg w-fit">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <span>{accreditationText}</span>
-            <span className="text-white/40 hidden sm:inline">•</span>
-            <span className="text-teal-300 font-semibold text-[11px] sm:text-xs hidden sm:inline">Cert #2026034015610080000425805</span>
-          </div>
-
           {/* Main Headline */}
           <div className="space-y-1.5">
             <h1 className="font-headline text-2xl sm:text-3xl lg:text-4xl xl:text-[2.65rem] font-black tracking-tight text-white leading-[1.22]">

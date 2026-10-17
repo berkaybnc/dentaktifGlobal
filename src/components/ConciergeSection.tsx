@@ -144,13 +144,6 @@ export default function ConciergeSection() {
 
           {/* Section Header */}
           <div className="space-y-4 max-w-3xl mb-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold shadow-xs">
-              <span className="material-symbols-outlined text-[16px] text-teal-600">verified_user</span>
-              <span>{t('badge')}</span>
-              <span className="text-slate-300">•</span>
-              <span className="text-slate-500 font-mono">{t('cert')}</span>
-            </div>
-
             <h2 className="font-headline text-2xl sm:text-3xl lg:text-4xl font-black text-[#1b0d52] tracking-tight">
               {t('title')}
             </h2>
@@ -173,9 +166,6 @@ export default function ConciergeSection() {
                       <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200/60 flex items-center justify-center text-[#006972] group-hover:bg-[#1b0d52] group-hover:text-white transition-colors">
                         <span className="material-symbols-outlined text-xl">{item.icon}</span>
                       </div>
-                      <span className="text-[10px] font-mono font-bold text-teal-800 bg-teal-50/80 px-2 py-0.5 rounded border border-teal-200/60">
-                        {item.badge}
-                      </span>
                     </div>
 
                     <h4 className="font-headline text-sm sm:text-base font-extrabold text-[#1b0d52] group-hover:text-[#006972] transition-colors leading-snug">

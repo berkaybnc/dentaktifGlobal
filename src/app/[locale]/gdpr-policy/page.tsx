@@ -1,4 +1,3 @@
-import { Lock } from 'lucide-react';
 
 export default function GDPRPolicyPage({ params: { locale } }: { params: { locale: string } }) {
   const isAr = locale === 'ar';
@@ -7,10 +6,6 @@ export default function GDPRPolicyPage({ params: { locale } }: { params: { local
     <div className="py-16 sm:py-24 bg-white text-slate-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="border-b border-slate-200 pb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <Lock className="w-4 h-4 text-sky-600" />
-            {isAr ? 'الامتثال للائحة GDPR • معيار حماية البيانات الصحية الأوروبية' : 'GDPR Compliance • European Health Data Standard'}
-          </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
             {isAr ? 'سياسة حماية البيانات الصحية والامتثال للائحة GDPR' : 'GDPR & Health Data Protection Policy'}
           </h1>

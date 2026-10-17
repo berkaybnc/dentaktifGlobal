@@ -89,13 +89,6 @@ export default function ContactPage() {
             <span className="text-white">{t('breadcrumbContact')}</span>
           </nav>
 
-          <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-2xl sm:rounded-full bg-white/10 border border-teal-400/30 text-teal-200 text-xs font-bold font-mono">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <span>{t('badge')}</span>
-            <span className="hidden sm:inline text-white/40">•</span>
-            <span className="text-teal-300/90 text-[11px] sm:text-xs">Cert No: 2026034015610080000425805</span>
-          </div>
-
           <h1 className="font-headline text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl">
             {t('title')}
           </h1>
@@ -132,18 +125,6 @@ export default function ContactPage() {
           </div>
 
           <div className="lg:col-span-8 space-y-3.5">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold font-mono">
-                {locale === 'ar' ? '✓ ترخيص رسمي معتمد من الحكومة' : locale === 'tr' ? '✓ ONAYLI DEVLET YETKİ BELGESİ' : '✓ VERIFIED GOVERNMENT LICENSURE'}
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-sky-50 text-sky-800 border border-sky-200 text-xs font-bold font-mono">
-                {locale === 'ar' ? 'اعتماد USHAŞ وسياحة تركيا الصحية' : 'USHAŞ & HEALTHTÜRKİYE ACCREDITED'}
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-mono">
-                {locale === 'ar' ? 'مرسوم رقم: 3359' : 'DECREE NO: 3359'}
-              </span>
-            </div>
-
             <h3 className="font-headline text-lg sm:text-xl font-black text-[#1b0d52]">
               {locale === 'ar' ? 'مستشفى دنت أكتيف الدولي لطب وجراحة الفم والأسنان' : 'Dent Aktif International Oral & Dental Hospital'}{' '}
               <span className="text-xs font-normal text-slate-500 block sm:inline">

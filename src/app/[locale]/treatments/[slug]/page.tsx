@@ -56,12 +56,6 @@ export default function TreatmentDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Column: Clinical Title & Descriptions */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold">
-                <span className="material-symbols-outlined text-[16px] text-teal-600">verified</span><span>{data.badge}</span>
-                <span className="text-slate-300">•</span>
-                <span className="text-secondary font-mono">{ui.ministryAuth || 'Ministry Auth #4892'}</span>
-              </div>
-
               <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b0d52] tracking-tight leading-tight">
                 {data.name}
               </h1>
@@ -170,10 +164,6 @@ export default function TreatmentDetailPage({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex items-end p-6 sm:p-10">
             <div className="text-white space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/25 backdrop-blur-md border border-teal-400/40 text-teal-300 text-xs font-bold">
-                <span className="material-symbols-outlined text-[16px]">verified</span>
-                <span>{ui.suiteBadge || 'Dent Aktif Hospital • Official Operatory Suite'}</span>
-              </div>
               <h3 className="font-headline text-xl sm:text-3xl font-black text-white">
                 {data.name} — {ui.suiteTitle || 'Clinical Documentation & Surgical Suite'}
               </h3>

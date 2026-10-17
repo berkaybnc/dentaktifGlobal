@@ -29,13 +29,6 @@ export default function TreatmentsOverviewPage() {
       {/* 1. Page Header & Prestige Badge */}
       <section className="relative bg-gradient-to-b from-white via-[#F0F4F7]/60 to-[#FAFBFC] border-b border-slate-200 py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold shadow-xs">
-            <span className="material-symbols-outlined text-[16px] text-teal-600">verified</span>
-            <span>{treatmentsData.pageHeader.badge}</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-500 font-mono">Cert: 2026034015610080000425805</span>
-          </div>
-
           <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b0d52] tracking-tight max-w-4xl mx-auto">
             {treatmentsData.pageHeader.title}
           </h1>
@@ -92,12 +85,6 @@ export default function TreatmentsOverviewPage() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-95"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Warranty Badge */}
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-extrabold text-amber-700 shadow-md border border-amber-200/80 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[14px]">shield</span>
-                    <span>{treatment.warranty}</span>
-                  </div>
 
                   {/* Icon & Category */}
                   <div className="absolute bottom-3 left-4 text-white">

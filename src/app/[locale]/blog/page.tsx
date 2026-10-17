@@ -90,11 +90,6 @@ export default function BlogMediaPage() {
       {/* 1. Page Header */}
       <section className="relative bg-gradient-to-b from-white via-[#F0F4F7]/60 to-[#FAFBFC] border-b border-slate-200 py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold shadow-xs">
-            <span className="material-symbols-outlined text-[16px] text-teal-600">movie_edit</span>
-            <span>{t('badge')}</span>
-          </div>
-
           <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b0d52] tracking-tight">
             {t('title')}
           </h1>
@@ -249,9 +244,6 @@ export default function BlogMediaPage() {
                               alt={title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#1b0d52]/80 backdrop-blur-md text-white text-[11px] font-bold">
-                              {article.category}
-                            </div>
                           </div>
 
                           <div className="p-6 space-y-3">

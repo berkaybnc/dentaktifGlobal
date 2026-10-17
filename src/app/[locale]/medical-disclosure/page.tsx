@@ -1,4 +1,3 @@
-import { ShieldCheck } from 'lucide-react';
 
 export default function MedicalDisclosurePage({ params: { locale } }: { params: { locale: string } }) {
   const isAr = locale === 'ar';
@@ -7,12 +6,6 @@ export default function MedicalDisclosurePage({ params: { locale } }: { params: 
     <div className="py-16 sm:py-24 bg-white text-slate-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="border-b border-slate-200 pb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <ShieldCheck className="w-4 h-4 text-sky-600" />
-            {isAr
-              ? 'مرخص من وزارة الصحة التركية ومؤسسة USHAŞ • ترخيص رقم: 2026034015610080000425805'
-              : 'Republic of Turkey Ministry of Health & USHAŞ Licensed • Cert No: 2026034015610080000425805'}
-          </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
             {isAr ? 'الإفصاح الطبي وسياسة الموافقة المستنيرة' : 'Medical Disclosure & Informed Consent Policy'}
           </h1>

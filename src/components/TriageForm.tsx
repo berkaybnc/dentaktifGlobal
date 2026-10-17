@@ -642,13 +642,7 @@ export default function TriageForm() {
 
           {/* Form Header */}
           <div className="border-b border-slate-100 pb-8 mb-8 space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-teal-900 text-xs font-bold shadow-xs">
-                <span className="material-symbols-outlined text-[15px] text-teal-600">verified</span>
-                <span>{ui.portalBadge}</span>
-                <span className="text-slate-300">•</span>
-                <span className="text-emerald-700 font-extrabold">{ui.responseNotice}</span>
-              </div>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-end gap-3">
 
               <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 px-3.5 py-1 rounded-full text-xs font-mono text-slate-700 self-start sm:self-center shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -793,9 +787,6 @@ export default function TriageForm() {
                               }`}>
                                 <span className="material-symbols-outlined text-[20px]">{option.icon}</span>
                               </div>
-                              <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-md border ${option.badgeColor}`}>
-                                {option.badge}
-                              </span>
                             </div>
 
                             <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${

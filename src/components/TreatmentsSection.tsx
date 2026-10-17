@@ -190,11 +190,6 @@ export default function TreatmentsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold shadow-xs">
-            <span className="material-symbols-outlined text-[16px] text-teal-600">verified</span>
-            <span>{ui.sectionBadge}</span>
-          </div>
-
           <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b0d52] tracking-tight">
             {ui.sectionTitle}
           </h2>
@@ -371,28 +366,10 @@ export default function TreatmentsSection() {
                             'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80';
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-
-                      {/* Top Badge: Department Name */}
-                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-[#1b0d52] shadow-md border border-slate-200">
-                        {activeTreatment.name}
-                      </div>
-
-                      {/* Bottom Badge: Stay & Sessions */}
-                      <div className="absolute bottom-3 left-3 right-3 text-white">
-                        <span className="text-[11px] font-mono font-bold text-teal-300 block">
-                          <span className="material-symbols-outlined text-sm align-middle mr-1">schedule</span>{ui.stayLabel} {activeTreatment.stay}
-                        </span>
-                      </div>
                     </div>
 
                     {/* Overview Text Content */}
                     <div className="lg:col-span-7 space-y-2.5">
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#006972]">
-                        <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-                        <span>{activeTreatment.badge || 'Certified Treatment Department'}</span>
-                      </div>
-
                       <h3 className="font-headline text-xl sm:text-2xl font-black text-[#1b0d52] leading-tight">
                         {activeTreatment.name}
                       </h3>

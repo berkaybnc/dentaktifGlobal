@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Calculator, Check, ArrowRight, Sparkles, Building2, Plane, Car, Hotel } from 'lucide-react';
+import { Check, ArrowRight, Sparkles, Building2, Plane, Car, Hotel } from 'lucide-react';
 
 interface CountryConfig {
   code: string;
@@ -80,10 +80,6 @@ export default function PriceSimulator() {
     <section id="simulator" className="py-20 bg-slate-50 border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <Calculator className="w-3.5 h-3.5 text-sky-600" />
-            {t('badge')}
-          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
             {t('title')}
           </h2>
