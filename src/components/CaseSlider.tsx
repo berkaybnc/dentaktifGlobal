@@ -444,7 +444,11 @@ export default function CaseSlider() {
                 className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
                 src={currentCase.afterImg}
               />
-              <span className="absolute top-3.5 right-3.5 z-20 px-3 py-1 rounded-xl bg-slate-950/85 backdrop-blur-md border border-emerald-400/40 text-emerald-300 font-mono text-[11px] font-bold tracking-wider shadow-md pointer-events-none flex items-center gap-1.5">
+              <span
+                className={`absolute top-3.5 right-3.5 z-20 px-3 py-1 rounded-xl bg-slate-950/85 backdrop-blur-md border border-emerald-400/40 text-emerald-300 font-mono text-[11px] font-bold tracking-wider shadow-md pointer-events-none flex items-center gap-1.5 transition-all duration-200 ${
+                  sliderVal > 85 ? 'opacity-0 scale-90' : 'opacity-100 scale-100'
+                }`}
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span>{t('after')}</span>
               </span>
@@ -460,7 +464,11 @@ export default function CaseSlider() {
                   className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none"
                   src={currentCase.beforeImg}
                 />
-                <span className="absolute top-3.5 left-3.5 z-20 px-3 py-1 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/20 text-white font-mono text-[11px] font-bold tracking-wider shadow-md pointer-events-none flex items-center gap-1.5">
+                <span
+                  className={`absolute top-3.5 left-3.5 z-20 px-3 py-1 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/20 text-white font-mono text-[11px] font-bold tracking-wider shadow-md pointer-events-none flex items-center gap-1.5 transition-all duration-200 ${
+                    sliderVal < 15 ? 'opacity-0 scale-90' : 'opacity-100 scale-100'
+                  }`}
+                >
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                   <span>{t('before')}</span>
                 </span>
