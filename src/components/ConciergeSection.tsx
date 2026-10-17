@@ -253,16 +253,7 @@ export default function ConciergeSection() {
                 </div>
               </div>
 
-              {/* Bottom Licensure Stamp */}
-              <div className="pt-4 border-t border-white/15 flex items-center justify-between text-xs relative z-10">
-                <span className="text-emerald-300 font-bold flex items-center gap-1.5 text-[11px]">
-                  <span className="material-symbols-outlined text-base">verified_user</span>
-                  <span>{labels.licLabel}</span>
-                </span>
-                <span className="font-mono text-slate-200 font-extrabold bg-white/15 px-2.5 py-0.5 rounded text-[11px]">
-                  #2026034015610080000425805
-                </span>
-              </div>
+
             </div>
           </div>
         </div>
