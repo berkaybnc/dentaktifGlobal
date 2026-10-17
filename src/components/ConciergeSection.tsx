@@ -196,20 +196,10 @@ export default function ConciergeSection() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_70%)] pointer-events-none" />
 
               <div className="space-y-4 relative z-10">
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div>
-                    <span className="text-[11px] text-teal-300 font-mono uppercase tracking-wider font-extrabold block">
-                      {labels.deskSubtitle}
-                    </span>
-                    <h3 className="font-headline text-lg sm:text-xl font-bold text-white mt-0.5">
-                      {labels.deskTitle}
-                    </h3>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-[11px] font-bold text-emerald-300">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{labels.activeNow}</span>
-                  </div>
+                <div className="border-b border-white/10 pb-4">
+                  <h3 className="font-headline text-lg sm:text-xl font-bold text-white">
+                    {labels.deskTitle}
+                  </h3>
                 </div>
 
                 <p className="text-xs text-slate-200 leading-relaxed">

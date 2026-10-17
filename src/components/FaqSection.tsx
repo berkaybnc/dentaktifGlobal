@@ -241,11 +241,7 @@ export default function FaqSection() {
                 {isOpen && (
                   <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 animate-in fade-in duration-200">
                     <p>{faq.answer}</p>
-                    <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between flex-wrap gap-2 text-xs">
-                      <span className="text-emerald-700 font-bold flex items-center gap-1">
-                        <span className="material-symbols-outlined text-sm">verified</span>
-                        {t.boardNotice}
-                      </span>
+                    <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-end text-xs">
                       <Link
                         href="/contact"
                         className="text-[#211164] font-bold hover:underline"

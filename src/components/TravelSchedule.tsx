@@ -72,12 +72,9 @@ export default function TravelSchedule() {
               className="p-5 sm:p-6 rounded-2xl border border-slate-200 bg-[#FAFBFC] flex flex-col justify-between hover:border-primary hover:shadow-premium-hover transition-all duration-300 group"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-3">
-                  <span className="font-headline text-2xl font-black text-[#211164] group-hover:text-primary-hover">
+                <div className="border-b border-slate-200 pb-3 mb-3">
+                  <span className="font-headline text-2xl font-black text-[#211164] group-hover:text-primary-hover block">
                     {d.day}
-                  </span>
-                  <span className="text-[10px] font-mono font-bold text-secondary uppercase bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
-                    {d.phase}
                   </span>
                 </div>
                 <h4 className="font-headline text-sm font-bold text-slate-900 mb-2 leading-snug">

@@ -424,49 +424,29 @@ export default function TestimonialsSection() {
                     </div>
                   </div>
 
-                  {/* Treatment Badge */}
-                  <div className="inline-block px-2.5 py-1 rounded-lg bg-teal-50 border border-teal-200/60 text-[11px] font-bold text-teal-800">
-                    {review.treatment}
-                  </div>
-
                   {/* Quote */}
-                  <p className="text-xs text-slate-600 leading-relaxed italic">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
                     {review.quote}
                   </p>
                 </div>
 
                 {/* Patient Footer */}
-                <div className="pt-4 mt-5 border-t border-slate-100 flex items-center gap-3.5">
+                <div className="pt-4 mt-5 border-t border-slate-100 flex items-center gap-3">
                   <div className="relative shrink-0">
                     <img
                       src={avatarSrc}
                       alt={review.name}
-                      className="w-12 h-12 rounded-full object-cover object-[center_20%] border-2 border-white ring-2 ring-slate-100 shadow-xs group-hover:ring-[#211164]/30 transition-all duration-300"
+                      className="w-10 h-10 rounded-full object-cover object-[center_20%] border border-slate-200 shadow-xs"
                       loading="lazy"
                     />
-                    <span
-                      className="absolute -bottom-1 -right-1 w-4.5 h-4.5 rounded-full bg-white border border-slate-200 flex items-center justify-center p-0.5 shadow-xs"
-                      title={verifiedLabel}
-                    >
-                      <GoogleIcon className="w-3 h-3 shrink-0" />
-                    </span>
                   </div>
 
-                  <div className="flex-1 min-w-0 space-y-0.5">
-                    <div className="flex items-center justify-between gap-1">
-                      <span className="font-headline text-xs font-bold text-slate-900 truncate">
-                        {review.name}
-                      </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-headline text-xs font-bold text-slate-900 truncate">
+                      {review.name}
                     </div>
-                    <div className="text-[10px] text-emerald-600 font-bold flex items-center gap-1">
-                      <span className="material-symbols-outlined text-[13px] text-emerald-500">verified</span>
-                      <span className="truncate">{verifiedLabel}</span>
-                    </div>
-                    <div className="text-[10px] text-slate-400 truncate">
+                    <div className="text-[11px] text-slate-500 truncate mt-0.5">
                       {review.location}
-                    </div>
-                    <div className="text-[10px] font-semibold text-[#006972] truncate">
-                      {review.highlight}
                     </div>
                   </div>
                 </div>

@@ -22,12 +22,6 @@ export default function InHouseLab() {
                   decoding="async"
                 />
               </div>
-              <div className="p-4 bg-slate-950 text-white flex flex-wrap items-center justify-between gap-2 text-xs border-t border-white/10">
-                <span className="font-mono text-slate-300 font-medium">{t('imageFooterLeft')}</span>
-                <span className="font-bold text-emerald-400">
-                  {t('imageFooterRight')}
-                </span>
-              </div>
             </div>
           </div>
 
