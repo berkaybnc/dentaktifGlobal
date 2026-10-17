@@ -3,13 +3,13 @@ import { LanguageProvider } from './context/LanguageContext.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 
-import HomePage from './pages/HomePage.jsx';
-import TreatmentsPage from './pages/TreatmentsPage.jsx';
-import TreatmentDetailPage from './pages/TreatmentDetailPage.jsx';
-import BlogPage from './pages/BlogPage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
-import ConsultationPage from './pages/ConsultationPage.jsx';
-import AdminPage from './pages/AdminPage.jsx';
+import HomePage from './legacy_pages/HomePage.jsx';
+import TreatmentsPage from './legacy_pages/TreatmentsPage.jsx';
+import TreatmentDetailPage from './legacy_pages/TreatmentDetailPage.jsx';
+import BlogPage from './legacy_pages/BlogPage.jsx';
+import ContactPage from './legacy_pages/ContactPage.jsx';
+import ConsultationPage from './legacy_pages/ConsultationPage.jsx';
+import AdminPage from './legacy_pages/AdminPage.jsx';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');

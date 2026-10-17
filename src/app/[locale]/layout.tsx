@@ -24,6 +24,8 @@ const manrope = Manrope({
   weight: ['400', '500', '600', '700', '800'],
 });
 
+export const dynamic = 'force-dynamic';
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
