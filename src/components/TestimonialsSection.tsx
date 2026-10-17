@@ -36,25 +36,25 @@ const GoogleIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 );
 
 const REVIEWER_AVATARS: Record<string, string> = {
-  'James Wilson': '/images/testimonials/hasta-.webp',
-  'Anke Becker': '/images/testimonials/hasta-.webp',
-  'Laurent Dubois': '/images/testimonials/hasta-.webp',
-  'Emily Campbell': '/images/testimonials/hasta-.webp',
-  'Джеймс Уилсон': '/images/testimonials/hasta-.webp',
-  'Анке Беккер': '/images/testimonials/hasta-.webp',
-  'Лоран Дюбуа': '/images/testimonials/hasta-.webp',
-  'Эмили Кэмпбелл': '/images/testimonials/hasta-.webp',
-  'جيمس ويلسون': '/images/testimonials/hasta-.webp',
-  'أنكي بيكر': '/images/testimonials/hasta-.webp',
-  'لوران دوبوا': '/images/testimonials/hasta-.webp',
-  'إميلي كامبل': '/images/testimonials/hasta-.webp',
+  'James Wilson': '/images/testimonials/hasta-1.webp',
+  'Anke Becker': '/images/testimonials/hasta-2.webp',
+  'Laurent Dubois': '/images/testimonials/hasta-3.webp',
+  'Emily Campbell': '/images/testimonials/hasta-4.webp',
+  'Джеймс Уилсон': '/images/testimonials/hasta-1.webp',
+  'Анке Беккер': '/images/testimonials/hasta-2.webp',
+  'Лоран Дюбуа': '/images/testimonials/hasta-3.webp',
+  'Эмили Кэмпбелл': '/images/testimonials/hasta-4.webp',
+  'جيمس ويلسون': '/images/testimonials/hasta-1.webp',
+  'أنكي بيكر': '/images/testimonials/hasta-2.webp',
+  'لوران دوبوا': '/images/testimonials/hasta-3.webp',
+  'إميلي كامبل': '/images/testimonials/hasta-4.webp',
 };
 
 const DEFAULT_AVATARS_BY_INDEX = [
-  '/images/testimonials/hasta-.webp',
-  '/images/testimonials/hasta-.webp',
-  '/images/testimonials/hasta-.webp',
-  '/images/testimonials/hasta-.webp',
+  '/images/testimonials/hasta-1.webp',
+  '/images/testimonials/hasta-2.webp',
+  '/images/testimonials/hasta-3.webp',
+  '/images/testimonials/hasta-4.webp',
 ];
 
 const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
@@ -436,6 +436,8 @@ export default function TestimonialsSection() {
                     <img
                       src={avatarSrc}
                       alt={review.name}
+                      width={40}
+                      height={40}
                       className="w-10 h-10 rounded-full object-cover object-[center_20%] border border-slate-200 shadow-xs"
                       loading="lazy"
                     />
