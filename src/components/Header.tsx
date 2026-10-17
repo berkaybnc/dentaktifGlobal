@@ -105,13 +105,22 @@ export default function Header() {
   };
 
   useEffect(() => {
+    let ticking = false;
+    let lastScrolled = window.scrollY > 20;
+
     const handleScroll = () => {
-      setTreatmentsOpen(false);
-      setLangOpen(false);
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrolled = window.scrollY > 20;
+          if (currentScrolled !== lastScrolled) {
+            setIsScrolled(currentScrolled);
+            lastScrolled = currentScrolled;
+          }
+          setTreatmentsOpen((prev) => (prev ? false : prev));
+          setLangOpen((prev) => (prev ? false : prev));
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

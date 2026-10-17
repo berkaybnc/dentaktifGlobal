@@ -90,6 +90,8 @@ export default function DoctorsSection() {
                 <img
                   src={doctor.image}
                   alt={doctor.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
 

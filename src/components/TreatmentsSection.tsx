@@ -14,7 +14,7 @@ const TOP_TREATMENTS_CONFIG = [
     gradient: 'from-[#211164] to-[#006972]',
     // Guaranteed high-resolution photography strictly curated for Hollywood Smile & E-Max veneers
     images: [
-      '/images/cases/hollywood-after.jpg', // E-Max radiant clinical smile finish
+      '/images/cases/.webp', // E-Max radiant clinical smile finish
       'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80', // Clinical operatory & shade matching
       'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80', // In-house precision ceramic laboratory
     ],
@@ -26,7 +26,7 @@ const TOP_TREATMENTS_CONFIG = [
     gradient: 'from-[#006972] to-[#1e3a8a]',
     // Guaranteed high-resolution photography strictly curated for Dental Implants & All-on-4/6 surgical protocols
     images: [
-      '/images/cases/allon6-after.jpg', // Full arch restored implant smile
+      '/images/cases/.webp', // Full arch restored implant smile
       'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80', // 3D Guided stent surgical navigation
       'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80', // Precision titanium-zirconium implant bridge
     ],
@@ -38,7 +38,7 @@ const TOP_TREATMENTS_CONFIG = [
     gradient: 'from-[#1e3a8a] to-[#211164]',
     // Guaranteed high-resolution photography strictly curated for Dental Zirconium Veneers & robotic CAD/CAM milling
     images: [
-      '/images/cases/zirconia-after.jpg', // Pristine aesthetic zirconia smile
+      '/images/cases/.webp', // Pristine aesthetic zirconia smile
       'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80', // 5-Axis robotic CAD/CAM milling of Katana Zirconia
       'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1000&q=80', // Hand-glazed multi-layer natural finish
     ],

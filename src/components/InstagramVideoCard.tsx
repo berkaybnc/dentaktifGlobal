@@ -30,6 +30,7 @@ export default function InstagramVideoCard({ reel, locale }: Props) {
             width: '100%',
             height: '100%',
           }}
+          loading="lazy"
           allowFullScreen
           scrolling="no"
           title={title}

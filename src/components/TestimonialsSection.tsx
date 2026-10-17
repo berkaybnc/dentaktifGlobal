@@ -36,25 +36,25 @@ const GoogleIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 );
 
 const REVIEWER_AVATARS: Record<string, string> = {
-  'James Wilson': '/images/testimonials/hasta-1.jpg',
-  'Anke Becker': '/images/testimonials/hasta-2.jpg',
-  'Laurent Dubois': '/images/testimonials/hasta-3.jpg',
-  'Emily Campbell': '/images/testimonials/hasta-4.jpg',
-  'Джеймс Уилсон': '/images/testimonials/hasta-1.jpg',
-  'Анке Беккер': '/images/testimonials/hasta-2.jpg',
-  'Лоран Дюбуа': '/images/testimonials/hasta-3.jpg',
-  'Эмили Кэмпбелл': '/images/testimonials/hasta-4.jpg',
-  'جيمس ويلسون': '/images/testimonials/hasta-1.jpg',
-  'أنكي بيكر': '/images/testimonials/hasta-2.jpg',
-  'لوران دوبوا': '/images/testimonials/hasta-3.jpg',
-  'إميلي كامبل': '/images/testimonials/hasta-4.jpg',
+  'James Wilson': '/images/testimonials/hasta-.webp',
+  'Anke Becker': '/images/testimonials/hasta-.webp',
+  'Laurent Dubois': '/images/testimonials/hasta-.webp',
+  'Emily Campbell': '/images/testimonials/hasta-.webp',
+  'Джеймс Уилсон': '/images/testimonials/hasta-.webp',
+  'Анке Беккер': '/images/testimonials/hasta-.webp',
+  'Лоран Дюбуа': '/images/testimonials/hasta-.webp',
+  'Эмили Кэмпбелл': '/images/testimonials/hasta-.webp',
+  'جيمس ويلسون': '/images/testimonials/hasta-.webp',
+  'أنكي بيكر': '/images/testimonials/hasta-.webp',
+  'لوران دوبوا': '/images/testimonials/hasta-.webp',
+  'إميلي كامبل': '/images/testimonials/hasta-.webp',
 };
 
 const DEFAULT_AVATARS_BY_INDEX = [
-  '/images/testimonials/hasta-1.jpg',
-  '/images/testimonials/hasta-2.jpg',
-  '/images/testimonials/hasta-3.jpg',
-  '/images/testimonials/hasta-4.jpg',
+  '/images/testimonials/hasta-.webp',
+  '/images/testimonials/hasta-.webp',
+  '/images/testimonials/hasta-.webp',
+  '/images/testimonials/hasta-.webp',
 ];
 
 const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {

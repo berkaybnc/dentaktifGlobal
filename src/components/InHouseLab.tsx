@@ -17,7 +17,9 @@ export default function InHouseLab() {
                 <img
                   alt="Dent Aktif In-House Master Ceramist Laboratory"
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                  src="/images/in-house-lab.jpg"
+                  src="/images/in-house-lab.webp"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="p-4 bg-slate-950 text-white flex flex-wrap items-center justify-between gap-2 text-xs border-t border-white/10">
