@@ -39,6 +39,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     doctor: '',
     doctorRole: {
       en: 'Patient Experience',
+      tr: 'Hasta Deneyimi',
       de: 'Patientenerfahrung',
       ru: 'Опыт пациента',
       fr: 'Expérience Patient',
@@ -46,6 +47,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     },
     title: {
       en: 'Why Patients from Switzerland Choose Dentaktif • Patient Story',
+      tr: 'İsviçre\'den Gelen Hastalarımız Neden Dentaktif\'i Tercih Ediyor? • Hasta Hikayesi',
       de: 'Warum Patienten aus der Schweiz Dentaktif wählen • Patientengeschichte',
       ru: 'Почему пациенты из Швейцарии выбирают Dentaktif • История пациента',
       fr: 'Pourquoi les patients de Suisse choisissent Dentaktif • Témoignage',
@@ -53,6 +55,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     },
     caption: {
       en: 'Meet Zainab, who traveled from Switzerland to Istanbul for personalized dental care. “I am very happy with my teeth, and I can only recommend the team at Dentaktif.”',
+      tr: 'İsviçre\'den İstanbul\'a gülüş tasarımı için gelen Zainab ile tanışın: “Dişlerimden son derece memnunum ve Dentaktif ekibini gönülden tavsiye ediyorum.”',
       de: 'Lernen Sie Zainab kennen, die aus der Schweiz nach Istanbul reiste: „Ich bin sehr zufrieden mit meinen Zähnen und kann das Team von Dentaktif nur weiterempfehlen.“',
       ru: 'Познакомьтесь с Зайнаб, приехавшей из Швейцарии в Стамбул: «Я очень довольна своими зубами и от всей души рекомендую команду Dentaktif».',
       fr: 'Découvrez Zainab, venue de Suisse à Istanbul : « Je suis très heureuse de mes nouvelles dents et je recommande vivement l\'équipe de Dentaktif. »',
@@ -70,6 +73,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     doctor: '',
     doctorRole: {
       en: 'Aesthetic Dentistry',
+      tr: 'Estetik Diş Hekimliği',
       de: 'Ästhetische Zahnmedizin',
       ru: 'Эстетическая стоматология',
       fr: 'Dentisterie Esthétique',
@@ -77,6 +81,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     },
     title: {
       en: 'Natural Smile Aesthetics: The Secret is in the Details',
+      tr: 'Doğal Gülüş Estetiği: Sır Detaylarda Gizli',
       de: 'Natürliches Lächeln: Das Geheimnis liegt im Detail',
       ru: 'Естественная улыбка: секрет кроется в деталях',
       fr: 'Sourire Naturel : Le Secret Réside dans les Détails',
@@ -84,6 +89,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     },
     caption: {
       en: 'Many patients worry about artificial-looking teeth. The secret to natural aesthetics: handcrafted translucent edges, delicate mamelon effects, and bespoke tooth characterization.',
+      tr: 'Yapay görünen dişlerden mi endişe ediyorsunuz? Doğal estetiğin sırrı: el işçiliği ışık geçirgen kenarlar, mamelon efektleri ve kişiye özel karakterizasyon.',
       de: 'Sorge vor künstlich wirkenden Zähnen? Das Geheimnis eines natürlichen Lächelns: transluzente Kanten, feine Mamelon-Effekte und meisterhafte anatomische Handarbeit.',
       ru: 'Опасаетесь искусственного вида зубов? Секрет натуральной улыбки: полупрозрачные режущие края, микрорельеф и индивидуальная ручная проработка структуры зуба.',
       fr: 'Peur d\'un résultat artificiel ? Le secret d\'un résultat authentique : bords incisifs translucides, effets de mamelons subtils et caractérisation artisanale sur mesure.',
@@ -101,6 +107,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     doctor: '',
     doctorRole: {
       en: 'International Care Protocol',
+      tr: 'Uluslararası Tedavi Protokolü',
       de: 'Internationales Behandlungsprotokoll',
       ru: 'Международный протокол лечения',
       fr: 'Protocole de Soins International',
@@ -108,6 +115,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     },
     title: {
       en: 'Dental Treatment in Istanbul: 3-Step Process for International Patients',
+      tr: 'İstanbul\'da Diş Tedavisi: Yurt Dışı Hastaları İçin 3 Aşamalı Süreç',
       de: 'Zahnbehandlung in Istanbul: Wie läuft der Prozess für Auslandspatienten ab?',
       ru: 'Лечение зубов в Стамбуле: 3 шага для зарубежных пациентов',
       fr: 'Soins Dentaires à Istanbul : Le Déroulement en 3 Étapes pour Patients Internationaux',
@@ -115,6 +123,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     },
     caption: {
       en: '1) Initial Contact & X-Ray Review, 2) Tailored Treatment Plan designed for you, 3) Seamless Travel & VIP transfers between airport, hotel, and Dentaktif clinic.',
+      tr: '1) İlk İletişim & Röntgen Analizi, 2) Size Özel Tedavi Planı, 3) Havalimanı, 5 yıldızlı otel ve klinik arasında konforlu VIP transferler.',
       de: '1) Erste Kontaktaufnahme & Röntgenanalyse, 2) Individueller Behandlungsplan, 3) Reiseorganisation & VIP-Transfers zwischen Flughafen, Hotel und Dentaktif-Klinik.',
       ru: '1) Первичный контакт и анализ снимков, 2) Персональный план лечения, 3) Полная организация поездки и VIP-трансферы аэропорт-отель-клиника.',
       fr: '1) Premier contact et analyse de vos radiographies, 2) Plan de traitement personnalisé, 3) Prise en charge complète et transferts VIP aéroport, hôtel et clinique.',
@@ -132,6 +141,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     doctor: '',
     doctorRole: {
       en: 'Patient Hospitality',
+      tr: 'Hasta Karşılama & VIP Hizmet',
       de: 'Gästebetreuung & VIP-Service',
       ru: 'Сервис и гостеприимство',
       fr: 'Accueil & Conciergerie VIP',
@@ -139,6 +149,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     },
     title: {
       en: 'Patient Experience & Hospital Journey • DentAktif Global',
+      tr: 'Hasta Deneyimi ve Klinik Yolculuğu • DentAktif Global',
       de: 'Patientenerfahrung & Behandlungsablauf • DentAktif Global',
       ru: 'Опыт пациента и история лечения • DentAktif Global',
       fr: 'Expérience Patient & Parcours de Soins • DentAktif Global',
@@ -146,6 +157,7 @@ export const INSTAGRAM_REELS: InstagramReel[] = [
     },
     caption: {
       en: 'Transparent communication, detailed evaluation, and comfort-first dental care. Watch our international patient share their authentic treatment journey at DentAktif Istanbul.',
+      tr: 'Şeffaf iletişim, detaylı teşhis ve konfor odaklı diş hekimliği. Yurt dışı hastamızın DentAktif İstanbul\'daki samimi deneyimini izleyin.',
       de: 'Transparente Kommunikation, sorgfältige Diagnostik und maximaler Komfort. Einblicke in die authentische Behandlungserfahrung unserer Patienten bei DentAktif Istanbul.',
       ru: 'Прозрачная коммуникация, тщательная диагностика и забота о комфорте. Пациент делится своими впечатлениями от лечения в клинике DentAktif в Стамбуле.',
       fr: 'Communication transparente, évaluation approfondie et confort absolu. Témoignage authentique d\'un patient international chez DentAktif Istanbul.',
@@ -164,6 +176,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'Dt. Abdullah Ömür',
     authorRole: {
       en: 'Chief Aesthetic Dental Surgeon',
+      tr: 'Başhekim & Estetik Diş Cerrahı',
       de: 'Leitender Zahnarzt für Ästhetik',
       ru: 'Главный стоматолог-эстетист',
       fr: 'Chirurgien Dentiste Esthétique en Chef',
@@ -173,6 +186,7 @@ export const BLOG_POSTS: BlogPost[] = [
     relatedInstagramReels: ['reel-dehzo5og9or', 'reel-dyp-tqwntcl'],
     title: {
       en: 'Why Over 5,000 International Patients Choose Istanbul for VIP Cosmetic Dentistry',
+      tr: '5.000\'den Fazla Uluslararası Hasta Neden VIP Estetik Diş Tedavisi İçin İstanbul\'u Seçiyor?',
       de: 'Warum über 5.000 internationale Patienten Istanbul für erstklassige Zahnästhetik wählen',
       ru: 'Почему более 5000 зарубежных пациентов выбирают Стамбул для премиальной стоматологии',
       fr: 'Pourquoi plus de 5 000 patients internationaux choisissent Istanbul pour leurs soins dentaires VIP',
@@ -180,12 +194,18 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     summary: {
       en: 'A comprehensive medical tourism guide comparing Swiss Straumann® implants, in-house CAD/CAM crafting, and 5-star hotel concierge protocols with 70% cost advantages.',
+      tr: 'İsviçre Straumann® implantları, bünye içi CAD/CAM üretimi ve 5 yıldızlı otel konforu ile %70 maliyet avantajını birleştiren kapsamlı rehber.',
       de: 'Ein detaillierter Leitfaden zu Schweizer Straumann® Implantaten, hauseigener CAD/CAM-Fertigung und VIP-Concierge-Paketen.',
       ru: 'Подробный путеводитель по медицинскому туризму: швейцарские импланты, собственная лаборатория и пятизвездочный сервис.',
       fr: 'Guide complet du tourisme dentaire : implants suisses, technologie CAD/CAM interne et conciergerie 5 étoiles.',
       ar: 'دليل طبي شامل يوضح مميزات زراعة الأسنان السويسرية والمختبر الرقمي الفوري وباقات الفنادق الفاخرة.',
     },
     content: {
+      tr: [
+        'İstanbul, Avrupa ve Orta Doğu\'nun en önde gelen cerrahi diş hekimliği başkenti haline gelmiştir. Dent Aktif Global\'in Levent merkezinde hastalarımız, Zürih ve Londra standartlarındaki hassasiyeti çok daha erişilebilir koşullarla deneyimlemektedir.',
+        'Hastanemiz, T.C. Sağlık Bakanlığı ve USHAŞ Uluslararası Sağlık Turizmi yetki belgesiyle faaliyet gösterir. Bünyemizdeki 3D CBCT tomografi ve CAD/CAM kazıma üniteleri sayesinde, yurt dışından gelen hastalarımızın restorasyonları dış laboratuvar gecikmesi olmadan 5 günde teslim edilir.',
+        'Her şey dahil VIP konseptimiz seyahatinizi kusursuzlaştırır: Havalimanından özel Mercedes araçlarla karşılama, 5 yıldızlı partner otel konaklaması ve ana dilinizde size eşlik eden hasta koordinatörleri.',
+      ],
       en: [
         'Istanbul has officially evolved into Europe and the Middle East’s leading surgical dentistry capital. At Dent Aktif Global, located in central Levent, patients experience clinical precision that rivals Harley Street and Zurich clinics at a fraction of the investment.',
         'Our hospital operates under rigorous Republic of Turkey Ministry of Health and USHAŞ International Health Tourism certification. With in-house CBCT volumetric 3D scanners and digital milling units, international patients receive fully custom restorations within 5 business days without third-party laboratory delays.',
@@ -222,6 +242,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'Dt. Büşra Tomo',
     authorRole: {
       en: 'Specialist Prosthodontist & Implantologist',
+      tr: 'Protez ve İmplantoloji Uzmanı',
       de: 'Fachzahnärztin für Prothetik & Implantologie',
       ru: 'Специалист-ортопед и имплантолог',
       fr: 'Spécialiste en Prothèse Dentaire & Implantologie',
@@ -231,6 +252,7 @@ export const BLOG_POSTS: BlogPost[] = [
     relatedInstagramReels: ['reel-dehzo5og9or', 'reel-demvleekz5h'],
     title: {
       en: 'E-Max® Porcelain Veneers vs. Zirconia Crowns: Which Solution Is Ideal for You?',
+      tr: 'E-Max® Porselen Lamine mi, Zirkonyum Kuron mu: Hangisi Sizin İçin İdeal?',
       de: 'E-Max® Keramik-Veneers vs. Zirkonkronen: Welche Lösung passt zu Ihnen?',
       ru: 'Керамические виниры E-Max® или коронки из циркония: что выбрать?',
       fr: 'Facettes Porcelaine E-Max® vs. Couronnes Zircone : Quel choix pour votre sourire ?',
@@ -238,12 +260,18 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     summary: {
       en: 'An expert comparison of light translucency, flexural strength (1200+ MPa), biological gum compatibility, and long-term durability for front vs posterior teeth.',
+      tr: 'Işık geçirgenliği, 1200+ MPa elmas dayanımı, diş eti biyolojik uyumu ve çiğneme kuvvetleri açısından uzman hekim karşılaştırması.',
       de: 'Ein wissenschaftlicher Vergleich von Lichtdurchlässigkeit, Biegefestigkeit (1200+ MPa) und Gewebeverträglichkeit.',
       ru: 'Научное сравнение светопроницаемости, прочности на изгиб (1200+ МПа) и биосовместимости материалов.',
       fr: 'Comparaison experte sur la translucidité, la résistance mécanique (1200+ MPa) et la santé des gencives.',
       ar: 'مقارنة طبية متخصصة توضح الفروق بين نفاذية الضوء الطبيعية وقوة التحمل الميكانيكية وصحة اللثة.',
     },
     content: {
+      tr: [
+        'Uluslararası hastalarımızdan en sık gelen sorulardan biri, ultra ince E-Max® lityum disilikat lamine porselenler ile Alman yüksek ışık geçirgenlikli zirkonyum kuronlar arasındaki seçimdir.',
+        'E-Max®, doğal diş minesi ışık kırılmasını birebir taklit etmesiyle dünyaca ünlüdür. Yalnızca 0.3mm - 0.5mm minimum aşındırma gerektirmesi sayesinde ön bölge estetik gülüş tasarımlarında altın standarttır.',
+        'Alman monolitik zirkonyum ise 1200 MPa\'yı aşan bükülme direnciyle benzersiz bir dayanıklılık sunar. Diş sıkan, çiğneme kuvvetleri yüksek olan veya tam çene rehabilitasyonu yaptıran hastalarımız için ömür boyu güvenilirdir.',
+      ],
       en: [
         'One of the most frequent clinical questions from our international patients is whether to choose ultra-thin E-Max® lithium disilicate veneers or German high-translucency Zirconia crowns.',
         'E-Max® is celebrated for its unmatched optical mimicry of natural human tooth enamel. With an impressive light translucency profile and minimal prep requirement (0.3mm - 0.5mm), it is the gold standard for frontal cosmetic smile makeovers.',
@@ -280,6 +308,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'Dt. Abdullah Ömür',
     authorRole: {
       en: 'Chief Aesthetic Dental Surgeon',
+      tr: 'Başhekim & Estetik Diş Cerrahı',
       de: 'Leitender Zahnarzt für Ästhetik',
       ru: 'Главный стоматолог-эстетист',
       fr: 'Chirurgien Dentiste Esthétique en Chef',
@@ -289,6 +318,7 @@ export const BLOG_POSTS: BlogPost[] = [
     relatedInstagramReels: ['reel-decimbcjyxw', 'reel-demvleekz5h'],
     title: {
       en: 'How 3D CBCT Surgical Stents Guarantee Pain-Free Swiss Straumann® Implants',
+      tr: '3D CBCT Cerrahi Rehberler Ağrısız İsviçre Straumann® İmplant Yerleşimini Nasıl Sağlar?',
       de: 'Wie 3D-CBCT Bohrschablonen schmerzfreie Schweizer Straumann® Implantate garantieren',
       ru: 'Как хирургические 3D-шаблоны CBCT обеспечивают точную и безболезненную установку имплантов Straumann®',
       fr: 'Comment les guides chirurgicaux 3D garantissent des implants suisses sans douleur',
@@ -296,12 +326,18 @@ export const BLOG_POSTS: BlogPost[] = [
     },
     summary: {
       en: 'Discover how computer-assisted keyhole surgery maps nerve canals to the sub-millimeter, eliminating sutures, swelling, and surgical guesswork.',
+      tr: 'Bilgisayar destekli kapalı yöntem cerrahinin sinir kanallarını milimetrik koruyarak dikiş, şişlik ve cerrahi belirsizlikleri nasıl ortadan kaldırdığını keşfedin.',
       de: 'Erfahren Sie, wie computernavigierte Schablonen Nervenbahnen millimetergenau schonen und Schwellungen minimieren.',
       ru: 'Узнайте, как компьютерная навигация исключает разрезы и швы, точно позиционируя имплант с учетом анатомии.',
       fr: 'Découvrez comment la chirurgie guidée par ordinateur élimine les incisions et garantit une précision au dixième de millimètre.',
       ar: 'تعرف على تقنية الزراعة الموجهة حاسوبياً التي تحمي الأعصاب وتجنب المريض الشق الجراحي والانتفاخ.',
     },
     content: {
+      tr: [
+        'Geleneksel implant cerrahisi diş etinin kesilip açılmasını gerektirirdi. Dent Aktif Global\'de her implant operasyonu, 3D Hacimsel Tomografi (CBCT) ve 3D yazıcılarla üretilen cerrahi kılavuz plaklar (stent) ile planlanır.',
+        'Bu navigasyonlu protokol sayesinde İsviçre Straumann® Roxolid® implantlar dikişsiz mikro deliklerden yerleştirilir. İmplant, kesi olmaksızın en ideal kemik yoğunluğu bölgesine kilitlenir.',
+        'Hastalarımız için bu; ameliyat sonrası sıfır ağrı, hızlı iyileşme ve uygun vakalarda aynı gün sabit geçici diş takılabilmesi anlamına gelir.',
+      ],
       en: [
         'Traditional dental implant surgery required open gum flap elevation and visual estimation. At Dent Aktif Clinic Global, every implant surgery utilizes 3D Cone Beam Computed Tomography (CBCT) coupled with digitally planned 3D-printed surgical stents.',
         'This guided protocol allows our oral surgeons to insert Swiss Straumann® Roxolid® implants through micro-punches. The implant is locked into the exact bone density corridor without cutting or stitching.',

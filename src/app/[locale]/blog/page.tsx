@@ -17,6 +17,7 @@ export default function BlogMediaPage() {
   const UI_TEXT: Record<string, Record<string, string>> = {
     badge: {
       en: 'Clinical Journal & Video Hub',
+      tr: 'Klinik Bülten & Video Merkezi',
       de: 'Klinikjournal & Video-Hub',
       ru: 'Клинический журнал и видеогалерея',
       fr: 'Journal Clinique & Vidéos',
@@ -24,6 +25,7 @@ export default function BlogMediaPage() {
     },
     title: {
       en: 'Dental Tourism Insights & Video Library',
+      tr: 'Sağlık Turizmi Rehberi & Video Kütüphanesi',
       de: 'Zahntourismus-Wissen & Videothek',
       ru: 'Стоматологический туризм и видеотека',
       fr: 'Guides de Tourisme Dentaire & Vidéos',
@@ -31,16 +33,18 @@ export default function BlogMediaPage() {
     },
     subtitle: {
       en: 'Discover doctor advice, clinical treatment analyses, and patient transformation reels from Dent Aktif Clinic Global.',
+      tr: 'Hekim önerileri, klinik vaka analizleri ve Dent Aktif Global hastalarının dönüşüm videolarını keşfedin.',
       de: 'Fachartikel unserer Chefärzte und Instagram-Reels zu Smile Makeover Verwandlungen in Istanbul.',
       ru: 'Статьи ведущих хирургов и видео трансформаций улыбок пациентов прямо из Стамбула.',
       fr: 'Conseils chirurgicaux et vidéos de transformation de nos patients à Istanbul.',
       ar: 'مقالات طبية متخصصة وفيديوهات تحول الابتسامة الواقعية مباشرة من إنستغرام المستشفى في إسطنبول.',
     },
-    tabAll: { en: 'All Media', de: 'Alle Medien', ru: 'Все материалы', fr: 'Tous les médias', ar: 'كافة المحتويات' },
-    tabArticles: { en: 'Articles & Guides', de: 'Fachartikel', ru: 'Статьи и гайды', fr: 'Articles & Guides', ar: 'المقالات والأدلة' },
-    tabVideos: { en: 'Instagram Reels', de: 'Instagram Videos', ru: 'Instagram Reels', fr: 'Vidéos Instagram', ar: 'فيديوهات إنستغرام' },
+    tabAll: { en: 'All Media', tr: 'Tüm İçerikler', de: 'Alle Medien', ru: 'Все материалы', fr: 'Tous les médias', ar: 'كافة المحتويات' },
+    tabArticles: { en: 'Articles & Guides', tr: 'Makaleler & Rehberler', de: 'Fachartikel', ru: 'Статьи и гайды', fr: 'Articles & Guides', ar: 'المقالات والأدلة' },
+    tabVideos: { en: 'Instagram Reels', tr: 'Instagram Reels', de: 'Instagram Videos', ru: 'Instagram Reels', fr: 'Vidéos Instagram', ar: 'فيديوهات إنستغرام' },
     watchReelsTitle: {
       en: 'Dent Aktif on Instagram Reels',
+      tr: 'Dent Aktif Instagram Reels Videoları',
       de: 'Dent Aktif auf Instagram Reels',
       ru: 'Dent Aktif в Instagram Reels',
       fr: 'Dent Aktif sur Instagram Reels',
@@ -48,6 +52,7 @@ export default function BlogMediaPage() {
     },
     watchReelsDesc: {
       en: 'Short-form surgery overviews, laboratory tours, and genuine patient reactions.',
+      tr: 'Kısa operasyon özetleri, laboratuvar çekimleri ve gerçek hasta değerlendirmeleri.',
       de: 'Kurzvideos: Einblicke in Behandlungen, Labor und echte Patientenstimmen.',
       ru: 'Короткие видео: процессы операций, экскурсии в лабораторию и отзывы.',
       fr: 'Visites de laboratoire, explications chirurgicales et réactions de patients.',
@@ -55,14 +60,15 @@ export default function BlogMediaPage() {
     },
     followInstagram: {
       en: 'Follow @dentaktifglobal',
+      tr: '@dentaktifglobal Takip Et',
       de: '@dentaktifglobal folgen',
       ru: 'Подписаться @dentaktifglobal',
       fr: 'Suivre @dentaktifglobal',
       ar: 'متابعة @dentaktifglobal',
     },
-    readArticle: { en: 'Read Full Analysis', de: 'Vollständigen Artikel lesen', ru: 'Читать статью', fr: 'Lire l\'article complet', ar: 'قراءة المقال كاملاً' },
-    backToArticles: { en: 'Back to Media Hub', de: 'Zurück zur Übersicht', ru: 'Назад к статьям', fr: 'Retour aux médias', ar: 'العودة للمقالات' },
-    searchPlaceholder: { en: 'Search treatments, implants, veneers...', de: 'Suchen nach Implantaten, Veneers...', ru: 'Поиск по статьям и видео...', fr: 'Rechercher un traitement...', ar: 'ابحث عن المقالات أو الفيديوهات...' },
+    readArticle: { en: 'Read Full Analysis', tr: 'Detaylı İncele', de: 'Vollständigen Artikel lesen', ru: 'Читать статью', fr: 'Lire l\'article complet', ar: 'قراءة المقال كاملاً' },
+    backToArticles: { en: 'Back to Media Hub', tr: 'Medyaya Geri Dön', de: 'Zurück zur Übersicht', ru: 'Назад к статьям', fr: 'Retour aux médias', ar: 'العودة للمقالات' },
+    searchPlaceholder: { en: 'Search treatments, implants, veneers...', tr: 'Tedaviler, implantlar, zirkonyum veya lamine ara...', de: 'Suchen nach Implantaten, Veneers...', ru: 'Поиск по статьям и видео...', fr: 'Rechercher un traitement...', ar: 'ابحث عن المقالات أو الفيديوهات...' },
   };
 
   const t = (key: string) => UI_TEXT[key]?.[locale] || UI_TEXT[key]?.['en'] || key;

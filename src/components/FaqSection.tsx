@@ -127,6 +127,29 @@ const FAQ_LIST_BY_LOCALE: Record<string, FaqItem[]> = {
         'Oui, à 100%. Nous utilisons exclusivement des implants suisses Straumann® Roxolid et des vitrocéramiques Ivoclar Vivadent E-Max®. Chaque patient reçoit son passeport implantaire officiel avec numéros de série et garantie internationale.',
     },
   ],
+  ar: [
+    {
+      id: 'stay-duration',
+      category: 'السفر والجدول الزمني',
+      question: 'كم يوماً أحتاج للبقاء في إسطنبول لإتمام علاجي بالكامل؟',
+      answer:
+        'بالنسبة لتجميل الابتسامة (قشور E-Max® أو تيجان الزيركون المتجانسة)، مدة الإقامة القياسية هي ٥ أيام فقط. بفضل مختبرنا الرقمي الداخلي CAD/CAM المجهز بتقنيات ألمانية، نتم التصميم والبروفات والتثبيت النهائي داخل المستشفى دون أي تأخير خارجي. أما لزراعة الفك الكامل الفورية All-on-4 أو All-on-6 (Straumann®)، فيتم تسليم وتركيب الأسنان المؤقتة الثابتة خلال ٤٨ إلى ٧٢ ساعة خلال زيارتك الأولى البالغة ٥ أيام.',
+    },
+    {
+      id: 'pain-anesthesia',
+      category: 'الراحة السريرية والتخدير',
+      question: 'هل زراعة الأسنان أو تحضير قشور الفينير مؤلم؟',
+      answer:
+        'لا على الإطلاق. تُجرى جميع الإجراءات الجراحية والتعويضية تحت تخدير موضعي رقمي متطور بدون حقن مؤلمة (نظام Wand® المحوسب) لضمان انعدام الألم كلياً. وللمرضى الذين يعانون من القلق الشديد أو في جراحات الفك المعقدة، نوفر خيار التخدير الوريدي الواعي (Sedation) تحت إشراف أطباء تخدير مرخصين في المستشفى.',
+    },
+    {
+      id: 'material-authenticity',
+      category: 'المواد والضمان الدولي',
+      question: 'هل المواد المستخدمة أصلية 100% من Straumann® السويسرية و Ivoclar E-Max®؟',
+      answer:
+        'نعم، أصلية ١٠٠٪. نستخدم حصرياً زرعات Straumann® السويسرية (Roxolid و SLActive) وخزف Ivoclar Vivadent E-Max® الأصلي. يحصل كل مريض على جواز سفر طبي رسمي للزرعات وبطاقة ضمان دولية ثلاثية الأبعاد بأرقام تسلسلية قابلة للتحقق عالمياً.',
+    },
+  ],
 };
 
 const LOCALIZED_FAQ_UI: Record<string, { badge: string; title: string; desc: string; viewAllBtn: string; askDoc: string; boardNotice: string; contactDesk: string }> = {
@@ -174,6 +197,15 @@ const LOCALIZED_FAQ_UI: Record<string, { badge: string; title: string; desc: str
     askDoc: 'Задать вопрос врачу',
     boardNotice: 'Подтверждено медицинским советом клиники',
     contactDesk: 'Связаться с координатором',
+  },
+  ar: {
+    badge: 'الأسئلة الشائعة السريعة',
+    title: 'الأسئلة الأكثر شيوعاً',
+    desc: 'إجابات مباشرة وموجزة حول مدة الإقامة، والتخدير غير المؤلم، وزرعات Straumann® السويسرية الأصلية.',
+    viewAllBtn: 'عرض كافة الأسئلة الشائعة ←',
+    askDoc: 'استشر الطبيب عبر مكتب الاستقبال',
+    boardNotice: 'معتمد من المجلس الطبي للمستشفى',
+    contactDesk: 'التواصل مع مكتب المرضى',
   },
 };
 

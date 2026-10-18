@@ -15,12 +15,19 @@ export default function ContactPage() {
     fullName: '',
     email: '',
     phone: '',
-    country: locale === 'ar' ? 'المملكة العربية السعودية' : locale === 'de' ? 'Deutschland' : locale === 'fr' ? 'France' : locale === 'ru' ? 'Россия' : 'United Kingdom',
+    country: locale === 'ar' ? 'المملكة العربية السعودية' : locale === 'tr' ? 'Türkiye' : locale === 'de' ? 'Deutschland' : locale === 'fr' ? 'France' : locale === 'ru' ? 'Россия' : 'United Kingdom',
     arrivalMonth: 'Next 30 Days',
     message: '',
   });
 
   const localizedTreatments = {
+    tr: [
+      { val: 'All-on-4 / Full Arch Implants', label: 'All-on-4 / All-on-6 İmplant Tedavisi (Straumann®)' },
+      { val: 'Hollywood Smile (E-Max Veneers)', label: 'Hollywood Smile (Orijinal E-Max® Porselen)' },
+      { val: 'Full Mouth Monolithic Zirconia', label: 'Monolitik Katana™ Zirkonyum Köprüler' },
+      { val: 'Single / Multi Dental Implants', label: 'Tekli / Çoklu Diş İmplantları' },
+      { val: 'General Smile Renovation', label: 'Kapsamlı Gülüş Yenileme & Cerrahi' },
+    ],
     en: [
       { val: 'All-on-4 / Full Arch Implants', label: 'All-on-4 / All-on-6 Implants (Straumann®)' },
       { val: 'Hollywood Smile (E-Max Veneers)', label: 'Hollywood Smile (E-Max® Porcelain)' },
@@ -210,7 +217,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. John Smith"
+                      placeholder={locale === 'ar' ? 'مثال: محمد أحمد' : locale === 'tr' ? 'Örn: Ahmet Yılmaz' : locale === 'de' ? 'z.B. Max Mustermann' : locale === 'fr' ? 'ex. Jean Dupont' : locale === 'ru' ? 'напр. Иван Иванов' : 'e.g. John Smith'}
                       value={patientData.fullName}
                       onChange={(e) => setPatientData({ ...patientData, fullName: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:outline-hidden focus:ring-2 focus:ring-teal-500 bg-slate-50/50"
@@ -287,10 +294,18 @@ export default function ContactPage() {
                       onChange={(e) => setPatientData({ ...patientData, arrivalMonth: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:outline-hidden focus:ring-2 focus:ring-teal-500 bg-slate-50/50"
                     >
-                      <option value="Next 14 Days">{locale === 'ar' ? 'خلال 14 يوماً (عاجل)' : locale === 'tr' ? 'Acil (14 Gün İçinde)' : 'Within 14 Days (Urgent)'}</option>
-                      <option value="Next 30 Days">{locale === 'ar' ? 'خلال الـ 30 يوماً القادمة' : locale === 'tr' ? 'Önümüzdeki 30 Gün İçinde' : 'Within 30 Days'}</option>
-                      <option value="1 to 3 Months">{locale === 'ar' ? 'خلال 1 إلى 3 أشهر' : locale === 'tr' ? '1 ile 3 Ay Arasında' : 'In 1 to 3 Months'}</option>
-                      <option value="Planning Later">{locale === 'ar' ? 'أستكشف الخيارات فقط حالياً' : locale === 'tr' ? 'Yalnızca Bilgi Alıyorum' : 'Just Exploring Options'}</option>
+                      <option value="Next 14 Days">
+                        {locale === 'ar' ? 'خلال ١٤ يوماً (عاجل)' : locale === 'tr' ? 'Acil (14 Gün İçinde)' : locale === 'de' ? 'Innerhalb von 14 Tagen (Dringend)' : locale === 'fr' ? 'Sous 14 jours (Urgent)' : locale === 'ru' ? 'В течение 14 дней (Срочно)' : 'Within 14 Days (Urgent)'}
+                      </option>
+                      <option value="Next 30 Days">
+                        {locale === 'ar' ? 'خلال الـ ٣٠ يوماً القادمة' : locale === 'tr' ? 'Önümüzdeki 30 Gün İçinde' : locale === 'de' ? 'In den nächsten 30 Tagen' : locale === 'fr' ? 'Dans les 30 prochains jours' : locale === 'ru' ? 'В ближайшие 30 дней' : 'Within 30 Days'}
+                      </option>
+                      <option value="1 to 3 Months">
+                        {locale === 'ar' ? 'خلال ١ إلى ٣ أشهر' : locale === 'tr' ? '1 ile 3 Ay Arasında' : locale === 'de' ? 'In 1 bis 3 Monaten' : locale === 'fr' ? 'Dans 1 à 3 mois' : locale === 'ru' ? 'Через 1-3 месяца' : 'In 1 to 3 Months'}
+                      </option>
+                      <option value="Planning Later">
+                        {locale === 'ar' ? 'أستكشف الخيارات فقط حالياً' : locale === 'tr' ? 'Yalnızca Bilgi Alıyorum' : locale === 'de' ? 'Optionen prüfen' : locale === 'fr' ? 'Exploration des options' : locale === 'ru' ? 'Пока просто изучаю' : 'Just Exploring Options'}
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -301,7 +316,7 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     rows={3}
-                    placeholder={locale === 'ar' ? 'اشرح حالة أسنانك الحالية، أو العلاجات السابقة، أو متطلباتك التجميلية الخاصة...' : locale === 'tr' ? 'Mevcut diş şikayetiniz veya istediğiniz estetik değişim...' : 'Describe your current tooth condition, previous dental work, or specific requests...'}
+                    placeholder={locale === 'ar' ? 'اشرح حالة أسنانك الحالية، أو العلاجات السابقة، أو متطلباتك التجميلية الخاصة...' : locale === 'tr' ? 'Mevcut diş şikayetiniz veya istediğiniz estetik değişim...' : locale === 'de' ? 'Beschreiben Sie Ihre aktuelle Zahnsituation oder Wünsche...' : locale === 'fr' ? 'Décrivez votre situation dentaire ou vos souhaits...' : locale === 'ru' ? 'Опишите текущее состояние зубов или пожелания...' : 'Describe your current tooth condition, previous dental work, or specific requests...'}
                     value={patientData.message}
                     onChange={(e) => setPatientData({ ...patientData, message: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:outline-hidden focus:ring-2 focus:ring-teal-500 bg-slate-50/50"
@@ -311,7 +326,7 @@ export default function ContactPage() {
                 <div className="p-3 rounded-xl bg-teal-50/80 border border-teal-200/80 flex items-start gap-2.5 text-xs text-teal-900">
                   <span className="material-symbols-outlined text-teal-600 text-lg shrink-0 mt-0.5">verified_user</span>
                   <div className="text-[11px] leading-relaxed">
-                    <strong>256-Bit TLS &amp; GDPR / KVKK:</strong> {locale === 'ar' ? 'تتم مراجعة سجلاتك التشخيصية حصرياً من قِبل جراحي الأسنان المرخصين تحت بند السرية الطبية التامة ولن يتم إرسال أي رسائل غير مرغوب فيها.' : locale === 'tr' ? 'Kayıtlarınız yalnızca lisanslı diş hekimlerimizce incelenir ve asla 3. taraflarla paylaşılmaz.' : 'Your diagnostic records are reviewed exclusively by registered dental surgeons under medical confidentiality. No spam.'}
+                    <strong>256-Bit TLS &amp; GDPR / KVKK:</strong> {locale === 'ar' ? 'تتم مراجعة سجلاتك التشخيصية حصرياً من قِبل جراحي الأسنان المرخصين تحت بند السرية الطبية التامة ولن يتم إرسال أي رسائل غير مرغوب فيها.' : locale === 'tr' ? 'Kayıtlarınız yalnızca lisanslı diş hekimlerimizce incelenir ve asla 3. taraflarla paylaşılmaz.' : locale === 'de' ? 'Ihre Unterlagen werden ausschließlich von unseren Fachärzten streng vertraulich geprüft.' : locale === 'fr' ? 'Vos dossiers sont examinés exclusivement par nos chirurgiens sous secret médical absolu.' : locale === 'ru' ? 'Ваши снимки изучаются исключительно лицензированными хирургами в условиях строгой конфиденциальности.' : 'Your diagnostic records are reviewed exclusively by registered dental surgeons under medical confidentiality. No spam.'}
                   </div>
                 </div>
 

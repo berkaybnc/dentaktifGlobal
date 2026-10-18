@@ -279,7 +279,7 @@ export default function Header() {
             }`}
             href="/blog"
           >
-            Blog & Media
+            {t('navBlog') || 'Blog & Media'}
           </Link>
 
           <Link
@@ -524,7 +524,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors"
             >
-              <span>Blog & Media</span>
+              <span>{t('navBlog') || 'Blog & Media'}</span>
               <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>

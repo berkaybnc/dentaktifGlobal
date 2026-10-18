@@ -228,7 +228,7 @@ export default function Footer() {
               </div>
               <div className="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5 pl-1">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                <span>{locale === 'ar' ? 'مرخص من وزارة الصحة' : 'Ministry Licensed'}</span>
+                <span>{locale === 'ar' ? 'مرخص من وزارة الصحة' : locale === 'tr' ? 'Sağlık Bakanlığı Ruhsatlı' : locale === 'de' ? 'Vom Ministerium lizenziert' : locale === 'fr' ? 'Agréé par le Ministère' : locale === 'ru' ? 'Лицензия Минздрава' : 'Ministry Licensed'}</span>
               </div>
             </div>
           </div>
@@ -279,7 +279,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">location_on</span>
                 <div className="text-[11px] leading-snug">
                   <span className="font-bold text-white block">
-                    {locale === 'ar' ? 'أجنحة دنت أكتيف الجراحية' : 'Dent Aktif Surgical Suites'}
+                    {locale === 'ar' ? 'أجنحة دنت أكتيف الجراحية' : locale === 'tr' ? 'Dent Aktif Cerrahi Klinikleri' : locale === 'de' ? 'Dent Aktif Chirurgische Suiten' : locale === 'fr' ? 'Suites Chirurgicales Dent Aktif' : locale === 'ru' ? 'Хирургическое отделение Dent Aktif' : 'Dent Aktif Surgical Suites'}
                   </span>
                   {t('address')}
                 </div>
@@ -290,7 +290,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">call</span>
                 <div className="text-[11px] leading-snug">
                   <span className="font-bold text-white block">
-                    {locale === 'ar' ? 'الخط الساخن وواتساب:' : 'Hotline & WhatsApp:'}
+                    {locale === 'ar' ? 'الخط الساخن وواتساب:' : locale === 'tr' ? 'Doğrudan Hat & WhatsApp:' : locale === 'de' ? 'Hotline & WhatsApp:' : locale === 'fr' ? 'Ligne directe & WhatsApp :' : locale === 'ru' ? 'Горячая линия и WhatsApp:' : 'Hotline & WhatsApp:'}
                   </span>
                   <a href="tel:+905521617377" className="text-[#2BA598] hover:text-white transition-colors underline font-semibold">
                     {t('phone')}
@@ -303,7 +303,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">mail</span>
                 <div className="text-[11px] leading-snug">
                   <span className="font-bold text-white block">
-                    {locale === 'ar' ? 'الاستشارات السريرية:' : 'Clinical Advisory:'}
+                    {locale === 'ar' ? 'الاستشارات السريرية:' : locale === 'tr' ? 'Klinik Danışmanlık:' : locale === 'de' ? 'Klinische Beratung:' : locale === 'fr' ? 'Conseil Clinique :' : locale === 'ru' ? 'Клинические консультации:' : 'Clinical Advisory:'}
                   </span>
                   <a href="mailto:international@dentaktifglobal.com" className="text-[#2BA598] hover:text-white transition-colors underline">
                     {t('email')}
@@ -320,7 +320,7 @@ export default function Footer() {
               {locale === 'ar' ? 'القنوات الرسمية' : locale === 'tr' ? 'Resmi Kanallar' : locale === 'de' ? 'Offizielle Kanäle' : locale === 'ru' ? 'Официальные каналы' : locale === 'fr' ? 'Canaux Officiels' : 'Official Channels'}
             </h4>
             <p className="text-[11px] text-slate-300">
-              {locale === 'ar' ? 'تنسيق المرضى الدوليين:' : locale === 'tr' ? 'Uluslararası hasta koordinasyonu:' : locale === 'de' ? 'Internationaler Patientenservice:' : locale === 'ru' ? 'Международный отдел пациентов:' : locale === 'fr' ? 'Conciergerie internationale :' : 'International clinical concierge:'}
+              {locale === 'ar' ? 'تنسيق المرضى الدوليين:' : locale === 'tr' ? 'Uluslararası Hasta Koordinasyonu:' : locale === 'de' ? 'Internationaler Patientenservice:' : locale === 'fr' ? 'Conciergerie Internationale :' : locale === 'ru' ? 'Международный отдел пациентов:' : 'International Clinical Concierge:'}
             </p>
             <div className="pt-0.5">
               <SocialDock />

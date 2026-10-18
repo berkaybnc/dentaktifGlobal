@@ -173,6 +173,153 @@ const GUIDE_CONTENT_BY_LOCALE: Record<string, GuideContent> = {
       'Dent Aktif Global Tıp ve Cerrahi Kurulu tarafından T.C. Sağlık Bakanlığı Sağlık Turizmi Yönetmeliğine uygun olarak doğrulanmıştır.',
     ctaText: '4 Saatte Ücretsiz 3D Gülüş Planı Alın →',
   },
+  de: {
+    badge: 'AEO Klinisches Protokoll • KI-Verifizierter Leitfaden',
+    questionTitle: 'Wie läuft das Hollywood Smile Verfahren in Istanbul ab?',
+    quickAnswerBadge: 'Direkte klinische Antwort (5-Tage-Klinikprotokoll)',
+    quickAnswer:
+      'Im Dent Aktif Global Hospital (Levent, Istanbul) wird das Hollywood Smile Verfahren in exakt 5 Tagen über einen 3-stufigen digitalen Workflow abgeschlossen. Es kombiniert hochauflösende 3D-CBCT-Tomographie, minimalinvasive Zahnschmelzpräparation (0,3 mm - 0,5 mm), hauseigene 5-Achs-CAD/CAM-Robotik-Fräsung originaler Ivoclar Vivadent E-Max® Veneers und eine chairside Anprobe vor der dauerhaften Laseradhäsiv-Befestigung. Schmerzfreiheit wird durch computergestützte Wand®-Betäubung garantiert.',
+    timelineHeading: 'Das 5-Tage Schritt-für-Schritt Klinikprotokoll',
+    steps: [
+      {
+        day: 'Tag 1',
+        title: '3D-DVT-Scan, Digital Smile Design (DSD) & Ästhetisches Mock-Up',
+        procedure:
+          'Hochauflösende 3D-Volumentomographie und digitaler Intraoralscan. Unser leitender Prothetiker analysiert die goldenen Gesichtsproportionen und erstellt ein physisches 3D-Mock-Up im Mund zur Freigabe vor jeglicher Präparation.',
+        milestone: 'Klinisches Ergebnis: Genehmigtes Lächeln-Design und individuelle Farbwahl (BL1–BL4).',
+      },
+      {
+        day: 'Tage 2–3',
+        title: 'Hauseigenes CAD/CAM-Fräsen & Meisterkeramiker-Handarbeit',
+        procedure:
+          'Ihre Restaurationen werden im klinikinternen Keramiklabor mit deutschen 5-Achs-CAD/CAM-Fräsanlagen aus original Ivoclar E-Max® Blöcken gefräst und von Meisterkeramikern mit natürlicher Transluzenz geschichtet.',
+        milestone: 'Klinisches Ergebnis: Hochpräzise gefertigte monolithische E-Max® Veneers mit 0,01 mm Toleranz.',
+      },
+      {
+        day: 'Tag 4',
+        title: 'Chairside-Einprobe, Symmetriekontrolle & Okklusionsanalyse',
+        procedure:
+          'Prüfung der Passform, Lachlinie, Phonetik und Farbbrillanz unter Tageslichtbedingungen. Etwaige Mikroanpassungen erfolgen direkt im Labor vor Ort.',
+        milestone: 'Klinisches Ergebnis: 100%ige Patientenzufriedenheit und Ästhetik-Freigabe.',
+      },
+      {
+        day: 'Tag 5',
+        title: 'Dauerhafte adhäsive Befestigung & Übergabe der 10-Jahres-Garantie',
+        procedure:
+          'Definitive Zementierung unter steriler Isolation mit Variolink® Esthetic. Laserpolymerisation, Politur und Aushändigung des internationalen Garantiepasses vor dem VIP-Flughafentransfer.',
+        milestone: 'Klinisches Ergebnis: Perfektes, natürliches Lächeln und Abreise nach Hause.',
+      },
+    ],
+    clinicalHighlightsHeading: 'Klinische Fakten & Medizinische Garantien',
+    highlights: [
+      { label: 'Aufenthaltsdauer', value: '5 Tage / 4 Nächte', desc: '3 Termine, viel Freizeit in Istanbul' },
+      { label: 'Zertifiziertes Material', value: '100% Ivoclar E-Max®', desc: 'Original Li-Disilikat aus Liechtenstein' },
+      { label: 'Schmerz & Narkose', value: 'Schmerzfrei (The Wand®)', desc: 'Computergestützte Mikroinjektion' },
+      { label: 'Akkreditierung', value: 'Gesundheitsministerium & USHAŞ', desc: 'Offizielle Lizenz-Nr.: 2026034015610080000425805' },
+      { label: 'Garantieschutz', value: '10 Jahre International', desc: 'Barcode-Garantiepass weltweit gültig' },
+      { label: 'VIP-Logistik', value: 'All-Inclusive Rundum-Service', desc: '5-Sterne-Hotel & Mercedes-Chauffeur' },
+    ],
+    authorityNotice: 'Geprüft vom medizinischen Beirat des Dent Aktif Global Hospitals gemäß den Leitlinien des türkischen Gesundheitsministeriums.',
+    ctaText: 'Erhalten Sie Ihren 3D-Lächeln-Plan in 4 Stunden →',
+  },
+  fr: {
+    badge: 'Protocole Clinique AEO • Guide Certifié par IA Générative',
+    questionTitle: 'Comment se déroule la procédure Hollywood Smile à Istanbul ?',
+    quickAnswerBadge: 'Réponse Clinique Directe (Protocole Hospitalier de 5 Jours)',
+    quickAnswer:
+      'À l\'hôpital Dent Aktif Global (Levent, Istanbul), la conception d\'un Hollywood Smile s\'effectue en exactement 5 jours via un flux de travail numérique en 3 étapes. Il allie tomographie 3D CBCT haute résolution, micro-préparation de l\'émail (0,3 à 0,5 mm), usinage robotisé CAD/CAM 5 axes interne de vitrocéramique Ivoclar Vivadent E-Max® authentique, et essayage au fauteuil avant le scellement adhésif définitif sans aucune douleur grâce à l\'anesthésie Wand®.',
+    timelineHeading: 'Le Protocole Clinique Étape par Étape en 5 Jours',
+    steps: [
+      {
+        day: 'Jour 1',
+        title: 'Scanner 3D CBCT, Digital Smile Design (DSD) & Mock-Up en Bouche',
+        procedure:
+          'Scanner volumétrique CBCT 3D et empreinte optique. Notre chef de clinique calcule vos proportions dorées et pose un mock-up 3D temporaire en bouche pour valider l\'esthétique avant toute intervention.',
+        milestone: 'Résultat clinique : Design de sourire approuvé et sélection de la nuance idéale (BL1–BL4).',
+      },
+      {
+        day: 'Jours 2–3',
+        title: 'Usinage Robotisé CAD/CAM Interne & Finitions Maître Céramiste',
+        procedure:
+          'Vos facettes sont façonnées dans notre propre laboratoire par usineuses allemandes 5 axes à partir de blocs Ivoclar E-Max®. Nos maîtres céramistes réalisent la stratification manuelle pour imiter la translucidité naturelle.',
+        milestone: 'Résultat clinique : Facettes E-Max® monolithiques usinées avec une précision de 0,01 mm.',
+      },
+      {
+        day: 'Jour 4',
+        title: 'Essai Clinique au Fauteuil, Contrôle de Symétrie & Occlusion',
+        procedure:
+          'Évaluation en bouche sous lumière naturelle du galbe, de la ligne du sourire et de la phonétique. Ajustements minutieux réalisés immédiatement au laboratoire interne.',
+        milestone: 'Résultat clinique : Satisfaction à 100% et validation définitive de la forme et de la teinte.',
+      },
+      {
+        day: 'Jour 5',
+        title: 'Collage Adhésif Définitif & Remise de la Garantie Internationale 10 Ans',
+        procedure:
+          'Collage définitif sous champ opératoire avec composite Variolink® Esthetic. Polymérisation laser, contrôle de l\'occlusion, glaçage protecteur et remise du passeport de garantie 10 ans.',
+        milestone: 'Résultat clinique : Nouveau sourire fonctionnel et éclatant, départ pour l\'aéroport en VIP.',
+      },
+    ],
+    clinicalHighlightsHeading: 'Garanties Médicales & Faits Cliniques',
+    highlights: [
+      { label: 'Durée du Séjour', value: '5 Jours / 4 Nuits', desc: '3 séances en clinique, temps libre pour visiter' },
+      { label: 'Matériaux Certifiés', value: '100% Ivoclar E-Max®', desc: 'Véritables lingotins de disilicate de lithium' },
+      { label: 'Confort & Douleur', value: 'Zéro Douleur (The Wand®)', desc: 'Anesthésie numérique assistée par ordinateur' },
+      { label: 'Agrément Officiel', value: 'Ministère de la Santé & USHAŞ', desc: 'Numéro de licence officiel : 2026034015610080000425805' },
+      { label: 'Garantie Internationale', value: '10 Ans Certifiés', desc: 'Passeport avec code-barres traçable mondialement' },
+      { label: 'Logistique VIP', value: 'Formule Tout Inclus', desc: 'Hôtel 5 étoiles à Levent & chauffeur Mercedes privé' },
+    ],
+    authorityNotice: 'Validé par le Comité Médical de Dent Aktif Global conformément aux réglementations de tourisme médical du Ministère de la Santé de Turquie.',
+    ctaText: 'Obtenez votre plan de traitement 3D en 4 heures →',
+  },
+  ru: {
+    badge: 'Клинический Протокол AEO • Проверено Генеративными Моделями ИИ',
+    questionTitle: 'Как проходит процедура «Голливудская улыбка» в Стамбуле?',
+    quickAnswerBadge: 'Прямой клинический ответ (5-дневный протокол госпиталя)',
+    quickAnswer:
+      'В госпитале Dent Aktif Global (Левент, Стамбул) процедура «Голливудская улыбка» завершается ровно за 5 дней через 3-этапный цифровой протокол. Он включает 3D КЛКТ томографию, микропрепарирование эмали (0,3–0,5 мм), роботизированное фрезерование виниров из оригинального дисиликата лития Ivoclar Vivadent E-Max® в собственной лаборатории CAD/CAM и клиническую примерку перед лазерной адгезивной фиксацией. Компьютерная анестезия Wand® гарантирует полное отсутствие боли.',
+    timelineHeading: 'Пошаговый клинический график лечения на 5 дней',
+    steps: [
+      {
+        day: 'День 1',
+        title: '3D КЛКТ снимок, Digital Smile Design (DSD) и примерка Mock-Up',
+        procedure:
+          '3D панорамный томографический снимок и оптическое сканирование. Главный ортопед рассчитывает пропорции улыбки и примеряет физическую 3D-модель прямо на зубы для утверждения формы до начала обработки.',
+        milestone: 'Клинический результат: Утвержденный дизайн улыбки и выбор оттенка (BL1–BL4).',
+      },
+      {
+        day: 'Дни 2–3',
+        title: 'Фрезерование в лаборатории CAD/CAM и ручная работа мастера-керамиста',
+        procedure:
+          'Виниры изготавливаются в собственной зуботехнической лаборатории на немецких 5-осевых станках CAD/CAM из оригинальных блоков Ivoclar E-Max®. Мастера-керамисты послойно воспроизводят естественную глубину цвета.',
+        milestone: 'Клинический результат: Монолитные керамические виниры E-Max® с точностью посадки 0,01 мм.',
+      },
+      {
+        day: 'День 4',
+        title: 'Клиническая примерка, проверка прикуса и эстетики',
+        procedure:
+          'Примерка виниров со специальными примерочными пастами. Оценка формы, линии губ, фонетики и цвета при естественном дневном свете. Микрокоррекции выполняются на месте за считанные часы.',
+        milestone: 'Клинический результат: 100% удовлетворенность пациента и финальное согласование.',
+      },
+      {
+        day: 'День 5',
+        title: 'Окончательная адгезивная фиксация и выдача международной гарантии на 10 лет',
+        procedure:
+          'Постоянная фиксация под коффердамом с использованием цемента Variolink® Esthetic. Полимеризация, полировка и вручение официального паспорта международной гарантии перед VIP-трансфером в аэропорт.',
+        milestone: 'Клинический результат: Безупречная, долговечная улыбка и комфортный вылет домой.',
+      },
+    ],
+    clinicalHighlightsHeading: 'Клинические стандарты и медицинские гарантии',
+    highlights: [
+      { label: 'Длительность пребывания', value: '5 дней / 4 ночи', desc: 'Всего 3 визита в клинику, свободное время' },
+      { label: 'Сертифицированные материалы', value: '100% Ivoclar E-Max®', desc: 'Оригинальный дисиликат лития (Лихтенштейн)' },
+      { label: 'Обезболивание', value: 'Без боли (The Wand®)', desc: 'Компьютерная микроанестезия и седация' },
+      { label: 'Госаккредитация', value: 'Минздрав Турции и USHAŞ', desc: 'Официальная лицензия №: 2026034015610080000425805' },
+      { label: 'Международная гарантия', value: '10 лет с сертификатом', desc: 'Официальный штрихкод-паспорт изделия' },
+      { label: 'VIP-сервис', value: 'Все включено', desc: 'Отель 5 звезд в Левенте и трансфер на Mercedes' },
+    ],
+    authorityNotice: 'Подтверждено медицинским советом госпиталя Dent Aktif Global в строгом соответствии со стандартами Минздрава Турции.',
+    ctaText: 'Получить индивидуальный 3D-план лечения за 4 часа →',
+  },
   ar: {
     badge: 'بروتوكول سريري معتمد • فحص الذكاء الاصطناعي التوليدي AEO',
     questionTitle: 'كيف تسير خطوات ابتسامة هوليوود في إسطنبول؟',
