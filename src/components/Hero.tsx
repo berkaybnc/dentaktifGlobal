@@ -194,7 +194,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative w-full -mt-[72px] sm:-mt-[76px] h-screen min-h-[660px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-white/10">
+    <section className="relative w-full -mt-[72px] sm:-mt-[76px] h-screen min-h-[660px] flex flex-col justify-between overflow-hidden bg-slate-950 border-b border-white/10" dir="ltr">
       
       {/* ========================================================================= */}
       {/* 1. CINEMATIC VIDEO BACKGROUND LAYER (Exact Bluesense Atmosphere)          */}
@@ -220,7 +220,7 @@ export default function Hero() {
       {/* 2. FOREGROUND CONTENT: Prestige Identity, Value Proposition & Dual CTAs   */}
       {/* ========================================================================= */}
       <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-16 relative z-10 pt-[88px] sm:pt-[96px] lg:pt-[102px] pb-3 sm:pb-4 flex-1 flex flex-col justify-center w-full">
-        <div className="max-w-xl lg:max-w-[540px] xl:max-w-[580px] space-y-3.5 sm:space-y-4 text-left">
+        <div className="max-w-xl lg:max-w-[640px] xl:max-w-[700px] space-y-3.5 sm:space-y-4 text-left">
           
           {/* Main Headline */}
           <div className="space-y-1.5">
@@ -258,61 +258,61 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Social Proof & Trust Badges */}
-          <div className="pt-3 flex flex-wrap items-center gap-6 sm:gap-8 border-t border-white/15">
+          {/* Social Proof & Trust Badges (Side by Side) */}
+          <div className="pt-3 flex flex-row items-center gap-4 sm:gap-6 border-t border-white/15 w-full flex-wrap sm:flex-nowrap">
             {/* Trustpilot Score */}
-            <div className="flex items-center gap-2.5">
-              <div className="flex gap-0.5 text-emerald-400 text-sm">
+            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+              <div className="flex gap-0.5 text-emerald-400 text-xs sm:text-sm shrink-0">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <div>
-                <div className="text-xs sm:text-sm font-black text-white leading-none flex items-center gap-1.5">
+                <div className="text-xs sm:text-sm font-black text-white leading-none flex items-center gap-1.5 whitespace-nowrap">
                   <span>Trustpilot</span>
                   <span className="text-emerald-400 font-black">
                     <AnimatedCounter end={4.9} decimals={1} /> / 5.0
                   </span>
                 </div>
-                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1">
+                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1 whitespace-nowrap">
                   <AnimatedCounter end={2400} suffix="+" /> {reviewsLabel}
                 </div>
               </div>
             </div>
 
             {/* Subtle Divider */}
-            <div className="h-7 w-px bg-white/20 hidden sm:block" />
+            <div className="h-7 w-px bg-white/20 shrink-0 block" />
 
-            {/* International Completed Smiles Numerator */}
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2 overflow-hidden items-center">
+            {/* International Completed Smiles Numerator (Right beside Trustpilot) */}
+            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+              <div className="flex -space-x-2 overflow-hidden items-center shrink-0">
                 <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80"
+                  src="/images/testimonials/hasta-1.webp"
                   alt="Verified Patient"
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-slate-900 object-cover shadow-md"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80"
+                  src="/images/testimonials/hasta-2.webp"
                   alt="Verified Patient"
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-slate-900 object-cover shadow-md"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=80&h=80&q=80"
+                  src="/images/testimonials/hasta-3.webp"
                   alt="Verified Patient"
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-slate-900 object-cover shadow-md"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80"
+                  src="/images/testimonials/hasta-4.webp"
                   alt="Verified Patient"
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-slate-900 object-cover shadow-md"
                 />
               </div>
               <div>
-                <div className="text-xs sm:text-sm font-extrabold text-white leading-none">
+                <div className="text-xs sm:text-sm font-extrabold text-white leading-none whitespace-nowrap">
                   <span className="text-teal-300 font-black mr-1">
                     <AnimatedCounter end={15000} suffix="+" />
                   </span>
                   {t('stat1Label')}
                 </div>
-                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1">
+                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1 whitespace-nowrap">
                   {countriesLabel}
                 </div>
               </div>
