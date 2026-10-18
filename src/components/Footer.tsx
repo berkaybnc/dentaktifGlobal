@@ -314,7 +314,7 @@ export default function Footer() {
           </div>
 
           {/* 4. Official Channels & Social Media */}
-          <div className="lg:col-span-2 space-y-3 pt-4 sm:pt-0 border-t border-white/10 sm:border-0">
+          <div className="lg:col-span-2 xl:col-span-3 space-y-3 pt-4 sm:pt-0 border-t border-white/10 sm:border-0">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
               {locale === 'ar' ? 'القنوات الرسمية' : locale === 'tr' ? 'Resmi Kanallar' : locale === 'de' ? 'Offizielle Kanäle' : locale === 'ru' ? 'Официальные каналы' : locale === 'fr' ? 'Canaux Officiels' : 'Official Channels'}
@@ -322,7 +322,7 @@ export default function Footer() {
             <p className="text-[11px] text-slate-300">
               {locale === 'ar' ? 'تنسيق المرضى الدوليين:' : locale === 'tr' ? 'Uluslararası Hasta Koordinasyonu:' : locale === 'de' ? 'Internationaler Patientenservice:' : locale === 'fr' ? 'Conciergerie Internationale :' : locale === 'ru' ? 'Международный отдел пациентов:' : 'International Clinical Concierge:'}
             </p>
-            <div className="pt-0.5 overflow-x-auto no-scrollbar">
+            <div className="pt-0.5">
               <SocialDock />
             </div>
           </div>

@@ -95,55 +95,13 @@ export default function SocialDock({
 }: {
   items?: SocialIconItem[];
 }) {
-  const dockRef = useRef<HTMLDivElement>(null);
-  const [mouseX, setMouseX] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    setMouseX(e.clientX);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setMouseX(null);
-    setHoveredIndex(null);
-  }, []);
-
-  // Compute dynamic scale with Apple Dock style falloff
-  const getItemTransform = (idx: number) => {
-    if (mouseX === null || !dockRef.current) {
-      return { scale: 1, y: 0 };
-    }
-
-    const itemEl = dockRef.current.children[idx] as HTMLElement;
-    if (!itemEl) return { scale: 1, y: 0 };
-
-    const rect = itemEl.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const distance = Math.abs(mouseX - centerX);
-    const maxDistance = 110; // Influence field in px
-
-    if (distance > maxDistance) {
-      return { scale: 1, y: 0 };
-    }
-
-    // Cosine ease for smooth magnetic hump
-    const factor = Math.cos((distance / maxDistance) * (Math.PI / 2));
-    const scale = 1 + factor * 0.42; // Up to 1.42x magnification
-    const y = -factor * 6; // Lift upwards by up to 6px
-    return { scale, y };
-  };
 
   return (
     <div className="relative inline-flex flex-col items-start select-none pt-1">
-      {/* Transparent Dock Container (Zero outer background/border) */}
-      <div
-        ref={dockRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="flex items-center gap-2.5 h-[50px] px-0 bg-transparent transition-colors duration-300"
-      >
+      {/* 2-Row Clean Social Grid: All 7 icons always visible without scrollbars */}
+      <div className="flex flex-wrap items-center gap-2 max-w-[190px]">
         {items.map((item, idx) => {
-          const { scale, y } = getItemTransform(idx);
           const isHovered = hoveredIndex === idx;
 
           return (
@@ -154,17 +112,13 @@ export default function SocialDock({
               rel="noopener noreferrer"
               aria-label={item.name}
               onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
               style={{
-                transform: `scale(${scale}) translateY(${y}px)`,
                 background: isHovered ? item.bgHover : 'rgba(255, 255, 255, 0.1)',
-                transition:
-                  mouseX !== null
-                    ? 'transform 0.08s ease-out, background 0.2s ease'
-                    : 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease',
               }}
-              className="flex items-center justify-center w-9 h-9 rounded-xl text-white shadow-xs border border-white/10 hover:border-white/30 cursor-pointer origin-bottom"
+              className="flex items-center justify-center w-9 h-9 rounded-xl text-white shadow-xs border border-white/10 hover:border-white/30 cursor-pointer transition-all duration-200 hover:scale-110 hover:-translate-y-0.5"
             >
-              <div className="w-5 h-5 flex items-center justify-center pointer-events-none">
+              <div className="w-4 h-4 flex items-center justify-center pointer-events-none">
                 {item.icon}
               </div>
             </a>
