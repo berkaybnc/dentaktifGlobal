@@ -56,11 +56,13 @@ function AnimatedCounter({
   duration = 1800,
   decimals = 0,
   suffix = '',
+  isArabic = false,
 }: {
   end: number;
   duration?: number;
   decimals?: number;
   suffix?: string;
+  isArabic?: boolean;
 }) {
   const [count, setCount] = React.useState(0);
 
@@ -83,10 +85,15 @@ function AnimatedCounter({
     return () => cancelAnimationFrame(frameId);
   }, [end, duration]);
 
-  const formatted =
+  let formatted =
     decimals > 0
       ? count.toFixed(decimals)
       : Math.floor(count).toLocaleString();
+
+  if (isArabic) {
+    const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+    formatted = formatted.replace(/[0-9]/g, (d) => arabicDigits[Number(d)]);
+  }
 
   return (
     <span>
@@ -159,7 +166,7 @@ export default function Hero() {
     : 'Verified Patient Reviews';
 
   const countriesLabel = locale === 'ar'
-    ? 'مرضى من أكثر من 48 دولة'
+    ? 'مرضى من أكثر من ٤٨ دولة'
     : locale === 'tr'
     ? '48+ Farklı Ülkeden Hasta'
     : locale === 'de'
@@ -269,11 +276,11 @@ export default function Hero() {
                 <div className="text-xs sm:text-sm font-black text-white leading-none flex items-center gap-1.5 whitespace-nowrap">
                   <span>Trustpilot</span>
                   <span className="text-emerald-400 font-black">
-                    <AnimatedCounter end={4.9} decimals={1} /> / 5.0
+                    <AnimatedCounter end={4.9} decimals={1} isArabic={locale === 'ar'} /> / {locale === 'ar' ? '٥.٠' : '5.0'}
                   </span>
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1 whitespace-nowrap">
-                  <AnimatedCounter end={2400} suffix="+" /> {reviewsLabel}
+                  <AnimatedCounter end={2400} suffix="+" isArabic={locale === 'ar'} /> {reviewsLabel}
                 </div>
               </div>
             </div>
@@ -308,7 +315,7 @@ export default function Hero() {
               <div>
                 <div className="text-xs sm:text-sm font-extrabold text-white leading-none whitespace-nowrap">
                   <span className="text-teal-300 font-black mr-1">
-                    <AnimatedCounter end={15000} suffix="+" />
+                    <AnimatedCounter end={15000} suffix="+" isArabic={locale === 'ar'} />
                   </span>
                   {t('stat1Label')}
                 </div>

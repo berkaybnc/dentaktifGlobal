@@ -12,7 +12,7 @@ export default function TravelSchedule() {
 
   const days = [
     {
-      day: isAr ? 'اليوم 01' : isTr ? '1. Gün' : 'Day 01',
+      day: isAr ? 'اليوم ٠١' : isTr ? '1. Gün' : 'Day 01',
       phase: isAr ? 'التشخيص والفحص' : isTr ? 'Teşhis & Planlama' : 'Diagnostics',
       title: t('day1Title'),
       desc: t('day1Desc'),
@@ -20,7 +20,7 @@ export default function TravelSchedule() {
       time: isAr ? 'اليوم الأول' : isTr ? '1. Gün' : 'Day 1',
     },
     {
-      day: isAr ? 'اليوم 02' : isTr ? '2. Gün' : 'Day 02',
+      day: isAr ? 'اليوم ٠٢' : isTr ? '2. Gün' : 'Day 02',
       phase: isAr ? 'التصميم والتحضير' : isTr ? 'Tasarım & Hazırlık' : 'Design & Prep',
       title: t('day2Title'),
       desc: t('day2Desc'),
@@ -28,7 +28,7 @@ export default function TravelSchedule() {
       time: isAr ? 'اليوم الثاني' : isTr ? '2. Gün' : 'Day 2',
     },
     {
-      day: isAr ? 'اليوم 03' : isTr ? '3. Gün' : 'Day 03',
+      day: isAr ? 'اليوم ٠٣' : isTr ? '3. Gün' : 'Day 03',
       phase: isAr ? 'مختبر CAD/CAM' : isTr ? 'CAD/CAM Laboratuvarı' : 'CAD/CAM Lab',
       title: t('day3Title'),
       desc: t('day3Desc'),
@@ -36,7 +36,7 @@ export default function TravelSchedule() {
       time: isAr ? 'اليوم الثالث' : isTr ? '3. Gün' : 'Day 3',
     },
     {
-      day: isAr ? 'اليوم 04' : isTr ? '4. Gün' : 'Day 04',
+      day: isAr ? 'اليوم ٠٤' : isTr ? '4. Gün' : 'Day 04',
       phase: isAr ? 'جلسة القياس والتجربة' : isTr ? 'Prova & Renk Uyumu' : 'Try-in',
       title: t('day4Title'),
       desc: t('day4Desc'),
@@ -44,7 +44,7 @@ export default function TravelSchedule() {
       time: isAr ? 'اليوم الرابع' : isTr ? '4. Gün' : 'Day 4',
     },
     {
-      day: isAr ? 'اليوم 05' : isTr ? '5. Gün' : 'Day 05',
+      day: isAr ? 'اليوم ٠٥' : isTr ? '5. Gün' : 'Day 05',
       phase: isAr ? 'التثبيت النهائي والاحتفال' : isTr ? 'Kalıcı Yapıştırma & Teslim' : 'Final Bond',
       title: t('day5Title'),
       desc: t('day5Desc'),
