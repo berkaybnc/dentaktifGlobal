@@ -314,7 +314,7 @@ export default function Footer() {
           </div>
 
           {/* 4. Official Channels & Social Media */}
-          <div className="lg:col-span-2 xl:col-span-3 space-y-3 pt-4 sm:pt-0 border-t border-white/10 sm:border-0">
+          <div className="lg:col-span-2 space-y-3 pt-4 sm:pt-0 border-t border-white/10 sm:border-0">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
               {locale === 'ar' ? 'القنوات الرسمية' : locale === 'tr' ? 'Resmi Kanallar' : locale === 'de' ? 'Offizielle Kanäle' : locale === 'ru' ? 'Официальные каналы' : locale === 'fr' ? 'Canaux Officiels' : 'Official Channels'}
