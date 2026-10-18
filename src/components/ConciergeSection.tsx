@@ -210,10 +210,10 @@ export default function ConciergeSection() {
                 <div className="space-y-3 pt-2 text-xs">
                   <a
                     href="tel:+905521617377"
-                    className="flex items-start gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 transition-colors group"
+                    className="flex items-start gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 transition-colors group overflow-hidden"
                   >
                     <span className="material-symbols-outlined text-teal-300 text-xl shrink-0 mt-0.5">call</span>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <div className="text-slate-300 text-[11px]">{labels.phoneLabel}</div>
                       <div className="font-bold text-white group-hover:text-teal-200 text-sm font-mono mt-0.5">
                         +90 552 161 7377
@@ -230,22 +230,22 @@ export default function ConciergeSection() {
 
                   <a
                     href="mailto:international@dentaktifglobal.com"
-                    className="flex items-start gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 transition-colors group"
+                    className="flex items-start gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 transition-colors group overflow-hidden"
                   >
                     <span className="material-symbols-outlined text-teal-300 text-xl shrink-0 mt-0.5">mail</span>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <div className="text-slate-300 text-[11px]">{labels.emailLabel}</div>
-                      <div className="font-bold text-white group-hover:text-teal-200 text-xs font-mono mt-0.5">
+                      <div className="font-bold text-white group-hover:text-teal-200 text-[11px] sm:text-xs font-mono mt-0.5 break-all sm:break-normal">
                         international@dentaktifglobal.com
                       </div>
                     </div>
                   </a>
 
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
                     <span className="material-symbols-outlined text-teal-300 text-xl shrink-0 mt-0.5">location_on</span>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <div className="text-slate-300 text-[11px]">{labels.hospitalCampus}</div>
-                      <div className="font-medium text-slate-100 text-xs mt-0.5">
+                      <div className="font-medium text-slate-100 text-xs mt-0.5 leading-snug">
                         {labels.addressVal}
                       </div>
                     </div>
