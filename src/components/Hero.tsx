@@ -330,16 +330,47 @@ export default function Hero() {
       </div>
 
       {/* ========================================================================= */}
-      {/* 3. STATIC PRESTIGE & TRUST PILLARS (Modern Luxury Glassmorphism)         */}
+      {/* 3. PRESTIGE & TRUST PILLARS (Mobile: Infinite Loop Marquee | Desktop: Luxury Grid) */}
       {/* ========================================================================= */}
-      <div className="w-full relative z-20 border-t border-white/15 bg-slate-950/40 backdrop-blur-md py-3.5 sm:py-4 shadow-[0_-10px_25px_rgba(0,0,0,0.2)] shrink-0">
-        <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+      <div className="w-full relative z-20 border-t border-white/15 bg-slate-950/40 backdrop-blur-md py-2.5 sm:py-3.5 lg:py-4 shadow-[0_-10px_25px_rgba(0,0,0,0.2)] shrink-0">
+        <div className="max-w-[1720px] mx-auto px-0 md:px-8 lg:px-12 2xl:px-16">
+          
+          {/* Mobile View: Continuous Infinite Marquee Loop Slider */}
+          <div className="block md:hidden relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_1.5rem,black_calc(100%-1.5rem),transparent)] py-0.5">
+            <div
+              className="flex gap-3 w-max hover:[animation-play-state:paused] active:[animation-play-state:paused]"
+              style={{
+                animation: 'marquee-smooth 24s linear infinite',
+              }}
+            >
+              {[...prestigePillars, ...prestigePillars].map((pillar, idx) => (
+                <div
+                  key={`hero-pill-${idx}`}
+                  className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/[0.07] border border-white/15 shrink-0 backdrop-blur-sm shadow-xs"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-teal-500/15 border border-teal-400/30 flex items-center justify-center text-teal-300 shrink-0">
+                    <span className="material-symbols-outlined text-lg">{pillar.icon}</span>
+                  </div>
+                  <div className="min-w-0 text-left">
+                    <h4 className="font-headline font-bold text-xs tracking-tight text-white whitespace-nowrap">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-[10px] text-slate-300/90 font-medium leading-tight mt-0.5 whitespace-nowrap">
+                      {pillar.label}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tablet & Desktop View: 4-Column Luxury Grid */}
+          <div className="hidden md:grid md:grid-cols-4 gap-4 lg:gap-6 divide-x divide-white/10">
             {prestigePillars.map((pillar, idx) => (
               <div
                 key={idx}
                 className={`flex items-center gap-3.5 py-1.5 ${
-                  idx > 0 ? 'sm:pl-4 lg:pl-6' : ''
+                  idx > 0 ? 'pl-4 lg:pl-6' : ''
                 } group cursor-default`}
               >
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-teal-500/10 border border-teal-400/25 flex items-center justify-center text-teal-300 group-hover:bg-gradient-to-br group-hover:from-teal-400 group-hover:to-cyan-500 group-hover:text-slate-950 transition-all duration-300 shrink-0 shadow-sm">
@@ -358,6 +389,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
+
         </div>
       </div>
 
