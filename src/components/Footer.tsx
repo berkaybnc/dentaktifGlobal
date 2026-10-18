@@ -78,8 +78,8 @@ export default function Footer() {
 
   return (
     <footer className="relative w-full bg-[#1b0d52] text-white overflow-hidden border-t-2 border-[#006972]/40">
-      {/* Vector Dental Art Emblems (Distinct, High-Contrast & Neatly Contained Watermarks) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+      {/* Vector Dental Art Emblems (Hidden on mobile to prevent text clash, visible on large desktop) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none hidden lg:block">
         {/* Left Tooth Crest Emblem (Clearly visible, centered vertically, safely contained) */}
         <div className="absolute left-2 sm:left-6 lg:left-10 top-1/2 -translate-y-1/2 text-teal-300/85 transition-all pointer-events-none">
           <svg
@@ -193,12 +193,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-10 pb-6">
         {/* Main Unified 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
           {/* 1. Brand Identity & Accreditations (4 cols) */}
-          <div className="lg:col-span-4 space-y-3">
+          <div className="lg:col-span-4 space-y-3.5">
             <Link href="/" className="inline-block group">
               <img
                 src="/images/logo.webp"
@@ -211,7 +211,7 @@ export default function Footer() {
             </p>
 
             {/* Official Accreditations Logos */}
-            <div className="pt-1 flex items-center gap-3">
+            <div className="pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3">
               <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-md shrink-0">
                 <img
                   src="/images/saglikBakanligi.webp"
@@ -219,14 +219,14 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="h-10 px-2 rounded-xl bg-white flex items-center justify-center shadow-md shrink-0">
+              <div className="h-10 px-2.5 rounded-xl bg-white flex items-center justify-center shadow-md shrink-0">
                 <img
                   src="/images/heart-of-health1-1logo.svg"
                   alt="HealthTürkiye"
                   className="h-7 w-auto object-contain"
                 />
               </div>
-              <div className="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5 pl-1">
+              <div className="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5 pl-0.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                 <span>{locale === 'ar' ? 'مرخص من وزارة الصحة' : locale === 'tr' ? 'Sağlık Bakanlığı Ruhsatlı' : locale === 'de' ? 'Vom Ministerium lizenziert' : locale === 'fr' ? 'Agréé par le Ministère' : locale === 'ru' ? 'Лицензия Минздрава' : 'Ministry Licensed'}</span>
               </div>
@@ -234,30 +234,30 @@ export default function Footer() {
           </div>
 
           {/* 2. Our Treatments (3 cols) */}
-          <div className="lg:col-span-3 space-y-2.5">
+          <div className="lg:col-span-3 space-y-3 pt-4 sm:pt-0 border-t border-white/10 sm:border-0">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
               {locale === 'ar' ? 'علاجاتنا' : locale === 'tr' ? 'Tedavilerimiz' : locale === 'de' ? 'Unsere Behandlungen' : locale === 'ru' ? 'Наши услуги' : locale === 'fr' ? 'Nos Traitements' : 'Our Treatments'}
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
-              <ul className="space-y-1.5">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+              <ul className="space-y-2">
                 {treatmentsCol1.map((item, idx) => (
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-slate-300 hover:text-teal-300 transition-colors block text-[11.5px]"
+                      className="text-slate-300 hover:text-teal-300 transition-colors block text-[12px] leading-tight"
                     >
                       {item.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <ul className="space-y-1.5">
+              <ul className="space-y-2">
                 {treatmentsCol2.map((item, idx) => (
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-slate-300 hover:text-teal-300 transition-colors block text-[11.5px]"
+                      className="text-slate-300 hover:text-teal-300 transition-colors block text-[12px] leading-tight"
                     >
                       {item.label}
                     </Link>
@@ -268,44 +268,44 @@ export default function Footer() {
           </div>
 
           {/* 3. Direct Contact Details (Location, Phone, Email) */}
-          <div className="lg:col-span-3 space-y-2.5">
+          <div className="lg:col-span-3 space-y-3 pt-4 sm:pt-0 border-t border-white/10 sm:border-0">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
               {locale === 'ar' ? 'اتصل بالمستشفى' : locale === 'tr' ? 'Klinik İletişim' : locale === 'de' ? 'Klinik-Kontakt' : locale === 'ru' ? 'Контакты клиники' : locale === 'fr' ? 'Contact Clinique' : 'Hospital Contact'}
             </h4>
             <div className="space-y-2 text-xs text-slate-300">
               {/* Address */}
-              <div className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">location_on</span>
-                <div className="text-[11px] leading-snug">
+              <div className="flex items-start gap-2.5 p-2 rounded-xl bg-white/[0.04] sm:bg-transparent sm:p-0">
+                <span className="material-symbols-outlined text-[#2BA598] text-lg shrink-0 mt-0.5">location_on</span>
+                <div className="text-[11.5px] leading-snug">
                   <span className="font-bold text-white block">
                     {locale === 'ar' ? 'أجنحة دنت أكتيف الجراحية' : locale === 'tr' ? 'Dent Aktif Cerrahi Klinikleri' : locale === 'de' ? 'Dent Aktif Chirurgische Suiten' : locale === 'fr' ? 'Suites Chirurgicales Dent Aktif' : locale === 'ru' ? 'Хирургическое отделение Dent Aktif' : 'Dent Aktif Surgical Suites'}
                   </span>
-                  {t('address')}
+                  <span className="text-slate-300/90">{t('address')}</span>
                 </div>
               </div>
 
               {/* Phone */}
-              <div className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">call</span>
-                <div className="text-[11px] leading-snug">
+              <div className="flex items-start gap-2.5 p-2 rounded-xl bg-white/[0.04] sm:bg-transparent sm:p-0">
+                <span className="material-symbols-outlined text-[#2BA598] text-lg shrink-0 mt-0.5">call</span>
+                <div className="text-[11.5px] leading-snug">
                   <span className="font-bold text-white block">
                     {locale === 'ar' ? 'الخط الساخن وواتساب:' : locale === 'tr' ? 'Doğrudan Hat & WhatsApp:' : locale === 'de' ? 'Hotline & WhatsApp:' : locale === 'fr' ? 'Ligne directe & WhatsApp :' : locale === 'ru' ? 'Горячая линия и WhatsApp:' : 'Hotline & WhatsApp:'}
                   </span>
-                  <a href="tel:+905521617377" className="text-[#2BA598] hover:text-white transition-colors underline font-semibold">
+                  <a href="tel:+905521617377" className="text-teal-300 hover:text-white transition-colors underline font-semibold tracking-wide inline-block mt-0.5">
                     {t('phone')}
                   </a>
                 </div>
               </div>
 
               {/* Email */}
-              <div className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-[#2BA598] text-base shrink-0 mt-0.5">mail</span>
-                <div className="text-[11px] leading-snug">
+              <div className="flex items-start gap-2.5 p-2 rounded-xl bg-white/[0.04] sm:bg-transparent sm:p-0">
+                <span className="material-symbols-outlined text-[#2BA598] text-lg shrink-0 mt-0.5">mail</span>
+                <div className="text-[11.5px] leading-snug">
                   <span className="font-bold text-white block">
                     {locale === 'ar' ? 'الاستشارات السريرية:' : locale === 'tr' ? 'Klinik Danışmanlık:' : locale === 'de' ? 'Klinische Beratung:' : locale === 'fr' ? 'Conseil Clinique :' : locale === 'ru' ? 'Клинические консультации:' : 'Clinical Advisory:'}
                   </span>
-                  <a href="mailto:international@dentaktifglobal.com" className="text-[#2BA598] hover:text-white transition-colors underline">
+                  <a href="mailto:international@dentaktifglobal.com" className="text-teal-300 hover:text-white transition-colors underline inline-block mt-0.5 break-all">
                     {t('email')}
                   </a>
                 </div>
@@ -314,7 +314,7 @@ export default function Footer() {
           </div>
 
           {/* 4. Official Channels & Social Media */}
-          <div className="lg:col-span-2 space-y-2.5">
+          <div className="lg:col-span-2 space-y-3 pt-4 sm:pt-0 border-t border-white/10 sm:border-0">
             <h4 className="font-headline text-xs font-black uppercase tracking-wider text-white flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2BA598]" />
               {locale === 'ar' ? 'القنوات الرسمية' : locale === 'tr' ? 'Resmi Kanallar' : locale === 'de' ? 'Offizielle Kanäle' : locale === 'ru' ? 'Официальные каналы' : locale === 'fr' ? 'Canaux Officiels' : 'Official Channels'}
@@ -322,7 +322,7 @@ export default function Footer() {
             <p className="text-[11px] text-slate-300">
               {locale === 'ar' ? 'تنسيق المرضى الدوليين:' : locale === 'tr' ? 'Uluslararası Hasta Koordinasyonu:' : locale === 'de' ? 'Internationaler Patientenservice:' : locale === 'fr' ? 'Conciergerie Internationale :' : locale === 'ru' ? 'Международный отдел пациентов:' : 'International Clinical Concierge:'}
             </p>
-            <div className="pt-0.5">
+            <div className="pt-0.5 overflow-x-auto no-scrollbar">
               <SocialDock />
             </div>
           </div>
