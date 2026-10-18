@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { Link } from '@/navigation';
-import { BLOG_POSTS, INSTAGRAM_REELS, BlogPost } from '@/data/blogData';
+import { BLOG_POSTS, INSTAGRAM_REELS, BlogPost, InstagramReel } from '@/data/blogData';
 import InstagramVideoCard from '@/components/InstagramVideoCard';
 
 export default function BlogMediaPage() {
@@ -12,6 +12,26 @@ export default function BlogMediaPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeArticle, setActiveArticle] = useState<BlogPost | null>(null);
+  const [reels, setReels] = useState<InstagramReel[]>(INSTAGRAM_REELS);
+
+  // Auto-fetch live 4 latest posts/reels from Instagram Graph API
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/api/instagram?limit=4')
+      .then((res) => res.json())
+      .then((resData) => {
+        if (isMounted && resData.success && Array.isArray(resData.data) && resData.data.length > 0) {
+          setReels(resData.data);
+        }
+      })
+      .catch((err) => {
+        console.warn('Live Instagram fetch fallback to static:', err);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // Localization labels
   const UI_TEXT: Record<string, Record<string, string>> = {
@@ -83,10 +103,12 @@ export default function BlogMediaPage() {
     return matchesSearch && matchesCat;
   });
 
-  // Filtered Reels
-  const filteredReels = INSTAGRAM_REELS.filter((reel) => {
-    const reelTitle = (reel.title[locale] || reel.title.en).toLowerCase();
-    const reelCaption = (reel.caption[locale] || reel.caption.en).toLowerCase();
+  // Filtered Reels (Live from Instagram with static fallback)
+  const filteredReels = reels.filter((reel) => {
+    const rawTitle = reel.title && typeof reel.title === 'object' ? (reel.title[locale] || reel.title.en || '') : (reel.title || '');
+    const rawCaption = reel.caption && typeof reel.caption === 'object' ? (reel.caption[locale] || reel.caption.en || '') : (reel.caption || '');
+    const reelTitle = String(rawTitle).toLowerCase();
+    const reelCaption = String(rawCaption).toLowerCase();
     const q = searchQuery.toLowerCase().trim();
     return !q || reelTitle.includes(q) || reelCaption.includes(q);
   });

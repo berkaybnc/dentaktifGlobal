@@ -9,9 +9,9 @@ interface Props {
 }
 
 export default function InstagramVideoCard({ reel, locale }: Props) {
-  const title = reel.title[locale] || reel.title.en;
-  const caption = reel.caption[locale] || reel.caption.en;
-  const topicLabel = reel.doctorRole[locale] || reel.doctorRole.en;
+  const title = (reel.title && typeof reel.title === 'object' ? (reel.title[locale] || reel.title.en) : reel.title) || 'Dent Aktif Global';
+  const caption = (reel.caption && typeof reel.caption === 'object' ? (reel.caption[locale] || reel.caption.en) : reel.caption) || '';
+  const topicLabel = (reel.doctorRole && typeof reel.doctorRole === 'object' ? (reel.doctorRole[locale] || reel.doctorRole.en) : reel.doctorRole) || 'Instagram Reel';
 
   return (
     <div className="bg-white rounded-3xl border border-slate-200/90 shadow-md shadow-slate-200/50 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-teal-400 group">
