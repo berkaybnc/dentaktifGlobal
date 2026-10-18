@@ -7,6 +7,7 @@ import { Locale } from '@/i18n';
 
 const LANGUAGES: Array<{ code: Locale; label: string; flag: string; title: string }> = [
   { code: 'en', label: 'EN', flag: '🇬🇧', title: 'English' },
+  { code: 'tr', label: 'TR', flag: '🇹🇷', title: 'Türkçe' },
   { code: 'de', label: 'DE', flag: '🇩🇪', title: 'Deutsch' },
   { code: 'ru', label: 'RU', flag: '🇷🇺', title: 'Русский' },
   { code: 'fr', label: 'FR', flag: '🇫🇷', title: 'Français' },

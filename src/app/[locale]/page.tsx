@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '@/components/Hero';
 import ServiceIntentCards from '@/components/ServiceIntentCards';
 import TreatmentsSection from '@/components/TreatmentsSection';
+import HollywoodSmileProcessGuide from '@/components/HollywoodSmileProcessGuide';
 import CaseSlider from '@/components/CaseSlider';
 import PriceTable from '@/components/PriceTable';
 import InHouseLab from '@/components/InHouseLab';
@@ -20,6 +21,7 @@ export default function HomePage() {
       <CaseSlider />
       <PriceTable />
       <TreatmentsSection />
+      <HollywoodSmileProcessGuide />
       <DoctorsSection />
       <InHouseLab />
       <TravelSchedule />
