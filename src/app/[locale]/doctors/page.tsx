@@ -1,148 +1,110 @@
-'use client';
-
 import React from 'react';
-import { useLocale } from 'next-intl';
-import { Link } from '@/navigation';
+import type { Metadata } from 'next';
 import { getDoctorsList } from '@/data/doctorsData';
 import { getDoctorsOverviewUi } from '@/data/doctorsI18n';
+import DoctorsOverviewClient from './DoctorsOverviewClient';
 
-export default function DoctorsOverviewPage() {
-  const locale = useLocale();
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const baseUrl = 'https://dentaktifglobal.com';
+
+  const titles: Record<string, string> = {
+    en: 'Expert Oral Surgeons & Master Ceramists | Dent Aktif Global Istanbul',
+    tr: 'Uzman Diş Hekimleri & Çene Cerrahisi Kadrosu | Dent Aktif Global',
+    de: 'Zahnärzte & Kieferchirurgen in Istanbul | Dent Aktif Global',
+    ru: 'Ведущие стоматологи и хирурги в Стамбуле | Dent Aktif Global',
+    fr: 'Chirurgiens-Dentistes & Spécialistes à Istanbul | Dent Aktif Global',
+    ar: 'أطباء وجراحو الأسنان في إسطنبول | دنت أكتيف جلوبال',
+  };
+
+  const descriptions: Record<string, string> = {
+    en: 'Meet our board-certified oral surgeons, prosthodontists, and master ceramists at Dent Aktif Global in Levent, Istanbul. Licensed by Republic of Turkey Ministry of Health.',
+    tr: 'Dent Aktif Global Levent hastanesinin T.C. Sağlık Bakanlığı onaylı uzman ağız diş çene cerrahları, protez ve estetik diş hekimleri ile tanışın.',
+    de: 'Lernen Sie unsere spezialisierten Kieferchirurgen und Meister-Zahntechniker in Istanbul (Levent) kennen. Höchste medizinische Standards.',
+    ru: 'Познакомьтесь с ведущими хирургами-имплантологами и ортопедами клиники Dent Aktif Global в Стамбуле.',
+    fr: 'Découvrez notre équipe de chirurgiens-dentistes et prothésistes hautement qualifiés à Istanbul.',
+    ar: 'تعرف على نخبة جراحي الفم والأسنان وأخصائيي التعويضات السنية في دنت أكتيف جلوبال إسطنبول.',
+  };
+
+  const title = titles[locale] || titles.en;
+  const description = descriptions[locale] || descriptions.en;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${baseUrl}/${locale}/doctors`,
+      languages: {
+        en: `${baseUrl}/en/doctors`,
+        tr: `${baseUrl}/tr/doctors`,
+        de: `${baseUrl}/de/doctors`,
+        fr: `${baseUrl}/fr/doctors`,
+        ru: `${baseUrl}/ru/doctors`,
+        ar: `${baseUrl}/ar/doctors`,
+        'x-default': `${baseUrl}/en/doctors`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}/${locale}/doctors`,
+      siteName: 'Dent Aktif Global',
+      images: [
+        {
+          url: `${baseUrl}/images/hero-bg.webp`,
+          width: 1200,
+          height: 630,
+          alt: 'Dent Aktif Global Medical Faculty Istanbul',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${baseUrl}/images/hero-bg.webp`],
+    },
+  };
+}
+
+export default function DoctorsPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const baseUrl = 'https://dentaktifglobal.com';
   const ui = getDoctorsOverviewUi(locale);
   const doctors = getDoctorsList(locale);
 
+  // Physician Schema for Google E-E-A-T
+  const doctorsSchema = {
+    '@context': 'https://schema.org',
+    '@graph': doctors.map((doc) => ({
+      '@type': ['Person', 'Physician'],
+      '@id': `${baseUrl}/${locale}/doctors/${doc.id}`,
+      name: doc.name,
+      jobTitle: doc.academicTitle,
+      description: doc.bio,
+      image: doc.image.startsWith('http') ? doc.image : `${baseUrl}${doc.image}`,
+      medicalSpecialty: doc.specialty,
+      worksFor: {
+        '@type': 'MedicalClinic',
+        name: 'Dent Aktif Global',
+        url: baseUrl,
+      },
+    })),
+  };
+
   return (
-    <div className="w-full bg-[#FAFBFC] min-h-screen pb-24">
-      {/* 1. Page Header */}
-      <section className="bg-gradient-to-b from-[#1b0d52] via-[#211164] to-[#120733] text-white py-16 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
-        {/* Ambient background glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(#2BA598_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto text-center space-y-4 relative z-10">
-          <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            {ui.title}
-          </h1>
-
-          <p className="font-sans text-sm sm:text-base text-slate-200 max-w-3xl mx-auto leading-relaxed">
-            {ui.description}
-          </p>
-        </div>
-      </section>
-
-      {/* 2. Doctors Grid (4 Column Prestige Faculty With Deep Clinical Details) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 -mt-8 relative z-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          {doctors.map((doctor) => {
-            const primaryEducation = doctor.education[0];
-            return (
-              <div
-                key={doctor.id}
-                className="bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
-              >
-                <div>
-                  {/* Doctor Portrait Container */}
-                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#F5F8FA]">
-                    <img
-                      src={doctor.image}
-                      alt={doctor.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-5 space-y-3.5">
-                    <div>
-                      <h3 className="font-headline text-lg sm:text-xl font-black text-[#211164] group-hover:text-[#006699] transition-colors leading-tight">
-                        {doctor.name}
-                      </h3>
-                      <p className="text-xs font-bold text-slate-500 mt-0.5">
-                        {doctor.academicTitle}
-                      </p>
-                    </div>
-                    {/* Education Pill */}
-                    {primaryEducation && (
-                      <div className="p-2.5 rounded-xl bg-teal-50/70 border border-teal-100 flex items-center gap-2 text-[11px]">
-                        <span className="material-symbols-outlined text-teal-700 text-sm shrink-0">school</span>
-                        <div className="min-w-0">
-                          <span className="font-bold text-[#1b0d52] block truncate">
-                            {primaryEducation.institution}
-                          </span>
-                          <span className="text-[10px] text-teal-800 block">
-                            {primaryEducation.degree} • {primaryEducation.year}
-                          </span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Narrative Description */}
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal line-clamp-3">
-                      {doctor.bio}
-                    </p>
-
-                    {/* 3 Core Clinical Procedures */}
-                    <div className="pt-2 border-t border-slate-100 space-y-1.5 text-xs text-slate-700 font-medium">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#006972] font-bold block">
-                        {ui.clinicalFocus}
-                      </span>
-                      {doctor.specializations.slice(0, 3).map((sp, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-1.5 shrink-0" />
-                          <span className="text-[11px] leading-snug line-clamp-1 text-slate-700">
-                            {sp}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Action Link */}
-                <div className="p-5 pt-0">
-                  <Link
-                    href={`/doctors/${doctor.id}`}
-                    className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#211164] to-[#006972] hover:opacity-95 text-white text-xs font-black uppercase tracking-wider text-center transition-all block shadow-sm"
-                  >
-                    {ui.fullBioBtn}
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 3. Clinical Guarantee & Consultation Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-16">
-        <div className="rounded-3xl bg-white border border-slate-200 p-8 sm:p-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-3 max-w-2xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#006972] font-bold flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-sm">verified_user</span>
-              {ui.bannerBadge}
-            </span>
-            <h3 className="font-headline text-2xl sm:text-3xl font-black text-[#1b0d52]">
-              {ui.bannerTitle}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              {ui.bannerDesc}
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
-            <Link
-              href="/#consultation-wizard"
-              className="w-full sm:w-auto px-6 py-4 rounded-xl bg-gradient-to-r from-[#211164] to-[#006972] text-white font-extrabold text-xs uppercase tracking-wider text-center shadow-md hover:opacity-95 transition-all"
-            >
-              {ui.bannerBtnPlan}
-            </Link>
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto px-6 py-4 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider text-center transition-colors"
-            >
-              {ui.bannerBtnContact}
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(doctorsSchema) }}
+      />
+      <DoctorsOverviewClient ui={ui} doctors={doctors} />
+    </>
   );
 }
