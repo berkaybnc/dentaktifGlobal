@@ -1,9 +1,7 @@
 import { INSTAGRAM_REELS, InstagramReel } from '@/data/blogData';
 
-// Active long-lived token (automatically refreshed every 60 days via Meta API)
-const DEFAULT_INSTAGRAM_TOKEN =
-  process.env.INSTAGRAM_ACCESS_TOKEN ||
-  'IGAAhULZASOcoNBZAGE3eXRYR2hSOTdQNU9iRkwtY25hZAEc4TUlMdHl3cFFKTTFNRnhiRnoweTVzN203LTUycmF5VDBBa2FrZAUNUX2xUX2hjM2lheDFXdHZAlSjJvaWlzY0NkWkNmQ0pVOHBpeTFmTzltU1ZA3';
+// Active long-lived token from environment variable (never exposed to client or git)
+const DEFAULT_INSTAGRAM_TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN || '';
 
 interface MetaInstagramItem {
   id: string;
@@ -32,6 +30,9 @@ let lastRefreshTime = Date.now();
  * Meta allows refreshing long-lived tokens that are at least 24 hours old.
  */
 export async function refreshInstagramTokenIfNeeded(): Promise<string> {
+  if (!activeToken) {
+    return '';
+  }
   const ONE_DAY_MS = 24 * 60 * 60 * 1000;
   const SEVEN_DAYS_MS = 7 * ONE_DAY_MS;
 
@@ -63,6 +64,9 @@ export async function refreshInstagramTokenIfNeeded(): Promise<string> {
 export async function getLatestInstagramPosts(limit = 4): Promise<InstagramReel[]> {
   try {
     const token = await refreshInstagramTokenIfNeeded();
+    if (!token) {
+      return INSTAGRAM_REELS.slice(0, limit);
+    }
     const endpoint = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=${limit}&access_token=${token}`;
 
     const res = await fetch(endpoint, {
