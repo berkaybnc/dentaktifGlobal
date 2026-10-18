@@ -227,11 +227,11 @@ export default function Hero() {
       {/* 2. FOREGROUND CONTENT: Prestige Identity, Value Proposition & Dual CTAs   */}
       {/* ========================================================================= */}
       <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 2xl:px-16 relative z-10 pt-[88px] sm:pt-[96px] lg:pt-[102px] pb-3 sm:pb-4 flex-1 flex flex-col justify-center w-full">
-        <div className="max-w-xl lg:max-w-[640px] xl:max-w-[700px] space-y-3.5 sm:space-y-4 text-left">
+        <div className="max-w-2xl lg:max-w-[760px] xl:max-w-[840px] 2xl:max-w-[920px] space-y-4 sm:space-y-5 text-left">
           
           {/* Main Headline */}
-          <div className="space-y-1.5">
-            <h1 className="font-headline text-2xl sm:text-3xl lg:text-4xl xl:text-[2.65rem] font-black tracking-tight text-white leading-[1.22]">
+          <div className="space-y-2">
+            <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] 2xl:text-[3.65rem] font-black tracking-tight text-white leading-[1.16]">
               {t('title')}{' '}
               <br className="hidden sm:inline" />
               <FlipWords
@@ -240,7 +240,7 @@ export default function Hero() {
                 className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 font-black inline-block drop-shadow-sm pb-1 -mb-1"
               />
             </h1>
-            <div className="text-xs sm:text-sm font-bold text-teal-300 tracking-wide flex items-center gap-2 pt-0.5">
+            <div className="text-xs sm:text-sm md:text-base font-bold text-teal-300 tracking-wide flex flex-wrap items-center gap-2 pt-1">
               <span>{subBadgeText}</span>
               <span className="text-white/40">•</span>
               <span className="text-slate-300 font-medium">{hospitalLocationText}</span>
@@ -248,15 +248,15 @@ export default function Hero() {
           </div>
 
           {/* Editorial Description */}
-          <p className="font-sans text-xs sm:text-sm text-slate-200/90 leading-relaxed font-normal max-w-lg text-shadow-sm">
+          <p className="font-sans text-sm sm:text-base lg:text-lg text-slate-100/95 leading-relaxed font-normal max-w-2xl text-shadow-sm">
             {t('subtitle')}
           </p>
 
           {/* Single Focused Action Button */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1.5">
             <Link
               href="/contact"
-              className="py-3 px-6 sm:px-7 rounded-xl bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] font-black text-xs sm:text-xs uppercase tracking-wider shadow-xl shadow-teal-500/25 hover:shadow-teal-400/40 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-center group w-fit"
+              className="py-3.5 px-7 sm:px-8 rounded-xl bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-600 text-[#0d072b] font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-teal-500/30 hover:shadow-teal-400/50 hover:scale-[1.02] active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-center group w-fit"
             >
               <span>{t('ctaStart')}</span>
               <span className="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">
@@ -266,60 +266,60 @@ export default function Hero() {
           </div>
 
           {/* Social Proof & Trust Badges (Side by Side) */}
-          <div className="pt-3 flex flex-row items-center gap-4 sm:gap-6 border-t border-white/15 w-full flex-wrap sm:flex-nowrap">
+          <div className="pt-3.5 flex flex-row items-center gap-4 sm:gap-7 border-t border-white/20 w-full flex-wrap sm:flex-nowrap">
             {/* Trustpilot Score */}
-            <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-              <div className="flex gap-0.5 text-emerald-400 text-xs sm:text-sm shrink-0">
+            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+              <div className="flex gap-0.5 text-emerald-400 text-sm sm:text-base shrink-0">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
               </div>
               <div>
-                <div className="text-xs sm:text-sm font-black text-white leading-none flex items-center gap-1.5 whitespace-nowrap">
+                <div className="text-sm sm:text-base font-black text-white leading-none flex items-center gap-1.5 whitespace-nowrap">
                   <span>Trustpilot</span>
                   <span className="text-emerald-400 font-black">
                     <AnimatedCounter end={4.9} decimals={1} isArabic={locale === 'ar'} /> / {locale === 'ar' ? '٥.٠' : '5.0'}
                   </span>
                 </div>
-                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1 whitespace-nowrap">
+                <div className="text-[11px] sm:text-xs text-slate-300 font-medium mt-1 whitespace-nowrap">
                   <AnimatedCounter end={2400} suffix="+" isArabic={locale === 'ar'} /> {reviewsLabel}
                 </div>
               </div>
             </div>
 
             {/* Subtle Divider */}
-            <div className="h-7 w-px bg-white/20 shrink-0 block" />
+            <div className="h-8 w-px bg-white/25 shrink-0 block" />
 
             {/* International Completed Smiles Numerator (Right beside Trustpilot) */}
-            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            <div className="flex items-center gap-3 sm:gap-3.5 shrink-0">
               <div className="flex -space-x-2 overflow-hidden items-center shrink-0">
                 <img
                   src="/images/testimonials/hasta-1.webp"
                   alt="Verified Patient"
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
                 />
                 <img
                   src="/images/testimonials/hasta-2.webp"
                   alt="Verified Patient"
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
                 />
                 <img
                   src="/images/testimonials/hasta-3.webp"
                   alt="Verified Patient"
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
                 />
                 <img
                   src="/images/testimonials/hasta-4.webp"
                   alt="Verified Patient"
-                  className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border-2 border-slate-900 object-cover shadow-md"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-slate-900 object-cover shadow-md"
                 />
               </div>
               <div>
-                <div className="text-xs sm:text-sm font-extrabold text-white leading-none whitespace-nowrap">
+                <div className="text-sm sm:text-base font-extrabold text-white leading-none whitespace-nowrap">
                   <span className="text-teal-300 font-black mr-1">
                     <AnimatedCounter end={15000} suffix="+" isArabic={locale === 'ar'} />
                   </span>
                   {t('stat1Label')}
                 </div>
-                <div className="text-[10px] sm:text-[11px] text-slate-300 font-medium mt-1 whitespace-nowrap">
+                <div className="text-[11px] sm:text-xs text-slate-300 font-medium mt-1 whitespace-nowrap">
                   {countriesLabel}
                 </div>
               </div>
