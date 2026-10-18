@@ -61,6 +61,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
   en: [
     {
       name: 'James Wilson',
+      image: '/images/testimonials/hasta-1.webp',
       location: 'Manchester, United Kingdom',
       date: '2 weeks ago',
       flag: '🇬🇧',
@@ -71,6 +72,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Anke Becker',
+      image: '/images/testimonials/hasta-2.webp',
       location: 'Frankfurt, Germany',
       date: '3 weeks ago',
       flag: '🇩🇪',
@@ -81,6 +83,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Laurent Dubois',
+      image: '/images/testimonials/hasta-3.webp',
       location: 'Lyon, France',
       date: '1 month ago',
       flag: '🇫🇷',
@@ -91,6 +94,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Emily Campbell',
+      image: '/images/testimonials/hasta-4.webp',
       location: 'Dublin, Ireland',
       date: '2 months ago',
       flag: '🇮🇪',
@@ -103,6 +107,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
   tr: [
     {
       name: 'James Wilson',
+      image: '/images/testimonials/hasta-1.webp',
       location: 'Manchester, İngiltere',
       date: '2 hafta önce',
       flag: '🇬🇧',
@@ -113,6 +118,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Anke Becker',
+      image: '/images/testimonials/hasta-2.webp',
       location: 'Frankfurt, Almanya',
       date: '3 hafta önce',
       flag: '🇩🇪',
@@ -123,6 +129,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Laurent Dubois',
+      image: '/images/testimonials/hasta-3.webp',
       location: 'Lyon, Fransa',
       date: '1 ay önce',
       flag: '🇫🇷',
@@ -133,6 +140,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Emily Campbell',
+      image: '/images/testimonials/hasta-4.webp',
       location: 'Dublin, İrlanda',
       date: '2 ay önce',
       flag: '🇮🇪',
@@ -145,6 +153,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
   de: [
     {
       name: 'James Wilson',
+      image: '/images/testimonials/hasta-1.webp',
       location: 'Manchester, Großbritannien',
       date: 'vor 2 Wochen',
       flag: '🇬🇧',
@@ -155,6 +164,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Anke Becker',
+      image: '/images/testimonials/hasta-2.webp',
       location: 'Frankfurt, Deutschland',
       date: 'vor 3 Wochen',
       flag: '🇩🇪',
@@ -165,6 +175,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Laurent Dubois',
+      image: '/images/testimonials/hasta-3.webp',
       location: 'Lyon, Frankreich',
       date: 'vor 1 Monat',
       flag: '🇫🇷',
@@ -175,6 +186,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Emily Campbell',
+      image: '/images/testimonials/hasta-4.webp',
       location: 'Dublin, Irland',
       date: 'vor 2 Monaten',
       flag: '🇮🇪',
@@ -187,6 +199,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
   ru: [
     {
       name: 'Джеймс Уилсон',
+      image: '/images/testimonials/hasta-1.webp',
       location: 'Манчестер, Великобритания',
       date: '2 недели назад',
       flag: '🇬🇧',
@@ -197,6 +210,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Анке Беккер',
+      image: '/images/testimonials/hasta-2.webp',
       location: 'Франкфурт, Германия',
       date: '3 недели назад',
       flag: '🇩🇪',
@@ -207,6 +221,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Лоран Дюбуа',
+      image: '/images/testimonials/hasta-3.webp',
       location: 'Лион, Франция',
       date: '1 месяц назад',
       flag: '🇫🇷',
@@ -217,6 +232,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Эмили Кэмпбелл',
+      image: '/images/testimonials/hasta-4.webp',
       location: 'Дублин, Ирландия',
       date: '2 месяца назад',
       flag: '🇮🇪',
@@ -229,6 +245,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
   fr: [
     {
       name: 'James Wilson',
+      image: '/images/testimonials/hasta-1.webp',
       location: 'Manchester, Royaume-Uni',
       date: 'il y a 2 semaines',
       flag: '🇬🇧',
@@ -239,6 +256,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Anke Becker',
+      image: '/images/testimonials/hasta-2.webp',
       location: 'Francfort, Allemagne',
       date: 'il y a 3 semaines',
       flag: '🇩🇪',
@@ -249,6 +267,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Laurent Dubois',
+      image: '/images/testimonials/hasta-3.webp',
       location: 'Lyon, France',
       date: 'il y a 1 mois',
       flag: '🇫🇷',
@@ -259,6 +278,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'Emily Campbell',
+      image: '/images/testimonials/hasta-4.webp',
       location: 'Dublin, Irlande',
       date: 'il y a 2 mois',
       flag: '🇮🇪',
@@ -271,6 +291,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
   ar: [
     {
       name: 'جيمس ويلسون',
+      image: '/images/testimonials/hasta-1.webp',
       location: 'مانشستر، المملكة المتحدة',
       date: 'منذ أسبوعين',
       flag: '🇬🇧',
@@ -281,6 +302,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'أنكي بيكر',
+      image: '/images/testimonials/hasta-2.webp',
       location: 'فرانكفورت، ألمانيا',
       date: 'منذ 3 أسابيع',
       flag: '🇩🇪',
@@ -291,6 +313,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'لوران دوبوا',
+      image: '/images/testimonials/hasta-3.webp',
       location: 'ليون، فرنسا',
       date: 'منذ شهر',
       flag: '🇫🇷',
@@ -301,6 +324,7 @@ const REVIEWS_BY_LOCALE: Record<string, Testimonial[]> = {
     },
     {
       name: 'إميلي كامبل',
+      image: '/images/testimonials/hasta-4.webp',
       location: 'دبلن، أيرلندا',
       date: 'منذ شهرين',
       flag: '🇮🇪',
@@ -396,7 +420,8 @@ export default function TestimonialsSection() {
             const avatarSrc =
               review.image ||
               REVIEWER_AVATARS[review.name] ||
-              DEFAULT_AVATARS_BY_INDEX[idx % DEFAULT_AVATARS_BY_INDEX.length];
+              DEFAULT_AVATARS_BY_INDEX[idx % DEFAULT_AVATARS_BY_INDEX.length] ||
+              `/images/testimonials/hasta-${(idx % 4) + 1}.webp`;
 
             return (
               <div
@@ -432,14 +457,15 @@ export default function TestimonialsSection() {
 
                 {/* Patient Footer */}
                 <div className="pt-4 mt-5 border-t border-slate-100 flex items-center gap-3">
-                  <div className="relative shrink-0">
+                  <div className="relative shrink-0 w-10 h-10 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shadow-xs">
                     <img
                       src={avatarSrc}
                       alt={review.name}
                       width={40}
                       height={40}
-                      className="w-10 h-10 rounded-full object-cover object-[center_20%] border border-slate-200 shadow-xs"
                       loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-[center_20%]"
                     />
                   </div>
 
