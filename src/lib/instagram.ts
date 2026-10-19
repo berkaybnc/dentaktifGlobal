@@ -182,8 +182,8 @@ export async function getLatestInstagramPosts(limit = 4): Promise<InstagramReel[
           const lastSpace = cut.lastIndexOf(' ');
           cleanTeaser = (lastSpace > 50 ? cut.slice(0, lastSpace) : cut).trim() + '...';
         }
-        if (!cleanTeaser || cleanTeaser.length < 10) {
-          cleanTeaser = 'Dent Aktif Clinic Global klinik tedavi ve hasta dönüşüm deneyimini keşfedin...';
+        if (!cleanTeaser || cleanTeaser.length < 25 || cleanTeaser.startsWith('@')) {
+          cleanTeaser = `${cleanTitle} — Dent Aktif Global hekim kadrosu ve klinik tedavi deneyimini Instagram'da keşfedin...`;
         }
 
         // Extract shortcode from permalink (e.g., https://www.instagram.com/reel/DemWfMjk5VY/ -> DemWfMjk5VY)
