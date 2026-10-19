@@ -10,6 +10,10 @@ export interface InstagramReel {
   duration?: string;
   doctor: string;
   doctorRole: Record<string, string>;
+  aspectRatio?: 'horizontal' | 'vertical' | 'portrait';
+  thumbnailUrl?: string;
+  mediaType?: 'VIDEO' | 'IMAGE' | 'CAROUSEL_ALBUM';
+  isPinned?: boolean;
 }
 
 export interface BlogPost {

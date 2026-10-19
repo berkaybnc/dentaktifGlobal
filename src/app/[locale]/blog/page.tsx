@@ -233,7 +233,7 @@ export default function BlogMediaPage() {
                   </a>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
                   {filteredReels.map((reel) => (
                     <InstagramVideoCard key={reel.id} reel={reel} locale={locale} />
                   ))}
